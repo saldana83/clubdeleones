@@ -1,0 +1,20 @@
+1.0.0: 
+    - Initialization
+1.0.1: !!! This is an important update that contains breaking changes.
+1.1.0: !!! This is an important update that contains breaking changes.
+1.1.1:
+    - Added Bower (jQuery)
+    - Added NPM/Gulp (Semantic UI - Support for custom theming! Visit http://semantic-ui.com/usage/theming.html)
+    - Fixed a bug that caused the footer to stay in place while opening the Hamburger Menu!
+    - Added Flexbox (Holy Grail!)
+    - Read the README file to manually update the project.
+1.1.2:
+    - Removed Bower (use npm instead)
+    - Fixed several bugs
+    - Added better flexbox
+    - Updated semantic and jQuery to the newest version
+    - Added usage of ajax website/page load
+    - The project now uses correct partials (footer, header) 
+    - fixed default layout
+    - and more ...
+1.1.3: !!! This is an important update that contains breaking changes.

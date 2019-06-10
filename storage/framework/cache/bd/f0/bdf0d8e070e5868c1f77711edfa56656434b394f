@@ -1,0 +1,111 @@
+1560199957a:1:{s:15:"site/header.htm";a:6:{s:8:"fileName";s:15:"site/header.htm";s:7:"content";s:1971:"[viewBag]
+==
+<!-- Static Menu -->
+<div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+            <a class="toc item">
+				<i class="sidebar icon"></i>
+			</a>
+            <a href="{{ 'home'|page }}" class="item {% if this.page.id == 'home' %}active{% endif %}">Home</a>
+            <a href="{{ 'conocenos'|page }}" class="item {% if this.page.id == 'company' %}active{% endif %}">Conócenos</a>   
+            <a href="{{ 'contacto'|page }}" class="item {% if this.page.id == 'work' %}active{% endif %}">Contacto</a>
+            <div class="right item">
+                <a class="ui inverted button">Log in</a>
+                <a class="ui inverted button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div class="ui text container">
+        <h1 class="ui inverted header">
+            Imagine-a-Company
+        </h1>
+        <h2>Do whatever you want when you want to.</h2>
+        <div class="ui huge primary button">
+			Get Started 
+			<i class="right arrow icon"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+    <div class="ui container">
+        <a class="active item">Home</a>
+        <a class="item">Work</a>
+        <a class="item">Company</a>
+        <a class="item">Careers</a>
+        <div class="right menu">
+            <div class="item">
+                <a class="ui button">Log in</a>
+            </div>
+            <div class="item">
+                <a class="ui primary button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+    <a class="active item">Home</a>
+    <a class="item">Work</a>
+    <a class="item">Company</a>
+    <a class="item">Careers</a>
+    <a class="item">Login</a>
+    <a class="item">Signup</a>
+</div>";s:5:"mtime";i:1560199309;s:6:"markup";s:1956:"<!-- Static Menu -->
+<div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+            <a class="toc item">
+				<i class="sidebar icon"></i>
+			</a>
+            <a href="{{ 'home'|page }}" class="item {% if this.page.id == 'home' %}active{% endif %}">Home</a>
+            <a href="{{ 'conocenos'|page }}" class="item {% if this.page.id == 'company' %}active{% endif %}">Conócenos</a>   
+            <a href="{{ 'contacto'|page }}" class="item {% if this.page.id == 'work' %}active{% endif %}">Contacto</a>
+            <div class="right item">
+                <a class="ui inverted button">Log in</a>
+                <a class="ui inverted button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div class="ui text container">
+        <h1 class="ui inverted header">
+            Imagine-a-Company
+        </h1>
+        <h2>Do whatever you want when you want to.</h2>
+        <div class="ui huge primary button">
+			Get Started 
+			<i class="right arrow icon"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+    <div class="ui container">
+        <a class="active item">Home</a>
+        <a class="item">Work</a>
+        <a class="item">Company</a>
+        <a class="item">Careers</a>
+        <div class="right menu">
+            <div class="item">
+                <a class="ui button">Log in</a>
+            </div>
+            <div class="item">
+                <a class="ui primary button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+    <a class="active item">Home</a>
+    <a class="item">Work</a>
+    <a class="item">Company</a>
+    <a class="item">Careers</a>
+    <a class="item">Login</a>
+    <a class="item">Signup</a>
+</div>";s:4:"code";N;s:7:"viewBag";a:0:{}}}
