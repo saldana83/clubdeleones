@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2019 at 05:10 PM
+-- Generation Time: Jun 10, 2019 at 05:19 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `historiadelclub` (
   `idhistoria` int(11) NOT NULL,
-  `año` date NOT NULL,
+  `year` date NOT NULL,
   `descripcion` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
