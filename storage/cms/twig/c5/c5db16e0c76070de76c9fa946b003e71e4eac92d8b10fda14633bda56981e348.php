@@ -39,31 +39,34 @@ class __TwigTemplate_ec0d030ff87f0708d64ce933e723588d9ab8976cde85d759cedd2b099a0
             <a class=\"toc item\">
 \t\t\t\t<i class=\"sidebar icon\"></i>
 \t\t\t</a>
-            <a href=\"";
-        // line 8
+<div class=\"left item\">
+//Logo club de leones//
+</div>
+\t\t\t<div class=\"right item\">
+                <a href=\"";
+        // line 12
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("home");
         echo "\" class=\"item ";
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 8), "id", [], "any", false, false, false, 8) == "home")) {
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 12), "id", [], "any", false, false, false, 12) == "home")) {
             echo "active";
         }
         echo "\">Home</a>
-            <a href=\"";
-        // line 9
+                <a href=\"";
+        // line 13
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("conocenos");
         echo "\" class=\"item ";
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 9), "id", [], "any", false, false, false, 9) == "company")) {
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 13), "id", [], "any", false, false, false, 13) == "conocenos")) {
             echo "active";
         }
-        echo "\">Conócenos</a>   
-            <a href=\"";
-        // line 10
+        echo "\">Conócenos</a>
+                <a href=\"";
+        // line 14
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("contacto");
         echo "\" class=\"item ";
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 10), "id", [], "any", false, false, false, 10) == "work")) {
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 14), "id", [], "any", false, false, false, 14) == "contacto")) {
             echo "active";
         }
         echo "\">Contacto</a>
-            <div class=\"right item\">
                 <a class=\"ui inverted button\">Log in</a>
                 <a class=\"ui inverted button\">Sign Up</a>
             </div>
@@ -71,7 +74,7 @@ class __TwigTemplate_ec0d030ff87f0708d64ce933e723588d9ab8976cde85d759cedd2b099a0
     </div>
     <div class=\"ui text container\">
         <h1 class=\"ui inverted header\">
-            Imagine-a-Company
+            Club de Leones - David
         </h1>
         <h2>Do whatever you want when you want to.</h2>
         <div class=\"ui huge primary button\">
@@ -122,7 +125,7 @@ class __TwigTemplate_ec0d030ff87f0708d64ce933e723588d9ab8976cde85d759cedd2b099a0
 
     public function getDebugInfo()
     {
-        return array (  60 => 10,  52 => 9,  44 => 8,  35 => 1,);
+        return array (  64 => 14,  56 => 13,  48 => 12,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -134,10 +137,13 @@ class __TwigTemplate_ec0d030ff87f0708d64ce933e723588d9ab8976cde85d759cedd2b099a0
             <a class=\"toc item\">
 \t\t\t\t<i class=\"sidebar icon\"></i>
 \t\t\t</a>
-            <a href=\"{{ 'home'|page }}\" class=\"item {% if this.page.id == 'home' %}active{% endif %}\">Home</a>
-            <a href=\"{{ 'conocenos'|page }}\" class=\"item {% if this.page.id == 'company' %}active{% endif %}\">Conócenos</a>   
-            <a href=\"{{ 'contacto'|page }}\" class=\"item {% if this.page.id == 'work' %}active{% endif %}\">Contacto</a>
-            <div class=\"right item\">
+<div class=\"left item\">
+//Logo club de leones//
+</div>
+\t\t\t<div class=\"right item\">
+                <a href=\"{{ 'home'|page }}\" class=\"item {% if this.page.id == 'home' %}active{% endif %}\">Home</a>
+                <a href=\"{{ 'conocenos'|page }}\" class=\"item {% if this.page.id == 'conocenos' %}active{% endif %}\">Conócenos</a>
+                <a href=\"{{ 'contacto'|page }}\" class=\"item {% if this.page.id == 'contacto' %}active{% endif %}\">Contacto</a>
                 <a class=\"ui inverted button\">Log in</a>
                 <a class=\"ui inverted button\">Sign Up</a>
             </div>
@@ -145,7 +151,7 @@ class __TwigTemplate_ec0d030ff87f0708d64ce933e723588d9ab8976cde85d759cedd2b099a0
     </div>
     <div class=\"ui text container\">
         <h1 class=\"ui inverted header\">
-            Imagine-a-Company
+            Club de Leones - David
         </h1>
         <h2>Do whatever you want when you want to.</h2>
         <div class=\"ui huge primary button\">
