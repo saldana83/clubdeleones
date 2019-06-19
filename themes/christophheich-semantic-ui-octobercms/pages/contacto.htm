@@ -2,6 +2,15 @@ title = "Contacto"
 url = "/contacto"
 layout = "default"
 is_hidden = 0
+
+[googleMap]
+latitude = 8.4323189
+longitude = -82.434712
+zoom = 541
+width = "100%"
+height = "350px"
+mapTypeId = "HYBRID"
+showMarker = "true"
 ==
 <!-- Content -->
 <div class="ui vertical stripe segment">
@@ -10,10 +19,8 @@ is_hidden = 0
         <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
         <a class="ui large button">Read More</a>
         <h4 class="ui horizontal header divider">
-            <a href="#">Case Studies</a>
+            <a href="#">Ubicación</a>
         </h4>
-        <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-        <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
-        <a class="ui large button">I'm Still Quite Interested</a>
+        {% component 'googleMap' %}
     </div>
 </div>

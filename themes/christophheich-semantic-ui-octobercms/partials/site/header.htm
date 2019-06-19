@@ -1,4 +1,8 @@
 [viewBag]
+
+[account]
+paramCode = "code"
+forceSecure = 0
 ==
 <!-- Static Menu -->
 <div class="ui inverted vertical center aligned segment">
@@ -11,12 +15,17 @@
             <div class="left item">
                 <img width="100" height="50" src= "storage/app/media/logo.png" alt="Club de Leones - David">
             </div>
-			<div class="right item">
-                <a href="{{ 'home'|page }}" class="item {% if this.page.id == 'home' %}active{% endif %}">Home</a>
-                <a href="{{ 'conocenos'|page }}" class="item {% if this.page.id == 'conocenos' %}active{% endif %}">Conócenos</a>
-                <a href="{{ 'contacto'|page }}" class="item {% if this.page.id == 'contacto' %}active{% endif %}">Contacto</a>
-                <a class="ui inverted button">Log in</a>
-                <a class="ui inverted button">Sign Up</a>
+            <h3>
+                <a href="{{ 'home'|page }}" class="center item {% if this.page.id == 'home' %}active{% endif %}">Home</a>
+            </h3>
+            <h3>
+                <a href="{{ 'conocenos'|page }}" class="center item {% if this.page.id == 'conocenos' %}active{% endif %}">Conócenos</a>
+            </h3>
+            <h3>
+                <a href="{{ 'contacto'|page }}" class="center item {% if this.page.id == 'contacto' %}active{% endif %}">Contacto</a>
+            </h3>
+ 			<div class="right item">
+                <a href="{{ 'login'|page }}" class="item {% if this.page.id == 'login' %}active{% endif %}" >Iniciar Sesión</a>
             </div>
         </div>
     </div>

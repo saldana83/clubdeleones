@@ -1,7 +1,16 @@
-1560436801a:1:{s:12:"contacto.htm";a:9:{s:8:"fileName";s:12:"contacto.htm";s:7:"content";s:1041:"title = "Contacto"
+1560959248a:1:{s:12:"contacto.htm";a:10:{s:8:"fileName";s:12:"contacto.htm";s:7:"content";s:869:"title = "Contacto"
 url = "/contacto"
 layout = "default"
 is_hidden = 0
+
+[googleMap]
+latitude = 8.4323189
+longitude = -82.434712
+zoom = 541
+width = "100%"
+height = "350px"
+mapTypeId = "HYBRID"
+showMarker = "true"
 ==
 <!-- Content -->
 <div class="ui vertical stripe segment">
@@ -10,23 +19,19 @@ is_hidden = 0
         <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
         <a class="ui large button">Read More</a>
         <h4 class="ui horizontal header divider">
-            <a href="#">Case Studies</a>
+            <a href="#">Ubicación</a>
         </h4>
-        <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-        <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
-        <a class="ui large button">I'm Still Quite Interested</a>
+        {% component 'googleMap' %}
     </div>
-</div>";s:5:"mtime";i:1560292717;s:6:"markup";s:963:"<!-- Content -->
+</div>";s:5:"mtime";i:1560957155;s:6:"markup";s:641:"<!-- Content -->
 <div class="ui vertical stripe segment">
     <div class="ui text container">
         <h3 class="ui header">We are working, freekin hard to achieve this...</h3>
         <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
         <a class="ui large button">Read More</a>
         <h4 class="ui horizontal header divider">
-            <a href="#">Case Studies</a>
+            <a href="#">Ubicación</a>
         </h4>
-        <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-        <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
-        <a class="ui large button">I'm Still Quite Interested</a>
+        {% component 'googleMap' %}
     </div>
-</div>";s:4:"code";N;s:5:"title";s:8:"Contacto";s:3:"url";s:9:"/contacto";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
+</div>";s:4:"code";N;s:5:"title";s:8:"Contacto";s:3:"url";s:9:"/contacto";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"googleMap";a:7:{s:8:"latitude";s:9:"8.4323189";s:9:"longitude";s:10:"-82.434712";s:4:"zoom";s:3:"541";s:5:"width";s:4:"100%";s:6:"height";s:5:"350px";s:9:"mapTypeId";s:6:"HYBRID";s:10:"showMarker";s:4:"true";}}}
