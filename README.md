@@ -1,6 +1,6 @@
 # Sitio Web/Sistema de vista de pagos del Club de Leones - David 
 
-##instalación
+## Instalación
 
 1. Clonar el repositorio
 1. Al crear la base de datod debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish_ci" 
