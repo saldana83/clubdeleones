@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2019 a las 17:48:15
--- Versión del servidor: 10.3.15-MariaDB
+-- Tiempo de generación: 25-06-2019 a las 20:34:15
+-- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -53,7 +53,8 @@ INSERT INTO `backend_access_log` (`id`, `user_id`, `ip_address`, `created_at`, `
 (10, 1, '127.0.0.1', '2019-06-18 07:23:07', '2019-06-18 07:23:07'),
 (11, 1, '127.0.0.1', '2019-06-18 07:23:09', '2019-06-18 07:23:09'),
 (12, 1, '127.0.0.1', '2019-06-19 18:35:21', '2019-06-19 18:35:21'),
-(13, 1, '127.0.0.1', '2019-06-19 20:34:49', '2019-06-19 20:34:49');
+(13, 1, '127.0.0.1', '2019-06-19 20:34:49', '2019-06-19 20:34:49'),
+(14, 1, '127.0.0.1', '2019-06-24 20:05:17', '2019-06-24 20:05:17');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ CREATE TABLE `backend_users` (
 --
 
 INSERT INTO `backend_users` (`id`, `first_name`, `last_name`, `login`, `email`, `password`, `activation_code`, `persist_code`, `reset_password_code`, `permissions`, `is_activated`, `role_id`, `activated_at`, `last_login`, `created_at`, `updated_at`, `deleted_at`, `is_superuser`) VALUES
-(1, 'Admin', 'Person', 'admin', 'admin@domain.tld', '$2y$10$BQ6il9rchpIP.bh8Pgpn.OrZ5N42qP9K4xRZrWFUxl7/XSFXcxyHK', NULL, '$2y$10$eouSI53jaXwrwW01qmqALerPDXrABI6QDhLgA872cs3A8G7nsUFc2', NULL, '', 1, 2, NULL, '2019-06-19 20:34:48', '2019-06-10 18:59:26', '2019-06-19 20:34:48', NULL, 1);
+(1, 'Admin', 'Person', 'admin', 'admin@domain.tld', '$2y$10$BQ6il9rchpIP.bh8Pgpn.OrZ5N42qP9K4xRZrWFUxl7/XSFXcxyHK', NULL, '$2y$10$eouSI53jaXwrwW01qmqALerPDXrABI6QDhLgA872cs3A8G7nsUFc2', NULL, '', 1, 2, NULL, '2019-06-24 20:05:17', '2019-06-10 18:59:26', '2019-06-24 20:05:17', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -150,7 +151,7 @@ CREATE TABLE `backend_user_preferences` (
 --
 
 INSERT INTO `backend_user_preferences` (`id`, `user_id`, `namespace`, `group`, `item`, `value`) VALUES
-(1, 1, 'backend', 'backend', 'preferences', '{\"locale\":\"en\",\"fallback_locale\":\"en\",\"timezone\":\"America\\/Panama\",\"editor_font_size\":\"12\",\"editor_word_wrap\":\"fluid\",\"editor_code_folding\":\"manual\",\"editor_tab_size\":\"4\",\"editor_theme\":\"twilight\",\"editor_show_invisibles\":\"0\",\"editor_highlight_active_line\":\"1\",\"editor_use_hard_tabs\":\"0\",\"editor_show_gutter\":\"1\",\"editor_auto_closing\":\"0\",\"editor_autocompletion\":\"manual\",\"editor_enable_snippets\":\"0\",\"editor_display_indent_guides\":\"0\",\"editor_show_print_margin\":\"0\",\"user_id\":\"1\"}'),
+(1, 1, 'backend', 'backend', 'preferences', '{\"locale\":\"es\",\"fallback_locale\":\"en\",\"timezone\":\"America\\/Panama\",\"editor_font_size\":\"12\",\"editor_word_wrap\":\"fluid\",\"editor_code_folding\":\"manual\",\"editor_tab_size\":\"4\",\"editor_theme\":\"terminal\",\"editor_show_invisibles\":\"0\",\"editor_highlight_active_line\":\"1\",\"editor_use_hard_tabs\":\"0\",\"editor_show_gutter\":\"1\",\"editor_auto_closing\":\"0\",\"editor_autocompletion\":\"manual\",\"editor_enable_snippets\":\"0\",\"editor_display_indent_guides\":\"0\",\"editor_show_print_margin\":\"0\",\"user_id\":\"1\"}'),
 (2, 1, 'backend', 'reportwidgets', 'dashboard', '{\"welcome\":{\"class\":\"Backend\\\\ReportWidgets\\\\Welcome\",\"sortOrder\":\"50\",\"configuration\":{\"title\":\"Welcome\",\"ocWidgetWidth\":7,\"ocWidgetNewRow\":0}},\"systemStatus\":{\"class\":\"System\\\\ReportWidgets\\\\Status\",\"sortOrder\":\"70\",\"configuration\":{\"title\":\"System status\",\"ocWidgetWidth\":7,\"ocWidgetNewRow\":null}},\"activeTheme\":{\"class\":\"Cms\\\\ReportWidgets\\\\ActiveTheme\",\"sortOrder\":\"60\",\"configuration\":{\"title\":\"Website\",\"ocWidgetWidth\":5,\"ocWidgetNewRow\":0}}}');
 
 -- --------------------------------------------------------
@@ -1891,7 +1892,7 @@ INSERT INTO `system_parameters` (`id`, `namespace`, `group`, `item`, `value`) VA
 (1, 'system', 'update', 'count', '0'),
 (2, 'system', 'core', 'hash', '\"530fb2559d6b264485c60ac3797fe8ac\"'),
 (3, 'system', 'core', 'build', '\"455\"'),
-(4, 'system', 'update', 'retry', '1561002565'),
+(4, 'system', 'update', 'retry', '1561561852'),
 (5, 'system', 'theme', 'history', '{\"JumpLink.Viola\":\"jumplink-viola\",\"ChristophHeich.semantic-ui-octobercms\":\"christophheich-semantic-ui-octobercms\"}'),
 (6, 'cms', 'theme', 'active', '\"christophheich-semantic-ui-octobercms\"');
 
@@ -2054,7 +2055,23 @@ INSERT INTO `system_plugin_history` (`id`, `code`, `type`, `version`, `detail`, 
 (212, 'PeterHegman.SlickSlider', 'comment', '1.1.1', 'Updating `json` columns to `text` to fix error for users using MySQL below 5.7', '2019-06-13 18:41:09'),
 (213, 'PeterHegman.SlickSlider', 'comment', '1.1.2', 'Adding support for rainlab.translate. Thanks to Tony Raoul. Fixed error when updating to PHP 7.2', '2019-06-13 18:41:09'),
 (220, 'Jiri.Map', 'comment', '1.0.1', 'First version of Map', '2019-06-19 19:17:48'),
-(221, 'Jiri.Map', 'comment', '1.0.2', 'Fixed: two or more maps in one page', '2019-06-19 19:17:48');
+(221, 'Jiri.Map', 'comment', '1.0.2', 'Fixed: two or more maps in one page', '2019-06-19 19:17:48'),
+(222, 'October.Demo', 'comment', '1.0.1', 'First version of Demo', '2019-06-24 20:08:21'),
+(223, 'GrofGraf.ContactMe', 'comment', '1.0.1', 'First version of ContactMe', '2019-06-24 22:54:00'),
+(224, 'GrofGraf.ContactMe', 'comment', '1.0.2', 'Captcha credentials can be empty if captcha not enabled', '2019-06-24 22:54:00'),
+(225, 'GrofGraf.ContactMe', 'comment', '1.0.3', 'Component namespace error fixed', '2019-06-24 22:54:00'),
+(226, 'GrofGraf.ContactMe', 'comment', '1.0.4', 'Auto subscribe error fixed', '2019-06-24 22:54:00'),
+(227, 'GrofGraf.ContactMe', 'comment', '1.0.4', 'Added maillist title field', '2019-06-24 22:54:00'),
+(228, 'GrofGraf.ContactMe', 'comment', '1.0.5', 'Customer name is posted to maillist', '2019-06-24 22:54:00'),
+(229, 'GrofGraf.ContactMe', 'comment', '1.0.6', 'Synchronized with latest MailgunSubscribe update', '2019-06-24 22:54:00'),
+(230, 'GrofGraf.ContactMe', 'comment', '1.0.7', 'Added post() information to message and auto reply', '2019-06-24 22:54:00'),
+(231, 'GrofGraf.ContactMe', 'comment', '1.0.8', 'Added variables to automatic reply email template', '2019-06-24 22:54:00'),
+(232, 'GrofGraf.ContactMe', 'comment', '1.0.9', 'Registered permissions', '2019-06-24 22:54:00'),
+(233, 'GrofGraf.ContactMe', 'comment', '1.1.0', 'Fixed permission', '2019-06-24 22:54:00'),
+(234, 'GrofGraf.ContactMe', 'comment', '1.1.1.', 'Optional maillist subscribe consent field', '2019-06-24 22:54:00'),
+(235, 'GrofGraf.ContactMe', 'comment', '1.1.2.', 'Added optional subject field', '2019-06-24 22:54:00'),
+(236, 'GrofGraf.ContactMe', 'comment', '1.1.2.', 'Added optional phone number field', '2019-06-24 22:54:00'),
+(237, 'GrofGraf.ContactMe', 'comment', '1.1.2.', 'Fixed message label translation', '2019-06-24 22:54:00');
 
 -- --------------------------------------------------------
 
@@ -2083,7 +2100,9 @@ INSERT INTO `system_plugin_versions` (`id`, `code`, `version`, `created_at`, `is
 (11, 'RainLab.UserPlus', '1.1.0', '2019-06-11 19:55:34', 0, 0),
 (12, 'Responsiv.Pay', '1.1.1', '2019-06-11 19:55:35', 0, 0),
 (13, 'PeterHegman.SlickSlider', '1.1.2', '2019-06-13 18:41:09', 0, 0),
-(16, 'Jiri.Map', '1.0.2', '2019-06-19 19:17:48', 0, 0);
+(16, 'Jiri.Map', '1.0.2', '2019-06-19 19:17:48', 0, 0),
+(17, 'October.Demo', '1.0.1', '2019-06-24 20:08:21', 0, 0),
+(18, 'GrofGraf.ContactMe', '1.1.2.', '2019-06-24 22:54:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2708,7 +2727,7 @@ ALTER TABLE `usuarioleon`
 -- AUTO_INCREMENT de la tabla `backend_access_log`
 --
 ALTER TABLE `backend_access_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `backend_users`
@@ -2954,13 +2973,13 @@ ALTER TABLE `system_parameters`
 -- AUTO_INCREMENT de la tabla `system_plugin_history`
 --
 ALTER TABLE `system_plugin_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
 
 --
 -- AUTO_INCREMENT de la tabla `system_plugin_versions`
 --
 ALTER TABLE `system_plugin_versions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `system_request_logs`

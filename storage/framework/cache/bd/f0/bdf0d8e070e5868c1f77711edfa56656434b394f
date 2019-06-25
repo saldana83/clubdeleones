@@ -1,4 +1,4 @@
-1560959249a:1:{s:15:"site/header.htm";a:7:{s:8:"fileName";s:15:"site/header.htm";s:7:"content";s:2179:"[viewBag]
+1561478430a:1:{s:15:"site/header.htm";a:7:{s:8:"fileName";s:15:"site/header.htm";s:7:"content";s:2179:"[viewBag]
 
 [account]
 paramCode = "code"
@@ -58,7 +58,7 @@ forceSecure = 0
     <a class="item">Contactenos</a>
     <a class="item">Login</a>
     <a class="item">Signup</a>
-</div> -->";s:5:"mtime";i:1560956903;s:6:"markup";s:2114:"<!-- Static Menu -->
+</div> -->";s:5:"mtime";i:1561387936;s:6:"markup";s:2114:"<!-- Static Menu -->
 <div class="ui inverted vertical center aligned segment">
     <div class="ui container">
         <div class="ui large secondary inverted pointing menu">

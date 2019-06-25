@@ -94,4 +94,8 @@
   'peterhegman\\slickslider\\Models\\Settings' => 'plugins\\peterhegman\\slickslider\\models\\Settings.php',
   'Responsiv\\Pay\\Models\\Settings' => 'plugins\\responsiv\\pay\\models\\Settings.php',
   'responsiv\\pay\\Controllers\\invoicetemplates' => 'plugins\\responsiv\\pay\\controllers\\invoicetemplates.php',
+  'grofgraf\\contactme\\Plugin' => 'plugins\\grofgraf\\contactme\\Plugin.php',
+  'GrofGraf\\ContactMe\\Components\\ContactForm' => 'plugins\\grofgraf\\contactme\\components\\ContactForm.php',
+  'GrofGraf\\ContactMe\\Models\\Settings' => 'plugins\\grofgraf\\contactme\\models\\Settings.php',
+  'backend\\Controllers\\preferences' => 'modules\\backend\\controllers\\preferences.php',
 );
