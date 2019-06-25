@@ -1,4 +1,4 @@
-1560959249a:1:{s:15:"site/footer.htm";a:6:{s:8:"fileName";s:15:"site/footer.htm";s:7:"content";s:375:"[viewBag]
+1561478430a:1:{s:15:"site/footer.htm";a:6:{s:8:"fileName";s:15:"site/footer.htm";s:7:"content";s:375:"[viewBag]
 ==
 <!-- Footer -->
 <div class="ui inverted vertical footer segment">
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-</div>";s:5:"mtime";i:1560433021;s:6:"markup";s:360:"<!-- Footer -->
+</div>";s:5:"mtime";i:1561387936;s:6:"markup";s:360:"<!-- Footer -->
 <div class="ui inverted vertical footer segment">
     <div class="ui container">
         <div class="three wide column">

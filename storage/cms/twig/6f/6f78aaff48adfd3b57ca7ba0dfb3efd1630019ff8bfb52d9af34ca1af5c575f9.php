@@ -47,27 +47,29 @@ class __TwigTemplate_59f48bb3356d53c7b4fda81b2122ca9a1ec9dba30e9757f9c3beb37fff3
                 <p>text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text </p>
             </div>
         </div>
-<div class=\" lesft align\">
-    <div id=\"fb-root\">
-    </div>
-        <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.3&appId=312399993041359&autoLogAppEvents=1\">
-        </script>
-            <div class=\"fb-page\" 
-                data-href=\"https://www.facebook.com/clubdeleonesdedavid\" 
-                data-tabs=\"timeline,events,messages\" 
-                data-width=\"700\" 
-                data-height=\"700\" 
-                data-small-header=\"false\" 
-                data-adapt-container-width=\"true\" 
-                data-hide-cover=\"false\" 
-                data-show-facepile=\"false\">
-                <blockquote cite=\"https://www.facebook.com/clubdeleonesdedavid\" 
-                    class=\"fb-xfbml-parse-ignore\">
-                    <a href=\"https://www.facebook.com/clubdeleonesdedavid\">Benemérito Club de Leones de David</a>
-                </blockquote>
-            </div>
+        <div class=\"ui center stripe segment container\">
+            <div class=\"center align\">
+                <div id=\"fb-root\">
+                </div>
+                    <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.3&appId=312399993041359&autoLogAppEvents=1\">
+                    </script>
+                        <div class=\"fb-page\" 
+                            data-href=\"https://www.facebook.com/clubdeleonesdedavid\" 
+                            data-tabs=\"timeline,events,messages\" 
+                            data-width=\"700\" 
+                            data-height=\"700\" 
+                            data-small-header=\"false\" 
+                            data-adapt-container-width=\"true\" 
+                            data-hide-cover=\"false\" 
+                            data-show-facepile=\"false\">
+                            <blockquote cite=\"https://www.facebook.com/clubdeleonesdedavid\" 
+                                class=\"fb-xfbml-parse-ignore\">
+                                <a href=\"https://www.facebook.com/clubdeleonesdedavid\">Benemérito Club de Leones de David</a>
+                            </blockquote>
+                        </div>
+                    </div>
+             </div>
         </div>
-    </div>
 </div>";
     }
 
@@ -98,27 +100,29 @@ class __TwigTemplate_59f48bb3356d53c7b4fda81b2122ca9a1ec9dba30e9757f9c3beb37fff3
                 <p>text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text text test text </p>
             </div>
         </div>
-<div class=\" lesft align\">
-    <div id=\"fb-root\">
-    </div>
-        <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.3&appId=312399993041359&autoLogAppEvents=1\">
-        </script>
-            <div class=\"fb-page\" 
-                data-href=\"https://www.facebook.com/clubdeleonesdedavid\" 
-                data-tabs=\"timeline,events,messages\" 
-                data-width=\"700\" 
-                data-height=\"700\" 
-                data-small-header=\"false\" 
-                data-adapt-container-width=\"true\" 
-                data-hide-cover=\"false\" 
-                data-show-facepile=\"false\">
-                <blockquote cite=\"https://www.facebook.com/clubdeleonesdedavid\" 
-                    class=\"fb-xfbml-parse-ignore\">
-                    <a href=\"https://www.facebook.com/clubdeleonesdedavid\">Benemérito Club de Leones de David</a>
-                </blockquote>
-            </div>
+        <div class=\"ui center stripe segment container\">
+            <div class=\"center align\">
+                <div id=\"fb-root\">
+                </div>
+                    <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.3&appId=312399993041359&autoLogAppEvents=1\">
+                    </script>
+                        <div class=\"fb-page\" 
+                            data-href=\"https://www.facebook.com/clubdeleonesdedavid\" 
+                            data-tabs=\"timeline,events,messages\" 
+                            data-width=\"700\" 
+                            data-height=\"700\" 
+                            data-small-header=\"false\" 
+                            data-adapt-container-width=\"true\" 
+                            data-hide-cover=\"false\" 
+                            data-show-facepile=\"false\">
+                            <blockquote cite=\"https://www.facebook.com/clubdeleonesdedavid\" 
+                                class=\"fb-xfbml-parse-ignore\">
+                                <a href=\"https://www.facebook.com/clubdeleonesdedavid\">Benemérito Club de Leones de David</a>
+                            </blockquote>
+                        </div>
+                    </div>
+             </div>
         </div>
-    </div>
 </div>", "C:\\xampp\\htdocs\\clubdeleones/themes/christophheich-semantic-ui-octobercms/pages/home.htm", "");
     }
 }
