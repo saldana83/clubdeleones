@@ -1,4 +1,4 @@
-1560959248a:1:{s:12:"contacto.htm";a:10:{s:8:"fileName";s:12:"contacto.htm";s:7:"content";s:869:"title = "Contacto"
+1561479197a:1:{s:12:"contacto.htm";a:11:{s:8:"fileName";s:12:"contacto.htm";s:7:"content";s:776:"title = "Contacto"
 url = "/contacto"
 layout = "default"
 is_hidden = 0
@@ -9,29 +9,39 @@ longitude = -82.434712
 zoom = 541
 width = "100%"
 height = "350px"
-mapTypeId = "HYBRID"
-showMarker = "true"
+mapTypeId = "SATELLITE"
+showMarker = 0
+apiKey = "AIzaSyC8loVYpxk1AgHdzixRW-R0oD9zrky2wCQ"
+
+[contactForm]
+loadJS = 1
 ==
 <!-- Content -->
 <div class="ui vertical stripe segment">
     <div class="ui text container">
-        <h3 class="ui header">We are working, freekin hard to achieve this...</h3>
-        <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
-        <a class="ui large button">Read More</a>
+        <h3 class="ui header">Formulario de contacto</h3>
+            <p>
+                <div class="ui segment">
+                    {% component 'contactForm' %}
+                </div>
+            </p>
         <h4 class="ui horizontal header divider">
             <a href="#">Ubicación</a>
         </h4>
         {% component 'googleMap' %}
     </div>
-</div>";s:5:"mtime";i:1560957155;s:6:"markup";s:641:"<!-- Content -->
+</div>";s:5:"mtime";i:1561477829;s:6:"markup";s:469:"<!-- Content -->
 <div class="ui vertical stripe segment">
     <div class="ui text container">
-        <h3 class="ui header">We are working, freekin hard to achieve this...</h3>
-        <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
-        <a class="ui large button">Read More</a>
+        <h3 class="ui header">Formulario de contacto</h3>
+            <p>
+                <div class="ui segment">
+                    {% component 'contactForm' %}
+                </div>
+            </p>
         <h4 class="ui horizontal header divider">
             <a href="#">Ubicación</a>
         </h4>
         {% component 'googleMap' %}
     </div>
-</div>";s:4:"code";N;s:5:"title";s:8:"Contacto";s:3:"url";s:9:"/contacto";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"googleMap";a:7:{s:8:"latitude";s:9:"8.4323189";s:9:"longitude";s:10:"-82.434712";s:4:"zoom";s:3:"541";s:5:"width";s:4:"100%";s:6:"height";s:5:"350px";s:9:"mapTypeId";s:6:"HYBRID";s:10:"showMarker";s:4:"true";}}}
+</div>";s:4:"code";N;s:5:"title";s:8:"Contacto";s:3:"url";s:9:"/contacto";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"googleMap";a:8:{s:8:"latitude";s:9:"8.4323189";s:9:"longitude";s:10:"-82.434712";s:4:"zoom";s:3:"541";s:5:"width";s:4:"100%";s:6:"height";s:5:"350px";s:9:"mapTypeId";s:9:"SATELLITE";s:10:"showMarker";s:1:"0";s:6:"apiKey";s:39:"AIzaSyC8loVYpxk1AgHdzixRW-R0oD9zrky2wCQ";}s:11:"contactForm";a:1:{s:6:"loadJS";s:1:"1";}}}
