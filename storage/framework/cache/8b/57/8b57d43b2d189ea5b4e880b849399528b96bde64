@@ -1,9 +1,0 @@
-1561479197a:1:{s:9:"login.htm";a:9:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:127:"title = "Login"
-url = "/login"
-is_hidden = 0
-
-[account]
-paramCode = "code"
-forceSecure = 0
-==
-{% component 'account' %}";s:5:"mtime";i:1561388800;s:6:"markup";s:25:"{% component 'account' %}";s:4:"code";N;s:5:"title";s:5:"Login";s:3:"url";s:6:"/login";s:9:"is_hidden";s:1:"0";s:7:"account";a:2:{s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}}}
