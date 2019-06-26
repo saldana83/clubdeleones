@@ -1,4 +1,4 @@
-1561559308a:1:{s:18:"iniciar-sesion.htm";a:9:{s:8:"fileName";s:18:"iniciar-sesion.htm";s:7:"content";s:2161:"title = "Iniciar sesión"
+1561568141a:1:{s:18:"iniciar-sesion.htm";a:9:{s:8:"fileName";s:18:"iniciar-sesion.htm";s:7:"content";s:2148:"title = "Iniciar sesión"
 url = "/iniciar-sesion"
 layout = "default"
 is_hidden = 0
@@ -11,7 +11,7 @@ is_hidden = 0
                 <div class="signin">
                     <div class="signin-screen">
                         <div class="signin-icon">
-                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Welcome to Flat App" />
+                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="SICLUB" />
                             <h4>Bienvenido a <small>SICLUB 🦁</small></h4>
                         </div>
 
@@ -48,7 +48,7 @@ is_hidden = 0
         </div>
 
     </div>
-</div>";s:5:"mtime";i:1561558688;s:6:"markup";s:2070:"<div class="signin-container">
+</div>";s:5:"mtime";i:1561565491;s:6:"markup";s:2057:"<div class="signin-container">
     <div class="container">
 
         <div class="row">
@@ -56,7 +56,7 @@ is_hidden = 0
                 <div class="signin">
                     <div class="signin-screen">
                         <div class="signin-icon">
-                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="Welcome to Flat App" />
+                            <img src="{{ 'assets/images/logo.png'|theme }}" alt="SICLUB" />
                             <h4>Bienvenido a <small>SICLUB 🦁</small></h4>
                         </div>
 
