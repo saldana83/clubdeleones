@@ -1,11 +1,21 @@
-1561559308a:1:{s:11:"contact.htm";a:8:{s:8:"fileName";s:11:"contact.htm";s:7:"content";s:2887:"title = "Contact"
-url = "/contact"
+1561568195a:1:{s:11:"contact.htm";a:10:{s:8:"fileName";s:11:"contact.htm";s:7:"content";s:2384:"title = "Contacto"
+url = "/contacto"
 layout = "default"
-==
+is_hidden = 0
 
+[googleMap]
+latitude = 8.4323662
+longitude = -82.4341418
+zoom = 12
+width = "500%"
+height = "450px"
+mapTypeId = "HYBRID"
+showMarker = "true"
+apiKey = "AIzaSyD7Zj62NJElRD6GK_3yA2clRVAxA4Uj7LM"
+==
 <section id="layout-title">
     <div class="container">
-        <h3>Contact us</h3>
+        <h3>Contactenos</h3>
     </div>
 </section>
 
@@ -13,29 +23,28 @@ layout = "default"
     <div class="row">
 
         <div class="col-md-7">
-            <p>Beef ribs pig spare ribs boudin pork chop swine. Shankle pastrami ham, doner prosciutto cow t-bone kielbasa turkey pig venison tail chicken leberkas. </p>
             <form role="form">
                 <div class="form-group">
-                    <label for="email">Your email address</label>
+                    <label for="email">Tu direccion de correo</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label for="name">Your name</label>
+                    <label for="name">Tu nombre</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
-                    <label for="message">Your message</label>
+                    <label for="message">Tu mensaje</label>
                     <textarea class="form-control" rows="7" id="message" placeholder="Enter message" style="resize: none"></textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-lg btn-info">Send message</button>
+                        <button type="submit" class="btn btn-lg btn-info">Enviar Mensaje</button>
                     </div>
                     <div class="col-sm-6">
                         <label class="checkbox pull-right" for="checkbox1">
                             <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
-                            Send a copy to myself
+                            Enviar una copia a mí mismo
                         </label>
                     </div>
                 </div>
@@ -46,34 +55,21 @@ layout = "default"
 
         <div class="col-md-5">
             <div class="contact-banner">
-                <h3 class="banner-title">Our location</h3>
+                <h3 class="banner-title">Nuestra ubicación</h3>
                 <ul>
-                    <li>100 Pitt Street</li>
-                    <li>Sydney NSW, 2000</li>
-                    <li>Phone: +61 0000 0000</li>
-                    <li>Fax: +61 0000 0000</li>
-                    <li>Email: <a href="#">some@email.dev.null</a></li>
+                    <li>David, Chiriquí</li>
+                    <li>Avenida 6a Oeste, David</li>
+                    <li>Phone: +507 775-1377</li>
+                    <li>Email: <a href="#">clubdeleonesdedavid@yahho.com</a></li>
                 </ul>
             </div>
-
-            <div class="google-maps">
-              <iframe
-                width="500"
-                height="450"
-                frameborder="0"
-                scrolling="no"
-                marginheight="0"
-                marginwidth="0"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52978.975064878534!2d151.21417105100554!3d-33.910613674462084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney+NSW%2C+Australia!5e0!3m2!1sen!2sus!4v1406012463524"></iframe>
-            </div>
-
+            {% component 'googleMap' %}
         </div>
 
     </div>
-</div>
-";s:5:"mtime";i:1561558688;s:6:"markup";s:2822:"<section id="layout-title">
+</div>";s:5:"mtime";i:1561567593;s:6:"markup";s:2104:"<section id="layout-title">
     <div class="container">
-        <h3>Contact us</h3>
+        <h3>Contactenos</h3>
     </div>
 </section>
 
@@ -81,29 +77,28 @@ layout = "default"
     <div class="row">
 
         <div class="col-md-7">
-            <p>Beef ribs pig spare ribs boudin pork chop swine. Shankle pastrami ham, doner prosciutto cow t-bone kielbasa turkey pig venison tail chicken leberkas. </p>
             <form role="form">
                 <div class="form-group">
-                    <label for="email">Your email address</label>
+                    <label for="email">Tu direccion de correo</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label for="name">Your name</label>
+                    <label for="name">Tu nombre</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
-                    <label for="message">Your message</label>
+                    <label for="message">Tu mensaje</label>
                     <textarea class="form-control" rows="7" id="message" placeholder="Enter message" style="resize: none"></textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-lg btn-info">Send message</button>
+                        <button type="submit" class="btn btn-lg btn-info">Enviar Mensaje</button>
                     </div>
                     <div class="col-sm-6">
                         <label class="checkbox pull-right" for="checkbox1">
                             <input type="checkbox" value="" id="checkbox1" data-toggle="checkbox">
-                            Send a copy to myself
+                            Enviar una copia a mí mismo
                         </label>
                     </div>
                 </div>
@@ -114,28 +109,16 @@ layout = "default"
 
         <div class="col-md-5">
             <div class="contact-banner">
-                <h3 class="banner-title">Our location</h3>
+                <h3 class="banner-title">Nuestra ubicación</h3>
                 <ul>
-                    <li>100 Pitt Street</li>
-                    <li>Sydney NSW, 2000</li>
-                    <li>Phone: +61 0000 0000</li>
-                    <li>Fax: +61 0000 0000</li>
-                    <li>Email: <a href="#">some@email.dev.null</a></li>
+                    <li>David, Chiriquí</li>
+                    <li>Avenida 6a Oeste, David</li>
+                    <li>Phone: +507 775-1377</li>
+                    <li>Email: <a href="#">clubdeleonesdedavid@yahho.com</a></li>
                 </ul>
             </div>
-
-            <div class="google-maps">
-              <iframe
-                width="500"
-                height="450"
-                frameborder="0"
-                scrolling="no"
-                marginheight="0"
-                marginwidth="0"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52978.975064878534!2d151.21417105100554!3d-33.910613674462084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney+NSW%2C+Australia!5e0!3m2!1sen!2sus!4v1406012463524"></iframe>
-            </div>
-
+            {% component 'googleMap' %}
         </div>
 
     </div>
-</div>";s:4:"code";N;s:5:"title";s:7:"Contact";s:3:"url";s:8:"/contact";s:6:"layout";s:7:"default";}}
+</div>";s:4:"code";N;s:5:"title";s:8:"Contacto";s:3:"url";s:9:"/contacto";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"googleMap";a:8:{s:8:"latitude";s:9:"8.4323662";s:9:"longitude";s:11:"-82.4341418";s:4:"zoom";s:2:"12";s:5:"width";s:4:"500%";s:6:"height";s:5:"450px";s:9:"mapTypeId";s:6:"HYBRID";s:10:"showMarker";s:4:"true";s:6:"apiKey";s:39:"AIzaSyD7Zj62NJElRD6GK_3yA2clRVAxA4Uj7LM";}}}

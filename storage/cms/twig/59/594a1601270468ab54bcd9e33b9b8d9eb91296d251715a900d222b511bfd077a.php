@@ -32,16 +32,16 @@ class __TwigTemplate_cd0c2922949e30f600b62013c916e423ae585876e8bf93f9dcd5a1a82ed
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 2
-        $context["links"] = ["home" => [0 => "home", 1 => "Home"], "conocenos" => ["name" => "Conocenos", "sublinks" => ["quienes somos" => [0 => "conocenos/quienes-somos", 1 => "¿Quienes Somos?"], "junta directiva" => [0 => "conocenos/junta-directiva", 1 => "Junta Directiva"], "himno" => [0 => "conocenos/himno", 1 => "Himno"]]], "contacto" => ["name" => "Contacto"], "ui-elements" => [0 => "ui-elements", 1 => "UI Elements"]];
-        // line 22
+        $context["links"] = ["home" => [0 => "home", 1 => "Home"], "conocenos" => ["name" => "Conocenos", "sublinks" => ["quienes somos" => [0 => "conocenos/quienes-somos", 1 => "¿Quienes Somos?"], "junta directiva" => [0 => "conocenos/junta-directiva", 1 => "Junta Directiva"], "himno" => [0 => "conocenos/himno", 1 => "Himno"]]], "contacto" => [0 => "contacto", 1 => "Contacto"], "ui-elements" => [0 => "ui-elements", 1 => "UI Elements"]];
+        // line 21
+        echo "
+";
+        // line 44
         echo "
 ";
         // line 45
-        echo "
-";
-        // line 46
         $context["nav"] = $this;
-        // line 47
+        // line 46
         echo "
 <nav id=\"layout-nav\" class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">
     <div class=\"container\">
@@ -51,20 +51,20 @@ class __TwigTemplate_cd0c2922949e30f600b62013c916e423ae585876e8bf93f9dcd5a1a82ed
                 <span class=\"fa fa-bars\"></span>
             </button>
             <a class=\"navbar-brand\" href=\" ";
-        // line 55
+        // line 54
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("home");
         echo "\"></a>
         </div>
         <div class=\"collapse navbar-collapse navbar-main-collapse\">
             <ul class=\"nav navbar-nav navbar-right\">
                 ";
-        // line 59
+        // line 58
         echo $context["nav"]->macro_render_menu(($context["links"] ?? null));
         echo "
                 <li>
                     <button
                         onclick=\"window.location='";
-        // line 62
+        // line 61
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("iniciar-sesion");
         echo "'\"
                         class=\"btn btn-sm navbar-btn btn-primary navbar-right hidden-sm hidden-xs\">
@@ -77,7 +77,7 @@ class __TwigTemplate_cd0c2922949e30f600b62013c916e423ae585876e8bf93f9dcd5a1a82ed
 </nav>";
     }
 
-    // line 23
+    // line 22
     public function macro_render_menu($__links__ = null, ...$__varargs__)
     {
         $context = $this->env->mergeGlobals([
@@ -89,62 +89,62 @@ class __TwigTemplate_cd0c2922949e30f600b62013c916e423ae585876e8bf93f9dcd5a1a82ed
 
         ob_start(function () { return ''; });
         try {
-            // line 24
+            // line 23
             echo "    ";
             $context["subnav"] = $this;
-            // line 25
+            // line 24
             echo "
     ";
-            // line 26
+            // line 25
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["links"] ?? null));
             foreach ($context['_seq'] as $context["code"] => $context["link"]) {
-                // line 27
+                // line 26
                 echo "        <li class=\"";
                 echo ((($context["code"] == ($context["currentPage"] ?? null))) ? ("active") : (""));
                 echo " ";
-                echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 27)) ? ("dropdown") : (""));
+                echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 26)) ? ("dropdown") : (""));
                 echo "\">
             <a
                 href=\"";
-                // line 29
-                echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 29)) ? ("#") : ($this->extensions['Cms\Twig\Extension']->pageFilter(((twig_get_attribute($this->env, $this->source, $context["link"], "page", [], "any", false, false, false, 29)) ? (twig_get_attribute($this->env, $this->source, $context["link"], "page", [], "any", false, false, false, 29)) : ((($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = $context["link"]) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4[0] ?? null) : null))))));
+                // line 28
+                echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 28)) ? ("#") : ($this->extensions['Cms\Twig\Extension']->pageFilter(((twig_get_attribute($this->env, $this->source, $context["link"], "page", [], "any", false, false, false, 28)) ? (twig_get_attribute($this->env, $this->source, $context["link"], "page", [], "any", false, false, false, 28)) : ((($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = $context["link"]) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4[0] ?? null) : null))))));
                 echo "\"
                 ";
-                // line 30
-                if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 30)) {
+                // line 29
+                if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 29)) {
                     echo "data-toggle=\"dropdown\"";
                 }
-                // line 31
+                // line 30
                 echo "                class=\"";
-                echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 31)) ? ("dropdown-toggle") : (""));
+                echo ((twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 30)) ? ("dropdown-toggle") : (""));
                 echo "\"
             >
                 ";
-                // line 33
-                echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["link"], "name", [], "any", false, false, false, 33)) ? (twig_get_attribute($this->env, $this->source, $context["link"], "name", [], "any", false, false, false, 33)) : ((($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 = $context["link"]) && is_array($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144) || $__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 instanceof ArrayAccess ? ($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144[1] ?? null) : null))), "html", null, true);
+                // line 32
+                echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, $context["link"], "name", [], "any", false, false, false, 32)) ? (twig_get_attribute($this->env, $this->source, $context["link"], "name", [], "any", false, false, false, 32)) : ((($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 = $context["link"]) && is_array($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144) || $__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144 instanceof ArrayAccess ? ($__internal_62824350bc4502ee19dbc2e99fc6bdd3bd90e7d8dd6e72f42c35efd048542144[1] ?? null) : null))), "html", null, true);
                 echo "
                 ";
-                // line 34
-                if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 34)) {
+                // line 33
+                if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 33)) {
                     echo "<span class=\"caret\"></span>";
                 }
-                // line 35
+                // line 34
                 echo "            </a>
             ";
-                // line 36
-                if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 36)) {
-                    // line 37
+                // line 35
+                if (twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 35)) {
+                    // line 36
                     echo "                <span class=\"dropdown-arrow\"></span>
                 <ul class=\"dropdown-menu\" >
                     ";
-                    // line 39
-                    echo $context["subnav"]->macro_render_menu(twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 39));
+                    // line 38
+                    echo $context["subnav"]->macro_render_menu(twig_get_attribute($this->env, $this->source, $context["link"], "sublinks", [], "any", false, false, false, 38));
                     echo "
                 </ul>
             ";
                 }
-                // line 42
+                // line 41
                 echo "        </li>
     ";
             }
@@ -170,7 +170,7 @@ class __TwigTemplate_cd0c2922949e30f600b62013c916e423ae585876e8bf93f9dcd5a1a82ed
 
     public function getDebugInfo()
     {
-        return array (  148 => 42,  142 => 39,  138 => 37,  136 => 36,  133 => 35,  129 => 34,  125 => 33,  119 => 31,  115 => 30,  111 => 29,  103 => 27,  99 => 26,  96 => 25,  93 => 24,  81 => 23,  68 => 62,  62 => 59,  55 => 55,  45 => 47,  43 => 46,  40 => 45,  37 => 22,  35 => 2,);
+        return array (  148 => 41,  142 => 38,  138 => 36,  136 => 35,  133 => 34,  129 => 33,  125 => 32,  119 => 30,  115 => 29,  111 => 28,  103 => 26,  99 => 25,  96 => 24,  93 => 23,  81 => 22,  68 => 61,  62 => 58,  55 => 54,  45 => 46,  43 => 45,  40 => 44,  37 => 21,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -188,9 +188,8 @@ class __TwigTemplate_cd0c2922949e30f600b62013c916e423ae585876e8bf93f9dcd5a1a82ed
                 'himno': ['conocenos/himno', 'Himno'],
             },
         },
-        'contacto': {
-            name: 'Contacto',
-        },
+        'contacto':  ['contacto', 'Contacto'],
+
 
         'ui-elements': ['ui-elements', 'UI Elements'],
 
