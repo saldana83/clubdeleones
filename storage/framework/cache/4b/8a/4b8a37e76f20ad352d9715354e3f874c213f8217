@@ -1,4 +1,4 @@
-1561520263a:1:{s:20:"samples/register.htm";a:9:{s:8:"fileName";s:20:"samples/register.htm";s:7:"content";s:2576:"title = "Register"
+1561559167a:1:{s:20:"samples/register.htm";a:9:{s:8:"fileName";s:20:"samples/register.htm";s:7:"content";s:2576:"title = "Register"
 url = "/register"
 layout = "default"
 is_hidden = 0
@@ -57,7 +57,7 @@ is_hidden = 0
         </div>
 
     </div>
-</div>";s:5:"mtime";i:1561507230;s:6:"markup";s:2498:"<div class="signin-container">
+</div>";s:5:"mtime";i:1561555242;s:6:"markup";s:2498:"<div class="signin-container">
     <div class="container">
 
         <div class="row">

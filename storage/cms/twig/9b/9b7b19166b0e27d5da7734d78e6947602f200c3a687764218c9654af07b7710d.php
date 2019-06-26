@@ -39,24 +39,18 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
 </section>
 
 <div class=\"container\">
-
-    <div class=\"row\">
-        <div class=\"col-sm-7\">
-            <h4 class=\"headline\"><span>Welcome</span></h4>
-            <p>There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.</p>
-            <p>He hasn't got a freckle my mad as a middy. Trent from punchy maccas no dramas shazza got us some ripper. As dry as a bradman flamin lets throw a cut lunch commando.</p>
-            <p><a href=\"";
-        // line 14
-        echo $this->extensions['Cms\Twig\Extension']->pageFilter("samples/contact");
-        echo "\" class=\"btn btn-lg btn-primary\">Contact Us</a></p>
-        </div>
-        <div class=\"col-sm-5\">
-            <h4 class=\"headline\"><span>Video intro</span></h4>
-            <div class=\"video-container\">
-                <iframe src=\"//player.vimeo.com/video/67449472?title=0&amp;byline=0&amp;portrait=0\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+        
+         <center>
+            
+                    <img src=\"https://media.gettyimages.com/photos/dominated-the-business-world-picture-id609696404?s=612x612\" alt=\"\">
+                </a>
+                <div class=\"info\">
+                           Nombre del Director
+                            <p class=\"text-muted\">Director</p>
+                        </div>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        
+          
 
     <div class=\"row our-team\">
         <div class=\"col-sm-12\">
@@ -65,7 +59,7 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
                 <div class=\"col-sm-3 col-xs-6\">
                     <div class=\"team-member text-center\">
                         <img class=\"img-responsive center-block\" src=\"";
-        // line 30
+        // line 27
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/team/aleksey.png");
         echo "\" alt=\"\">
                         <div class=\"info\">
@@ -77,7 +71,7 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
                 <div class=\"col-sm-3 col-xs-6\">
                     <div class=\"team-member text-center\">
                         <img class=\"img-responsive center-block\" src=\"";
-        // line 39
+        // line 36
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/team/sam.png");
         echo "\" alt=\"\">
                         <div class=\"info\">
@@ -89,7 +83,7 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
                 <div class=\"col-sm-3 col-xs-6\">
                     <div class=\"team-member text-center\">
                         <img class=\"img-responsive center-block\" src=\"";
-        // line 48
+        // line 45
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/team/aleksey.png");
         echo "\" alt=\"\">
                         <div class=\"info\">
@@ -101,20 +95,55 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
                 <div class=\"col-sm-3 col-xs-6\">
                     <div class=\"team-member text-center\">
                         <img class=\"img-responsive center-block\" src=\"";
-        // line 57
+        // line 54
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/team/sam.png");
         echo "\" alt=\"\">
                         <div class=\"info\">
                             John Doe
                             <p class=\"text-muted\">Admin Team</p>
+                                                                                
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+                            
+ <h4 class=\"headline\"><span>Lista de Presidentes</span></h4>
 
-</div>";
+<table>
+    <thead>
+        <tr>
+          <th></th>
+          <th>Detalle 1</th>
+          <th>Detalle 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th>Nombre 1</th>
+          <td>Sample Text</td>
+          <td>Sample Text</td>
+        </tr>
+        <tr>
+          <th>Nombre 2</th>
+          <td>Sample Text</td>
+          <td>Sample Text</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+          <th>Nombre 3</th>
+          <td>Sample Text</td>
+          <td>Sample Text</td>
+        </tr>
+        
+    </tfoot>
+</table>         
+           
+</div>
+</center>";
     }
 
     public function getTemplateName()
@@ -129,7 +158,7 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
 
     public function getDebugInfo()
     {
-        return array (  105 => 57,  93 => 48,  81 => 39,  69 => 30,  50 => 14,  35 => 1,);
+        return array (  99 => 54,  87 => 45,  75 => 36,  63 => 27,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -141,21 +170,18 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
 </section>
 
 <div class=\"container\">
-
-    <div class=\"row\">
-        <div class=\"col-sm-7\">
-            <h4 class=\"headline\"><span>Welcome</span></h4>
-            <p>There's a voice that keeps on calling me. Down the road, that's where I'll always be. Every stop I make, I make a new friend. Can't stay for long, just turn around and I'm gone again. Maybe tomorrow, I'll want to settle down, Until tomorrow, I'll just keep moving on.</p>
-            <p>He hasn't got a freckle my mad as a middy. Trent from punchy maccas no dramas shazza got us some ripper. As dry as a bradman flamin lets throw a cut lunch commando.</p>
-            <p><a href=\"{{ 'samples/contact'|page }}\" class=\"btn btn-lg btn-primary\">Contact Us</a></p>
-        </div>
-        <div class=\"col-sm-5\">
-            <h4 class=\"headline\"><span>Video intro</span></h4>
-            <div class=\"video-container\">
-                <iframe src=\"//player.vimeo.com/video/67449472?title=0&amp;byline=0&amp;portrait=0\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+        
+         <center>
+            
+                    <img src=\"https://media.gettyimages.com/photos/dominated-the-business-world-picture-id609696404?s=612x612\" alt=\"\">
+                </a>
+                <div class=\"info\">
+                           Nombre del Director
+                            <p class=\"text-muted\">Director</p>
+                        </div>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        
+          
 
     <div class=\"row our-team\">
         <div class=\"col-sm-12\">
@@ -194,13 +220,48 @@ class __TwigTemplate_5a20340d7d09503b5f4372d0faeb738684628789517efbab86c2a83d180
                         <div class=\"info\">
                             John Doe
                             <p class=\"text-muted\">Admin Team</p>
+                                                                                
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+                            
+ <h4 class=\"headline\"><span>Lista de Presidentes</span></h4>
 
-</div>", "C:\\xampp\\htdocs\\clubdeleones/themes/responsiv-flat/pages/conocenos/junta-directiva.htm", "");
+<table>
+    <thead>
+        <tr>
+          <th></th>
+          <th>Detalle 1</th>
+          <th>Detalle 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <th>Nombre 1</th>
+          <td>Sample Text</td>
+          <td>Sample Text</td>
+        </tr>
+        <tr>
+          <th>Nombre 2</th>
+          <td>Sample Text</td>
+          <td>Sample Text</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+          <th>Nombre 3</th>
+          <td>Sample Text</td>
+          <td>Sample Text</td>
+        </tr>
+        
+    </tfoot>
+</table>         
+           
+</div>
+</center>", "C:\\xampp\\htdocs\\clubdeleones/themes/responsiv-flat/pages/conocenos/junta-directiva.htm", "");
     }
 }
