@@ -1,4 +1,4 @@
-1561559167a:1:{s:16:"shop/product.htm";a:7:{s:8:"fileName";s:16:"shop/product.htm";s:7:"content";s:6017:"url = "/shop/product"
+1561559308a:1:{s:16:"shop/product.htm";a:7:{s:8:"fileName";s:16:"shop/product.htm";s:7:"content";s:5886:"url = "/shop/product"
 layout = "default"
 ==
 
@@ -129,7 +129,7 @@ layout = "default"
             {% partial 'shop/sidebar' %}
         </div>
     </div>
-</div>";s:5:"mtime";i:1561555242;s:6:"markup";s:5968:"{% put styles %}
+</div>";s:5:"mtime";i:1561505727;s:6:"markup";s:5841:"{% put styles %}
     <link href="{{ [
         'assets/vendor/slick/slick.css',
     ]|theme }}" rel="stylesheet">
