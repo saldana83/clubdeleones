@@ -1,4 +1,4 @@
-1561520264a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:1079:"==
+1561559167a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:1079:"==
 <div class="container">
     <nav class="pull-left">
         <ul>
@@ -27,7 +27,7 @@
     <div class="additional-links">
         Be sure to take a look to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
     </div>
-</div>";s:5:"mtime";i:1561508373;s:6:"markup";s:1075:"<div class="container">
+</div>";s:5:"mtime";i:1561555242;s:6:"markup";s:1075:"<div class="container">
     <nav class="pull-left">
         <ul>
             <li class="active">

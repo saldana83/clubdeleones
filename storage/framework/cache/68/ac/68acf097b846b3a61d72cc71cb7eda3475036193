@@ -1,4 +1,4 @@
-1561520263a:1:{s:21:"portfolio/project.htm";a:8:{s:8:"fileName";s:21:"portfolio/project.htm";s:7:"content";s:4199:"title = "Project"
+1561559167a:1:{s:21:"portfolio/project.htm";a:8:{s:8:"fileName";s:21:"portfolio/project.htm";s:7:"content";s:4304:"title = "Project"
 url = "/portfolio/project"
 layout = "default"
 ==
@@ -103,7 +103,7 @@ layout = "default"
         </li>
     </ul>
 
-</div>";s:5:"mtime";i:1561505727;s:6:"markup";s:4131:"{% put styles %}
+</div>";s:5:"mtime";i:1561555242;s:6:"markup";s:4231:"{% put styles %}
     <link href="{{ [
         'assets/vendor/slick/slick.css',
     ]|theme }}" rel="stylesheet">
