@@ -1,4 +1,4 @@
-1561520263a:1:{s:13:"blog/blog.htm";a:8:{s:8:"fileName";s:13:"blog/blog.htm";s:7:"content";s:3523:"title = "Blog"
+1561559167a:1:{s:13:"blog/blog.htm";a:8:{s:8:"fileName";s:13:"blog/blog.htm";s:7:"content";s:3591:"title = "Blog"
 url = "/blog"
 layout = "default"
 ==
@@ -66,7 +66,7 @@ layout = "default"
 
         </div>
     </div>
-</div>";s:5:"mtime";i:1561505727;s:6:"markup";s:3471:"<section id="layout-title">
+</div>";s:5:"mtime";i:1561555242;s:6:"markup";s:3534:"<section id="layout-title">
     <div class="container">
         <h3>Blog</h3>
     </div>
