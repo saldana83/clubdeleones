@@ -1,4 +1,4 @@
-1561559167a:1:{s:13:"shop/cart.htm";a:7:{s:8:"fileName";s:13:"shop/cart.htm";s:7:"content";s:2429:"url = "/shop/cart"
+1561559308a:1:{s:13:"shop/cart.htm";a:7:{s:8:"fileName";s:13:"shop/cart.htm";s:7:"content";s:2366:"url = "/shop/cart"
 layout = "default"
 ==
 
@@ -61,7 +61,7 @@ layout = "default"
     </ul>
 
 </div>
-";s:5:"mtime";i:1561555242;s:6:"markup";s:2381:"<section id="layout-title">
+";s:5:"mtime";i:1561505727;s:6:"markup";s:2323:"<section id="layout-title">
     <div class="container">
         <h3>Checkout</h3>
     </div>

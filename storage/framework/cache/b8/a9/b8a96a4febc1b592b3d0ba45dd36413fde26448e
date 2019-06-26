@@ -1,24 +1,5 @@
-1561559167a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:1079:"==
+1561559463a:1:{s:10:"footer.htm";a:6:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:608:"==
 <div class="container">
-    <nav class="pull-left">
-        <ul>
-            <li class="active">
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Company</a>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Blog</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-    </nav>
     <div class="social-btns pull-right">
         <a href="https://facebook.com/clubdeleonesdedavid"><div class="fui-facebook"></div><div class="fui-facebook"></div></a>
         <a href="https://www.instagram.com/"><div class="fui-instagram"></div><div class="fui-instagram"></div></a>
@@ -27,26 +8,7 @@
     <div class="additional-links">
         Be sure to take a look to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
     </div>
-</div>";s:5:"mtime";i:1561555242;s:6:"markup";s:1075:"<div class="container">
-    <nav class="pull-left">
-        <ul>
-            <li class="active">
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Company</a>
-            </li>
-            <li>
-                <a href="#">Portfolio</a>
-            </li>
-            <li>
-                <a href="#">Blog</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-    </nav>
+</div>";s:5:"mtime";i:1561558849;s:6:"markup";s:604:"<div class="container">
     <div class="social-btns pull-right">
         <a href="https://facebook.com/clubdeleonesdedavid"><div class="fui-facebook"></div><div class="fui-facebook"></div></a>
         <a href="https://www.instagram.com/"><div class="fui-instagram"></div><div class="fui-instagram"></div></a>

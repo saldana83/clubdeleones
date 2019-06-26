@@ -1,4 +1,4 @@
-1561559167a:1:{s:25:"samples/pricing-table.htm";a:9:{s:8:"fileName";s:25:"samples/pricing-table.htm";s:7:"content";s:2558:"title = "Pricing Table"
+1561559308a:1:{s:25:"samples/pricing-table.htm";a:9:{s:8:"fileName";s:25:"samples/pricing-table.htm";s:7:"content";s:2558:"title = "Pricing Table"
 url = "/pricing-table"
 layout = "default"
 is_hidden = 0
@@ -52,7 +52,7 @@ is_hidden = 0
         </div>
     </div>
 
-</div>";s:5:"mtime";i:1561555242;s:6:"markup";s:2470:"<section id="layout-title">
+</div>";s:5:"mtime";i:1561507227;s:6:"markup";s:2470:"<section id="layout-title">
     <div class="container">
         <h3>Subscriptions</h3>
     </div>
