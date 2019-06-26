@@ -43,7 +43,7 @@ class __TwigTemplate_042dbe0883b9322d618f577688a9680d8ba9828b99ca8aeab747fbc7873
                             <img src=\"";
         // line 9
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/images/logo.png");
-        echo "\" alt=\"Welcome to Flat App\" />
+        echo "\" alt=\"SICLUB\" />
                             <h4>Bienvenido a <small>SICLUB 🦁</small></h4>
                         </div>
 
@@ -111,7 +111,7 @@ class __TwigTemplate_042dbe0883b9322d618f577688a9680d8ba9828b99ca8aeab747fbc7873
                 <div class=\"signin\">
                     <div class=\"signin-screen\">
                         <div class=\"signin-icon\">
-                            <img src=\"{{ 'assets/images/logo.png'|theme }}\" alt=\"Welcome to Flat App\" />
+                            <img src=\"{{ 'assets/images/logo.png'|theme }}\" alt=\"SICLUB\" />
                             <h4>Bienvenido a <small>SICLUB 🦁</small></h4>
                         </div>
 

@@ -1,4 +1,4 @@
-1561559308a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:2558:"==
+1561568196a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:2542:"==
 {# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
@@ -12,9 +12,8 @@
                 'himno': ['conocenos/himno', 'Himno'],
             },
         },
-        'contacto': {
-            name: 'Contacto',
-        },
+        'contacto':  ['contacto', 'Contacto'],
+
 
         'ui-elements': ['ui-elements', 'UI Elements'],
 
@@ -68,7 +67,7 @@
             </ul>
         </div>
     </div>
-</nav>";s:5:"mtime";i:1561558688;s:6:"markup";s:2554:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+</nav>";s:5:"mtime";i:1561567577;s:6:"markup";s:2538:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
         'home': ['home', 'Home'],
@@ -81,9 +80,8 @@
                 'himno': ['conocenos/himno', 'Himno'],
             },
         },
-        'contacto': {
-            name: 'Contacto',
-        },
+        'contacto':  ['contacto', 'Contacto'],
+
 
         'ui-elements': ['ui-elements', 'UI Elements'],
 
