@@ -1,0 +1,14 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table yo_nombre_'
+    - builder_table_create_yo_nombre_.php
+1.0.3:
+    - 'Updated table yo_nombre_'
+    - builder_table_update_yo_nombre_.php
+1.0.4:
+    - 'Created table yo_nombre_data'
+    - builder_table_create_yo_nombre_data.php
+1.0.5:
+    - 'Updated table yo_nombre_data'
+    - builder_table_update_yo_nombre_data.php
