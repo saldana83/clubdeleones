@@ -1,0 +1,4 @@
+title: DataController
+modelClass: Yo\Nombre\Models\Data
+toolbar:
+    buttons: reorder_toolbar

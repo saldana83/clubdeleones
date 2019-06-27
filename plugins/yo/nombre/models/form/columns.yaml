@@ -1,0 +1,11 @@
+columns:
+    id:
+        label: 'yo.nombre::lang.data.id'
+        type: number
+        searchable: true
+        sortable: true
+    nombre:
+        label: 'yo.nombre::lang.plugin.name'
+        type: text
+        searchable: true
+        sortable: true
