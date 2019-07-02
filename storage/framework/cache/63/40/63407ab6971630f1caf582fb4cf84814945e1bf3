@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562438927a:1:{s:13:"user/user.htm";a:9:{s:8:"fileName";s:13:"user/user.htm";s:7:"content";s:200:"title = "User"
+=======
+1562112437a:1:{s:13:"user/user.htm";a:9:{s:8:"fileName";s:13:"user/user.htm";s:7:"content";s:200:"title = "User"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/user"
 layout = "default"
 is_hidden = 0
@@ -7,7 +11,11 @@ is_hidden = 0
     <div class="container">
         <center><h3>Sistema Leones</h3></center>
     </div>
+<<<<<<< testing
 </section>";s:5:"mtime";i:1562164081;s:6:"markup";s:130:"<section id="layout-title">
+=======
+</section>";s:5:"mtime";i:1561686773;s:6:"markup";s:130:"<section id="layout-title">
+>>>>>>> Actualización- de Crear nuevo pago
     <div class="container">
         <center><h3>Sistema Leones</h3></center>
     </div>

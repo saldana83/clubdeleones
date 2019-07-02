@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562438927a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3438:"description = "Default layout"
+=======
+1562112437a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3438:"description = "Default layout"
+>>>>>>> Actualización- de Crear nuevo pago
 ==
 <!DOCTYPE html>
 <html>
@@ -85,7 +89,11 @@
         {% scripts %}
 
     </body>
+<<<<<<< testing
 </html>";s:5:"mtime";i:1562164081;s:6:"markup";s:3402:"<!DOCTYPE html>
+=======
+</html>";s:5:"mtime";i:1561686773;s:6:"markup";s:3402:"<!DOCTYPE html>
+>>>>>>> Actualización- de Crear nuevo pago
 <html>
     <head>
     	<meta charset="UTF-8">

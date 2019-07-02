@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562165044a:1:{s:20:"crear-nuevo-pago.htm";a:9:{s:8:"fileName";s:20:"crear-nuevo-pago.htm";s:7:"content";s:2342:"title = "Crear nuevo pago"
+=======
+1562158401a:1:{s:20:"crear-nuevo-pago.htm";a:9:{s:8:"fileName";s:20:"crear-nuevo-pago.htm";s:7:"content";s:2343:"title = "Crear nuevo pago"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/crear-nuevo-pago"
 layout = "default"
 is_hidden = 0
@@ -113,7 +117,11 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
+<<<<<<< testing
 	</form>";s:5:"mtime";i:1562164276;s:6:"markup";s:2248:"<style type="text/css">
+=======
+	</form>>";s:5:"mtime";i:1562115173;s:6:"markup";s:2249:"<style type="text/css">
+>>>>>>> Actualización- de Crear nuevo pago
 		/*Formulario */
 		form{
 			margin: 0 auto;
@@ -223,4 +231,8 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
+<<<<<<< testing
 	</form>";s:4:"code";N;s:5:"title";s:16:"Crear nuevo pago";s:3:"url";s:17:"/crear-nuevo-pago";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
+=======
+	</form>>";s:4:"code";N;s:5:"title";s:16:"Crear nuevo pago";s:3:"url";s:17:"/crear-nuevo-pago";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
+>>>>>>> Actualización- de Crear nuevo pago

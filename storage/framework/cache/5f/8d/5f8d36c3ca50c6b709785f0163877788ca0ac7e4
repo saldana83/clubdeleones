@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562165045a:1:{s:21:"user/crear-perfil.htm";a:9:{s:8:"fileName";s:21:"user/crear-perfil.htm";s:7:"content";s:6482:"title = "Crear perfil"
+=======
+1562158401a:1:{s:21:"user/crear-perfil.htm";a:9:{s:8:"fileName";s:21:"user/crear-perfil.htm";s:7:"content";s:6482:"title = "Crear perfil"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/crear-perfil"
 layout = "default"
 is_hidden = 0
