@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562165045a:1:{s:20:"registro_de_pago.htm";a:10:{s:8:"fileName";s:20:"registro_de_pago.htm";s:7:"content";s:2410:"title = "registro de pago"
+=======
+1562158401a:1:{s:20:"registro_de_pago.htm";a:10:{s:8:"fileName";s:20:"registro_de_pago.htm";s:7:"content";s:2410:"title = "registro de pago"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/registro-de-pago"
 layout = "default"
 description = "Luis Morell e Isaacs Hurtado"

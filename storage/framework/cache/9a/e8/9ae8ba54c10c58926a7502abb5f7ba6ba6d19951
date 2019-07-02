@@ -1,5 +1,9 @@
+<<<<<<< testing
 <<<<<<< HEAD
 1562174857a:1:{i:0;O:8:"stdClass":5:{s:2:"id";i:4;s:9:"namespace";s:6:"system";s:5:"group";s:6:"update";s:4:"item";s:5:"retry";s:5:"value";s:10:"1562246839";}}
 =======
 1562172654a:1:{i:0;O:8:"stdClass":5:{s:2:"id";i:4;s:9:"namespace";s:6:"system";s:5:"group";s:6:"update";s:4:"item";s:5:"retry";s:5:"value";s:10:"1562188267";}}
 >>>>>>> 8273730... Creacion de listado de pagos por león
+=======
+1562111229a:1:{i:0;O:8:"stdClass":5:{s:2:"id";i:4;s:9:"namespace";s:6:"system";s:5:"group";s:6:"update";s:4:"item";s:5:"retry";s:5:"value";s:10:"1562165767";}}
+>>>>>>> Actualización- de Crear nuevo pago

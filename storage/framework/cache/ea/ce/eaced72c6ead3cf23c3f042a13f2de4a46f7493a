@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562165045a:1:{s:25:"supervidor/supervisor.htm";a:9:{s:8:"fileName";s:25:"supervidor/supervisor.htm";s:7:"content";s:1617:"title = "Supervisor"
+=======
+1562158401a:1:{s:25:"supervidor/supervisor.htm";a:9:{s:8:"fileName";s:25:"supervidor/supervisor.htm";s:7:"content";s:1617:"title = "Supervisor"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/supervisor"
 layout = "default"
 is_hidden = 0

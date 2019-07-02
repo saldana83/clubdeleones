@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562438927a:1:{s:25:"supervidor/supervisor.htm";a:9:{s:8:"fileName";s:25:"supervidor/supervisor.htm";s:7:"content";s:1617:"title = "Supervisor"
+=======
+1562112437a:1:{s:25:"supervidor/supervisor.htm";a:9:{s:8:"fileName";s:25:"supervidor/supervisor.htm";s:7:"content";s:1617:"title = "Supervisor"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/supervisor"
 layout = "default"
 is_hidden = 0
@@ -37,7 +41,11 @@ is_hidden = 0
     </div>
                 
 
+<<<<<<< testing
 </div>";s:5:"mtime";i:1562164081;s:6:"markup";s:1535:"<section id="layout-title">
+=======
+</div>";s:5:"mtime";i:1561686773;s:6:"markup";s:1535:"<section id="layout-title">
+>>>>>>> Actualización- de Crear nuevo pago
     <div class="container">
         <center><h3>Sistema de Supervisor</h3></center>
     </div>

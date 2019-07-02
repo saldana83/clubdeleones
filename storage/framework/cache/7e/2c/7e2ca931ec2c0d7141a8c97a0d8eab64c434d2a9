@@ -1,11 +1,19 @@
+<<<<<<< testing
 1562439397a:1:{s:19:"conocenos/himno.htm";a:9:{s:8:"fileName";s:19:"conocenos/himno.htm";s:7:"content";s:1344:"title = "Himno"
+=======
+1562112437a:1:{s:19:"conocenos/himno.htm";a:9:{s:8:"fileName";s:19:"conocenos/himno.htm";s:7:"content";s:1335:"title = "Himno"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/conocenos/himno"
 layout = "default"
 is_hidden = 0
 ==
 <section id="layout-title">
     <div class="container">
+<<<<<<< testing
         <h3>Himno de Ismania</h3>
+=======
+        <h3>Himno</h3>
+>>>>>>> Actualización- de Crear nuevo pago
     </div>
 </section>
 
@@ -13,13 +21,21 @@ is_hidden = 0
 
     <div class="row">
         <div class="col-sm-7">
+<<<<<<< testing
             <h4 class="headline"><span>Letra</span></h4>
+=======
+            <h4 class="headline"><span>Himno de Ismania</span></h4>
+>>>>>>> Actualización- de Crear nuevo pago
                 <center>
                     <p>Se oye en la jungla de Istmanía </p>
                     <p>rugidos de Leones, que son,</p>
                     <p>mano extendida  a otra mano,</p>
                     <p>llevando esperanza y valor.</p>
+<<<<<<< testing
                     <p></p><br>
+=======
+                    <p></p>
+>>>>>>> Actualización- de Crear nuevo pago
                     <p></p>
                     <p>Temple la fragua encendida</p>
                     <p>nuestra alma de fuerza y fervor,</p>
@@ -28,6 +44,7 @@ is_hidden = 0
                 </center>
         </div>
         <div class="col-sm-5">
+<<<<<<< testing
             <h4 class="headline"><span>Video</span></h4>
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/XY2uzklbvOI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -37,6 +54,17 @@ is_hidden = 0
 </div>";s:5:"mtime";i:1562438795;s:6:"markup";s:1262:"<section id="layout-title">
     <div class="container">
         <h3>Himno de Ismania</h3>
+=======
+            <h4 class="headline"><span>Video intro</span></h4>
+            <div class="video-container">
+                <iframe src="//player.vimeo.com/video/67449472?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1561686773;s:6:"markup";s:1253:"<section id="layout-title">
+    <div class="container">
+        <h3>Himno</h3>
+>>>>>>> Actualización- de Crear nuevo pago
     </div>
 </section>
 
@@ -44,13 +72,21 @@ is_hidden = 0
 
     <div class="row">
         <div class="col-sm-7">
+<<<<<<< testing
             <h4 class="headline"><span>Letra</span></h4>
+=======
+            <h4 class="headline"><span>Himno de Ismania</span></h4>
+>>>>>>> Actualización- de Crear nuevo pago
                 <center>
                     <p>Se oye en la jungla de Istmanía </p>
                     <p>rugidos de Leones, que son,</p>
                     <p>mano extendida  a otra mano,</p>
                     <p>llevando esperanza y valor.</p>
+<<<<<<< testing
                     <p></p><br>
+=======
+                    <p></p>
+>>>>>>> Actualización- de Crear nuevo pago
                     <p></p>
                     <p>Temple la fragua encendida</p>
                     <p>nuestra alma de fuerza y fervor,</p>
@@ -59,9 +95,15 @@ is_hidden = 0
                 </center>
         </div>
         <div class="col-sm-5">
+<<<<<<< testing
             <h4 class="headline"><span>Video</span></h4>
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/XY2uzklbvOI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+=======
+            <h4 class="headline"><span>Video intro</span></h4>
+            <div class="video-container">
+                <iframe src="//player.vimeo.com/video/67449472?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+>>>>>>> Actualización- de Crear nuevo pago
             </div>
         </div>
     </div>

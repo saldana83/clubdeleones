@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562165044a:1:{s:12:"ejemplos.htm";a:9:{s:8:"fileName";s:12:"ejemplos.htm";s:7:"content";s:30253:"title = "Ejemplos"
+=======
+1562158401a:1:{s:12:"ejemplos.htm";a:9:{s:8:"fileName";s:12:"ejemplos.htm";s:7:"content";s:30253:"title = "Ejemplos"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/ejemplos"
 layout = "default"
 is_hidden = 0

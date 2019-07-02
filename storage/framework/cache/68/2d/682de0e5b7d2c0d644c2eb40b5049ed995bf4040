@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562165045a:1:{s:13:"user/user.htm";a:9:{s:8:"fileName";s:13:"user/user.htm";s:7:"content";s:200:"title = "User"
+=======
+1562158401a:1:{s:13:"user/user.htm";a:9:{s:8:"fileName";s:13:"user/user.htm";s:7:"content";s:200:"title = "User"
+>>>>>>> Actualización- de Crear nuevo pago
 url = "/user"
 layout = "default"
 is_hidden = 0

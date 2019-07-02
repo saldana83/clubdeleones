@@ -105,8 +105,13 @@ class __TwigTemplate_e6e126b80864e01db9b594dd108cbb85109e68e4770867ef0521446dadd
 \t\t<div>
 \t\t
 \t\t<div>
+<<<<<<< testing
 \t\t\t<label for=\"Contraseña_Actual\">Contraseña Actual :</label>
 \t\t\t<input type=\"password\" name=\"Contraseña_Actual\" id=\"Contraseña_Actual\"/>\t
+=======
+\t\t\t<label for=\"Contraseña\">Contraseña:</label>
+\t\t\t<input type=\"password\" name=\"Contraseña\" id=\"Contraseña\"/>\t
+>>>>>>> Actualización- de Crear nuevo pago
 \t\t</div>
 
 \t\t<div>
@@ -208,8 +213,13 @@ class __TwigTemplate_e6e126b80864e01db9b594dd108cbb85109e68e4770867ef0521446dadd
 \t\t<div>
 \t\t
 \t\t<div>
+<<<<<<< testing
 \t\t\t<label for=\"Contraseña_Actual\">Contraseña Actual :</label>
 \t\t\t<input type=\"password\" name=\"Contraseña_Actual\" id=\"Contraseña_Actual\"/>\t
+=======
+\t\t\t<label for=\"Contraseña\">Contraseña:</label>
+\t\t\t<input type=\"password\" name=\"Contraseña\" id=\"Contraseña\"/>\t
+>>>>>>> Actualización- de Crear nuevo pago
 \t\t</div>
 
 \t\t<div>

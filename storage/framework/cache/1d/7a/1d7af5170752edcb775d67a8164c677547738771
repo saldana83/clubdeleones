@@ -1,4 +1,8 @@
+<<<<<<< testing
 1562165045a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3438:"description = "Default layout"
+=======
+1562158402a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:3438:"description = "Default layout"
+>>>>>>> Actualización- de Crear nuevo pago
 ==
 <!DOCTYPE html>
 <html>
