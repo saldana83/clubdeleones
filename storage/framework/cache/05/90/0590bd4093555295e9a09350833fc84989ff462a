@@ -1,8 +1,12 @@
 <<<<<<< testing
+<<<<<<< testing
 1562438927a:1:{s:18:"iniciar-sesion.htm";a:9:{s:8:"fileName";s:18:"iniciar-sesion.htm";s:7:"content";s:2039:"title = "Iniciar sesión"
 =======
 1562112437a:1:{s:18:"iniciar-sesion.htm";a:9:{s:8:"fileName";s:18:"iniciar-sesion.htm";s:7:"content";s:2039:"title = "Iniciar sesión"
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+1562175084a:1:{s:18:"iniciar-sesion.htm";a:9:{s:8:"fileName";s:18:"iniciar-sesion.htm";s:7:"content";s:2039:"title = "Iniciar sesión"
+>>>>>>> Creacion de listado de pagos por león
 url = "/iniciar-sesion"
 layout = "default"
 is_hidden = 0
@@ -52,10 +56,14 @@ is_hidden = 0
 
     </div>
 <<<<<<< testing
+<<<<<<< testing
 </div>";s:5:"mtime";i:1562164081;s:6:"markup";s:1948:"<div class="signin-container">
 =======
 </div>";s:5:"mtime";i:1561686773;s:6:"markup";s:1948:"<div class="signin-container">
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+</div>";s:5:"mtime";i:1562163303;s:6:"markup";s:1948:"<div class="signin-container">
+>>>>>>> Creacion de listado de pagos por león
     <div class="container">
 
         <div class="row">
