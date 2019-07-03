@@ -1,4 +1,4 @@
-1562136300a:1:{s:31:"administrador/editar-perfil.htm";a:9:{s:8:"fileName";s:31:"administrador/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
+1562168004a:1:{s:31:"administrador/editar-perfil.htm";a:9:{s:8:"fileName";s:31:"administrador/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
 url = "/editar-perfil"
 layout = "default"
 is_hidden = 0
@@ -217,7 +217,7 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
-	</form>";s:5:"mtime";i:1561867102;s:6:"markup";s:6106:"<style type="text/css">
+	</form>";s:5:"mtime";i:1562165561;s:6:"markup";s:6106:"<style type="text/css">
 		/*Formulario */
 		form{
 			margin: 0 auto;

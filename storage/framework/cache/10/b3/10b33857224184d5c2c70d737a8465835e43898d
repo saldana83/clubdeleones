@@ -1,4 +1,4 @@
-1562136300a:1:{s:33:"administrador/categoria_pagos.htm";a:9:{s:8:"fileName";s:33:"administrador/categoria_pagos.htm";s:7:"content";s:2899:"title = "categoría-pagos"
+1562168004a:1:{s:33:"administrador/categoria_pagos.htm";a:9:{s:8:"fileName";s:33:"administrador/categoria_pagos.htm";s:7:"content";s:2899:"title = "categoría-pagos"
 url = "/categoria-pagos"
 layout = "default"
 is_hidden = 0
@@ -156,7 +156,7 @@ is_hidden = 0
   <td>Ingresar texto aquí</td>
   <td>30.00</td>
 </tr>
-</table>";s:5:"mtime";i:1562135264;s:6:"markup";s:2806:"<style type="text/css">
+</table>";s:5:"mtime";i:1562165561;s:6:"markup";s:2806:"<style type="text/css">
 		
 		#encabezado{
 			background-color: #E6E7E7;
