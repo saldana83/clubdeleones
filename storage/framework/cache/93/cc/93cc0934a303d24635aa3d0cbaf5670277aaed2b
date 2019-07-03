@@ -1,8 +1,12 @@
 <<<<<<< testing
+<<<<<<< testing
 1562438927a:1:{s:29:"conocenos/junta-directiva.htm";a:9:{s:8:"fileName";s:29:"conocenos/junta-directiva.htm";s:7:"content";s:4144:"title = "Junta Directiva"
 =======
 1562112437a:1:{s:29:"conocenos/junta-directiva.htm";a:9:{s:8:"fileName";s:29:"conocenos/junta-directiva.htm";s:7:"content";s:4144:"title = "Junta Directiva"
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+1562175084a:1:{s:29:"conocenos/junta-directiva.htm";a:9:{s:8:"fileName";s:29:"conocenos/junta-directiva.htm";s:7:"content";s:4144:"title = "Junta Directiva"
+>>>>>>> Creacion de listado de pagos por león
 url = "/conocenos/junta-directiva"
 layout = "default"
 is_hidden = 0
@@ -107,10 +111,14 @@ is_hidden = 0
            
 </div>
 <<<<<<< testing
+<<<<<<< testing
 </center>";s:5:"mtime";i:1562164081;s:6:"markup";s:4042:"<section id="layout-title">
 =======
 </center>";s:5:"mtime";i:1561686773;s:6:"markup";s:4042:"<section id="layout-title">
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+</center>";s:5:"mtime";i:1562163303;s:6:"markup";s:4042:"<section id="layout-title">
+>>>>>>> Creacion de listado de pagos por león
     <div class="container">
         <h3>Junta Directiva</h3>
     </div>

@@ -1,8 +1,12 @@
 <<<<<<< testing
+<<<<<<< testing
 1562438927a:1:{s:22:"user/editar-perfil.htm";a:9:{s:8:"fileName";s:22:"user/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
 =======
 1562112437a:1:{s:22:"user/editar-perfil.htm";a:9:{s:8:"fileName";s:22:"user/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+1562175085a:1:{s:22:"user/editar-perfil.htm";a:9:{s:8:"fileName";s:22:"user/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
+>>>>>>> Creacion de listado de pagos por león
 url = "/editar-perfil"
 layout = "default"
 is_hidden = 0
@@ -222,10 +226,14 @@ is_hidden = 0
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
 <<<<<<< testing
+<<<<<<< testing
 	</form>";s:5:"mtime";i:1562164081;s:6:"markup";s:6106:"<style type="text/css">
 =======
 	</form>";s:5:"mtime";i:1562031276;s:6:"markup";s:6106:"<style type="text/css">
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+	</form>";s:5:"mtime";i:1562163303;s:6:"markup";s:6106:"<style type="text/css">
+>>>>>>> Creacion de listado de pagos por león
 		/*Formulario */
 		form{
 			margin: 0 auto;

@@ -1,8 +1,12 @@
 <<<<<<< testing
+<<<<<<< testing
 1562438927a:1:{s:8:"home.htm";a:10:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:1870:"title = "home"
 =======
 1562112437a:1:{s:8:"home.htm";a:10:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:1870:"title = "home"
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+1562175084a:1:{s:8:"home.htm";a:10:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:1870:"title = "home"
+>>>>>>> Creacion de listado de pagos por león
 url = "/"
 layout = "default"
 is_hidden = 0
@@ -52,10 +56,14 @@ slide_show_id = 1
         </div>
     </div>
 <<<<<<< testing
+<<<<<<< testing
 <br />";s:5:"mtime";i:1562164081;s:6:"markup";s:1773:"<section class="home-title">
 =======
 <br />";s:5:"mtime";i:1561686773;s:6:"markup";s:1773:"<section class="home-title">
 >>>>>>> Actualización- de Crear nuevo pago
+=======
+<br />";s:5:"mtime";i:1562163303;s:6:"markup";s:1773:"<section class="home-title">
+>>>>>>> Creacion de listado de pagos por león
     <div class="container">
         <div class="row">
             <div class="ui">
