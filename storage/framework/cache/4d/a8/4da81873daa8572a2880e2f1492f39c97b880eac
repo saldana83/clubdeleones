@@ -1,0 +1,325 @@
+1562134382a:1:{s:19:"historial-pagos.htm";a:8:{s:8:"fileName";s:19:"historial-pagos.htm";s:7:"content";s:2863:"title = "historial-pagos"
+url = "/historial-pagos"
+is_hidden = 0
+==
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		
+		#encabezado{
+			background-color: #E6E7E7;
+			text-align: center;
+			line-height: 70px;
+			height: 70px;
+		}
+
+		#encabezado a{
+			margin-top: -20px;
+			margin-left: 5px;
+			float: left;
+		}
+
+		#encabezado p{
+			margin-right: 30px;
+		}
+
+		table{
+			margin: 0 auto;
+			width: 1000px;
+			border-collapse: collapse;
+			margin-right: 290px;
+		}
+
+		tr{
+			height: 50px;
+			
+		}
+
+		td{
+			border-bottom: 2px solid black;
+			text-align: center;
+		}
+		
+		
+		#buscar_por{
+			
+			float: left;
+			margin-left: 35px;
+		}
+
+		#tipo_pago{
+			float: left;
+			margin-left: 40px;
+			margin-top: 26px;
+		 }
+
+		#boton_buscar button{
+			
+			border-radius: 6px;
+			margin-left: 50px;
+			margin-top: 25px;
+			width: 80px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="encabezado">
+		<a href="">Pagos</a>
+		<P>Historial de Pago</P>
+	</div>
+	<div>
+		<label id="buscar_por" for=""><h2>Buscar por:</h2></label>
+		<select id="tipo_pago" name="pago">
+			<option value="" selected="selected">Tipo de Pago</option>
+			<option value="casado">Categoría de Pago</option>
+		</select>
+	</div>
+	<div id="boton_buscar">
+			<button type="submit">Buscar</button>
+		</div>
+	<table name="historial_pagos">
+		
+	</table>
+
+	<table>
+<div id="celdas">
+<tr id="descripcion">
+  <td><strong>Código de Pago</strong></td>
+  <td><strong>Nombre de Pago</strong></td>
+  <td><strong>Categoría</strong></td>
+  <td><strong>Descripción</strong></td>
+  <td><strong>Saldo</strong></td>
+</tr>
+</div>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+</table>
+
+</body>
+</html>";s:5:"mtime";i:1562133781;s:6:"markup";s:2791:"<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		
+		#encabezado{
+			background-color: #E6E7E7;
+			text-align: center;
+			line-height: 70px;
+			height: 70px;
+		}
+
+		#encabezado a{
+			margin-top: -20px;
+			margin-left: 5px;
+			float: left;
+		}
+
+		#encabezado p{
+			margin-right: 30px;
+		}
+
+		table{
+			margin: 0 auto;
+			width: 1000px;
+			border-collapse: collapse;
+			margin-right: 290px;
+		}
+
+		tr{
+			height: 50px;
+			
+		}
+
+		td{
+			border-bottom: 2px solid black;
+			text-align: center;
+		}
+		
+		
+		#buscar_por{
+			
+			float: left;
+			margin-left: 35px;
+		}
+
+		#tipo_pago{
+			float: left;
+			margin-left: 40px;
+			margin-top: 26px;
+		 }
+
+		#boton_buscar button{
+			
+			border-radius: 6px;
+			margin-left: 50px;
+			margin-top: 25px;
+			width: 80px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="encabezado">
+		<a href="">Pagos</a>
+		<P>Historial de Pago</P>
+	</div>
+	<div>
+		<label id="buscar_por" for=""><h2>Buscar por:</h2></label>
+		<select id="tipo_pago" name="pago">
+			<option value="" selected="selected">Tipo de Pago</option>
+			<option value="casado">Categoría de Pago</option>
+		</select>
+	</div>
+	<div id="boton_buscar">
+			<button type="submit">Buscar</button>
+		</div>
+	<table name="historial_pagos">
+		
+	</table>
+
+	<table>
+<div id="celdas">
+<tr id="descripcion">
+  <td><strong>Código de Pago</strong></td>
+  <td><strong>Nombre de Pago</strong></td>
+  <td><strong>Categoría</strong></td>
+  <td><strong>Descripción</strong></td>
+  <td><strong>Saldo</strong></td>
+</tr>
+</div>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+</table>
+
+</body>
+</html>";s:4:"code";N;s:5:"title";s:15:"historial-pagos";s:3:"url";s:16:"/historial-pagos";s:9:"is_hidden";s:1:"0";}}
