@@ -3,10 +3,17 @@
 ## Instalación
 
 1. Clonar el repositorio
+<<<<<<< HEAD
 1. Al crear la base de datod debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish_ci" 
 1. Exportar la base de datos que se encuentra en el archivo Basededatos
 
 Para acceder al sistema http://127.0.0.1/clubdeleones/backend 
+=======
+2. Al crear la base de datos en phpmyadmin debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish_ci" 
+3. Exportar la base de datos que se encuentra en el archivo xammp/htdocs/clubdeleones/Basededatos
+
+Nota: Para acceder al sistema http://127.0.0.1/clubdeleones/backend 
+>>>>>>> master
 
 usuario: admin
 
