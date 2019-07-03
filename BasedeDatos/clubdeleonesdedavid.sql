@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2019 a las 00:28:52
+-- Tiempo de generación: 03-07-2019 a las 19:25:46
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -57,7 +57,13 @@ INSERT INTO `backend_access_log` (`id`, `user_id`, `ip_address`, `created_at`, `
 (14, 1, '127.0.0.1', '2019-06-24 20:05:17', '2019-06-24 20:05:17'),
 (15, 1, '127.0.0.1', '2019-06-26 17:52:00', '2019-06-26 17:52:00'),
 (16, 1, '127.0.0.1', '2019-06-26 19:31:42', '2019-06-26 19:31:42'),
-(17, 1, '127.0.0.1', '2019-06-28 01:16:22', '2019-06-28 01:16:22');
+(17, 1, '127.0.0.1', '2019-06-28 01:16:22', '2019-06-28 01:16:22'),
+(18, 1, '127.0.0.1', '2019-07-03 18:27:16', '2019-07-03 18:27:16'),
+(19, 1, '127.0.0.1', '2019-07-03 18:57:15', '2019-07-03 18:57:15'),
+(20, 1, '127.0.0.1', '2019-07-03 19:05:00', '2019-07-03 19:05:00'),
+(21, 1, '127.0.0.1', '2019-07-03 19:15:06', '2019-07-03 19:15:06'),
+(22, 1, '127.0.0.1', '2019-07-03 20:10:52', '2019-07-03 20:10:52'),
+(23, 1, '127.0.0.1', '2019-07-03 20:20:35', '2019-07-03 20:20:35');
 
 -- --------------------------------------------------------
 
@@ -91,7 +97,7 @@ CREATE TABLE `backend_users` (
 --
 
 INSERT INTO `backend_users` (`id`, `first_name`, `last_name`, `login`, `email`, `password`, `activation_code`, `persist_code`, `reset_password_code`, `permissions`, `is_activated`, `role_id`, `activated_at`, `last_login`, `created_at`, `updated_at`, `deleted_at`, `is_superuser`) VALUES
-(1, 'Admin', 'Person', 'admin', 'admin@domain.tld', '$2y$10$BQ6il9rchpIP.bh8Pgpn.OrZ5N42qP9K4xRZrWFUxl7/XSFXcxyHK', NULL, '$2y$10$dfPCvVW9YIUdepFp89Y2yOqAIPRZ9T8EW5LT0r.UNcga9DA6Pk822', NULL, '', 1, 2, NULL, '2019-06-28 01:16:22', '2019-06-10 18:59:26', '2019-06-28 01:16:22', NULL, 1);
+(1, 'Admin', 'Person', 'admin', 'admin@domain.tld', '$2y$10$BQ6il9rchpIP.bh8Pgpn.OrZ5N42qP9K4xRZrWFUxl7/XSFXcxyHK', NULL, '$2y$10$yY.i5mm3A5XQbSvE3Yi2NeJrbpCbTR2DeENVzocGywDDiiPKfm8ea', NULL, '', 1, 2, NULL, '2019-07-03 20:20:35', '2019-06-10 18:59:26', '2019-07-03 20:20:35', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -330,25 +336,6 @@ CREATE TABLE `indikator_backend_trash` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `indikator_frontend_plugins`
---
-
-CREATE TABLE `indikator_frontend_plugins` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `webpage` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `version` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `language` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `theme` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `common` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `jobs`
 --
 
@@ -526,934 +513,6 @@ INSERT INTO `peterhegman_slickslider_slide_shows` (`id`, `slide_show_title`, `sl
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rainlab_location_countries`
---
-
-CREATE TABLE `rainlab_location_countries` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `is_enabled` tinyint(1) NOT NULL DEFAULT 0,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_pinned` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `rainlab_location_countries`
---
-
-INSERT INTO `rainlab_location_countries` (`id`, `is_enabled`, `name`, `code`, `is_pinned`) VALUES
-(1, 1, 'Australia', 'AU', 1),
-(2, 1, 'Canada', 'CA', 1),
-(3, 1, 'United Kingdom', 'GB', 1),
-(4, 1, 'United States', 'US', 1),
-(5, 0, 'Afghanistan', 'AF', 0),
-(6, 0, 'Aland Islands ', 'AX', 0),
-(7, 0, 'Albania', 'AL', 0),
-(8, 0, 'Algeria', 'DZ', 0),
-(9, 0, 'American Samoa', 'AS', 0),
-(10, 0, 'Andorra', 'AD', 0),
-(11, 0, 'Angola', 'AO', 0),
-(12, 0, 'Anguilla', 'AI', 0),
-(13, 0, 'Antarctica', 'AQ', 0),
-(14, 0, 'Antigua and Barbuda', 'AG', 0),
-(15, 0, 'Argentina', 'AR', 0),
-(16, 0, 'Armenia', 'AM', 0),
-(17, 0, 'Aruba', 'AW', 0),
-(18, 0, 'Austria', 'AT', 0),
-(19, 0, 'Azerbaijan', 'AZ', 0),
-(20, 0, 'Bahamas', 'BS', 0),
-(21, 0, 'Bahrain', 'BH', 0),
-(22, 0, 'Bangladesh', 'BD', 0),
-(23, 0, 'Barbados', 'BB', 0),
-(24, 0, 'Belarus', 'BY', 0),
-(25, 0, 'Belgium', 'BE', 0),
-(26, 0, 'Belize', 'BZ', 0),
-(27, 0, 'Benin', 'BJ', 0),
-(28, 0, 'Bermuda', 'BM', 0),
-(29, 0, 'Bhutan', 'BT', 0),
-(30, 0, 'Bolivia, Plurinational State of', 'BO', 0),
-(31, 0, 'Bonaire, Sint Eustatius and Saba', 'BQ', 0),
-(32, 0, 'Bosnia and Herzegovina', 'BA', 0),
-(33, 0, 'Botswana', 'BW', 0),
-(34, 0, 'Bouvet Island', 'BV', 0),
-(35, 0, 'Brazil', 'BR', 0),
-(36, 0, 'British Indian Ocean Territory', 'IO', 0),
-(37, 0, 'Brunei Darussalam', 'BN', 0),
-(38, 0, 'Bulgaria', 'BG', 0),
-(39, 0, 'Burkina Faso', 'BF', 0),
-(40, 0, 'Burundi', 'BI', 0),
-(41, 0, 'Cambodia', 'KH', 0),
-(42, 0, 'Cameroon', 'CM', 0),
-(43, 0, 'Cape Verde', 'CV', 0),
-(44, 0, 'Cayman Islands', 'KY', 0),
-(45, 0, 'Central African Republic', 'CF', 0),
-(46, 0, 'Chad', 'TD', 0),
-(47, 0, 'Chile', 'CL', 0),
-(48, 0, 'China', 'CN', 0),
-(49, 0, 'Christmas Island', 'CX', 0),
-(50, 0, 'Cocos (Keeling) Islands', 'CC', 0),
-(51, 0, 'Colombia', 'CO', 0),
-(52, 0, 'Comoros', 'KM', 0),
-(53, 0, 'Congo', 'CG', 0),
-(54, 0, 'Congo, the Democratic Republic of the', 'CD', 0),
-(55, 0, 'Cook Islands', 'CK', 0),
-(56, 0, 'Costa Rica', 'CR', 0),
-(57, 0, 'Cote d\'Ivoire', 'CI', 0),
-(58, 0, 'Croatia', 'HR', 0),
-(59, 0, 'Cuba', 'CU', 0),
-(60, 0, 'Curaçao', 'CW', 0),
-(61, 0, 'Cyprus', 'CY', 0),
-(62, 0, 'Czech Republic', 'CZ', 0),
-(63, 0, 'Denmark', 'DK', 0),
-(64, 0, 'Djibouti', 'DJ', 0),
-(65, 0, 'Dominica', 'DM', 0),
-(66, 0, 'Dominican Republic', 'DO', 0),
-(67, 0, 'Ecuador', 'EC', 0),
-(68, 0, 'Egypt', 'EG', 0),
-(69, 0, 'El Salvador', 'SV', 0),
-(70, 0, 'Equatorial Guinea', 'GQ', 0),
-(71, 0, 'Eritrea', 'ER', 0),
-(72, 0, 'Estonia', 'EE', 0),
-(73, 0, 'Ethiopia', 'ET', 0),
-(74, 0, 'Falkland Islands (Malvinas)', 'FK', 0),
-(75, 0, 'Faroe Islands', 'FO', 0),
-(76, 0, 'Finland', 'FI', 0),
-(77, 0, 'Fiji', 'FJ', 0),
-(78, 1, 'France', 'FR', 0),
-(79, 0, 'French Guiana', 'GF', 0),
-(80, 0, 'French Polynesia', 'PF', 0),
-(81, 0, 'French Southern Territories', 'TF', 0),
-(82, 0, 'Gabon', 'GA', 0),
-(83, 0, 'Gambia', 'GM', 0),
-(84, 0, 'Georgia', 'GE', 0),
-(85, 0, 'Germany', 'DE', 0),
-(86, 0, 'Ghana', 'GH', 0),
-(87, 0, 'Gibraltar', 'GI', 0),
-(88, 0, 'Greece', 'GR', 0),
-(89, 0, 'Greenland', 'GL', 0),
-(90, 0, 'Grenada', 'GD', 0),
-(91, 0, 'Guadeloupe', 'GP', 0),
-(92, 0, 'Guam', 'GU', 0),
-(93, 0, 'Guatemala', 'GT', 0),
-(94, 0, 'Guernsey', 'GG', 0),
-(95, 0, 'Guinea', 'GN', 0),
-(96, 0, 'Guinea-Bissau', 'GW', 0),
-(97, 0, 'Guyana', 'GY', 0),
-(98, 0, 'Haiti', 'HT', 0),
-(99, 0, 'Heard Island and McDonald Islands', 'HM', 0),
-(100, 0, 'Holy See (Vatican City State)', 'VA', 0),
-(101, 0, 'Honduras', 'HN', 0),
-(102, 0, 'Hong Kong', 'HK', 0),
-(103, 1, 'Hungary', 'HU', 0),
-(104, 0, 'Iceland', 'IS', 0),
-(105, 1, 'India', 'IN', 0),
-(106, 0, 'Indonesia', 'ID', 0),
-(107, 0, 'Iran, Islamic Republic of', 'IR', 0),
-(108, 0, 'Iraq', 'IQ', 0),
-(109, 1, 'Ireland', 'IE', 0),
-(110, 0, 'Isle of Man', 'IM', 0),
-(111, 0, 'Israel', 'IL', 0),
-(112, 0, 'Italy', 'IT', 0),
-(113, 0, 'Jamaica', 'JM', 0),
-(114, 0, 'Japan', 'JP', 0),
-(115, 0, 'Jersey', 'JE', 0),
-(116, 0, 'Jordan', 'JO', 0),
-(117, 0, 'Kazakhstan', 'KZ', 0),
-(118, 0, 'Kenya', 'KE', 0),
-(119, 0, 'Kiribati', 'KI', 0),
-(120, 0, 'Korea, Democratic People\'s Republic of', 'KP', 0),
-(121, 0, 'Korea, Republic of', 'KR', 0),
-(122, 0, 'Kuwait', 'KW', 0),
-(123, 0, 'Kyrgyzstan', 'KG', 0),
-(124, 0, 'Lao People\'s Democratic Republic', 'LA', 0),
-(125, 0, 'Latvia', 'LV', 0),
-(126, 0, 'Lebanon', 'LB', 0),
-(127, 0, 'Lesotho', 'LS', 0),
-(128, 0, 'Liberia', 'LR', 0),
-(129, 0, 'Libyan Arab Jamahiriya', 'LY', 0),
-(130, 0, 'Liechtenstein', 'LI', 0),
-(131, 0, 'Lithuania', 'LT', 0),
-(132, 0, 'Luxembourg', 'LU', 0),
-(133, 0, 'Macao', 'MO', 0),
-(134, 0, 'Macedonia', 'MK', 0),
-(135, 0, 'Madagascar', 'MG', 0),
-(136, 0, 'Malawi', 'MW', 0),
-(137, 0, 'Malaysia', 'MY', 0),
-(138, 0, 'Maldives', 'MV', 0),
-(139, 0, 'Mali', 'ML', 0),
-(140, 0, 'Malta', 'MT', 0),
-(141, 0, 'Marshall Islands', 'MH', 0),
-(142, 0, 'Martinique', 'MQ', 0),
-(143, 0, 'Mauritania', 'MR', 0),
-(144, 0, 'Mauritius', 'MU', 0),
-(145, 0, 'Mayotte', 'YT', 0),
-(146, 0, 'Mexico', 'MX', 0),
-(147, 0, 'Micronesia, Federated States of', 'FM', 0),
-(148, 0, 'Moldova, Republic of', 'MD', 0),
-(149, 0, 'Monaco', 'MC', 0),
-(150, 0, 'Mongolia', 'MN', 0),
-(151, 0, 'Montenegro', 'ME', 0),
-(152, 0, 'Montserrat', 'MS', 0),
-(153, 0, 'Morocco', 'MA', 0),
-(154, 0, 'Mozambique', 'MZ', 0),
-(155, 0, 'Myanmar', 'MM', 0),
-(156, 0, 'Namibia', 'NA', 0),
-(157, 0, 'Nauru', 'NR', 0),
-(158, 0, 'Nepal', 'NP', 0),
-(159, 1, 'Netherlands', 'NL', 0),
-(160, 0, 'New Caledonia', 'NC', 0),
-(161, 1, 'New Zealand', 'NZ', 0),
-(162, 0, 'Nicaragua', 'NI', 0),
-(163, 0, 'Niger', 'NE', 0),
-(164, 0, 'Nigeria', 'NG', 0),
-(165, 0, 'Niue', 'NU', 0),
-(166, 0, 'Norfolk Island', 'NF', 0),
-(167, 0, 'Northern Mariana Islands', 'MP', 0),
-(168, 0, 'Norway', 'NO', 0),
-(169, 0, 'Oman', 'OM', 0),
-(170, 0, 'Pakistan', 'PK', 0),
-(171, 0, 'Palau', 'PW', 0),
-(172, 0, 'Palestine', 'PS', 0),
-(173, 0, 'Panama', 'PA', 0),
-(174, 0, 'Papua New Guinea', 'PG', 0),
-(175, 0, 'Paraguay', 'PY', 0),
-(176, 0, 'Peru', 'PE', 0),
-(177, 0, 'Philippines', 'PH', 0),
-(178, 0, 'Pitcairn', 'PN', 0),
-(179, 0, 'Poland', 'PL', 0),
-(180, 0, 'Portugal', 'PT', 0),
-(181, 0, 'Puerto Rico', 'PR', 0),
-(182, 0, 'Qatar', 'QA', 0),
-(183, 0, 'Reunion', 'RE', 0),
-(184, 1, 'Romania', 'RO', 0),
-(185, 0, 'Russian Federation', 'RU', 0),
-(186, 0, 'Rwanda', 'RW', 0),
-(187, 0, 'Saint Barthélemy', 'BL', 0),
-(188, 0, 'Saint Helena', 'SH', 0),
-(189, 0, 'Saint Kitts and Nevis', 'KN', 0),
-(190, 0, 'Saint Lucia', 'LC', 0),
-(191, 0, 'Saint Martin (French part)', 'MF', 0),
-(192, 0, 'Saint Pierre and Miquelon', 'PM', 0),
-(193, 0, 'Saint Vincent and the Grenadines', 'VC', 0),
-(194, 0, 'Samoa', 'WS', 0),
-(195, 0, 'San Marino', 'SM', 0),
-(196, 0, 'Sao Tome and Principe', 'ST', 0),
-(197, 0, 'Saudi Arabia', 'SA', 0),
-(198, 0, 'Senegal', 'SN', 0),
-(199, 0, 'Serbia', 'RS', 0),
-(200, 0, 'Seychelles', 'SC', 0),
-(201, 0, 'Sierra Leone', 'SL', 0),
-(202, 0, 'Singapore', 'SG', 0),
-(203, 0, 'Sint Maarten (Dutch part)', 'SX', 0),
-(204, 0, 'Slovakia', 'SK', 0),
-(205, 0, 'Slovenia', 'SI', 0),
-(206, 0, 'Solomon Islands', 'SB', 0),
-(207, 0, 'Somalia', 'SO', 0),
-(208, 0, 'South Africa', 'ZA', 0),
-(209, 0, 'South Georgia and the South Sandwich Islands', 'GS', 0),
-(210, 1, 'Spain', 'ES', 0),
-(211, 0, 'Sri Lanka', 'LK', 0),
-(212, 0, 'Sudan', 'SD', 0),
-(213, 0, 'Suriname', 'SR', 0),
-(214, 0, 'Svalbard and Jan Mayen', 'SJ', 0),
-(215, 0, 'Swaziland', 'SZ', 0),
-(216, 0, 'Sweden', 'SE', 0),
-(217, 0, 'Switzerland', 'CH', 0),
-(218, 0, 'Syrian Arab Republic', 'SY', 0),
-(219, 0, 'Taiwan, Province of China', 'TW', 0),
-(220, 0, 'Tajikistan', 'TJ', 0),
-(221, 0, 'Tanzania, United Republic of', 'TZ', 0),
-(222, 0, 'Thailand', 'TH', 0),
-(223, 0, 'Timor-Leste', 'TL', 0),
-(224, 0, 'Togo', 'TG', 0),
-(225, 0, 'Tokelau', 'TK', 0),
-(226, 0, 'Tonga', 'TO', 0),
-(227, 0, 'Trinidad and Tobago', 'TT', 0),
-(228, 0, 'Tunisia', 'TN', 0),
-(229, 0, 'Turkey', 'TR', 0),
-(230, 0, 'Turkmenistan', 'TM', 0),
-(231, 0, 'Turks and Caicos Islands', 'TC', 0),
-(232, 0, 'Tuvalu', 'TV', 0),
-(233, 0, 'Uganda', 'UG', 0),
-(234, 0, 'Ukraine', 'UA', 0),
-(235, 0, 'United Arab Emirates', 'AE', 0),
-(236, 0, 'United States Minor Outlying Islands', 'UM', 0),
-(237, 0, 'Uruguay', 'UY', 0),
-(238, 0, 'Uzbekistan', 'UZ', 0),
-(239, 0, 'Vanuatu', 'VU', 0),
-(240, 0, 'Venezuela, Bolivarian Republic of', 'VE', 0),
-(241, 0, 'Viet Nam', 'VN', 0),
-(242, 0, 'Virgin Islands, British', 'VG', 0),
-(243, 0, 'Virgin Islands, U.S.', 'VI', 0),
-(244, 0, 'Wallis and Futuna', 'WF', 0),
-(245, 0, 'Western Sahara', 'EH', 0),
-(246, 0, 'Yemen', 'YE', 0),
-(247, 0, 'Zambia', 'ZM', 0),
-(248, 0, 'Zimbabwe', 'ZW', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rainlab_location_states`
---
-
-CREATE TABLE `rainlab_location_states` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `country_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `rainlab_location_states`
---
-
-INSERT INTO `rainlab_location_states` (`id`, `country_id`, `name`, `code`) VALUES
-(1, 4, 'Alabama', 'AL'),
-(2, 4, 'Alaska', 'AK'),
-(3, 4, 'American Samoa', 'AS'),
-(4, 4, 'Arizona', 'AZ'),
-(5, 4, 'Arkansas', 'AR'),
-(6, 4, 'California', 'CA'),
-(7, 4, 'Colorado', 'CO'),
-(8, 4, 'Connecticut', 'CT'),
-(9, 4, 'Delaware', 'DE'),
-(10, 4, 'Dist. of Columbia', 'DC'),
-(11, 4, 'Florida', 'FL'),
-(12, 4, 'Georgia', 'GA'),
-(13, 4, 'Guam', 'GU'),
-(14, 4, 'Hawaii', 'HI'),
-(15, 4, 'Idaho', 'ID'),
-(16, 4, 'Illinois', 'IL'),
-(17, 4, 'Indiana', 'IN'),
-(18, 4, 'Iowa', 'IA'),
-(19, 4, 'Kansas', 'KS'),
-(20, 4, 'Kentucky', 'KY'),
-(21, 4, 'Louisiana', 'LA'),
-(22, 4, 'Maine', 'ME'),
-(23, 4, 'Maryland', 'MD'),
-(24, 4, 'Marshall Islands', 'MH'),
-(25, 4, 'Massachusetts', 'MA'),
-(26, 4, 'Michigan', 'MI'),
-(27, 4, 'Micronesia', 'FM'),
-(28, 4, 'Minnesota', 'MN'),
-(29, 4, 'Mississippi', 'MS'),
-(30, 4, 'Missouri', 'MO'),
-(31, 4, 'Montana', 'MT'),
-(32, 4, 'Nebraska', 'NE'),
-(33, 4, 'Nevada', 'NV'),
-(34, 4, 'New Hampshire', 'NH'),
-(35, 4, 'New Jersey', 'NJ'),
-(36, 4, 'New Mexico', 'NM'),
-(37, 4, 'New York', 'NY'),
-(38, 4, 'North Carolina', 'NC'),
-(39, 4, 'North Dakota', 'ND'),
-(40, 4, 'Northern Marianas', 'MP'),
-(41, 4, 'Ohio', 'OH'),
-(42, 4, 'Oklahoma', 'OK'),
-(43, 4, 'Oregon', 'OR'),
-(44, 4, 'Palau', 'PW'),
-(45, 4, 'Pennsylvania', 'PA'),
-(46, 4, 'Puerto Rico', 'PR'),
-(47, 4, 'Rhode Island', 'RI'),
-(48, 4, 'South Carolina', 'SC'),
-(49, 4, 'South Dakota', 'SD'),
-(50, 4, 'Tennessee', 'TN'),
-(51, 4, 'Texas', 'TX'),
-(52, 4, 'Utah', 'UT'),
-(53, 4, 'Vermont', 'VT'),
-(54, 4, 'Virginia', 'VA'),
-(55, 4, 'Virgin Islands', 'VI'),
-(56, 4, 'Washington', 'WA'),
-(57, 4, 'West Virginia', 'WV'),
-(58, 4, 'Wisconsin', 'WI'),
-(59, 4, 'Wyoming', 'WY'),
-(60, 35, 'Acre', 'AC'),
-(61, 35, 'Alagoas', 'AL'),
-(62, 35, 'Amapá', 'AP'),
-(63, 35, 'Amazonas', 'AM'),
-(64, 35, 'Bahia', 'BA'),
-(65, 35, 'Ceará', 'CE'),
-(66, 35, 'Distrito Federal', 'DF'),
-(67, 35, 'Espírito Santo', 'ES'),
-(68, 35, 'Goiás', 'GO'),
-(69, 35, 'Maranhão', 'MA'),
-(70, 35, 'Mato Grosso', 'MT'),
-(71, 35, 'Mato Grosso do Sul', 'MS'),
-(72, 35, 'Minas Gerais', 'MG'),
-(73, 35, 'Pará', 'PA'),
-(74, 35, 'Paraíba', 'PB'),
-(75, 35, 'Paraná', 'PR'),
-(76, 35, 'Pernambuco', 'PE'),
-(77, 35, 'Piauí', 'PI'),
-(78, 35, 'Rio de Janeiro', 'RJ'),
-(79, 35, 'Rio Grande do Norte', 'RN'),
-(80, 35, 'Rio Grande do Sul', 'RS'),
-(81, 35, 'Rondônia', 'RO'),
-(82, 35, 'Roraima', 'RR'),
-(83, 35, 'Santa Catarina', 'SC'),
-(84, 35, 'São Paulo', 'SP'),
-(85, 35, 'Sergipe', 'SE'),
-(86, 35, 'Tocantins', 'TO'),
-(87, 2, 'Alberta', 'AB'),
-(88, 2, 'British Columbia', 'BC'),
-(89, 2, 'Manitoba', 'MB'),
-(90, 2, 'New Brunswick', 'NB'),
-(91, 2, 'Newfoundland and Labrador', 'NL'),
-(92, 2, 'Northwest Territories', 'NT'),
-(93, 2, 'Nova Scotia', 'NS'),
-(94, 2, 'Nunavut', 'NU'),
-(95, 2, 'Ontario', 'ON'),
-(96, 2, 'Prince Edward Island', 'PE'),
-(97, 2, 'Quebec', 'QC'),
-(98, 2, 'Saskatchewan', 'SK'),
-(99, 2, 'Yukon', 'YT'),
-(100, 217, 'Aargau', 'AG'),
-(101, 217, 'Appenzell Innerrhoden', 'AI'),
-(102, 217, 'Appenzell Ausserrhoden', 'AR'),
-(103, 217, 'Bern', 'BE'),
-(104, 217, 'Basel-Landschaft', 'BL'),
-(105, 217, 'Basel-Stadt', 'BS'),
-(106, 217, 'Fribourg', 'FR'),
-(107, 217, 'Genève', 'GE'),
-(108, 217, 'Glarus', 'GL'),
-(109, 217, 'Graubünden', 'GR'),
-(110, 217, 'Jura', 'JU'),
-(111, 217, 'Luzern', 'LU'),
-(112, 217, 'Neuchâtel', 'NE'),
-(113, 217, 'Nidwalden', 'NW'),
-(114, 217, 'Obwalden', 'OW'),
-(115, 217, 'St. Gallen', 'SG'),
-(116, 217, 'Solothurn', 'SO'),
-(117, 217, 'Schwyz', 'SZ'),
-(118, 217, 'Thurgau', 'TG'),
-(119, 217, 'Ticino', 'TI'),
-(120, 217, 'Uri', 'UR'),
-(121, 217, 'Vaud', 'VD'),
-(122, 217, 'Valais', 'VS'),
-(123, 217, 'Zug', 'ZG'),
-(124, 217, 'Zürich', 'ZH'),
-(125, 1, 'New South Wales', 'NSW'),
-(126, 1, 'Queensland', 'QLD'),
-(127, 1, 'South Australia', 'SA'),
-(128, 1, 'Tasmania', 'TAS'),
-(129, 1, 'Victoria', 'VIC'),
-(130, 1, 'Western Australia', 'WA'),
-(131, 1, 'Northern Territory', 'NT'),
-(132, 1, 'Australian Capital Territory', 'ACT'),
-(133, 85, 'Baden-Württemberg', 'BW'),
-(134, 85, 'Bavaria', 'BY'),
-(135, 85, 'Berlin', 'BE'),
-(136, 85, 'Brandenburg', 'BB'),
-(137, 85, 'Bremen', 'HB'),
-(138, 85, 'Hamburg', 'HH'),
-(139, 85, 'Hesse', 'HE'),
-(140, 85, 'Mecklenburg-Vorpommern', 'MV'),
-(141, 85, 'Lower Saxony', 'NI'),
-(142, 85, 'North Rhine-Westphalia', 'NW'),
-(143, 85, 'Rhineland-Palatinate', 'RP'),
-(144, 85, 'Saarland', 'SL'),
-(145, 85, 'Saxony', 'SN'),
-(146, 85, 'Saxony-Anhalt', 'ST'),
-(147, 85, 'Schleswig-Holstein', 'SH'),
-(148, 85, 'Thuringia', 'TH'),
-(149, 72, 'Harju', 'HA'),
-(150, 72, 'Hiiu', 'HI'),
-(151, 72, 'Ida-Viru', 'IV'),
-(152, 72, 'Jõgeva', 'JR'),
-(153, 72, 'Järva', 'JN'),
-(154, 72, 'Lääne', 'LN'),
-(155, 72, 'Lääne-Viru', 'LV'),
-(156, 72, 'Põlva', 'PL'),
-(157, 72, 'Pärnu', 'PR'),
-(158, 72, 'Rapla', 'RA'),
-(159, 72, 'Saare', 'SA'),
-(160, 72, 'Tartu', 'TA'),
-(161, 72, 'Valga', 'VG'),
-(162, 72, 'Viljandi', 'VD'),
-(163, 72, 'Võru', 'VR'),
-(164, 109, 'Dublin', 'D'),
-(165, 109, 'Wicklow', 'WW'),
-(166, 109, 'Wexford', 'WX'),
-(167, 109, 'Carlow', 'CW'),
-(168, 109, 'Kildare', 'KE'),
-(169, 109, 'Meath', 'MH'),
-(170, 109, 'Louth', 'LH'),
-(171, 109, 'Monaghan', 'MN'),
-(172, 109, 'Cavan', 'CN'),
-(173, 109, 'Longford', 'LD'),
-(174, 109, 'Westmeath', 'WH'),
-(175, 109, 'Offaly', 'OY'),
-(176, 109, 'Laois', 'LS'),
-(177, 109, 'Kilkenny', 'KK'),
-(178, 109, 'Waterford', 'WD'),
-(179, 109, 'Cork', 'C'),
-(180, 109, 'Kerry', 'KY'),
-(181, 109, 'Limerick', 'LK'),
-(182, 109, 'North Tipperary', 'TN'),
-(183, 109, 'South Tipperary', 'TS'),
-(184, 109, 'Clare', 'CE'),
-(185, 109, 'Galway', 'G'),
-(186, 109, 'Mayo', 'MO'),
-(187, 109, 'Roscommon', 'RN'),
-(188, 109, 'Sligo', 'SO'),
-(189, 109, 'Leitrim', 'LM'),
-(190, 109, 'Donegal', 'DL'),
-(191, 159, 'Drenthe', 'DR'),
-(192, 159, 'Flevoland', 'FL'),
-(193, 159, 'Friesland', 'FR'),
-(194, 159, 'Gelderland', 'GE'),
-(195, 159, 'Groningen', 'GR'),
-(196, 159, 'Limburg', 'LI'),
-(197, 159, 'Noord-Brabant', 'NB'),
-(198, 159, 'Noord-Holland', 'NH'),
-(199, 159, 'Overijssel', 'OV'),
-(200, 159, 'Utrecht', 'UT'),
-(201, 159, 'Zeeland', 'ZE'),
-(202, 159, 'Zuid-Holland', 'ZH'),
-(203, 3, 'Aberdeenshire', 'ABE'),
-(204, 3, 'Anglesey', 'ALY'),
-(205, 3, 'Angus', 'ANG'),
-(206, 3, 'Argyll', 'ARG'),
-(207, 3, 'Ayrshire', 'AYR'),
-(208, 3, 'Banffshire', 'BAN'),
-(209, 3, 'Bedfordshire', 'BED'),
-(210, 3, 'Berkshire', 'BER'),
-(211, 3, 'Berwickshire', 'BWS'),
-(212, 3, 'Brecknockshire', 'BRE'),
-(213, 3, 'Buckinghamshire', 'BUC'),
-(214, 3, 'Bute', 'BUT'),
-(215, 3, 'Caernarfonshire', 'CAE'),
-(216, 3, 'Caithness', 'CAI'),
-(217, 3, 'Cambridgeshire', 'CAM'),
-(218, 3, 'Cardiganshire', 'CAR'),
-(219, 3, 'Carmarthenshire', 'CMS'),
-(220, 3, 'Cheshire', 'CHE'),
-(221, 3, 'Clackmannanshire', 'CLA'),
-(222, 3, 'Cleveland', 'CLE'),
-(223, 3, 'Cornwall', 'COR'),
-(224, 3, 'Cromartyshire', 'CRO'),
-(225, 3, 'Cumberland', 'CBR'),
-(226, 3, 'Cumbria', 'CUM'),
-(227, 3, 'Denbighshire', 'DEN'),
-(228, 3, 'Derbyshire', 'DER'),
-(229, 3, 'Devon', 'DEV'),
-(230, 3, 'Dorset', 'DOR'),
-(231, 3, 'Dumbartonshire', 'DBS'),
-(232, 3, 'Dumfriesshire', 'DUM'),
-(233, 3, 'Durham', 'DUR'),
-(234, 3, 'East Lothian', 'ELO'),
-(235, 3, 'Essex', 'ESS'),
-(236, 3, 'Flintshire', 'FLI'),
-(237, 3, 'Fife', 'FIF'),
-(238, 3, 'Glamorgan', 'GLA'),
-(239, 3, 'Gloucestershire', 'GLO'),
-(240, 3, 'Hampshire', 'HAM'),
-(241, 3, 'Herefordshire', 'HER'),
-(242, 3, 'Hertfordshire', 'HTF'),
-(243, 3, 'Huntingdonshire', 'HUN'),
-(244, 3, 'Inverness', 'INV'),
-(245, 3, 'Kent', 'KEN'),
-(246, 3, 'Kincardineshire', 'KCD'),
-(247, 3, 'Kinross-shire', 'KIN'),
-(248, 3, 'Kirkcudbrightshire', 'KIR'),
-(249, 3, 'Lanarkshire', 'LKS'),
-(250, 3, 'Lancashire', 'LAN'),
-(251, 3, 'Leicestershire', 'LEI'),
-(252, 3, 'Lincolnshire', 'LIN'),
-(253, 3, 'London', 'LON'),
-(254, 3, 'Manchester', 'MAN'),
-(255, 3, 'Merionethshire', 'MER'),
-(256, 3, 'Merseyside', 'MSY'),
-(257, 3, 'Middlesex', 'MDX'),
-(258, 3, 'Midlands', 'MID'),
-(259, 3, 'Midlothian', 'MLT'),
-(260, 3, 'Monmouthshire', 'MON'),
-(261, 3, 'Montgomeryshire', 'MGY'),
-(262, 3, 'Moray', 'MOR'),
-(263, 3, 'Nairnshire', 'NAI'),
-(264, 3, 'Norfolk', 'NOR'),
-(265, 3, 'Northamptonshire', 'NMP'),
-(266, 3, 'Northumberland', 'NUM'),
-(267, 3, 'Nottinghamshire', 'NOT'),
-(268, 3, 'Orkney', 'ORK'),
-(269, 3, 'Oxfordshire', 'OXF'),
-(270, 3, 'Peebleshire', 'PEE'),
-(271, 3, 'Pembrokeshire', 'PEM'),
-(272, 3, 'Perthshire', 'PER'),
-(273, 3, 'Radnorshire', 'RAD'),
-(274, 3, 'Renfrewshire', 'REN'),
-(275, 3, 'Ross & Cromarty', 'ROS'),
-(276, 3, 'Roxburghshire', 'ROX'),
-(277, 3, 'Rutland', 'RUT'),
-(278, 3, 'Selkirkshire', 'SEL'),
-(279, 3, 'Shetland', 'SHE'),
-(280, 3, 'Shropshire', 'SHR'),
-(281, 3, 'Somerset', 'SOM'),
-(282, 3, 'Staffordshire', 'STA'),
-(283, 3, 'Stirlingshire', 'STI'),
-(284, 3, 'Suffolk', 'SUF'),
-(285, 3, 'Surrey', 'SUR'),
-(286, 3, 'Sussex', 'SUS'),
-(287, 3, 'Sutherland', 'SUT'),
-(288, 3, 'Tyne & Wear', 'TYN'),
-(289, 3, 'Warwickshire', 'WAR'),
-(290, 3, 'West Lothian', 'WLO'),
-(291, 3, 'Westmorland', 'WES'),
-(292, 3, 'Wigtownshire', 'WIG'),
-(293, 3, 'Wiltshire', 'WIL'),
-(294, 3, 'Worcestershire', 'WOR'),
-(295, 3, 'Yorkshire', 'YOR'),
-(296, 184, 'Alba', 'AB'),
-(297, 184, 'Arad', 'AR'),
-(298, 184, 'Arges', 'AG'),
-(299, 184, 'Bacău', 'BC'),
-(300, 184, 'Bihor', 'BH'),
-(301, 184, 'Bistrita - Nasaud Bistrita', 'BN'),
-(302, 184, 'Botosani', 'BT'),
-(303, 184, 'Brasov', 'BV'),
-(304, 184, 'Braila', 'BR'),
-(305, 184, 'Bucuresti', 'B'),
-(306, 184, 'Buzau', 'BZ'),
-(307, 184, 'Caras - Severin', 'CS'),
-(308, 184, 'Calarasi', 'CL'),
-(309, 184, 'Cluj', 'CJ'),
-(310, 184, 'Constanta', 'CT'),
-(311, 184, 'Covasna Sfantu Gheorghe', 'CV'),
-(312, 184, 'Dambovita', 'DB'),
-(313, 184, 'Dolj', 'DJ'),
-(314, 184, 'Galati', 'GL'),
-(315, 184, 'Giurgiu', 'GR'),
-(316, 184, 'Gorj', 'GJ'),
-(317, 184, 'Harghita', 'HR'),
-(318, 184, 'Hunedoara', 'HD'),
-(319, 184, 'Ialomita', 'IL'),
-(320, 184, 'Iasi', 'IS'),
-(321, 184, 'Ilfov', 'IF'),
-(322, 184, 'Maramures', 'MM'),
-(323, 184, 'Mehedinti', 'MH'),
-(324, 184, 'Mures', 'MS'),
-(325, 184, 'Neamt', 'NT'),
-(326, 184, 'Olt', 'OT'),
-(327, 184, 'Prahova Ploiesti', 'PH'),
-(328, 184, 'Satu Mare', 'SM'),
-(329, 184, 'Salaj', 'SJ'),
-(330, 184, 'Sibiu', 'SB'),
-(331, 184, 'Suceava', 'SV'),
-(332, 184, 'Teleorman', 'TR'),
-(333, 184, 'Timis', 'TM'),
-(334, 184, 'Tulcea', 'TL'),
-(335, 184, 'Vaslui', 'VS'),
-(336, 184, 'Valcea', 'VL'),
-(337, 184, 'Vrancea', 'VN'),
-(338, 103, 'Budapest', 'BUD'),
-(339, 103, 'Baranya', 'BAR'),
-(340, 103, 'Bács-Kiskun', 'BKM'),
-(341, 103, 'Békés', 'BEK'),
-(342, 103, 'Borsod-Abaúj-Zemplén', 'BAZ'),
-(343, 103, 'Csongrád', 'CSO'),
-(344, 103, 'Fejér', 'FEJ'),
-(345, 103, 'Győr-Moson-Sopron', 'GMS'),
-(346, 103, 'Hajdú-Bihar', 'HBM'),
-(347, 103, 'Heves', 'HEV'),
-(348, 103, 'Jász-Nagykun-Szolnok', 'JNS'),
-(349, 103, 'Komárom-Esztergom', 'KEM'),
-(350, 103, 'Nógrád', 'NOG'),
-(351, 103, 'Pest', 'PES'),
-(352, 103, 'Somogy', 'SOM'),
-(353, 103, 'Szabolcs-Szatmár-Bereg', 'SSB'),
-(354, 103, 'Tolna', 'TOL'),
-(355, 103, 'Vas', 'VAS'),
-(356, 103, 'Veszprém', 'VES'),
-(357, 103, 'Zala', 'ZAL'),
-(358, 105, 'Andhra Pradesh', 'AP'),
-(359, 105, 'Arunachal Pradesh', 'AR'),
-(360, 105, 'Assam', 'AS'),
-(361, 105, 'Bihar', 'BR'),
-(362, 105, 'Chhattisgarh', 'CT'),
-(363, 105, 'Goa', 'GA'),
-(364, 105, 'Gujarat', 'GJ'),
-(365, 105, 'Haryana', 'HR'),
-(366, 105, 'Himachal Pradesh', 'HP'),
-(367, 105, 'Jammu and Kashmir', 'JK'),
-(368, 105, 'Jharkhand', 'JH'),
-(369, 105, 'Karnataka', 'KA'),
-(370, 105, 'Kerala', 'KL'),
-(371, 105, 'Madhya Pradesh', 'MP'),
-(372, 105, 'Maharashtra', 'MH'),
-(373, 105, 'Manipur', 'MN'),
-(374, 105, 'Meghalaya', 'ML'),
-(375, 105, 'Mizoram', 'MZ'),
-(376, 105, 'Nagaland', 'NL'),
-(377, 105, 'Odisha', 'OR'),
-(378, 105, 'Punjab', 'PB'),
-(379, 105, 'Rajasthan', 'RJ'),
-(380, 105, 'Sikkim', 'SK'),
-(381, 105, 'Tamil Nadu', 'TN'),
-(382, 105, 'Telangana', 'TG'),
-(383, 105, 'Tripura', 'TR'),
-(384, 105, 'Uttarakhand', 'UT'),
-(385, 105, 'Uttar Pradesh', 'UP'),
-(386, 105, 'West Bengal', 'WB'),
-(387, 105, 'Andaman and Nicobar Islands', 'AN'),
-(388, 105, 'Chandigarh', 'CH'),
-(389, 105, 'Dadra and Nagar Haveli', 'DN'),
-(390, 105, 'Daman and Diu', 'DD'),
-(391, 105, 'Delhi', 'DL'),
-(392, 105, 'Lakshadweep', 'LD'),
-(393, 105, 'Puducherry', 'PY'),
-(394, 78, 'Auvergne-Rhône-Alpes', 'ARA'),
-(395, 78, 'Bourgogne-Franche-Comté', 'BFC'),
-(396, 78, 'Bretagne', 'BZH'),
-(397, 78, 'Centre–Val-de-Loire', 'CVL'),
-(398, 78, 'Corse', 'COR'),
-(399, 78, 'Guadeloupe', 'GP'),
-(400, 78, 'Guyane', 'GF'),
-(401, 78, 'Grand-Est', 'GE'),
-(402, 78, 'Hauts-de-France', 'HF'),
-(403, 78, 'Île-de-France', 'IDF'),
-(404, 78, 'Martinique', 'MQ'),
-(405, 78, 'Mayotte', 'YT'),
-(406, 78, 'Normandie', 'NOR'),
-(407, 78, 'Pays-de-la-Loire', 'PL'),
-(408, 78, 'Nouvelle-Aquitaine', 'NA'),
-(409, 78, 'Occitanie', 'OCC'),
-(410, 78, 'Provence-Alpes-Côte-d\'Azur', 'PACA'),
-(411, 78, 'Réunion', 'RE'),
-(412, 161, 'Northland', 'NTL'),
-(413, 161, 'Auckland', 'AUK'),
-(414, 161, 'Waikato', 'WKO'),
-(415, 161, 'Bay of Plenty', 'BOP'),
-(416, 161, 'Gisborne', 'GIS'),
-(417, 161, 'Hawke\'s Bay', 'HKB'),
-(418, 161, 'Taranaki', 'TKI'),
-(419, 161, 'Manawatu-Wanganui', 'MWT'),
-(420, 161, 'Wellington', 'WGN'),
-(421, 161, 'Tasman', 'TAS'),
-(422, 161, 'Nelson', 'NSN'),
-(423, 161, 'Marlborough', 'MBH'),
-(424, 161, 'West Coast', 'WTC'),
-(425, 161, 'Canterbury', 'CAN'),
-(426, 161, 'Otago Otago', 'OTA'),
-(427, 161, 'Southland', 'STL'),
-(428, 210, 'A Coruña (gl) [La Coruña]', 'ES-C'),
-(429, 210, 'Araba (eu)', 'ES-VI'),
-(430, 210, 'Albacete', 'ES-AB'),
-(431, 210, 'Alacant (ca)', 'ES-A'),
-(432, 210, 'Almería', 'ES-AL'),
-(433, 210, 'Asturias', 'ES-O'),
-(434, 210, 'Ávila', 'ES-AV'),
-(435, 210, 'Badajoz', 'ES-BA'),
-(436, 210, 'Balears (ca) [Baleares]', 'ES-PM'),
-(437, 210, 'Barcelona [Barcelona]', 'ES-B'),
-(438, 210, 'Burgos', 'ES-BU'),
-(439, 210, 'Cáceres', 'ES-CC'),
-(440, 210, 'Cádiz', 'ES-CA'),
-(441, 210, 'Cantabria', 'ES-S'),
-(442, 210, 'Castelló (ca)', 'ES-CS'),
-(443, 210, 'Ciudad Real', 'ES-CR'),
-(444, 210, 'Córdoba', 'ES-CO'),
-(445, 210, 'Cuenca', 'ES-CU'),
-(446, 210, 'Girona (ca) [Gerona]', 'ES-GI'),
-(447, 210, 'Granada', 'ES-GR'),
-(448, 210, 'Guadalajara', 'ES-GU'),
-(449, 210, 'Gipuzkoa (eu)', 'ES-SS'),
-(450, 210, 'Huelva', 'ES-H'),
-(451, 210, 'Huesca', 'ES-HU'),
-(452, 210, 'Jaén', 'ES-J'),
-(453, 210, 'La Rioja', 'ES-LO'),
-(454, 210, 'Las Palmas', 'ES-GC'),
-(455, 210, 'León', 'ES-LE'),
-(456, 210, 'Lleida (ca) [Lérida]', 'ES-L'),
-(457, 210, 'Lugo (gl) [Lugo]', 'ES-LU'),
-(458, 210, 'Madrid', 'ES-M'),
-(459, 210, 'Málaga', 'ES-MA'),
-(460, 210, 'Murcia', 'ES-MU'),
-(461, 210, 'Nafarroa (eu)', 'ES-NA'),
-(462, 210, 'Ourense (gl) [Orense]', 'ES-OR'),
-(463, 210, 'Palencia', 'ES-P'),
-(464, 210, 'Pontevedra (gl) [Pontevedra]', 'ES-PO'),
-(465, 210, 'Salamanca', 'ES-SA'),
-(466, 210, 'Santa Cruz de Tenerife', 'ES-TF'),
-(467, 210, 'Segovia', 'ES-SG'),
-(468, 210, 'Sevilla', 'ES-SE'),
-(469, 210, 'Soria', 'ES-SO'),
-(470, 210, 'Tarragona (ca) [Tarragona]', 'ES-T'),
-(471, 210, 'Teruel', 'ES-TE'),
-(472, 210, 'Toledo', 'ES-TO'),
-(473, 210, 'València (ca)', 'ES-V'),
-(474, 210, 'Valladolid', 'ES-VA'),
-(475, 210, 'Bizkaia (eu)', 'ES-BI'),
-(476, 210, 'Zamora', 'ES-ZA'),
-(477, 210, 'Zaragoza', 'ES-Z'),
-(478, 146, 'Aguascalientes', 'MX-AGU'),
-(479, 146, 'Baja California', 'MX-BCN'),
-(480, 146, 'Baja California Sur', 'MX-BCS'),
-(481, 146, 'Campeche', 'MX-CAM'),
-(482, 146, 'Chiapas', 'MX-CHP'),
-(483, 146, 'Chihuahua', 'MX-CHH'),
-(484, 146, 'Coahuila', 'MX-COA'),
-(485, 146, 'Colima', 'MX-COL'),
-(486, 146, 'Ciudad de México', 'MX-CMX​'),
-(487, 146, 'Durango', 'MX-DUR'),
-(488, 146, 'Guanajuato', 'MX-GUA'),
-(489, 146, 'Guerrero', 'MX-GRO'),
-(490, 146, 'Hidalgo', 'MX-HID'),
-(491, 146, 'Jalisco', 'MX-JAL'),
-(492, 146, 'Estado de México', 'MX-MEX'),
-(493, 146, 'Michoacán', 'MX-MIC'),
-(494, 146, 'Morelos', 'MX-MOR'),
-(495, 146, 'Nayarit', 'MX-NAY'),
-(496, 146, 'Nuevo León', 'MX-NLE'),
-(497, 146, 'Oaxaca', 'MX-OAX'),
-(498, 146, 'Puebla', 'MX-PUE'),
-(499, 146, 'Querétaro', 'MX-QUE'),
-(500, 146, 'Quintana Roo', 'MX-ROO'),
-(501, 146, 'San Luis Potosí', 'MX-SLP'),
-(502, 146, 'Sinaloa', 'MX-SIN'),
-(503, 146, 'Sonora', 'MX-SON'),
-(504, 146, 'Tabasco', 'MX-TAB'),
-(505, 146, 'Tamaulipas', 'MX-TAM'),
-(506, 146, 'Tlaxcala', 'MX-TLA'),
-(507, 146, 'Veracruz', 'MX-VER'),
-(508, 146, 'Yucatán', 'MX-YUC'),
-(509, 146, 'Zacatecas', 'MX-ZAC'),
-(510, 15, 'Buenos Aires', 'BA'),
-(511, 15, 'Catamarca', 'CA'),
-(512, 15, 'Chaco', 'CH'),
-(513, 15, 'Chubut', 'CT'),
-(514, 15, 'Córdoba', 'CB'),
-(515, 15, 'Corrientes', 'CR'),
-(516, 15, 'Entre Ríos', 'ER'),
-(517, 15, 'Formosa', 'FO'),
-(518, 15, 'Jujuy', 'JY'),
-(519, 15, 'La Pampa', 'LP'),
-(520, 15, 'La Rioja', 'LR'),
-(521, 15, 'Mendoza', 'MZ'),
-(522, 15, 'Misiones', 'MI'),
-(523, 15, 'Neuquén', 'NQ'),
-(524, 15, 'Río Negro', 'RN'),
-(525, 15, 'Salta', 'SA'),
-(526, 15, 'San Juan', 'SJ'),
-(527, 15, 'San Luis', 'SL'),
-(528, 15, 'Santa Cruz', 'SC'),
-(529, 15, 'Santa Fe', 'SF'),
-(530, 15, 'Santiago del Estero', 'SE'),
-(531, 15, 'Tierra del Fuego', 'TF'),
-(532, 15, 'Tucumán', 'TU');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rainlab_notify_notifications`
---
-
-CREATE TABLE `rainlab_notify_notifications` (
-  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `event_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `notifiable_id` int(10) UNSIGNED NOT NULL,
-  `notifiable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `body` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `data` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `read_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rainlab_notify_notification_rules`
---
-
-CREATE TABLE `rainlab_notify_notification_rules` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `class_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `config_data` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition_data` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_enabled` tinyint(1) NOT NULL DEFAULT 0,
-  `is_custom` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `rainlab_notify_notification_rules`
---
-
-INSERT INTO `rainlab_notify_notification_rules` (`id`, `name`, `code`, `class_name`, `description`, `config_data`, `condition_data`, `is_enabled`, `is_custom`, `created_at`, `updated_at`) VALUES
-(1, 'Send welcome email to user', 'welcome_email', 'RainLab\\User\\NotifyRules\\UserRegisteredEvent', NULL, NULL, NULL, 1, 0, '2019-06-27 20:14:39', '2019-06-27 20:14:39');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rainlab_notify_rule_actions`
---
-
-CREATE TABLE `rainlab_notify_rule_actions` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `class_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `config_data` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rule_host_id` int(10) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `rainlab_notify_rule_actions`
---
-
-INSERT INTO `rainlab_notify_rule_actions` (`id`, `class_name`, `config_data`, `rule_host_id`, `created_at`, `updated_at`) VALUES
-(1, 'RainLab\\Notify\\NotifyRules\\SendMailTemplateAction', '{\"mail_template\":\"rainlab.user::welcome\",\"send_to_mode\":\"user\"}', 1, '2019-06-27 20:14:39', '2019-06-27 20:14:39');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rainlab_notify_rule_conditions`
---
-
-CREATE TABLE `rainlab_notify_rule_conditions` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `class_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `config_data` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition_control_type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rule_host_type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rule_host_id` int(10) UNSIGNED DEFAULT NULL,
-  `rule_parent_id` int(10) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `rainlab_notify_rule_conditions`
---
-
-INSERT INTO `rainlab_notify_rule_conditions` (`id`, `class_name`, `config_data`, `condition_control_type`, `rule_host_type`, `rule_host_id`, `rule_parent_id`, `created_at`, `updated_at`) VALUES
-(1, 'RainLab\\Notify\\Classes\\CompoundCondition', '{\"condition_type\":\"0\",\"condition\":\"true\"}', NULL, 'any', NULL, NULL, '2019-06-27 20:14:41', '2019-06-27 20:14:41');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rainlab_user_mail_blockers`
---
-
-CREATE TABLE `rainlab_user_mail_blockers` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `template` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `sessions`
 --
 
@@ -1532,7 +591,34 @@ INSERT INTO `system_event_logs` (`id`, `level`, `message`, `details`, `created_a
 (30, 'error', 'PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \'0\' for key \'PRIMARY\' in C:\\xampp\\htdocs\\clubdeleones\\vendor\\doctrine\\dbal\\lib\\Doctrine\\DBAL\\Driver\\PDOStatement.php:105\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\doctrine\\dbal\\lib\\Doctrine\\DBAL\\Driver\\PDOStatement.php(105): PDOStatement->execute(NULL)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(458): Doctrine\\DBAL\\Driver\\PDOStatement->execute()\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(657): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}(\'insert into `yo...\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback(\'insert into `yo...\', Array, Object(Closure))\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run(\'insert into `yo...\', Array, Object(Closure))\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(411): Illuminate\\Database\\Connection->statement(\'insert into `yo...\', Array)\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\Processor.php(32): Illuminate\\Database\\Connection->insert(\'insert into `yo...\', Array)\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(2159): Illuminate\\Database\\Query\\Processors\\Processor->processInsertGetId(Object(October\\Rain\\Database\\QueryBuilder), \'insert into `yo...\', Array, \'id\')\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\QueryBuilder.php(276): Illuminate\\Database\\Query\\Builder->insertGetId(Array, \'id\')\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1283): October\\Rain\\Database\\QueryBuilder->insertGetId(Array, \'id\')\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Builder.php(178): Illuminate\\Database\\Eloquent\\Builder->__call(\'insertGetId\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(722): October\\Rain\\Database\\Builder->__call(\'insertGetId\', Array)\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(687): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(October\\Rain\\Database\\Builder), Array)\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(550): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(October\\Rain\\Database\\Builder))\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Model.php(747): Illuminate\\Database\\Eloquent\\Model->save(Array)\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Model.php(780): October\\Rain\\Database\\Model->saveInternal(Array)\n#16 C:\\xampp\\htdocs\\clubdeleones\\storage\\cms\\cache\\13\\12\\ejemplos.htm.php(15): October\\Rain\\Database\\Model->save()\n#17 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(859): Cms5d152f31b2600426158395_1c10340747b2f0e9c0c1c394322ed6d6Class->onGuardar()\n#18 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(740): Cms\\Classes\\Controller->runAjaxHandler(\'onGuardar\')\n#19 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(373): Cms\\Classes\\Controller->execAjaxHandlers()\n#20 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(224): Cms\\Classes\\Controller->runPage(Object(Cms\\Classes\\Page))\n#21 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CmsController.php(50): Cms\\Classes\\Controller->run(\'ejemplos\')\n#22 [internal function]: Cms\\Classes\\CmsController->run(\'ejemplos\')\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Cms\\Classes\\CmsController), \'run\')\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#48 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#49 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#50 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#51 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#52 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#53 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#54 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#55 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#56 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#57 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#58 {main}\n\nNext Doctrine\\DBAL\\Driver\\PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \'0\' for key \'PRIMARY\' in C:\\xampp\\htdocs\\clubdeleones\\vendor\\doctrine\\dbal\\lib\\Doctrine\\DBAL\\Driver\\PDOStatement.php:107\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(458): Doctrine\\DBAL\\Driver\\PDOStatement->execute()\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(657): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}(\'insert into `yo...\', Array)\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback(\'insert into `yo...\', Array, Object(Closure))\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run(\'insert into `yo...\', Array, Object(Closure))\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(411): Illuminate\\Database\\Connection->statement(\'insert into `yo...\', Array)\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\Processor.php(32): Illuminate\\Database\\Connection->insert(\'insert into `yo...\', Array)\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(2159): Illuminate\\Database\\Query\\Processors\\Processor->processInsertGetId(Object(October\\Rain\\Database\\QueryBuilder), \'insert into `yo...\', Array, \'id\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\QueryBuilder.php(276): Illuminate\\Database\\Query\\Builder->insertGetId(Array, \'id\')\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1283): October\\Rain\\Database\\QueryBuilder->insertGetId(Array, \'id\')\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Builder.php(178): Illuminate\\Database\\Eloquent\\Builder->__call(\'insertGetId\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(722): October\\Rain\\Database\\Builder->__call(\'insertGetId\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(687): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(October\\Rain\\Database\\Builder), Array)\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(550): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(October\\Rain\\Database\\Builder))\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Model.php(747): Illuminate\\Database\\Eloquent\\Model->save(Array)\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Model.php(780): October\\Rain\\Database\\Model->saveInternal(Array)\n#15 C:\\xampp\\htdocs\\clubdeleones\\storage\\cms\\cache\\13\\12\\ejemplos.htm.php(15): October\\Rain\\Database\\Model->save()\n#16 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(859): Cms5d152f31b2600426158395_1c10340747b2f0e9c0c1c394322ed6d6Class->onGuardar()\n#17 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(740): Cms\\Classes\\Controller->runAjaxHandler(\'onGuardar\')\n#18 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(373): Cms\\Classes\\Controller->execAjaxHandlers()\n#19 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(224): Cms\\Classes\\Controller->runPage(Object(Cms\\Classes\\Page))\n#20 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CmsController.php(50): Cms\\Classes\\Controller->run(\'ejemplos\')\n#21 [internal function]: Cms\\Classes\\CmsController->run(\'ejemplos\')\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Cms\\Classes\\CmsController), \'run\')\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#47 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#48 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#49 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#50 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#51 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#52 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#53 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#54 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#55 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#56 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#57 {main}\n\nNext Illuminate\\Database\\QueryException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \'0\' for key \'PRIMARY\' (SQL: insert into `yo_nombre_data` (`nombre`) values (ojiegjktb)) in C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:664\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(624): Illuminate\\Database\\Connection->runQueryCallback(\'insert into `yo...\', Array, Object(Closure))\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(459): Illuminate\\Database\\Connection->run(\'insert into `yo...\', Array, Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(411): Illuminate\\Database\\Connection->statement(\'insert into `yo...\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\Processor.php(32): Illuminate\\Database\\Connection->insert(\'insert into `yo...\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(2159): Illuminate\\Database\\Query\\Processors\\Processor->processInsertGetId(Object(October\\Rain\\Database\\QueryBuilder), \'insert into `yo...\', Array, \'id\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\QueryBuilder.php(276): Illuminate\\Database\\Query\\Builder->insertGetId(Array, \'id\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1283): October\\Rain\\Database\\QueryBuilder->insertGetId(Array, \'id\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Builder.php(178): Illuminate\\Database\\Eloquent\\Builder->__call(\'insertGetId\', Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(722): October\\Rain\\Database\\Builder->__call(\'insertGetId\', Array)\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(687): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(October\\Rain\\Database\\Builder), Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(550): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(October\\Rain\\Database\\Builder))\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Model.php(747): Illuminate\\Database\\Eloquent\\Model->save(Array)\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Database\\Model.php(780): October\\Rain\\Database\\Model->saveInternal(Array)\n#13 C:\\xampp\\htdocs\\clubdeleones\\storage\\cms\\cache\\13\\12\\ejemplos.htm.php(15): October\\Rain\\Database\\Model->save()\n#14 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(859): Cms5d152f31b2600426158395_1c10340747b2f0e9c0c1c394322ed6d6Class->onGuardar()\n#15 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(740): Cms\\Classes\\Controller->runAjaxHandler(\'onGuardar\')\n#16 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(373): Cms\\Classes\\Controller->execAjaxHandlers()\n#17 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(224): Cms\\Classes\\Controller->runPage(Object(Cms\\Classes\\Page))\n#18 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CmsController.php(50): Cms\\Classes\\Controller->run(\'ejemplos\')\n#19 [internal function]: Cms\\Classes\\CmsController->run(\'ejemplos\')\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Cms\\Classes\\CmsController), \'run\')\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#48 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#49 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#50 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#51 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#52 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#53 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#54 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#55 {main}', NULL, '2019-06-28 02:03:51', '2019-06-28 02:03:51'),
 (31, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Parse error: syntax error, unexpected \'if\' (T_IF) in C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(289) : eval()\'d code:15\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(152): Cms\\Classes\\CodeParser->validate(\'<?php \\r\\nuse \\\\Yo...\')\n#1 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(112): Cms\\Classes\\CodeParser->rebuild(\'C:\\\\xampp\\\\htdocs...\')\n#2 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(170): Cms\\Classes\\CodeParser->parse()\n#3 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(635): Cms\\Classes\\CodeParser->source(Object(Cms\\Classes\\Page), Object(Cms\\Classes\\Layout), Object(Cms\\Classes\\Controller))\n#4 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(331): Cms\\Classes\\Controller->initCustomObjects()\n#5 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(224): Cms\\Classes\\Controller->runPage(Object(Cms\\Classes\\Page))\n#6 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CmsController.php(50): Cms\\Classes\\Controller->run(\'ejemplos\')\n#7 [internal function]: Cms\\Classes\\CmsController->run(\'ejemplos\')\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Cms\\Classes\\CmsController), \'run\')\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#43 {main}', NULL, '2019-06-28 02:11:48', '2019-06-28 02:11:48');
 INSERT INTO `system_event_logs` (`id`, `level`, `message`, `details`, `created_at`, `updated_at`) VALUES
-(32, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Parse error: syntax error, unexpected \'if\' (T_IF) in C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(289) : eval()\'d code:15\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(152): Cms\\Classes\\CodeParser->validate(\'<?php \\r\\nuse \\\\Yo...\')\n#1 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(112): Cms\\Classes\\CodeParser->rebuild(\'C:\\\\xampp\\\\htdocs...\')\n#2 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(170): Cms\\Classes\\CodeParser->parse()\n#3 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(635): Cms\\Classes\\CodeParser->source(Object(Cms\\Classes\\Page), Object(Cms\\Classes\\Layout), Object(Cms\\Classes\\Controller))\n#4 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(331): Cms\\Classes\\Controller->initCustomObjects()\n#5 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(224): Cms\\Classes\\Controller->runPage(Object(Cms\\Classes\\Page))\n#6 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CmsController.php(50): Cms\\Classes\\Controller->run(\'ejemplos\')\n#7 [internal function]: Cms\\Classes\\CmsController->run(\'ejemplos\')\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Cms\\Classes\\CmsController), \'run\')\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#43 {main}', NULL, '2019-06-28 02:12:19', '2019-06-28 02:12:19');
+(32, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Parse error: syntax error, unexpected \'if\' (T_IF) in C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(289) : eval()\'d code:15\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(152): Cms\\Classes\\CodeParser->validate(\'<?php \\r\\nuse \\\\Yo...\')\n#1 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(112): Cms\\Classes\\CodeParser->rebuild(\'C:\\\\xampp\\\\htdocs...\')\n#2 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CodeParser.php(170): Cms\\Classes\\CodeParser->parse()\n#3 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(635): Cms\\Classes\\CodeParser->source(Object(Cms\\Classes\\Page), Object(Cms\\Classes\\Layout), Object(Cms\\Classes\\Controller))\n#4 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(331): Cms\\Classes\\Controller->initCustomObjects()\n#5 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\Controller.php(224): Cms\\Classes\\Controller->runPage(Object(Cms\\Classes\\Page))\n#6 C:\\xampp\\htdocs\\clubdeleones\\modules\\cms\\classes\\CmsController.php(50): Cms\\Classes\\Controller->run(\'ejemplos\')\n#7 [internal function]: Cms\\Classes\\CmsController->run(\'ejemplos\')\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Cms\\Classes\\CmsController), \'run\')\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#43 {main}', NULL, '2019-06-28 02:12:19', '2019-06-28 02:12:19'),
+(33, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'redirect\')\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#9 C:\\xampp\\htdocs\\clubdeleones\\modules\\system\\controllers\\Updates.php(789): Illuminate\\Support\\Facades\\Facade::__callStatic(\'refresh\', Array)\n#10 [internal function]: System\\Controllers\\Updates->onRemovePlugin()\n#11 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\Controller.php(621): call_user_func_array(Array, Array)\n#12 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\Controller.php(471): Backend\\Classes\\Controller->runAjaxHandler(\'onRemovePlugin\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\Controller.php(268): Backend\\Classes\\Controller->execAjaxHandlers()\n#14 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\BackendController.php(161): Backend\\Classes\\Controller->run(\'install\', Array)\n#15 [internal function]: Backend\\Classes\\BackendController->run(\'system/updates/...\')\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Backend\\Classes\\BackendController), \'run\')\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\BackendController.php(68): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(131): Backend\\Classes\\BackendController->Backend\\Classes\\{closure}(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#48 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#49 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#50 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#51 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#52 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#53 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#54 {main}', NULL, '2019-07-03 19:50:39', '2019-07-03 19:50:39'),
+(34, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(34): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\BackendController.php(68): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(131): Backend\\Classes\\BackendController->Backend\\Classes\\{closure}(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#48 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#49 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#50 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#51 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(35, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#48 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(36, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#45 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40');
+INSERT INTO `system_event_logs` (`id`, `level`, `message`, `details`, `created_at`, `updated_at`) VALUES
+(37, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#42 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(38, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#39 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(39, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#36 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(40, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#33 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(41, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(34): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#26 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(42, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#23 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(43, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(326): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(124): Illuminate\\Foundation\\Http\\Kernel->renderException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#20 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40'),
+(44, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalErrorException: Uncaught Error: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 {main}', NULL, '2019-07-03 19:50:40', '2019-07-03 19:50:40');
+INSERT INTO `system_event_logs` (`id`, `level`, `message`, `details`, `created_at`, `updated_at`) VALUES
+(45, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'redirect\')\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#9 C:\\xampp\\htdocs\\clubdeleones\\modules\\system\\controllers\\Updates.php(789): Illuminate\\Support\\Facades\\Facade::__callStatic(\'refresh\', Array)\n#10 [internal function]: System\\Controllers\\Updates->onRemovePlugin()\n#11 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\Controller.php(621): call_user_func_array(Array, Array)\n#12 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\Controller.php(471): Backend\\Classes\\Controller->runAjaxHandler(\'onRemovePlugin\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\Controller.php(268): Backend\\Classes\\Controller->execAjaxHandlers()\n#14 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\BackendController.php(161): Backend\\Classes\\Controller->run(\'install\', Array)\n#15 [internal function]: Backend\\Classes\\BackendController->run(\'system/updates/...\')\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): call_user_func_array(Array, Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction(\'run\', Array)\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(212): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(Backend\\Classes\\BackendController), \'run\')\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(169): Illuminate\\Routing\\Route->runController()\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(658): Illuminate\\Routing\\Route->run()\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\BackendController.php(68): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(131): Backend\\Classes\\BackendController->Backend\\Classes\\{closure}(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#48 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#49 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#50 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#51 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#52 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#53 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#54 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(46, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(34): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\modules\\backend\\classes\\BackendController.php(68): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(131): Backend\\Classes\\BackendController->Backend\\Classes\\{closure}(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#48 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#49 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#50 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#51 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(47, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(41): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#45 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#46 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#47 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#48 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(48, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#42 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#43 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#44 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#45 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(49, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(63): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#39 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#40 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#41 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#42 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07');
+INSERT INTO `system_event_logs` (`id`, `level`, `message`, `details`, `created_at`, `updated_at`) VALUES
+(50, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#36 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#37 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#38 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#39 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(51, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(66): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#33 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#34 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#35 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#36 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(52, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(660): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(635): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(601): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Router\\CoreRouter.php(20): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): October\\Rain\\Router\\CoreRouter->dispatch(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(30): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))\n#26 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#27 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#28 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#29 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#30 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#31 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#32 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#33 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(53, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(34): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode.php(46): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(149): Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode->handle(Object(Illuminate\\Http\\Request), Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(53): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#23 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#24 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#25 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#26 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(54, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(83): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php(57): Illuminate\\Routing\\Pipeline->handleException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(102): Illuminate\\Routing\\Pipeline->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))\n#20 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(151): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))\n#21 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))\n#22 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#23 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(55, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalThrowableError: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'redirect\')\n#6 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(151): Illuminate\\Container\\Container->offsetGet(\'redirect\')\n#7 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#8 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#9 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'Illuminate\\\\Cont...\', Array)\n#10 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'Illuminate\\\\Cont...\', Array)\n#11 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#12 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(1195): October\\Rain\\Foundation\\Application->make(\'Illuminate\\\\Cont...\')\n#13 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(159): Illuminate\\Container\\Container->offsetGet(\'Illuminate\\\\Cont...\')\n#14 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(128): Illuminate\\Support\\Facades\\Facade::resolveFacadeInstance(\'Illuminate\\\\Cont...\')\n#15 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(215): Illuminate\\Support\\Facades\\Facade::getFacadeRoot()\n#16 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Exception\\Handler.php(75): Illuminate\\Support\\Facades\\Facade::__callStatic(\'make\', Array)\n#17 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(326): October\\Rain\\Foundation\\Exception\\Handler->render(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#18 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(124): Illuminate\\Foundation\\Http\\Kernel->renderException(Object(Illuminate\\Http\\Request), Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))\n#19 C:\\xampp\\htdocs\\clubdeleones\\index.php(43): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))\n#20 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07'),
+(56, 'error', 'Symfony\\Component\\Debug\\Exception\\FatalErrorException: Uncaught Error: Class \'RainLab\\User\\Classes\\UserRedirector\' not found in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(749): RainLab\\User\\Plugin->RainLab\\User\\{closure}(Object(October\\Rain\\Foundation\\Application), Array)\n#1 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(631): Illuminate\\Container\\Container->build(Object(Closure))\n#2 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(586): Illuminate\\Container\\Container->resolve(\'redirect\', Array)\n#3 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(732): Illuminate\\Container\\Container->make(\'redirect\', Array)\n#4 C:\\xampp\\htdocs\\clubdeleones\\vendor\\october\\rain\\src\\Foundation\\Application.php(158): Illuminate\\Foundation\\Application->make(\'redirect\')\n#5 C:\\xampp\\htdocs\\clubdeleones\\vendor\\laravel\\framework in C:\\xampp\\htdocs\\clubdeleones\\plugins\\rainlab\\user\\Plugin.php:44\nStack trace:\n#0 {main}', NULL, '2019-07-03 22:24:07', '2019-07-03 22:24:07');
 
 -- --------------------------------------------------------
 
@@ -1677,7 +763,7 @@ INSERT INTO `system_parameters` (`id`, `namespace`, `group`, `item`, `value`) VA
 (1, 'system', 'update', 'count', '0'),
 (2, 'system', 'core', 'hash', '\"530fb2559d6b264485c60ac3797fe8ac\"'),
 (3, 'system', 'core', 'build', '\"455\"'),
-(4, 'system', 'update', 'retry', '1561752983'),
+(4, 'system', 'update', 'retry', '1562246839'),
 (5, 'system', 'theme', 'history', '{\"Responsiv.Flat\":\"responsiv-flat\"}'),
 (6, 'cms', 'theme', 'active', '\"clubdeleonesdavid\"');
 
@@ -1701,73 +787,6 @@ CREATE TABLE `system_plugin_history` (
 --
 
 INSERT INTO `system_plugin_history` (`id`, `code`, `type`, `version`, `detail`, `created_at`) VALUES
-(88, 'RainLab.User', 'script', '1.0.1', 'create_users_table.php', '2019-06-11 19:43:25'),
-(89, 'RainLab.User', 'script', '1.0.1', 'create_throttle_table.php', '2019-06-11 19:43:25'),
-(90, 'RainLab.User', 'comment', '1.0.1', 'Initialize plugin.', '2019-06-11 19:43:25'),
-(91, 'RainLab.User', 'comment', '1.0.2', 'Seed tables.', '2019-06-11 19:43:25'),
-(92, 'RainLab.User', 'comment', '1.0.3', 'Translated hard-coded text to language strings.', '2019-06-11 19:43:25'),
-(93, 'RainLab.User', 'comment', '1.0.4', 'Improvements to user-interface for Location manager.', '2019-06-11 19:43:25'),
-(94, 'RainLab.User', 'comment', '1.0.5', 'Added contact details for users.', '2019-06-11 19:43:25'),
-(95, 'RainLab.User', 'script', '1.0.6', 'create_mail_blockers_table.php', '2019-06-11 19:43:25'),
-(96, 'RainLab.User', 'comment', '1.0.6', 'Added Mail Blocker utility so users can block specific mail templates.', '2019-06-11 19:43:25'),
-(97, 'RainLab.User', 'comment', '1.0.7', 'Add back-end Settings page.', '2019-06-11 19:43:25'),
-(98, 'RainLab.User', 'comment', '1.0.8', 'Updated the Settings page.', '2019-06-11 19:43:25'),
-(99, 'RainLab.User', 'comment', '1.0.9', 'Adds new welcome mail message for users and administrators.', '2019-06-11 19:43:25'),
-(100, 'RainLab.User', 'comment', '1.0.10', 'Adds administrator-only activation mode.', '2019-06-11 19:43:25'),
-(101, 'RainLab.User', 'script', '1.0.11', 'users_add_login_column.php', '2019-06-11 19:43:25'),
-(102, 'RainLab.User', 'comment', '1.0.11', 'Users now have an optional login field that defaults to the email field.', '2019-06-11 19:43:25'),
-(103, 'RainLab.User', 'script', '1.0.12', 'users_rename_login_to_username.php', '2019-06-11 19:43:25'),
-(104, 'RainLab.User', 'comment', '1.0.12', 'Create a dedicated setting for choosing the login mode.', '2019-06-11 19:43:25'),
-(105, 'RainLab.User', 'comment', '1.0.13', 'Minor fix to the Account sign in logic.', '2019-06-11 19:43:25'),
-(106, 'RainLab.User', 'comment', '1.0.14', 'Minor improvements to the code.', '2019-06-11 19:43:25'),
-(107, 'RainLab.User', 'script', '1.0.15', 'users_add_surname.php', '2019-06-11 19:43:25'),
-(108, 'RainLab.User', 'comment', '1.0.15', 'Adds last name column to users table (surname).', '2019-06-11 19:43:25'),
-(109, 'RainLab.User', 'comment', '1.0.16', 'Require permissions for settings page too.', '2019-06-11 19:43:25'),
-(110, 'RainLab.User', 'comment', '1.1.0', '!!! Profile fields and Locations have been removed.', '2019-06-11 19:43:25'),
-(111, 'RainLab.User', 'script', '1.1.1', 'create_user_groups_table.php', '2019-06-11 19:43:25'),
-(112, 'RainLab.User', 'script', '1.1.1', 'seed_user_groups_table.php', '2019-06-11 19:43:25'),
-(113, 'RainLab.User', 'comment', '1.1.1', 'Users can now be added to groups.', '2019-06-11 19:43:25'),
-(114, 'RainLab.User', 'comment', '1.1.2', 'A raw URL can now be passed as the redirect property in the Account component.', '2019-06-11 19:43:25'),
-(115, 'RainLab.User', 'comment', '1.1.3', 'Adds a super user flag to the users table, reserved for future use.', '2019-06-11 19:43:25'),
-(116, 'RainLab.User', 'comment', '1.1.4', 'User list can be filtered by the group they belong to.', '2019-06-11 19:43:25'),
-(117, 'RainLab.User', 'comment', '1.1.5', 'Adds a new permission to hide the User settings menu item.', '2019-06-11 19:43:25'),
-(118, 'RainLab.User', 'script', '1.2.0', 'users_add_deleted_at.php', '2019-06-11 19:43:25'),
-(119, 'RainLab.User', 'comment', '1.2.0', 'Users can now deactivate their own accounts.', '2019-06-11 19:43:25'),
-(120, 'RainLab.User', 'comment', '1.2.1', 'New feature for checking if a user is recently active/online.', '2019-06-11 19:43:25'),
-(121, 'RainLab.User', 'comment', '1.2.2', 'Add bulk action button to user list.', '2019-06-11 19:43:25'),
-(122, 'RainLab.User', 'comment', '1.2.3', 'Included some descriptive paragraphs in the Reset Password component markup.', '2019-06-11 19:43:25'),
-(123, 'RainLab.User', 'comment', '1.2.4', 'Added a checkbox for blocking all mail sent to the user.', '2019-06-11 19:43:25'),
-(124, 'RainLab.User', 'script', '1.2.5', 'update_timestamp_nullable.php', '2019-06-11 19:43:26'),
-(125, 'RainLab.User', 'comment', '1.2.5', 'Database maintenance. Updated all timestamp columns to be nullable.', '2019-06-11 19:43:26'),
-(126, 'RainLab.User', 'script', '1.2.6', 'users_add_last_seen.php', '2019-06-11 19:43:26'),
-(127, 'RainLab.User', 'comment', '1.2.6', 'Add a dedicated last seen column for users.', '2019-06-11 19:43:26'),
-(128, 'RainLab.User', 'comment', '1.2.7', 'Minor fix to user timestamp attributes.', '2019-06-11 19:43:26'),
-(129, 'RainLab.User', 'comment', '1.2.8', 'Add date range filter to users list. Introduced a logout event.', '2019-06-11 19:43:26'),
-(130, 'RainLab.User', 'comment', '1.2.9', 'Add invitation mail for new accounts created in the back-end.', '2019-06-11 19:43:26'),
-(131, 'RainLab.User', 'script', '1.3.0', 'users_add_guest_flag.php', '2019-06-11 19:43:26'),
-(132, 'RainLab.User', 'script', '1.3.0', 'users_add_superuser_flag.php', '2019-06-11 19:43:26'),
-(133, 'RainLab.User', 'comment', '1.3.0', 'Introduced guest user accounts.', '2019-06-11 19:43:26'),
-(134, 'RainLab.User', 'comment', '1.3.1', 'User notification variables can now be extended.', '2019-06-11 19:43:26'),
-(135, 'RainLab.User', 'comment', '1.3.2', 'Minor fix to the Auth::register method.', '2019-06-11 19:43:26'),
-(136, 'RainLab.User', 'comment', '1.3.3', 'Allow prevention of concurrent user sessions via the user settings.', '2019-06-11 19:43:26'),
-(137, 'RainLab.User', 'comment', '1.3.4', 'Added force secure protocol property to the account component.', '2019-06-11 19:43:26'),
-(138, 'RainLab.User', 'comment', '1.4.0', '!!! The Notifications tab in User settings has been removed.', '2019-06-11 19:43:26'),
-(139, 'RainLab.User', 'comment', '1.4.1', 'Added support for user impersonation.', '2019-06-11 19:43:26'),
-(140, 'RainLab.User', 'comment', '1.4.2', 'Fixes security bug in Password Reset component.', '2019-06-11 19:43:26'),
-(141, 'RainLab.User', 'comment', '1.4.3', 'Fixes session handling for AJAX requests.', '2019-06-11 19:43:26'),
-(142, 'RainLab.User', 'comment', '1.4.4', 'Fixes bug where impersonation touches the last seen timestamp.', '2019-06-11 19:43:26'),
-(143, 'RainLab.User', 'comment', '1.4.5', 'Added token fallback process to Account / Reset Password components when parameter is missing.', '2019-06-11 19:43:26'),
-(144, 'RainLab.User', 'comment', '1.4.6', 'Fixes Auth::register method signature mismatch with core OctoberCMS Auth library', '2019-06-11 19:43:26'),
-(145, 'RainLab.User', 'comment', '1.4.7', 'Fixes redirect bug in Account component / Update translations and separate user and group management.', '2019-06-11 19:43:26'),
-(146, 'RainLab.User', 'comment', '1.4.8', 'Fixes a bug where calling MailBlocker::removeBlock could remove all mail blocks for the user.', '2019-06-11 19:43:26'),
-(166, 'RainLab.UserPlus', 'comment', '1.0.1', 'First version of User Profile', '2019-06-11 19:55:34'),
-(167, 'RainLab.UserPlus', 'script', '1.0.2', 'user_add_profile_fields.php', '2019-06-11 19:55:34'),
-(168, 'RainLab.UserPlus', 'script', '1.0.2', 'user_add_location_fields.php', '2019-06-11 19:55:34'),
-(169, 'RainLab.UserPlus', 'comment', '1.0.2', 'Reintroduce profile fields that were removed from User plugin', '2019-06-11 19:55:34'),
-(170, 'RainLab.UserPlus', 'script', '1.0.3', 'user_add_mobile_field.php', '2019-06-11 19:55:34'),
-(171, 'RainLab.UserPlus', 'comment', '1.0.3', 'Add mobile phone user profile field.', '2019-06-11 19:55:34'),
-(172, 'RainLab.UserPlus', 'comment', '1.0.4', 'Add various languages and minor bug fixes.', '2019-06-11 19:55:34'),
-(173, 'RainLab.UserPlus', 'comment', '1.1.0', 'Compatibility with Notify plugin.', '2019-06-11 19:55:34'),
 (187, 'PeterHegman.SlickSlider', 'comment', '1.0.1', 'Initialize plugin.', '2019-06-13 18:41:09'),
 (188, 'PeterHegman.SlickSlider', 'script', '1.0.2', 'builder_table_create_peterhegman_slickslider_slide_shows.php', '2019-06-13 18:41:09'),
 (189, 'PeterHegman.SlickSlider', 'comment', '1.0.2', 'Created table peterhegman_slickslider_slide_shows', '2019-06-13 18:41:09'),
@@ -1873,38 +892,6 @@ INSERT INTO `system_plugin_history` (`id`, `code`, `type`, `version`, `detail`, 
 (381, 'Indikator.DevTools', 'comment', '1.1.9', 'Updated the main navigation icon.', '2019-06-27 17:49:13'),
 (382, 'Indikator.DevTools', 'comment', '1.1.9', 'Added last modified date.', '2019-06-27 17:49:13'),
 (383, 'Indikator.DevTools', 'comment', '1.2.0', 'The syntax highlighting works again!', '2019-06-27 17:49:13'),
-(384, 'Indikator.Plugins', 'script', '1.0.0', 'create_plugins_table.php', '2019-06-27 17:49:38'),
-(385, 'Indikator.Plugins', 'comment', '1.0.0', 'First version of Frontend Plugins.', '2019-06-27 17:49:38'),
-(386, 'Indikator.Plugins', 'comment', '1.0.1', 'Minor improvements and bugfixes.', '2019-06-27 17:49:38'),
-(387, 'Indikator.Plugins', 'comment', '1.0.2', 'Added prefix to database.', '2019-06-27 17:49:39'),
-(388, 'Indikator.Plugins', 'comment', '1.0.3', 'Changed the first bar chart to pie.', '2019-06-27 17:49:39'),
-(389, 'Indikator.Plugins', 'comment', '1.0.4', 'Improved the widget exception handling.', '2019-06-27 17:49:39'),
-(390, 'Indikator.Plugins', 'comment', '1.0.5', 'Added the image statistics.', '2019-06-27 17:49:39'),
-(391, 'Indikator.Plugins', 'comment', '1.0.6', 'Redesigned the statistics.', '2019-06-27 17:49:39'),
-(392, 'Indikator.Plugins', 'comment', '1.0.7', 'Added the permission setting.', '2019-06-27 17:49:39'),
-(393, 'Indikator.Plugins', 'comment', '1.0.8', 'Improvements and bug fixes.', '2019-06-27 17:49:39'),
-(394, 'Indikator.Plugins', 'comment', '1.0.9', 'Minor improvements.', '2019-06-27 17:49:39'),
-(395, 'Indikator.Plugins', 'comment', '1.1.0', 'Added the Font option for Type.', '2019-06-27 17:49:39'),
-(396, 'Indikator.Plugins', 'comment', '1.1.1', 'Minor UI improvements.', '2019-06-27 17:49:39'),
-(397, 'Indikator.Plugins', 'comment', '1.2.0', 'Added the plugin detection feature.', '2019-06-27 17:49:39'),
-(398, 'Indikator.Plugins', 'comment', '1.2.1', 'Added the description for plugins.', '2019-06-27 17:49:39'),
-(399, 'Indikator.Plugins', 'comment', '1.2.2', 'Improved the plugin detection.', '2019-06-27 17:49:39'),
-(400, 'Indikator.Plugins', 'comment', '1.2.3', 'Support more front-end plugins.', '2019-06-27 17:49:39'),
-(401, 'Indikator.Plugins', 'comment', '1.2.4', 'Detect the version from files.', '2019-06-27 17:49:39'),
-(402, 'Indikator.Plugins', 'script', '1.2.5', 'update_timestamp_nullable.php', '2019-06-27 17:49:39'),
-(403, 'Indikator.Plugins', 'comment', '1.2.5', 'Improved the plugin detection.', '2019-06-27 17:49:39'),
-(404, 'Indikator.Plugins', 'comment', '1.2.6', 'Support more front-end plugins.', '2019-06-27 17:49:39'),
-(405, 'Indikator.Plugins', 'comment', '1.2.7', 'Minor improvements.', '2019-06-27 17:49:39'),
-(406, 'Indikator.Plugins', 'comment', '1.2.8', 'Support build-in combiner aliases.', '2019-06-27 17:49:39'),
-(407, 'Indikator.Plugins', 'comment', '1.3.0', 'Customize the statistics view.', '2019-06-27 17:49:39'),
-(408, 'Indikator.Plugins', 'comment', '1.3.1', 'Improved the permission feature.', '2019-06-27 17:49:39'),
-(409, 'Indikator.Plugins', 'comment', '1.3.2', 'Improved the plugin detection.', '2019-06-27 17:49:39'),
-(410, 'Indikator.Plugins', 'comment', '1.3.3', 'Added the Website column for list.', '2019-06-27 17:49:39'),
-(411, 'Indikator.Plugins', 'comment', '1.3.4', 'Redesigned the report widget.', '2019-06-27 17:49:39'),
-(412, 'Indikator.Plugins', 'comment', '1.3.5', 'Added plugins and improved the UI.', '2019-06-27 17:49:39'),
-(413, 'Indikator.Plugins', 'comment', '1.3.6', 'Added navigation links to the forms.', '2019-06-27 17:49:39'),
-(414, 'Indikator.Plugins', 'comment', '1.3.7', 'Modernized the source code.', '2019-06-27 17:49:39'),
-(415, 'Indikator.Plugins', 'comment', '1.3.8', 'Added permission to Dashboard widgets.', '2019-06-27 17:49:39'),
 (416, 'RainLab.Builder', 'comment', '1.0.1', 'Initialize plugin.', '2019-06-27 18:41:31'),
 (417, 'RainLab.Builder', 'comment', '1.0.2', 'Fixes the problem with selecting a plugin. Minor localization corrections. Configuration files in the list and form behaviors are now autocomplete.', '2019-06-27 18:41:31'),
 (418, 'RainLab.Builder', 'comment', '1.0.3', 'Improved handling of the enum data type.', '2019-06-27 18:41:31'),
@@ -1929,29 +916,6 @@ INSERT INTO `system_plugin_history` (`id`, `code`, `type`, `version`, `detail`, 
 (437, 'RainLab.Builder', 'comment', '1.0.22', 'Added scopeValue property to the RecordList component.', '2019-06-27 18:41:31'),
 (438, 'RainLab.Builder', 'comment', '1.0.23', 'Added support for balloon-selector field type, added Brazilian Portuguese translation, fixed some bugs', '2019-06-27 18:41:31'),
 (439, 'RainLab.Builder', 'comment', '1.0.24', 'Added support for tag list field type, added read only toggle for fields. Prevent plugins from using reserved PHP keywords for class names and namespaces', '2019-06-27 18:41:31'),
-(440, 'RainLab.Notify', 'script', '1.0.1', 'create_notifications_table.php', '2019-06-27 20:11:27'),
-(441, 'RainLab.Notify', 'script', '1.0.1', 'create_notification_rules_table.php', '2019-06-27 20:11:27'),
-(442, 'RainLab.Notify', 'script', '1.0.1', 'create_rule_conditions_table.php', '2019-06-27 20:11:27'),
-(443, 'RainLab.Notify', 'script', '1.0.1', 'create_rule_actions_table.php', '2019-06-27 20:11:27'),
-(444, 'RainLab.Notify', 'comment', '1.0.1', 'First version of Notify', '2019-06-27 20:11:27'),
-(445, 'RainLab.Notify', 'comment', '1.0.2', 'Fixes crashing bug.', '2019-06-27 20:11:27'),
-(446, 'RainLab.Location', 'comment', '1.0.1', 'Initialize plugin.', '2019-06-27 20:11:40'),
-(447, 'RainLab.Location', 'script', '1.0.2', 'create_states_table.php', '2019-06-27 20:11:40'),
-(448, 'RainLab.Location', 'script', '1.0.2', 'create_countries_table.php', '2019-06-27 20:11:40'),
-(449, 'RainLab.Location', 'comment', '1.0.2', 'Create database tables.', '2019-06-27 20:11:40'),
-(450, 'RainLab.Location', 'script', '1.0.3', 'seed_all_tables.php', '2019-06-27 20:11:40'),
-(451, 'RainLab.Location', 'comment', '1.0.3', 'Add seed data for countries and states.', '2019-06-27 20:11:40'),
-(452, 'RainLab.Location', 'comment', '1.0.4', 'Satisfy the new Google API key requirement.', '2019-06-27 20:11:40'),
-(453, 'RainLab.Location', 'script', '1.0.5', 'add_country_pinned_flag.php', '2019-06-27 20:11:40'),
-(454, 'RainLab.Location', 'comment', '1.0.5', 'Countries can now be pinned to make them appear at the top of the list.', '2019-06-27 20:11:40'),
-(455, 'RainLab.Location', 'comment', '1.0.6', 'Added support for defining a default country and state.', '2019-06-27 20:11:40'),
-(456, 'RainLab.Location', 'comment', '1.0.7', 'Added basic geocoding method to the Country model.', '2019-06-27 20:11:40'),
-(457, 'RainLab.Location', 'comment', '1.0.8', 'Include Mexico states', '2019-06-27 20:11:40'),
-(458, 'RainLab.Location', 'comment', '1.1.0', '!!! Update requires Build 447. Fixed AddressFinder formwidget not working correctly in repeaters.', '2019-06-27 20:11:40'),
-(459, 'RainLab.Location', 'comment', '1.1.1', 'Minor fix to AddressFinder formwidget for the change to the FormField API', '2019-06-27 20:11:40'),
-(460, 'RainLab.Location', 'comment', '1.1.2', 'Yet another change to the AddressFinder for changes to the FormField API', '2019-06-27 20:11:40'),
-(461, 'RainLab.Location', 'script', '1.1.3', 'seed_ar_states.php', '2019-06-27 20:11:40'),
-(462, 'RainLab.Location', 'comment', '1.1.3', 'Include Argentina states', '2019-06-27 20:11:40'),
 (463, 'Yo.Nombre', 'script', '1.0.2', 'builder_table_create_yo_nombre_.php', '2019-06-27 20:45:48'),
 (464, 'Yo.Nombre', 'comment', '1.0.2', 'Created table yo_nombre_', '2019-06-27 20:45:48'),
 (465, 'Yo.Nombre', 'script', '1.0.3', 'builder_table_update_yo_nombre_.php', '2019-06-28 01:20:17'),
@@ -1959,7 +923,9 @@ INSERT INTO `system_plugin_history` (`id`, `code`, `type`, `version`, `detail`, 
 (467, 'Yo.Nombre', 'script', '1.0.4', 'builder_table_create_yo_nombre_data.php', '2019-06-28 01:33:35'),
 (468, 'Yo.Nombre', 'comment', '1.0.4', 'Created table yo_nombre_data', '2019-06-28 01:33:35'),
 (469, 'Yo.Nombre', 'script', '1.0.5', 'builder_table_update_yo_nombre_data.php', '2019-06-28 02:04:24'),
-(470, 'Yo.Nombre', 'comment', '1.0.5', 'Updated table yo_nombre_data', '2019-06-28 02:04:24');
+(470, 'Yo.Nombre', 'comment', '1.0.5', 'Updated table yo_nombre_data', '2019-06-28 02:04:24'),
+(471, 'Alvaro.Forms', 'comment', '1.0.1', 'Initialize plugin.', '2019-07-03 19:22:34'),
+(472, 'Alvaro.Sistema', 'comment', '1.0.1', 'Initialize plugin.', '2019-07-03 19:31:08');
 
 -- --------------------------------------------------------
 
@@ -1981,18 +947,15 @@ CREATE TABLE `system_plugin_versions` (
 --
 
 INSERT INTO `system_plugin_versions` (`id`, `code`, `version`, `created_at`, `is_disabled`, `is_frozen`) VALUES
-(7, 'RainLab.User', '1.4.8', '2019-06-11 19:43:26', 0, 0),
-(11, 'RainLab.UserPlus', '1.1.0', '2019-06-11 19:55:34', 0, 0),
 (13, 'PeterHegman.SlickSlider', '1.1.2', '2019-06-13 18:41:09', 0, 0),
 (16, 'Jiri.Map', '1.0.2', '2019-06-19 19:17:48', 0, 0),
 (17, 'October.Demo', '1.0.1', '2019-06-24 20:08:21', 0, 0),
 (20, 'Yo.Nombre', '1.0.5', '2019-06-28 02:04:24', 0, 0),
 (22, 'Indikator.Backend', '1.6.9', '2019-06-27 17:40:32', 0, 0),
 (23, 'Indikator.DevTools', '1.2.0', '2019-06-27 17:49:13', 0, 0),
-(24, 'Indikator.Plugins', '1.3.8', '2019-06-27 17:49:39', 0, 0),
 (25, 'RainLab.Builder', '1.0.24', '2019-06-27 18:41:31', 0, 0),
-(26, 'RainLab.Notify', '1.0.2', '2019-06-27 20:11:27', 0, 0),
-(27, 'RainLab.Location', '1.1.3', '2019-06-27 20:11:40', 0, 0);
+(28, 'Alvaro.Forms', '1.0.1', '2019-07-03 19:22:34', 0, 0),
+(29, 'Alvaro.Sistema', '1.0.1', '2019-07-03 19:31:08', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2066,120 +1029,6 @@ CREATE TABLE `tipodepago` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `activation_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `persist_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `reset_password_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `permissions` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_activated` tinyint(1) NOT NULL DEFAULT 0,
-  `activated_at` timestamp NULL DEFAULT NULL,
-  `last_login` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `username` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'NULL',
-  `surname` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `last_seen` timestamp NULL DEFAULT NULL,
-  `is_guest` tinyint(1) NOT NULL DEFAULT 0,
-  `is_superuser` tinyint(1) NOT NULL DEFAULT 0,
-  `phone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `company` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `street_addr` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `zip` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state_id` int(10) UNSIGNED DEFAULT NULL,
-  `country_id` int(10) UNSIGNED DEFAULT NULL,
-  `mobile` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `activation_code`, `persist_code`, `reset_password_code`, `permissions`, `is_activated`, `activated_at`, `last_login`, `created_at`, `updated_at`, `username`, `surname`, `deleted_at`, `last_seen`, `is_guest`, `is_superuser`, `phone`, `company`, `street_addr`, `city`, `zip`, `state_id`, `country_id`, `mobile`) VALUES
-(2, 'admin', 'admin@admin.com', '$2y$10$1hvgXVdrxuK8c6Bwi82IKOWAgZk4radwqQGqZhDyVnniNrczWP5nC', NULL, NULL, NULL, NULL, 1, '2019-06-26 10:45:28', '2019-06-26 12:35:08', '2019-06-26 08:52:36', '2019-06-26 12:51:38', 'admin', '', '2019-06-26 12:51:30', NULL, 0, 0, '', '', '', '', '', NULL, NULL, ''),
-(3, 'supervisor1', 'supervisor1@supervisor.com', '$2y$10$OP8WRq68eFNKgUQxjDJlM.GOG3tflDksKSbs/yMpUI6R2eAzBrOQm', NULL, NULL, NULL, NULL, 0, NULL, NULL, '2019-06-26 08:53:30', '2019-06-26 08:53:30', 'supervisor1', '', NULL, NULL, 0, 0, '', '', '', '', '', NULL, NULL, ''),
-(4, '', 'leon1@leon.com', '$2y$10$3qEsRZQVnOTHbf1PfVKC1uc8SbKcXpLDS6Q0LZFJfVPECtzBrFHDm', NULL, NULL, NULL, NULL, 1, '2019-06-26 12:51:00', NULL, '2019-06-26 12:50:43', '2019-06-26 12:51:00', 'leon1', '', NULL, NULL, 0, 0, '', '', '', '', '', NULL, NULL, '');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users_groups`
---
-
-CREATE TABLE `users_groups` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `user_group_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `users_groups`
---
-
-INSERT INTO `users_groups` (`user_id`, `user_group_id`) VALUES
-(2, 6),
-(3, 7),
-(4, 3);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_groups`
---
-
-CREATE TABLE `user_groups` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `user_groups`
---
-
-INSERT INTO `user_groups` (`id`, `name`, `code`, `description`, `created_at`, `updated_at`) VALUES
-(3, 'User', 'user', '', '2019-06-12 18:53:54', '2019-06-26 12:46:02'),
-(6, 'Administrador', 'admin', 'Administrador', '2019-06-26 08:51:02', '2019-06-26 12:49:26'),
-(7, 'Supervisor', 'supervisor', '', '2019-06-26 08:51:18', '2019-06-26 08:51:18');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `user_throttle`
---
-
-CREATE TABLE `user_throttle` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attempts` int(11) NOT NULL DEFAULT 0,
-  `last_attempt_at` timestamp NULL DEFAULT NULL,
-  `is_suspended` tinyint(1) NOT NULL DEFAULT 0,
-  `suspended_at` timestamp NULL DEFAULT NULL,
-  `is_banned` tinyint(1) NOT NULL DEFAULT 0,
-  `banned_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `user_throttle`
---
-
-INSERT INTO `user_throttle` (`id`, `user_id`, `ip_address`, `attempts`, `last_attempt_at`, `is_suspended`, `suspended_at`, `is_banned`, `banned_at`) VALUES
-(1, 2, '127.0.0.1', 0, NULL, 0, NULL, 0, NULL);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarioleon`
 --
 
@@ -2243,7 +1092,8 @@ INSERT INTO `yo_nombre_data` (`id`, `nombre`) VALUES
 (2, 'ojiegjktb'),
 (3, ''),
 (4, 'hola'),
-(5, 'qwerty');
+(5, 'qwerty'),
+(6, '123456789');
 
 --
 -- Índices para tablas volcadas
@@ -2355,12 +1205,6 @@ ALTER TABLE `indikator_backend_trash`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `indikator_frontend_plugins`
---
-ALTER TABLE `indikator_frontend_plugins`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `jobs`
 --
 ALTER TABLE `jobs`
@@ -2401,60 +1245,6 @@ ALTER TABLE `pago`
 --
 ALTER TABLE `peterhegman_slickslider_slide_shows`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `rainlab_location_countries`
---
-ALTER TABLE `rainlab_location_countries`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rainlab_location_countries_name_index` (`name`);
-
---
--- Indices de la tabla `rainlab_location_states`
---
-ALTER TABLE `rainlab_location_states`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rainlab_location_states_country_id_index` (`country_id`),
-  ADD KEY `rainlab_location_states_name_index` (`name`);
-
---
--- Indices de la tabla `rainlab_notify_notifications`
---
-ALTER TABLE `rainlab_notify_notifications`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rainlab_notify_notifications_notifiable_id_notifiable_type_index` (`notifiable_id`,`notifiable_type`);
-
---
--- Indices de la tabla `rainlab_notify_notification_rules`
---
-ALTER TABLE `rainlab_notify_notification_rules`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rainlab_notify_notification_rules_code_index` (`code`);
-
---
--- Indices de la tabla `rainlab_notify_rule_actions`
---
-ALTER TABLE `rainlab_notify_rule_actions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rainlab_notify_rule_actions_rule_host_id_index` (`rule_host_id`);
-
---
--- Indices de la tabla `rainlab_notify_rule_conditions`
---
-ALTER TABLE `rainlab_notify_rule_conditions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `host_rule_id_type` (`rule_host_id`,`rule_host_type`),
-  ADD KEY `rainlab_notify_rule_conditions_rule_host_id_index` (`rule_host_id`),
-  ADD KEY `rainlab_notify_rule_conditions_rule_parent_id_index` (`rule_parent_id`);
-
---
--- Indices de la tabla `rainlab_user_mail_blockers`
---
-ALTER TABLE `rainlab_user_mail_blockers`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rainlab_user_mail_blockers_email_index` (`email`),
-  ADD KEY `rainlab_user_mail_blockers_template_index` (`template`),
-  ADD KEY `rainlab_user_mail_blockers_user_id_index` (`user_id`);
 
 --
 -- Indices de la tabla `sessions`
@@ -2548,40 +1338,6 @@ ALTER TABLE `tipodepago`
   ADD PRIMARY KEY (`idtipodepago`);
 
 --
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD UNIQUE KEY `users_login_unique` (`username`),
-  ADD KEY `users_activation_code_index` (`activation_code`),
-  ADD KEY `users_reset_password_code_index` (`reset_password_code`),
-  ADD KEY `users_login_index` (`username`),
-  ADD KEY `users_state_id_index` (`state_id`),
-  ADD KEY `users_country_id_index` (`country_id`);
-
---
--- Indices de la tabla `users_groups`
---
-ALTER TABLE `users_groups`
-  ADD PRIMARY KEY (`user_id`,`user_group_id`);
-
---
--- Indices de la tabla `user_groups`
---
-ALTER TABLE `user_groups`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_groups_code_index` (`code`);
-
---
--- Indices de la tabla `user_throttle`
---
-ALTER TABLE `user_throttle`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_throttle_user_id_index` (`user_id`),
-  ADD KEY `user_throttle_ip_address_index` (`ip_address`);
-
---
 -- Indices de la tabla `usuarioleon`
 --
 ALTER TABLE `usuarioleon`
@@ -2607,7 +1363,7 @@ ALTER TABLE `yo_nombre_data`
 -- AUTO_INCREMENT de la tabla `backend_access_log`
 --
 ALTER TABLE `backend_access_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `backend_users`
@@ -2676,12 +1432,6 @@ ALTER TABLE `indikator_backend_trash`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `indikator_frontend_plugins`
---
-ALTER TABLE `indikator_frontend_plugins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `jobs`
 --
 ALTER TABLE `jobs`
@@ -2718,46 +1468,10 @@ ALTER TABLE `peterhegman_slickslider_slide_shows`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `rainlab_location_countries`
---
-ALTER TABLE `rainlab_location_countries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
-
---
--- AUTO_INCREMENT de la tabla `rainlab_location_states`
---
-ALTER TABLE `rainlab_location_states`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=533;
-
---
--- AUTO_INCREMENT de la tabla `rainlab_notify_notification_rules`
---
-ALTER TABLE `rainlab_notify_notification_rules`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `rainlab_notify_rule_actions`
---
-ALTER TABLE `rainlab_notify_rule_actions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `rainlab_notify_rule_conditions`
---
-ALTER TABLE `rainlab_notify_rule_conditions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `rainlab_user_mail_blockers`
---
-ALTER TABLE `rainlab_user_mail_blockers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `system_event_logs`
 --
 ALTER TABLE `system_event_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de la tabla `system_files`
@@ -2793,13 +1507,13 @@ ALTER TABLE `system_parameters`
 -- AUTO_INCREMENT de la tabla `system_plugin_history`
 --
 ALTER TABLE `system_plugin_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=471;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=595;
 
 --
 -- AUTO_INCREMENT de la tabla `system_plugin_versions`
 --
 ALTER TABLE `system_plugin_versions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `system_request_logs`
@@ -2826,24 +1540,6 @@ ALTER TABLE `tipodepago`
   MODIFY `idtipodepago` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `user_groups`
---
-ALTER TABLE `user_groups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de la tabla `user_throttle`
---
-ALTER TABLE `user_throttle`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT de la tabla `usuarioleon`
 --
 ALTER TABLE `usuarioleon`
@@ -2853,7 +1549,7 @@ ALTER TABLE `usuarioleon`
 -- AUTO_INCREMENT de la tabla `yo_nombre_data`
 --
 ALTER TABLE `yo_nombre_data`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
