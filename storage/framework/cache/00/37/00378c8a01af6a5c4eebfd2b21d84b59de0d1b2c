@@ -1,0 +1,36 @@
+1562165044a:1:{s:9:"error.htm";a:9:{s:8:"fileName";s:9:"error.htm";s:7:"content";s:816:"title = "Error page (500)"
+url = "/error"
+layout = "default"
+is_hidden = 0
+==
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 text-center">
+                <br />
+                <img src="{{ 'assets/images/icons/svg/toilet-paper.svg'|theme }}" alt="">
+            </div>
+            <div class="col-xs-10">
+                <h1>¡Limpieza en el pasillo tres!</h1>
+                <p>Lo sentimos mucho, pero algo salió mal y la página no se puede mostrar debido a un <em>error </em>.</p>
+                <p>No se preocupe, nuestros trabajadores robóticos especialmente programados se han desplegado para limpiar las cosas.</p>
+                <p><small><em>Error 500</em></small>
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1562090661;s:6:"markup";s:733:"<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 text-center">
+                <br />
+                <img src="{{ 'assets/images/icons/svg/toilet-paper.svg'|theme }}" alt="">
+            </div>
+            <div class="col-xs-10">
+                <h1>¡Limpieza en el pasillo tres!</h1>
+                <p>Lo sentimos mucho, pero algo salió mal y la página no se puede mostrar debido a un <em>error </em>.</p>
+                <p>No se preocupe, nuestros trabajadores robóticos especialmente programados se han desplegado para limpiar las cosas.</p>
+                <p><small><em>Error 500</em></small>
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:16:"Error page (500)";s:3:"url";s:6:"/error";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
