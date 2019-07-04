@@ -1,4 +1,4 @@
-1562112437a:1:{s:21:"user/crear-perfil.htm";a:9:{s:8:"fileName";s:21:"user/crear-perfil.htm";s:7:"content";s:6482:"title = "Crear perfil"
+1562175085a:1:{s:21:"user/crear-perfil.htm";a:9:{s:8:"fileName";s:21:"user/crear-perfil.htm";s:7:"content";s:6482:"title = "Crear perfil"
 url = "/crear-perfil"
 layout = "default"
 is_hidden = 0
@@ -227,7 +227,7 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
-	</form>>";s:5:"mtime";i:1562031276;s:6:"markup";s:6396:"<style type="text/css">
+	</form>>";s:5:"mtime";i:1562163303;s:6:"markup";s:6396:"<style type="text/css">
 		/*Formulario */
 		form{
 			margin: 0 auto;

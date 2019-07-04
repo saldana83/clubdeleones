@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 1562161729a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:2543:"==
+=======
+1562175086a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:2543:"==
+>>>>>>> 8273730... Creacion de listado de pagos por león
 {# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
@@ -67,7 +71,11 @@
             </ul>
         </div>
     </div>
+<<<<<<< HEAD
 </nav>";s:5:"mtime";i:1562098842;s:6:"markup";s:2539:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+=======
+</nav>";s:5:"mtime";i:1562163303;s:6:"markup";s:2539:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+>>>>>>> 8273730... Creacion de listado de pagos por león
 {% set
     links = {
         'home': ['home', 'Home'],

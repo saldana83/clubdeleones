@@ -1,4 +1,4 @@
-1562112437a:1:{s:12:"ejemplos.htm";a:9:{s:8:"fileName";s:12:"ejemplos.htm";s:7:"content";s:30253:"title = "Ejemplos"
+1562175084a:1:{s:12:"ejemplos.htm";a:9:{s:8:"fileName";s:12:"ejemplos.htm";s:7:"content";s:30253:"title = "Ejemplos"
 url = "/ejemplos"
 layout = "default"
 is_hidden = 0
@@ -699,7 +699,7 @@ public function onGuardar(){
     
     <br/>
 
-</div>";s:5:"mtime";i:1561686773;s:6:"markup";s:29785:"{% put scripts %}
+</div>";s:5:"mtime";i:1562163303;s:6:"markup";s:29785:"{% put scripts %}
     <script src="{{ [
         'assets/javascript/pages/ui-elements.js',
     ]|theme }}"></script>
