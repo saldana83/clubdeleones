@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 1562161728a:1:{s:29:"conocenos/junta-directiva.htm";a:9:{s:8:"fileName";s:29:"conocenos/junta-directiva.htm";s:7:"content";s:4144:"title = "Junta Directiva"
+=======
+1562175084a:1:{s:29:"conocenos/junta-directiva.htm";a:9:{s:8:"fileName";s:29:"conocenos/junta-directiva.htm";s:7:"content";s:4144:"title = "Junta Directiva"
+>>>>>>> 8273730... Creacion de listado de pagos por león
 url = "/conocenos/junta-directiva"
 layout = "default"
 is_hidden = 0
@@ -102,7 +106,11 @@ is_hidden = 0
 </table>         
            
 </div>
+<<<<<<< HEAD
 </center>";s:5:"mtime";i:1562098842;s:6:"markup";s:4042:"<section id="layout-title">
+=======
+</center>";s:5:"mtime";i:1562163303;s:6:"markup";s:4042:"<section id="layout-title">
+>>>>>>> 8273730... Creacion de listado de pagos por león
     <div class="container">
         <h3>Junta Directiva</h3>
     </div>
