@@ -1,4 +1,4 @@
-1562175085a:1:{s:25:"supervidor/supervisor.htm";a:9:{s:8:"fileName";s:25:"supervidor/supervisor.htm";s:7:"content";s:1617:"title = "Supervisor"
+1562438927a:1:{s:25:"supervidor/supervisor.htm";a:9:{s:8:"fileName";s:25:"supervidor/supervisor.htm";s:7:"content";s:1617:"title = "Supervisor"
 url = "/supervisor"
 layout = "default"
 is_hidden = 0
@@ -37,7 +37,7 @@ is_hidden = 0
     </div>
                 
 
-</div>";s:5:"mtime";i:1562163303;s:6:"markup";s:1535:"<section id="layout-title">
+</div>";s:5:"mtime";i:1562164081;s:6:"markup";s:1535:"<section id="layout-title">
     <div class="container">
         <center><h3>Sistema de Supervisor</h3></center>
     </div>

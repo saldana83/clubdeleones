@@ -1,5 +1,5 @@
-1562438927a:1:{s:30:"supervidor/categoria_pagos.htm";a:9:{s:8:"fileName";s:30:"supervidor/categoria_pagos.htm";s:7:"content";s:2899:"title = "categoría-pagos"
-url = "/categoria-pagos"
+1562438927a:1:{s:24:"user/historial_pagos.htm";a:9:{s:8:"fileName";s:24:"user/historial_pagos.htm";s:7:"content";s:2798:"title = "historial-pagos"
+url = "/historial-pagos"
 layout = "default"
 is_hidden = 0
 ==
@@ -12,14 +12,15 @@ is_hidden = 0
 			height: 70px;
 		}
 
-		#encabezado p{
-			margin-right: 85px;
-				line-height: 70px;}
-
 		#encabezado a{
 			margin-top: -20px;
 			margin-left: 5px;
 			float: left;
+		}
+
+		#encabezado p{
+			margin-right: 30px;
+				line-height: 70px;
 		}
 
 		table{
@@ -62,17 +63,16 @@ is_hidden = 0
 
 	</style>
 
+
 	<div id="encabezado">
-		<a href="">Administrar Pagos</a>
-		<P>Categoría de Pagos</P>
+		<a href="">Pagos</a>
+		<P>Historial de Pagos</P>
 	</div>
 	<div>
-		<label id="buscar_por" for=""><h4>Ordenar por:</h4></label>
+		<label id="buscar_por" for=""><h4>Buscar por:</h4></label>
 		<select id="tipo_pago" name="pago">
-			<option value="" selected="selected">Categoría 1</option>
-			<option value="casado">Categoría 2</option>
-			<option value="casado">Categoría 3</option>
-			<option value="casado">Categoría 4</option>
+			<option value="" selected="selected">Tipo de Pago</option>
+			<option value="casado">Categoría de Pago</option>
 		</select>
 	</div>
 	<div id="boton_buscar">
@@ -156,7 +156,7 @@ is_hidden = 0
   <td>Ingresar texto aquí</td>
   <td>30.00</td>
 </tr>
-</table>";s:5:"mtime";i:1562168015;s:6:"markup";s:2806:"<style type="text/css">
+</table>";s:5:"mtime";i:1562168015;s:6:"markup";s:2706:"<style type="text/css">
 		
 		#encabezado{
 			background-color: #E6E7E7;
@@ -165,14 +165,15 @@ is_hidden = 0
 			height: 70px;
 		}
 
-		#encabezado p{
-			margin-right: 85px;
-				line-height: 70px;}
-
 		#encabezado a{
 			margin-top: -20px;
 			margin-left: 5px;
 			float: left;
+		}
+
+		#encabezado p{
+			margin-right: 30px;
+				line-height: 70px;
 		}
 
 		table{
@@ -215,17 +216,16 @@ is_hidden = 0
 
 	</style>
 
+
 	<div id="encabezado">
-		<a href="">Administrar Pagos</a>
-		<P>Categoría de Pagos</P>
+		<a href="">Pagos</a>
+		<P>Historial de Pagos</P>
 	</div>
 	<div>
-		<label id="buscar_por" for=""><h4>Ordenar por:</h4></label>
+		<label id="buscar_por" for=""><h4>Buscar por:</h4></label>
 		<select id="tipo_pago" name="pago">
-			<option value="" selected="selected">Categoría 1</option>
-			<option value="casado">Categoría 2</option>
-			<option value="casado">Categoría 3</option>
-			<option value="casado">Categoría 4</option>
+			<option value="" selected="selected">Tipo de Pago</option>
+			<option value="casado">Categoría de Pago</option>
 		</select>
 	</div>
 	<div id="boton_buscar">
@@ -309,4 +309,4 @@ is_hidden = 0
   <td>Ingresar texto aquí</td>
   <td>30.00</td>
 </tr>
-</table>";s:4:"code";N;s:5:"title";s:16:"categoría-pagos";s:3:"url";s:16:"/categoria-pagos";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
+</table>";s:4:"code";N;s:5:"title";s:15:"historial-pagos";s:3:"url";s:16:"/historial-pagos";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}

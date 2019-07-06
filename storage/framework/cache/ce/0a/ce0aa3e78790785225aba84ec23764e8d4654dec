@@ -1,5 +1,5 @@
-1562438927a:1:{s:30:"administrador/crear-perfil.htm";a:9:{s:8:"fileName";s:30:"administrador/crear-perfil.htm";s:7:"content";s:6482:"title = "Crear perfil"
-url = "/crear-perfil"
+1562438927a:1:{s:31:"administrador/editar-perfil.htm";a:9:{s:8:"fileName";s:31:"administrador/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
+url = "/editar-perfil"
 layout = "default"
 is_hidden = 0
 ==
@@ -12,7 +12,7 @@ is_hidden = 0
 
 		form div{
 			margin-top: 6px;
-			height:30px
+			height:30px;
 		}
 
 		label{
@@ -40,6 +40,7 @@ is_hidden = 0
 			border-color: #000;
 		}
 
+
 		#button{
 			align-content: center;
 			text-align: center;
@@ -50,7 +51,6 @@ is_hidden = 0
 			border-radius: 6px;
 			margin: 20px;
 		}
-
 		
 		#encabezado{
 			background-color: #E6E7E7;
@@ -64,11 +64,15 @@ is_hidden = 0
 		}
 	</style>
 
-	<div id="encabezado"><h4>Crear Nuevo Perfil</h4></div>
+	<div id="encabezado"><h4>Editar Perfil</h4></div>
 
 	<!-- Formulario Editar Perfil-->
 	<form name="editarperfil" method="" action="">
 		<div id="titulo"><p>Información General</p></div>
+		<div>
+			<label for="cod_leon">Código de Leon</label>  <!--No se modifica-->
+			<input type="text" name="cod_leon" id="cod_leon"/>	
+		</div>
 		<div>
 			<label for="ingreso_leon">Fecha de ingreso</label>
 			<input type="text" name="ingreso_leon" id="ingreso_leon"/>	
@@ -80,20 +84,6 @@ is_hidden = 0
 				<option value="inactivo">Inactivo</option>
 			</select>
 		</div>
-		<div id="titulo"><p>Información de Credenciales</p></div>	
-		<div>
-			<label for="usuario">Usuario</label>
-			<input type="text" name="usuario" id="usuario"/>	
-		</div>
-		<div>
-			<label for="contra">Contraseña</label>
-			<input type="text" name="contra" id="contra"/>	
-		</div>
-		<div>
-			<label for="conf_contra">Confirmar contraseña</label>
-			<input type="text" name="conf_contra" id="conf_contra"/>	
-		</div>
-
 		<div id="titulo"><p>Información Personal</p></div>
 		<div>
 			<label for="cedula_leon">Cédula</label> <!--No se modifica-->
@@ -155,7 +145,7 @@ is_hidden = 0
 		</div>
 
 
-		<div id="titulo"><p>Información de Contacto</p></div>
+		<div id="titulo"><p> Información de Contacto</p></div>
 		<div>
 			<label for="tel_casa">Teléfono de Casa</label>
 			<input type="text" name="tel_casa" id="tel_casa"/>	
@@ -227,7 +217,7 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
-	</form>>";s:5:"mtime";i:1562168015;s:6:"markup";s:6396:"<style type="text/css">
+	</form>";s:5:"mtime";i:1562168015;s:6:"markup";s:6106:"<style type="text/css">
 		/*Formulario */
 		form{
 			margin: 0 auto;
@@ -236,7 +226,7 @@ is_hidden = 0
 
 		form div{
 			margin-top: 6px;
-			height:30px
+			height:30px;
 		}
 
 		label{
@@ -264,6 +254,7 @@ is_hidden = 0
 			border-color: #000;
 		}
 
+
 		#button{
 			align-content: center;
 			text-align: center;
@@ -274,7 +265,6 @@ is_hidden = 0
 			border-radius: 6px;
 			margin: 20px;
 		}
-
 		
 		#encabezado{
 			background-color: #E6E7E7;
@@ -288,11 +278,15 @@ is_hidden = 0
 		}
 	</style>
 
-	<div id="encabezado"><h4>Crear Nuevo Perfil</h4></div>
+	<div id="encabezado"><h4>Editar Perfil</h4></div>
 
 	<!-- Formulario Editar Perfil-->
 	<form name="editarperfil" method="" action="">
 		<div id="titulo"><p>Información General</p></div>
+		<div>
+			<label for="cod_leon">Código de Leon</label>  <!--No se modifica-->
+			<input type="text" name="cod_leon" id="cod_leon"/>	
+		</div>
 		<div>
 			<label for="ingreso_leon">Fecha de ingreso</label>
 			<input type="text" name="ingreso_leon" id="ingreso_leon"/>	
@@ -304,20 +298,6 @@ is_hidden = 0
 				<option value="inactivo">Inactivo</option>
 			</select>
 		</div>
-		<div id="titulo"><p>Información de Credenciales</p></div>	
-		<div>
-			<label for="usuario">Usuario</label>
-			<input type="text" name="usuario" id="usuario"/>	
-		</div>
-		<div>
-			<label for="contra">Contraseña</label>
-			<input type="text" name="contra" id="contra"/>	
-		</div>
-		<div>
-			<label for="conf_contra">Confirmar contraseña</label>
-			<input type="text" name="conf_contra" id="conf_contra"/>	
-		</div>
-
 		<div id="titulo"><p>Información Personal</p></div>
 		<div>
 			<label for="cedula_leon">Cédula</label> <!--No se modifica-->
@@ -379,7 +359,7 @@ is_hidden = 0
 		</div>
 
 
-		<div id="titulo"><p>Información de Contacto</p></div>
+		<div id="titulo"><p> Información de Contacto</p></div>
 		<div>
 			<label for="tel_casa">Teléfono de Casa</label>
 			<input type="text" name="tel_casa" id="tel_casa"/>	
@@ -451,4 +431,4 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
-	</form>>";s:4:"code";N;s:5:"title";s:12:"Crear perfil";s:3:"url";s:13:"/crear-perfil";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
+	</form>";s:4:"code";N;s:5:"title";s:13:"Editar perfil";s:3:"url";s:14:"/editar-perfil";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
