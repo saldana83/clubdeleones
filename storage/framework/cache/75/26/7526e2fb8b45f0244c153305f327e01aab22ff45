@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-1562161728a:1:{s:7:"404.htm";a:9:{s:8:"fileName";s:7:"404.htm";s:7:"content";s:729:"title = "Page not found (404)"
-=======
-1562175084a:1:{s:7:"404.htm";a:9:{s:8:"fileName";s:7:"404.htm";s:7:"content";s:729:"title = "Page not found (404)"
->>>>>>> 8273730... Creacion de listado de pagos por león
+1562438927a:1:{s:7:"404.htm";a:9:{s:8:"fileName";s:7:"404.htm";s:7:"content";s:729:"title = "Page not found (404)"
 url = "/404"
 layout = "default"
 is_hidden = 0
@@ -22,11 +18,7 @@ is_hidden = 0
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</div>";s:5:"mtime";i:1562098842;s:6:"markup";s:644:"<div class="jumbotron">
-=======
-</div>";s:5:"mtime";i:1562163303;s:6:"markup";s:644:"<div class="jumbotron">
->>>>>>> 8273730... Creacion de listado de pagos por león
+</div>";s:5:"mtime";i:1562166340;s:6:"markup";s:644:"<div class="jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-xs-2 text-center">

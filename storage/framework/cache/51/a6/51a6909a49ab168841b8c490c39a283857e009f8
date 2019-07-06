@@ -1,5 +1,6 @@
-1562175084a:1:{s:23:"editar-credenciales.htm";a:8:{s:8:"fileName";s:23:"editar-credenciales.htm";s:7:"content";s:1653:"title = "editar credenciales"
+1562438927a:1:{s:23:"editar-credenciales.htm";a:9:{s:8:"fileName";s:23:"editar-credenciales.htm";s:7:"content";s:1702:"title = "Editar Credenciales"
 url = "/editar-credenciales"
+layout = "default"
 is_hidden = 0
 ==
 <style type="text/css">
@@ -75,8 +76,8 @@ is_hidden = 0
 		<div>
 		
 		<div>
-			<label for="Contraseña">Contraseña:</label>
-			<input type="password" name="Contraseña" id="Contraseña"/>	
+			<label for="Contraseña_Actual">Contraseña Actual :</label>
+			<input type="password" name="Contraseña_Actual" id="Contraseña_Actual"/>	
 		</div>
 
 		<div>
@@ -90,7 +91,7 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
-	</form>";s:5:"mtime";i:1562163303;s:6:"markup";s:1573:"<style type="text/css">
+	</form>";s:5:"mtime";i:1562165441;s:6:"markup";s:1602:"<style type="text/css">
 		/*Formulario */
 		form{
 			margin: 0 auto;
@@ -163,8 +164,8 @@ is_hidden = 0
 		<div>
 		
 		<div>
-			<label for="Contraseña">Contraseña:</label>
-			<input type="password" name="Contraseña" id="Contraseña"/>	
+			<label for="Contraseña_Actual">Contraseña Actual :</label>
+			<input type="password" name="Contraseña_Actual" id="Contraseña_Actual"/>	
 		</div>
 
 		<div>
@@ -178,4 +179,4 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
-	</form>";s:4:"code";N;s:5:"title";s:19:"editar credenciales";s:3:"url";s:20:"/editar-credenciales";s:9:"is_hidden";s:1:"0";}}
+	</form>";s:4:"code";N;s:5:"title";s:19:"Editar Credenciales";s:3:"url";s:20:"/editar-credenciales";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";}}
