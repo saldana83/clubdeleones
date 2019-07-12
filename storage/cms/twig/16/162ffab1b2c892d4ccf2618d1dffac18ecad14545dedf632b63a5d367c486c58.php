@@ -34,7 +34,7 @@ class __TwigTemplate_5cb5eb18fb90f4ecf504e1ba60a565a3cc3d939f0582c23dd2555b85372
         // line 1
         echo "<section id=\"layout-title\">
     <div class=\"container\">
-        <h3>Himno</h3>
+        <h3>Himno de Istmania</h3>
     </div>
 </section>
 
@@ -42,13 +42,13 @@ class __TwigTemplate_5cb5eb18fb90f4ecf504e1ba60a565a3cc3d939f0582c23dd2555b85372
 
     <div class=\"row\">
         <div class=\"col-sm-7\">
-            <h4 class=\"headline\"><span>Himno de Ismania</span></h4>
+            <h4 class=\"headline\"><span>Letra</span></h4>
                 <center>
                     <p>Se oye en la jungla de Istmanía </p>
                     <p>rugidos de Leones, que son,</p>
                     <p>mano extendida  a otra mano,</p>
                     <p>llevando esperanza y valor.</p>
-                    <p></p>
+                    <p></p><br>
                     <p></p>
                     <p>Temple la fragua encendida</p>
                     <p>nuestra alma de fuerza y fervor,</p>
@@ -57,7 +57,7 @@ class __TwigTemplate_5cb5eb18fb90f4ecf504e1ba60a565a3cc3d939f0582c23dd2555b85372
                 </center>
         </div>
         <div class=\"col-sm-5\">
-            <h4 class=\"headline\"><span>Video intro</span></h4>
+            <h4 class=\"headline\"><span>Video</span></h4>
             <div class=\"video-container\">
                 <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XY2uzklbvOI\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>
             </div>
@@ -80,7 +80,7 @@ class __TwigTemplate_5cb5eb18fb90f4ecf504e1ba60a565a3cc3d939f0582c23dd2555b85372
     {
         return new Source("<section id=\"layout-title\">
     <div class=\"container\">
-        <h3>Himno</h3>
+        <h3>Himno de Istmania</h3>
     </div>
 </section>
 
@@ -88,13 +88,13 @@ class __TwigTemplate_5cb5eb18fb90f4ecf504e1ba60a565a3cc3d939f0582c23dd2555b85372
 
     <div class=\"row\">
         <div class=\"col-sm-7\">
-            <h4 class=\"headline\"><span>Himno de Ismania</span></h4>
+            <h4 class=\"headline\"><span>Letra</span></h4>
                 <center>
                     <p>Se oye en la jungla de Istmanía </p>
                     <p>rugidos de Leones, que son,</p>
                     <p>mano extendida  a otra mano,</p>
                     <p>llevando esperanza y valor.</p>
-                    <p></p>
+                    <p></p><br>
                     <p></p>
                     <p>Temple la fragua encendida</p>
                     <p>nuestra alma de fuerza y fervor,</p>
@@ -103,7 +103,7 @@ class __TwigTemplate_5cb5eb18fb90f4ecf504e1ba60a565a3cc3d939f0582c23dd2555b85372
                 </center>
         </div>
         <div class=\"col-sm-5\">
-            <h4 class=\"headline\"><span>Video intro</span></h4>
+            <h4 class=\"headline\"><span>Video</span></h4>
             <div class=\"video-container\">
                 <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/XY2uzklbvOI\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>
             </div>

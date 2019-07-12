@@ -1,4 +1,4 @@
-1562161729a:1:{s:12:"ejemplos.htm";a:9:{s:8:"fileName";s:12:"ejemplos.htm";s:7:"content";s:30253:"title = "Ejemplos"
+1562957384a:1:{s:12:"ejemplos.htm";a:9:{s:8:"fileName";s:12:"ejemplos.htm";s:7:"content";s:29552:"title = "Ejemplos"
 url = "/ejemplos"
 layout = "default"
 is_hidden = 0
@@ -699,7 +699,7 @@ public function onGuardar(){
     
     <br/>
 
-</div>";s:5:"mtime";i:1562098842;s:6:"markup";s:29785:"{% put scripts %}
+</div>";s:5:"mtime";i:1562956764;s:6:"markup";s:29115:"{% put scripts %}
     <script src="{{ [
         'assets/javascript/pages/ui-elements.js',
     ]|theme }}"></script>
@@ -1369,7 +1369,7 @@ public function onGuardar(){
     
     <br/>
 
-</div>";s:4:"code";s:373:"use \Yo\Nombre\Models\Data;
+</div>";s:4:"code";s:351:"use \Yo\Nombre\Models\Data;
 
 function onStart(){
     

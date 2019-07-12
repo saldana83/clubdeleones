@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2019 a las 19:25:46
+-- Tiempo de generación: 12-07-2019 a las 20:47:44
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -63,7 +63,8 @@ INSERT INTO `backend_access_log` (`id`, `user_id`, `ip_address`, `created_at`, `
 (20, 1, '127.0.0.1', '2019-07-03 19:05:00', '2019-07-03 19:05:00'),
 (21, 1, '127.0.0.1', '2019-07-03 19:15:06', '2019-07-03 19:15:06'),
 (22, 1, '127.0.0.1', '2019-07-03 20:10:52', '2019-07-03 20:10:52'),
-(23, 1, '127.0.0.1', '2019-07-03 20:20:35', '2019-07-03 20:20:35');
+(23, 1, '127.0.0.1', '2019-07-03 20:20:35', '2019-07-03 20:20:35'),
+(24, 1, '127.0.0.1', '2019-07-12 06:25:33', '2019-07-12 06:25:33');
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,7 @@ CREATE TABLE `backend_users` (
 --
 
 INSERT INTO `backend_users` (`id`, `first_name`, `last_name`, `login`, `email`, `password`, `activation_code`, `persist_code`, `reset_password_code`, `permissions`, `is_activated`, `role_id`, `activated_at`, `last_login`, `created_at`, `updated_at`, `deleted_at`, `is_superuser`) VALUES
-(1, 'Admin', 'Person', 'admin', 'admin@domain.tld', '$2y$10$BQ6il9rchpIP.bh8Pgpn.OrZ5N42qP9K4xRZrWFUxl7/XSFXcxyHK', NULL, '$2y$10$yY.i5mm3A5XQbSvE3Yi2NeJrbpCbTR2DeENVzocGywDDiiPKfm8ea', NULL, '', 1, 2, NULL, '2019-07-03 20:20:35', '2019-06-10 18:59:26', '2019-07-03 20:20:35', NULL, 1);
+(1, 'Admin', 'Person', 'admin', 'admin@domain.tld', '$2y$10$BQ6il9rchpIP.bh8Pgpn.OrZ5N42qP9K4xRZrWFUxl7/XSFXcxyHK', NULL, '$2y$10$yY.i5mm3A5XQbSvE3Yi2NeJrbpCbTR2DeENVzocGywDDiiPKfm8ea', NULL, '', 1, 2, NULL, '2019-07-12 06:25:32', '2019-06-10 18:59:26', '2019-07-12 06:25:32', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -291,7 +292,11 @@ CREATE TABLE `deferred_bindings` (
 --
 
 INSERT INTO `deferred_bindings` (`id`, `master_type`, `master_field`, `slave_type`, `slave_id`, `session_key`, `is_bind`, `created_at`, `updated_at`) VALUES
-(4, 'RainLab\\Notify\\Models\\NotificationRule', 'rule_conditions', 'RainLab\\Notify\\Models\\RuleCondition', '1', 'TLdfOPQKRq5Ri8bvmZ0fCjZsNb1LBbvVSV23515V', 1, '2019-06-27 20:14:41', '2019-06-27 20:14:41');
+(4, 'RainLab\\Notify\\Models\\NotificationRule', 'rule_conditions', 'RainLab\\Notify\\Models\\RuleCondition', '1', 'TLdfOPQKRq5Ri8bvmZ0fCjZsNb1LBbvVSV23515V', 1, '2019-06-27 20:14:41', '2019-06-27 20:14:41'),
+(5, 'Backend\\Models\\BrandSetting', 'logo', 'System\\Models\\File', '2', 'h1CLPBMaTA6h0iwRrCObYF07huuGwBTWn2A2DdTA', 0, '2019-07-12 23:45:23', '2019-07-12 23:45:23'),
+(6, 'Backend\\Models\\BrandSetting', 'logo', 'System\\Models\\File', '4', 'h1CLPBMaTA6h0iwRrCObYF07huuGwBTWn2A2DdTA', 1, '2019-07-12 23:45:31', '2019-07-12 23:45:31'),
+(7, 'Backend\\Models\\BrandSetting', 'favicon', 'System\\Models\\File', '3', 'h1CLPBMaTA6h0iwRrCObYF07huuGwBTWn2A2DdTA', 0, '2019-07-12 23:45:36', '2019-07-12 23:45:36'),
+(8, 'Backend\\Models\\BrandSetting', 'favicon', 'System\\Models\\File', '5', 'h1CLPBMaTA6h0iwRrCObYF07huuGwBTWn2A2DdTA', 1, '2019-07-12 23:45:42', '2019-07-12 23:45:42');
 
 -- --------------------------------------------------------
 
@@ -649,7 +654,9 @@ CREATE TABLE `system_files` (
 
 INSERT INTO `system_files` (`id`, `disk_name`, `file_name`, `file_size`, `content_type`, `title`, `description`, `field`, `attachment_id`, `attachment_type`, `is_public`, `sort_order`, `created_at`, `updated_at`) VALUES
 (2, '5cffc70a80d7d180239406.png', 'logo.png', 891781, 'image/png', NULL, NULL, 'logo', '1', 'Backend\\Models\\BrandSetting', 1, 2, '2019-06-11 20:21:46', '2019-06-11 20:22:09'),
-(3, '5cffc71aa9fc1300328551.png', 'logo.png', 891781, 'image/png', NULL, NULL, 'favicon', '1', 'Backend\\Models\\BrandSetting', 1, 3, '2019-06-11 20:22:02', '2019-06-11 20:22:09');
+(3, '5cffc71aa9fc1300328551.png', 'logo.png', 891781, 'image/png', NULL, NULL, 'favicon', '1', 'Backend\\Models\\BrandSetting', 1, 3, '2019-06-11 20:22:02', '2019-06-11 20:22:09'),
+(4, '5d28d54b69314854583989.jpeg', 'WhatsApp Image 2019-07-10 at 2.22.49 PM.jpeg', 174541, 'image/jpeg', NULL, NULL, NULL, NULL, NULL, 1, 4, '2019-07-12 23:45:31', '2019-07-12 23:45:31'),
+(5, '5d28d556eae59601517796.jpeg', 'WhatsApp Image 2019-07-10 at 2.22.49 PM.jpeg', 174541, 'image/jpeg', NULL, NULL, NULL, NULL, NULL, 1, 5, '2019-07-12 23:45:42', '2019-07-12 23:45:42');
 
 -- --------------------------------------------------------
 
@@ -763,7 +770,7 @@ INSERT INTO `system_parameters` (`id`, `namespace`, `group`, `item`, `value`) VA
 (1, 'system', 'update', 'count', '0'),
 (2, 'system', 'core', 'hash', '\"530fb2559d6b264485c60ac3797fe8ac\"'),
 (3, 'system', 'core', 'build', '\"455\"'),
-(4, 'system', 'update', 'retry', '1562246839'),
+(4, 'system', 'update', 'retry', '1562981135'),
 (5, 'system', 'theme', 'history', '{\"Responsiv.Flat\":\"responsiv-flat\"}'),
 (6, 'cms', 'theme', 'active', '\"clubdeleonesdavid\"');
 
@@ -1011,7 +1018,8 @@ CREATE TABLE `system_settings` (
 INSERT INTO `system_settings` (`id`, `item`, `value`) VALUES
 (1, 'backend_brand_settings', '{\"app_name\":\"Club de Leones David\",\"app_tagline\":\"Getting back to basics\",\"primary_color\":\"#4f5458\",\"secondary_color\":\"#34495e\",\"accent_color\":\"#3498db\",\"menu_mode\":\"tile\",\"custom_css\":\"\"}'),
 (2, 'user_settings', '{\"require_activation\":\"1\",\"activate_mode\":\"admin\",\"use_throttle\":\"1\",\"block_persistence\":\"0\",\"allow_registration\":\"1\",\"login_attribute\":\"username\"}'),
-(3, 'rainlab_builder_settings', '{\"author_name\":\"yo\",\"author_namespace\":\"Yo\"}');
+(3, 'rainlab_builder_settings', '{\"author_name\":\"ClubDeLeonesDavid\",\"author_namespace\":\"ClubDeLeonesDavid\"}'),
+(4, 'slick_slider_settings', '{\"autoplay\":\"1\",\"accessibility\":\"1\",\"arrows\":\"1\",\"adaptive_height\":\"0\",\"center_mode\":\"0\",\"dots\":\"0\",\"draggable\":\"1\",\"fade\":\"0\",\"focus_on_select\":\"0\",\"pause_on_focus\":\"1\",\"pause_on_dots_hover\":\"1\",\"pause_on_hover\":\"1\",\"infinite\":\"1\",\"swipe\":\"1\",\"touch_move\":\"1\",\"use_transform\":\"1\",\"use_css\":\"1\",\"vertical\":\"0\",\"vertical_swiping\":\"0\",\"rtl\":\"0\",\"wait_for_animate\":\"1\",\"include_jquery\":\"1\",\"autoplay_speed\":\"3000\",\"slide_show_height\":\"500px\",\"prev_arrow\":\"<button type=\\\"button\\\" class=\\\"slick-prev\\\">Previous<\\/button>\",\"next_arrow\":\"<button type=\\\"button\\\" class=\\\"slick-next\\\">Next<\\/button>\",\"center_padding\":\"50px\",\"css_ease\":\"ease\",\"easing\":\"linear\",\"edge_friction\":\"0.15\",\"initial_slide\":\"0\",\"lazy_load\":\"ondemand\",\"rows\":\"1\",\"slides_per_row\":\"1\",\"slides_to_show\":\"1\",\"slides_to_scroll\":\"1\",\"speed\":\"300\",\"touch_threshold\":\"5\",\"z_index\":\"1000\",\"responsive\":[]}');
 
 -- --------------------------------------------------------
 
@@ -1363,7 +1371,7 @@ ALTER TABLE `yo_nombre_data`
 -- AUTO_INCREMENT de la tabla `backend_access_log`
 --
 ALTER TABLE `backend_access_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `backend_users`
@@ -1411,7 +1419,7 @@ ALTER TABLE `cms_theme_logs`
 -- AUTO_INCREMENT de la tabla `deferred_bindings`
 --
 ALTER TABLE `deferred_bindings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -1477,7 +1485,7 @@ ALTER TABLE `system_event_logs`
 -- AUTO_INCREMENT de la tabla `system_files`
 --
 ALTER TABLE `system_files`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `system_mail_layouts`
@@ -1531,7 +1539,7 @@ ALTER TABLE `system_revisions`
 -- AUTO_INCREMENT de la tabla `system_settings`
 --
 ALTER TABLE `system_settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipodepago`

@@ -1,5 +1,1 @@
-<<<<<<< testing
-1562524658a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:1;s:4:"item";s:22:"backend_brand_settings";s:5:"value";s:188:"{"app_name":"Club de Leones David","app_tagline":"Getting back to basics","primary_color":"#4f5458","secondary_color":"#34495e","accent_color":"#3498db","menu_mode":"tile","custom_css":""}";}}
-=======
-1562196993a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:1;s:4:"item";s:22:"backend_brand_settings";s:5:"value";s:188:"{"app_name":"Club de Leones David","app_tagline":"Getting back to basics","primary_color":"#4f5458","secondary_color":"#34495e","accent_color":"#3498db","menu_mode":"tile","custom_css":""}";}}
->>>>>>> Actualización- de Crear nuevo pago
+1562981133a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:1;s:4:"item";s:22:"backend_brand_settings";s:5:"value";s:188:"{"app_name":"Club de Leones David","app_tagline":"Getting back to basics","primary_color":"#4f5458","secondary_color":"#34495e","accent_color":"#3498db","menu_mode":"tile","custom_css":""}";}}

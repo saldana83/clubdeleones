@@ -1,4 +1,4 @@
-1562161728a:1:{s:31:"administrador/administrador.htm";a:9:{s:8:"fileName";s:31:"administrador/administrador.htm";s:7:"content";s:1740:"title = "administrador"
+1562957384a:1:{s:31:"administrador/administrador.htm";a:9:{s:8:"fileName";s:31:"administrador/administrador.htm";s:7:"content";s:1700:"title = "administrador"
 url = "/administrador"
 layout = "default"
 is_hidden = 0
@@ -38,7 +38,7 @@ is_hidden = 0
     </div>
                 
 
-</div>";s:5:"mtime";i:1562098842;s:6:"markup";s:1652:"<section id="layout-title">
+</div>";s:5:"mtime";i:1562956765;s:6:"markup";s:1617:"<section id="layout-title">
     <div class="container">
         <center><h3>Sistema de Administrador</h3></center>
     </div>
