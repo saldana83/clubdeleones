@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:storage/framework/cache/66/99/669960cf46ed24680a776128fa930f87d8c9c1e8
 1563158048a:1:{s:23:"editar-credenciales.htm";a:9:{s:8:"fileName";s:23:"editar-credenciales.htm";s:7:"content";s:1702:"title = "Editar Credenciales"
+=======
+1562953061a:1:{s:23:"editar-credenciales.htm";a:9:{s:8:"fileName";s:23:"editar-credenciales.htm";s:7:"content";s:1702:"title = "Editar Credenciales"
+>>>>>>> Stashed changes:storage/framework/cache/1e/2e/1e2e0a4331e679bae9bbfe988d9ac0a468450b2d
 url = "/editar-credenciales"
 layout = "default"
 is_hidden = 0
@@ -91,7 +95,11 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
+<<<<<<< Updated upstream:storage/framework/cache/66/99/669960cf46ed24680a776128fa930f87d8c9c1e8
 	</form>";s:5:"mtime";i:1562955407;s:6:"markup";s:1602:"<style type="text/css">
+=======
+	</form>";s:5:"mtime";i:1562950450;s:6:"markup";s:1602:"<style type="text/css">
+>>>>>>> Stashed changes:storage/framework/cache/1e/2e/1e2e0a4331e679bae9bbfe988d9ac0a468450b2d
 		/*Formulario */
 		form{
 			margin: 0 auto;

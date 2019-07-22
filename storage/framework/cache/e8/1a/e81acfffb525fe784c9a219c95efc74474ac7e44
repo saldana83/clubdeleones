@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:storage/framework/cache/e8/1a/e81acfffb525fe784c9a219c95efc74474ac7e44
 1563158048a:1:{s:30:"administrador/crear-perfil.htm";a:9:{s:8:"fileName";s:30:"administrador/crear-perfil.htm";s:7:"content";s:6482:"title = "Crear perfil"
+=======
+1562953061a:1:{s:30:"administrador/crear-perfil.htm";a:9:{s:8:"fileName";s:30:"administrador/crear-perfil.htm";s:7:"content";s:6482:"title = "Crear perfil"
+>>>>>>> Stashed changes:storage/framework/cache/4a/c3/4ac3c895e4ab8b07cb668cccb462119d4b22afe4
 url = "/crear-perfil"
 layout = "default"
 is_hidden = 0
@@ -227,7 +231,11 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
+<<<<<<< Updated upstream:storage/framework/cache/e8/1a/e81acfffb525fe784c9a219c95efc74474ac7e44
 	</form>>";s:5:"mtime";i:1562955406;s:6:"markup";s:6396:"<style type="text/css">
+=======
+	</form>>";s:5:"mtime";i:1562159724;s:6:"markup";s:6396:"<style type="text/css">
+>>>>>>> Stashed changes:storage/framework/cache/4a/c3/4ac3c895e4ab8b07cb668cccb462119d4b22afe4
 		/*Formulario */
 		form{
 			margin: 0 auto;

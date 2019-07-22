@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:storage/framework/cache/51/da/51da3d8910fa5b1a4fb454b417a7b2329ac4d6a9
 1563158049a:1:{s:22:"user/editar-perfil.htm";a:9:{s:8:"fileName";s:22:"user/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
+=======
+1562953061a:1:{s:31:"administrador/editar-perfil.htm";a:9:{s:8:"fileName";s:31:"administrador/editar-perfil.htm";s:7:"content";s:6194:"title = "Editar perfil"
+>>>>>>> Stashed changes:storage/framework/cache/51/d4/51d48dacdecbb266106cee0e2b18aea22d837bf3
 url = "/editar-perfil"
 layout = "default"
 is_hidden = 0
@@ -217,7 +221,11 @@ is_hidden = 0
 			<button type="submit">Guardar Cambios</button>
 			<button type="submit">Cancelar</button>
 		</div><br/><br/>
+<<<<<<< Updated upstream:storage/framework/cache/51/da/51da3d8910fa5b1a4fb454b417a7b2329ac4d6a9
 	</form>";s:5:"mtime";i:1562955407;s:6:"markup";s:6106:"<style type="text/css">
+=======
+	</form>";s:5:"mtime";i:1562159724;s:6:"markup";s:6106:"<style type="text/css">
+>>>>>>> Stashed changes:storage/framework/cache/51/d4/51d48dacdecbb266106cee0e2b18aea22d837bf3
 		/*Formulario */
 		form{
 			margin: 0 auto;

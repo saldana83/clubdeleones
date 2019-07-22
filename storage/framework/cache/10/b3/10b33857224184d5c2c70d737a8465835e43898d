@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:storage/framework/cache/10/b3/10b33857224184d5c2c70d737a8465835e43898d
 1563158048a:1:{s:33:"administrador/categoria_pagos.htm";a:9:{s:8:"fileName";s:33:"administrador/categoria_pagos.htm";s:7:"content";s:2899:"title = "categoría-pagos"
+=======
+1562953061a:1:{s:33:"administrador/categoria_pagos.htm";a:9:{s:8:"fileName";s:33:"administrador/categoria_pagos.htm";s:7:"content";s:2899:"title = "categoría-pagos"
+>>>>>>> Stashed changes:storage/framework/cache/e9/0b/e90b1c494844a231abccff8740d7a8aeb6b7763b
 url = "/categoria-pagos"
 layout = "default"
 is_hidden = 0
@@ -156,7 +160,11 @@ is_hidden = 0
   <td>Ingresar texto aquí</td>
   <td>30.00</td>
 </tr>
+<<<<<<< Updated upstream:storage/framework/cache/10/b3/10b33857224184d5c2c70d737a8465835e43898d
 </table>";s:5:"mtime";i:1562955406;s:6:"markup";s:2806:"<style type="text/css">
+=======
+</table>";s:5:"mtime";i:1562159724;s:6:"markup";s:2806:"<style type="text/css">
+>>>>>>> Stashed changes:storage/framework/cache/e9/0b/e90b1c494844a231abccff8740d7a8aeb6b7763b
 		
 		#encabezado{
 			background-color: #E6E7E7;
