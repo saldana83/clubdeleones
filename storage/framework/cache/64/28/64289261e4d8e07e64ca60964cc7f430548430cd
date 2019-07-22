@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:storage/framework/cache/64/28/64289261e4d8e07e64ca60964cc7f430548430cd
 1563158048a:1:{s:19:"conocenos/himno.htm";a:9:{s:8:"fileName";s:19:"conocenos/himno.htm";s:7:"content";s:1345:"title = "Himno"
+=======
+1562953061a:1:{s:19:"conocenos/himno.htm";a:9:{s:8:"fileName";s:19:"conocenos/himno.htm";s:7:"content";s:1345:"title = "Himno"
+>>>>>>> Stashed changes:storage/framework/cache/55/6f/556fe46fb4b9f9331033889d9b48c89bd266c559
 url = "/conocenos/himno"
 layout = "default"
 is_hidden = 0
@@ -34,7 +38,11 @@ is_hidden = 0
             </div>
         </div>
     </div>
+<<<<<<< Updated upstream:storage/framework/cache/64/28/64289261e4d8e07e64ca60964cc7f430548430cd
 </div>";s:5:"mtime";i:1562955406;s:6:"markup";s:1263:"<section id="layout-title">
+=======
+</div>";s:5:"mtime";i:1562851319;s:6:"markup";s:1263:"<section id="layout-title">
+>>>>>>> Stashed changes:storage/framework/cache/55/6f/556fe46fb4b9f9331033889d9b48c89bd266c559
     <div class="container">
         <h3>Himno de Istmania</h3>
     </div>

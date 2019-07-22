@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:storage/framework/cache/fb/89/fb8926624ed894300d2bb7e3c31a6efd06c8c386
 1563158048a:1:{s:29:"conocenos/junta-directiva.htm";a:9:{s:8:"fileName";s:29:"conocenos/junta-directiva.htm";s:7:"content";s:4144:"title = "Junta Directiva"
+=======
+1562953061a:1:{s:29:"conocenos/junta-directiva.htm";a:9:{s:8:"fileName";s:29:"conocenos/junta-directiva.htm";s:7:"content";s:4144:"title = "Junta Directiva"
+>>>>>>> Stashed changes:storage/framework/cache/93/cc/93cc0934a303d24635aa3d0cbaf5670277aaed2b
 url = "/conocenos/junta-directiva"
 layout = "default"
 is_hidden = 0
@@ -102,7 +106,11 @@ is_hidden = 0
 </table>         
            
 </div>
+<<<<<<< Updated upstream:storage/framework/cache/fb/89/fb8926624ed894300d2bb7e3c31a6efd06c8c386
 </center>";s:5:"mtime";i:1562955406;s:6:"markup";s:4042:"<section id="layout-title">
+=======
+</center>";s:5:"mtime";i:1562851329;s:6:"markup";s:4042:"<section id="layout-title">
+>>>>>>> Stashed changes:storage/framework/cache/93/cc/93cc0934a303d24635aa3d0cbaf5670277aaed2b
     <div class="container">
         <h3>Junta Directiva</h3>
     </div>

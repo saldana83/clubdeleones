@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:storage/framework/cache/62/d6/62d67dc792fbc16a5c7ed5dcee471a92fbb220c8
 1563158048a:1:{s:31:"administrador/administrador.htm";a:9:{s:8:"fileName";s:31:"administrador/administrador.htm";s:7:"content";s:1740:"title = "administrador"
+=======
+1562953061a:1:{s:31:"administrador/administrador.htm";a:9:{s:8:"fileName";s:31:"administrador/administrador.htm";s:7:"content";s:1740:"title = "administrador"
+>>>>>>> Stashed changes:storage/framework/cache/eb/21/eb218b831644222eefc325baad1c8b08bd11a796
 url = "/administrador"
 layout = "default"
 is_hidden = 0
@@ -38,7 +42,11 @@ is_hidden = 0
     </div>
                 
 
+<<<<<<< Updated upstream:storage/framework/cache/62/d6/62d67dc792fbc16a5c7ed5dcee471a92fbb220c8
 </div>";s:5:"mtime";i:1562955406;s:6:"markup";s:1652:"<section id="layout-title">
+=======
+</div>";s:5:"mtime";i:1562098842;s:6:"markup";s:1652:"<section id="layout-title">
+>>>>>>> Stashed changes:storage/framework/cache/eb/21/eb218b831644222eefc325baad1c8b08bd11a796
     <div class="container">
         <center><h3>Sistema de Administrador</h3></center>
     </div>
