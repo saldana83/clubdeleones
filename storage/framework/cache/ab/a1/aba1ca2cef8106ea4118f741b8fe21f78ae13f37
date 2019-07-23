@@ -1,0 +1,196 @@
+1563152318a:1:{s:31:"supervisor/crear-nuevo-pago.htm";a:10:{s:8:"fileName";s:31:"supervisor/crear-nuevo-pago.htm";s:7:"content";s:2457:"title = "Crear nuevo pago"
+url = "/crear-nuevo-pago"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
+==
+{% component 'session' %}
+
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+{% flash %}
+    <div class="alert alert-{{ type }}">
+        {{ message }}
+    </div>
+{% endflash %}
+
+<style>
+	#line{
+		display: inline;
+	}
+	
+	td {
+		padding: 3%;
+		margin: 0 auto;
+	}
+	#button{
+			align-content: center;
+			text-align: center;
+		}
+
+	#button button{
+			width: 155px;
+			border-radius: 6px;
+			margin: 20px;
+		}
+
+</style>
+
+<section id="layout-title">
+	<div class="container">
+		<h3 style="text-align: center">Crear nuevo pago</h3>
+	</div>
+</section>
+
+<div class="col-sm-2">
+        <a href="supervisor" class="btn btn-block btn-lg btn-primary" >Regresar</a>
+</div>
+
+<p>&nbsp;</p>
+
+<form action="onStar" method="POST">
+		<div>
+				<table style="width: auto;margin: 0 auto;">
+				  	<tr>
+						<td><h6>Nombre del pago:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+				  	</tr>
+				  	<tr>
+						<td><h6 >Codigo de pago:</h6></td>
+						<td><input  type="text" name="nombre_pago" style="width: 100%;"></td>
+				  	</tr>
+				  	<tr>
+						<td><h6 >Categoria de pago:</h6></td>
+						<td><select  class="form-control select select-default" name="pago" data-toggle="select">
+								<option value="1" selected>categoria x</option>
+								<option value="2">categoria y</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><h6 >Monto:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+					<tr>
+						<td><h6>Descripcion:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+					<tr>
+						<td><h6 >Fecha de cierre:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+				</table>
+		</div>
+</form>
+<div id="button">
+		<button type="submit">Guardar Cambios</button>
+		<button type="submit">Cancelar</button>
+</div>
+<script language="JavaScript">
+
+		window.onbeforeunload = preguntarAntesDeSalir;
+		
+		function preguntarAntesDeSalir(){
+		return "¿Seguro que quieres salir?";
+		}
+		
+</script>";s:5:"mtime";i:1563151713;s:6:"markup";s:2227:"{% component 'session' %}
+
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+{% flash %}
+    <div class="alert alert-{{ type }}">
+        {{ message }}
+    </div>
+{% endflash %}
+
+<style>
+	#line{
+		display: inline;
+	}
+	
+	td {
+		padding: 3%;
+		margin: 0 auto;
+	}
+	#button{
+			align-content: center;
+			text-align: center;
+		}
+
+	#button button{
+			width: 155px;
+			border-radius: 6px;
+			margin: 20px;
+		}
+
+</style>
+
+<section id="layout-title">
+	<div class="container">
+		<h3 style="text-align: center">Crear nuevo pago</h3>
+	</div>
+</section>
+
+<div class="col-sm-2">
+        <a href="supervisor" class="btn btn-block btn-lg btn-primary" >Regresar</a>
+</div>
+
+<p>&nbsp;</p>
+
+<form action="onStar" method="POST">
+		<div>
+				<table style="width: auto;margin: 0 auto;">
+				  	<tr>
+						<td><h6>Nombre del pago:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+				  	</tr>
+				  	<tr>
+						<td><h6 >Codigo de pago:</h6></td>
+						<td><input  type="text" name="nombre_pago" style="width: 100%;"></td>
+				  	</tr>
+				  	<tr>
+						<td><h6 >Categoria de pago:</h6></td>
+						<td><select  class="form-control select select-default" name="pago" data-toggle="select">
+								<option value="1" selected>categoria x</option>
+								<option value="2">categoria y</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><h6 >Monto:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+					<tr>
+						<td><h6>Descripcion:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+					<tr>
+						<td><h6 >Fecha de cierre:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+				</table>
+		</div>
+</form>
+<div id="button">
+		<button type="submit">Guardar Cambios</button>
+		<button type="submit">Cancelar</button>
+</div>
+<script language="JavaScript">
+
+		window.onbeforeunload = preguntarAntesDeSalir;
+		
+		function preguntarAntesDeSalir(){
+		return "¿Seguro que quieres salir?";
+		}
+		
+</script>";s:4:"code";N;s:5:"title";s:16:"Crear nuevo pago";s:3:"url";s:17:"/crear-nuevo-pago";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"session";a:3:{s:8:"security";s:4:"user";s:17:"allowedUserGroups";a:2:{i:0;s:13:"administrador";i:1;s:10:"supervisor";}s:8:"redirect";s:14:"iniciar-sesion";}}}

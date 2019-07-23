@@ -1,0 +1,83 @@
+title = "categoría-pagos"
+url = "/categoria-pagos"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
+==
+{% component 'session' %}
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+{% flash %}
+    <div class="alert alert-{{ type }}">
+        {{ message }}
+    </div>
+{% endflash %}
+	
+	<style>
+		#line {
+    	display: inline;}
+	</style>
+
+	<section id="layout-title">
+		<div class="container">
+		  <h3 style="text-align: center">Categoria de pagos</h3>
+		</div>
+	</section>
+
+
+		<div class="col-sm-2">
+			<a href="supervisor" class="btn btn-block btn-lg btn-primary" >Regresar</a>
+		</div>
+		<div>
+				<h5 id="line">Ordenar por:</h5>
+				<select id="line" class="form-control select select-default" name="categoria" data-toggle="select">
+					<option value="1" selected>Codigo</option>
+					<option value="2">Nombre</option>
+					<option value="2">Categoria</option>
+				</select>
+		</div>
+		<p>&nbsp;</p>
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+</style>
+
+<div style="overflow-x:auto;">
+		<table>
+		  <tr>
+			<th>Codigo de pago</th>
+			<th>Nombre de pago</th>
+			<th>Categoria</th>
+			<th>Descripción</th>
+			<th>Saldo</th>
+		  </tr>
+		  <tr>
+			<td>Jill</td>
+			<td>Smith</td>
+			<td>50</td>
+			<td>50</td>
+			<td>50</td>
+		  </tr>
+		</table>
+</div>
+<p>&nbsp;</p><p>&nbsp;</p>

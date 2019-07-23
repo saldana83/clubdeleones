@@ -1,0 +1,458 @@
+1563151811a:1:{s:20:"user/perfil-leon.htm";a:10:{s:8:"fileName";s:20:"user/perfil-leon.htm";s:7:"content";s:6724:"title = "perfil-leon"
+url = "/perfil-leon"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "normal"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
+==
+<?php
+function onStart(){
+    //conectamos Con el servidor
+	$conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+	mysqli_set_charset($conectar,'utf8');
+	//verificamos la conexion
+	if(!$conectar){
+		echo"No Se Pudo Conectar Con El Servidor";
+	}else{
+
+		$base=mysqli_select_db($conectar,'clubdeleonesdedavid');
+		if(!$base){
+			echo"No Se Encontro La Base De Datos";			
+		}
+	}
+    $sql= "select name from users where `last_login`=(select max(`last_login`)from users)";
+    $ejecutar = mysqli_query($conectar,$sql);
+    $name = mysqli_fetch_array($ejecutar);
+    $name2=$name['name'];
+    
+    
+    $sql1 = "SELECT `id_domadora` , `primernombre`, `segundonombre`, `primerapellido`, `segundoapellido`, `cedula`, `estado_activo_inactivo`, `fechadeingreso`, `correo`, `fechanac`, `telefonocasa`, `telefonooficina`, `telefonocelular`, `estadocivil`, `codigoleon`, `profesion`, `empresa`, `cargo`, `facebook`, `twitter`, `instagram`, `linkedin`, `tiposangre` FROM `usuarioleon` where '$name2' = primernombre ";
+	$ejecutar1 = mysqli_query($conectar,$sql1);
+	$datos = mysqli_fetch_array($ejecutar1);
+	
+	if (!$ejecutar1){
+		echo 'hay un error en la sentencia sql';
+	}else{
+	
+	$this['primernombre']=$datos['primernombre'];
+	$this['segundonombre']=$datos['segundonombre'];
+	$this['primerapellido']=$datos['primerapellido'];
+	$this['segundoapellido']=$datos['segundoapellido'];
+	$this['cedula']=$datos['cedula'];
+	$this['estado_activo_inactivo']=$datos['estado_activo_inactivo'];
+	$this['fechadeingres']=$datos['fechadeingreso'];
+	$this['correo']=$datos['correo'];
+	$this['fechanac']=$datos['fechanac'];
+	$this['telefonocasa']=$datos['telefonocasa'];
+	$this['telefonooficina']=$datos['telefonooficina'];
+	$this['estadocivil']=$datos['estadocivil'];
+	$this['codigoleon']=$datos['codigoleon'];
+	$this['profesion']=$datos['profesion'];
+	$this['empresa']=$datos['empresa'];
+	$this['cargo']=$datos['cargo'];
+	$this['facebook']=$datos['facebook'];
+	$this['twitter']=$datos['twitter'];
+	$this['instagram']=$datos['instagram'];
+	$this['linkedin']=$datos['linkedin'];
+	$this['tiposangre']=$datos['tiposangre'];
+	
+	$iddom=$datos['id_domadora'];
+	$sql2="SELECT `nombre`, `apellido`, `cedula`, `fecha_nac`, `celular`, `tipodesangre` FROM `domadoras` WHERE $iddom= id_domadora";
+	$ejecutar2 = mysqli_query($conectar,$sql2);
+	if (!$ejecutar2){
+	echo 'hay un error en la sentencia sql';
+	    }else{
+	$datos2=mysqli_fetch_array($ejecutar2);
+	
+	
+	$this['dnombre']=$datos2['nombre'];
+	$this['dapellido']=$datos2['apellido'];
+	$this['dcedula']=$datos2['cedula'];
+	$this['dfecha_nac']=$datos2['fecha_nac'];
+	$this['dcelular']=$datos2['celular'];
+	$this['dtipodesangre']=$datos2['tipodesangre'];
+	}
+	}
+	
+}
+
+function onUsuario(){
+
+	
+}
+?>
+==
+{% component 'session' %}
+
+	<style type="text/css">
+		/*Formulario */
+		
+		section{
+			margin: 0 auto;
+			width: 400px
+		}
+
+		section div{
+			margin-top: 6px; 
+			width: 700px;
+		}
+
+		p{
+			display: inline-block;
+			width: 140px;
+		}
+
+		#info {
+			margin-top: -7px;
+		}
+
+		#info p, td{
+			width: 200px;
+			height: 6px;
+			margin-left: 3px;
+		}
+
+		#titulo p{
+			background-color: #E6E7E7;
+			text-align: center;
+			height: 30px;
+			line-height: 30px;
+			width: 80%;
+		}
+		
+		#encabezado {
+			background-color: #E6E7E7;
+			width: 100%;
+			height: 15%;
+		}
+
+		#encabezado h3{
+			text-align: center;
+			padding: 2%;
+
+		}
+
+		#foto_perfil{
+			align-content: center;
+			width: 200px;
+			height: 200px;
+		}
+
+		#foto_perfil img{
+			margin-left: 110px;
+			width: 200px;
+			height: 200px;
+		}
+
+		#sec_izquierda{
+			float: left;
+			margin-left: 5%;
+			margin-right: 5%;
+			margin-top: 16px;
+		}
+
+		#sec_derecha{
+			margin-left: 35%;
+			margin-top: 3%;
+			
+		}
+		
+		#perfil{
+		    margin-right:1150px;
+		}
+
+	</style>
+
+<form data-request="onStart" method="post">
+	<div>
+	<h2 style="padding: 2%; background-color: #E6E7E7;text-align:center;" style="padding: 1%;"> {{primernombre}} {{primerapellido}}</h2>
+	</div>	
+		<a class="btn btn-block btn-lg btn-warning" href="editar-perfil"  style="position: absolute; width:150px;margin-left:85%;margin-top: -7%;" >Editar Perfil</a>
+	<div id="sec_izquierda">
+		<br>
+		<br>
+		<section name="ver_perfil" method="" action="" width="20">
+			<center>
+			<img src="{{ 'assets/images/junta4.png'|theme }}" height="200" style="margin-left: 40%;">
+			</center>
+			<div id="titulo"><p>Información General</p></div>
+			<div id="info">
+				<p>Código de León:</p><td>{{codigoleon}}</td></br>
+				<p>Fecha de ingreso:</p><td>{{fechadeingreso}}</td></br>
+				<p>Estado:</p><td>{{estado_activo_incativo}}</td>
+			</div>
+		</section>
+	</div>
+
+	<div id="sec_derecha">
+	<section>
+		<div id="titulo"><p>Información Personal</p></div>
+		<div id="info">
+			<p>Cédula:</p><td>{{cedula}}</td></br>
+			<p>Primer nombre:</p><td>{{primernombre}}</td></br>
+			<p>Segundo nombre:</p><td>{{segundonombre}}</td></br>
+			<p>Primer apellido:</p><td>{{primerapellido}}</td></br>
+			<p>Segundo apellido:</p><td>{{segundoapellido}}</td></br>
+			<p>Fecha de nacimiento:</p><td>{{fechanac}}</td></br>
+			<p>Tipo de sangre:</p><td>{{tiposangre}}</td></br>
+			<p>Estado civil:</p><td>{{estadocivil}}</td>
+		</div>
+
+		<div id="titulo"><p>Información laboral</p></div>	
+		<div id="info">
+			<p>Profesión:</p><td>{{profesion}}</td></br>
+			<p>Empresa:</p><td>{{empresa}}</td></br>
+			<p>Cargo:</p><td>{{cargo}}</td>
+		</div>
+
+		<div id="titulo"><p>Contacto</p></div>
+		<div id="info">
+			<p>Teléfono de casa:</p><td>{{telefonocasa}}</td></br>
+			<p>Teléfono de oficina:</p><td>{{telefonooficina}}</td></br>
+			<p>Celular:</p><td>{{telefonocelular}}</td></br>
+			<p>Correo electrónico:</p><td>{{correo}}</td></br>
+			<p>Facebook:</p><td>{{facebook}}</td></br>
+			<p>Twitter:</p><td>{{twitter}}</td></br>
+			<p>Instagram:</p><td>{{instagram}}</td></br>
+			<p>Linkedin:</p><td>{{linkedin}}</td>
+		</div>	
+
+		<div id="titulo"><p>Información Domadora</p></div>
+		<div id="info">
+			<p>Cédula:</p><td>{{dcedula}}</td></br>
+			<p>Nombre:</p><td>{{dnombre}}</td></br>
+			<p>Apellido:</p><td>{{dapellido}}</td></br>
+			<p>Fecha de nacimiento:</p><td>{{dfecha_nac}}</td></br>
+			<p>Tipo de sangre:</p><td>{{dtipodesangre}}</td></br>
+			<p>Celular:</p><td>{{dcelular}}</td>
+		</div>	
+	</section>
+	</div>
+</form>
+<p>&nbsp;</p><p>&nbsp;</p>
+";s:5:"mtime";i:1563123484;s:6:"markup";s:3669:"{% component 'session' %}
+
+	<style type="text/css">
+		/*Formulario */
+		
+		section{
+			margin: 0 auto;
+			width: 400px
+		}
+
+		section div{
+			margin-top: 6px; 
+			width: 700px;
+		}
+
+		p{
+			display: inline-block;
+			width: 140px;
+		}
+
+		#info {
+			margin-top: -7px;
+		}
+
+		#info p, td{
+			width: 200px;
+			height: 6px;
+			margin-left: 3px;
+		}
+
+		#titulo p{
+			background-color: #E6E7E7;
+			text-align: center;
+			height: 30px;
+			line-height: 30px;
+			width: 80%;
+		}
+		
+		#encabezado {
+			background-color: #E6E7E7;
+			width: 100%;
+			height: 15%;
+		}
+
+		#encabezado h3{
+			text-align: center;
+			padding: 2%;
+
+		}
+
+		#foto_perfil{
+			align-content: center;
+			width: 200px;
+			height: 200px;
+		}
+
+		#foto_perfil img{
+			margin-left: 110px;
+			width: 200px;
+			height: 200px;
+		}
+
+		#sec_izquierda{
+			float: left;
+			margin-left: 5%;
+			margin-right: 5%;
+			margin-top: 16px;
+		}
+
+		#sec_derecha{
+			margin-left: 35%;
+			margin-top: 3%;
+			
+		}
+		
+		#perfil{
+		    margin-right:1150px;
+		}
+
+	</style>
+
+<form data-request="onStart" method="post">
+	<div>
+	<h2 style="padding: 2%; background-color: #E6E7E7;text-align:center;" style="padding: 1%;"> {{primernombre}} {{primerapellido}}</h2>
+	</div>	
+		<a class="btn btn-block btn-lg btn-warning" href="editar-perfil"  style="position: absolute; width:150px;margin-left:85%;margin-top: -7%;" >Editar Perfil</a>
+	<div id="sec_izquierda">
+		<br>
+		<br>
+		<section name="ver_perfil" method="" action="" width="20">
+			<center>
+			<img src="{{ 'assets/images/junta4.png'|theme }}" height="200" style="margin-left: 40%;">
+			</center>
+			<div id="titulo"><p>Información General</p></div>
+			<div id="info">
+				<p>Código de León:</p><td>{{codigoleon}}</td></br>
+				<p>Fecha de ingreso:</p><td>{{fechadeingreso}}</td></br>
+				<p>Estado:</p><td>{{estado_activo_incativo}}</td>
+			</div>
+		</section>
+	</div>
+
+	<div id="sec_derecha">
+	<section>
+		<div id="titulo"><p>Información Personal</p></div>
+		<div id="info">
+			<p>Cédula:</p><td>{{cedula}}</td></br>
+			<p>Primer nombre:</p><td>{{primernombre}}</td></br>
+			<p>Segundo nombre:</p><td>{{segundonombre}}</td></br>
+			<p>Primer apellido:</p><td>{{primerapellido}}</td></br>
+			<p>Segundo apellido:</p><td>{{segundoapellido}}</td></br>
+			<p>Fecha de nacimiento:</p><td>{{fechanac}}</td></br>
+			<p>Tipo de sangre:</p><td>{{tiposangre}}</td></br>
+			<p>Estado civil:</p><td>{{estadocivil}}</td>
+		</div>
+
+		<div id="titulo"><p>Información laboral</p></div>	
+		<div id="info">
+			<p>Profesión:</p><td>{{profesion}}</td></br>
+			<p>Empresa:</p><td>{{empresa}}</td></br>
+			<p>Cargo:</p><td>{{cargo}}</td>
+		</div>
+
+		<div id="titulo"><p>Contacto</p></div>
+		<div id="info">
+			<p>Teléfono de casa:</p><td>{{telefonocasa}}</td></br>
+			<p>Teléfono de oficina:</p><td>{{telefonooficina}}</td></br>
+			<p>Celular:</p><td>{{telefonocelular}}</td></br>
+			<p>Correo electrónico:</p><td>{{correo}}</td></br>
+			<p>Facebook:</p><td>{{facebook}}</td></br>
+			<p>Twitter:</p><td>{{twitter}}</td></br>
+			<p>Instagram:</p><td>{{instagram}}</td></br>
+			<p>Linkedin:</p><td>{{linkedin}}</td>
+		</div>	
+
+		<div id="titulo"><p>Información Domadora</p></div>
+		<div id="info">
+			<p>Cédula:</p><td>{{dcedula}}</td></br>
+			<p>Nombre:</p><td>{{dnombre}}</td></br>
+			<p>Apellido:</p><td>{{dapellido}}</td></br>
+			<p>Fecha de nacimiento:</p><td>{{dfecha_nac}}</td></br>
+			<p>Tipo de sangre:</p><td>{{dtipodesangre}}</td></br>
+			<p>Celular:</p><td>{{dcelular}}</td>
+		</div>	
+	</section>
+	</div>
+</form>
+<p>&nbsp;</p><p>&nbsp;</p>";s:4:"code";s:2784:"function onStart(){
+    //conectamos Con el servidor
+	$conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+	mysqli_set_charset($conectar,'utf8');
+	//verificamos la conexion
+	if(!$conectar){
+		echo"No Se Pudo Conectar Con El Servidor";
+	}else{
+
+		$base=mysqli_select_db($conectar,'clubdeleonesdedavid');
+		if(!$base){
+			echo"No Se Encontro La Base De Datos";			
+		}
+	}
+    $sql= "select name from users where `last_login`=(select max(`last_login`)from users)";
+    $ejecutar = mysqli_query($conectar,$sql);
+    $name = mysqli_fetch_array($ejecutar);
+    $name2=$name['name'];
+    
+    
+    $sql1 = "SELECT `id_domadora` , `primernombre`, `segundonombre`, `primerapellido`, `segundoapellido`, `cedula`, `estado_activo_inactivo`, `fechadeingreso`, `correo`, `fechanac`, `telefonocasa`, `telefonooficina`, `telefonocelular`, `estadocivil`, `codigoleon`, `profesion`, `empresa`, `cargo`, `facebook`, `twitter`, `instagram`, `linkedin`, `tiposangre` FROM `usuarioleon` where '$name2' = primernombre ";
+	$ejecutar1 = mysqli_query($conectar,$sql1);
+	$datos = mysqli_fetch_array($ejecutar1);
+	
+	if (!$ejecutar1){
+		echo 'hay un error en la sentencia sql';
+	}else{
+	
+	$this['primernombre']=$datos['primernombre'];
+	$this['segundonombre']=$datos['segundonombre'];
+	$this['primerapellido']=$datos['primerapellido'];
+	$this['segundoapellido']=$datos['segundoapellido'];
+	$this['cedula']=$datos['cedula'];
+	$this['estado_activo_inactivo']=$datos['estado_activo_inactivo'];
+	$this['fechadeingres']=$datos['fechadeingreso'];
+	$this['correo']=$datos['correo'];
+	$this['fechanac']=$datos['fechanac'];
+	$this['telefonocasa']=$datos['telefonocasa'];
+	$this['telefonooficina']=$datos['telefonooficina'];
+	$this['estadocivil']=$datos['estadocivil'];
+	$this['codigoleon']=$datos['codigoleon'];
+	$this['profesion']=$datos['profesion'];
+	$this['empresa']=$datos['empresa'];
+	$this['cargo']=$datos['cargo'];
+	$this['facebook']=$datos['facebook'];
+	$this['twitter']=$datos['twitter'];
+	$this['instagram']=$datos['instagram'];
+	$this['linkedin']=$datos['linkedin'];
+	$this['tiposangre']=$datos['tiposangre'];
+	
+	$iddom=$datos['id_domadora'];
+	$sql2="SELECT `nombre`, `apellido`, `cedula`, `fecha_nac`, `celular`, `tipodesangre` FROM `domadoras` WHERE $iddom= id_domadora";
+	$ejecutar2 = mysqli_query($conectar,$sql2);
+	if (!$ejecutar2){
+	echo 'hay un error en la sentencia sql';
+	    }else{
+	$datos2=mysqli_fetch_array($ejecutar2);
+	
+	
+	$this['dnombre']=$datos2['nombre'];
+	$this['dapellido']=$datos2['apellido'];
+	$this['dcedula']=$datos2['cedula'];
+	$this['dfecha_nac']=$datos2['fecha_nac'];
+	$this['dcelular']=$datos2['celular'];
+	$this['dtipodesangre']=$datos2['tipodesangre'];
+	}
+	}
+	
+}
+
+function onUsuario(){
+
+	
+}";s:5:"title";s:11:"perfil-leon";s:3:"url";s:12:"/perfil-leon";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"session";a:3:{s:8:"security";s:4:"user";s:17:"allowedUserGroups";a:3:{i:0;s:13:"administrador";i:1;s:6:"normal";i:2;s:10:"supervisor";}s:8:"redirect";s:14:"iniciar-sesion";}}}
