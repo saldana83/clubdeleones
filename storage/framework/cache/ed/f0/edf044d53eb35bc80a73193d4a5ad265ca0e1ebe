@@ -1,13 +1,13 @@
-1563811066a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:2543:"==
+1563894013a:1:{s:7:"nav.htm";a:6:{s:8:"fileName";s:7:"nav.htm";s:7:"content";s:2545:"==
 {# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
         'home': ['home', 'Home'],
 
         'conocenos': {
-            name: 'Conocenos',
+            name: 'Conócenos',
             sublinks: {
-                'quienes somos': ['conocenos/quienes-somos', '¿Quienes Somos?'],
+                'quienes somos': ['conocenos/quienes-somos', '¿Quiénes Somos?'],
                 'junta directiva': ['conocenos/junta-directiva', 'Junta Directiva'],
                 'himno': ['conocenos/himno', 'Himno'],
             },
@@ -67,15 +67,15 @@
             </ul>
         </div>
     </div>
-</nav>";s:5:"mtime";i:1562098842;s:6:"markup";s:2539:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+</nav>";s:5:"mtime";i:1563893407;s:6:"markup";s:2541:"{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
 {% set
     links = {
         'home': ['home', 'Home'],
 
         'conocenos': {
-            name: 'Conocenos',
+            name: 'Conócenos',
             sublinks: {
-                'quienes somos': ['conocenos/quienes-somos', '¿Quienes Somos?'],
+                'quienes somos': ['conocenos/quienes-somos', '¿Quiénes Somos?'],
                 'junta directiva': ['conocenos/junta-directiva', 'Junta Directiva'],
                 'himno': ['conocenos/himno', 'Himno'],
             },
