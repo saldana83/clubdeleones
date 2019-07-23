@@ -32,7 +32,7 @@ class __TwigTemplate_42aa6a618de5700e81884bfe2d590bd6fc1af3837fbd229815b019a437e
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 2
-        $context["links"] = ["home" => [0 => "home", 1 => "Home"], "conocenos" => ["name" => "Conocenos", "sublinks" => ["quienes somos" => [0 => "conocenos/quienes-somos", 1 => "¿Quienes Somos?"], "junta directiva" => [0 => "conocenos/junta-directiva", 1 => "Junta Directiva"], "himno" => [0 => "conocenos/himno", 1 => "Himno"]]], "contactenos" => [0 => "contactenos", 1 => "Contáctenos"], "ejemplos" => [0 => "ejemplos", 1 => "Ejemplos"]];
+        $context["links"] = ["home" => [0 => "home", 1 => "Home"], "conocenos" => ["name" => "Conócenos", "sublinks" => ["quienes somos" => [0 => "conocenos/quienes-somos", 1 => "¿Quiénes Somos?"], "junta directiva" => [0 => "conocenos/junta-directiva", 1 => "Junta Directiva"], "himno" => [0 => "conocenos/himno", 1 => "Himno"]]], "contactenos" => [0 => "contactenos", 1 => "Contáctenos"], "ejemplos" => [0 => "ejemplos", 1 => "Ejemplos"]];
         // line 21
         echo "
 ";
@@ -181,9 +181,9 @@ class __TwigTemplate_42aa6a618de5700e81884bfe2d590bd6fc1af3837fbd229815b019a437e
         'home': ['home', 'Home'],
 
         'conocenos': {
-            name: 'Conocenos',
+            name: 'Conócenos',
             sublinks: {
-                'quienes somos': ['conocenos/quienes-somos', '¿Quienes Somos?'],
+                'quienes somos': ['conocenos/quienes-somos', '¿Quiénes Somos?'],
                 'junta directiva': ['conocenos/junta-directiva', 'Junta Directiva'],
                 'himno': ['conocenos/himno', 'Himno'],
             },
