@@ -1,0 +1,333 @@
+1563151811a:1:{s:24:"user/historial_pagos.htm";a:10:{s:8:"fileName";s:24:"user/historial_pagos.htm";s:7:"content";s:3348:"title = "historial de pagos"
+url = "/historial_pagos"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "normal"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
+==
+{% component 'session' %}
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+{% flash %}
+    <div class="alert alert-{{ type }}">
+        {{ message }}
+    </div>
+{% endflash %}
+
+<p>&nbsp;</p>
+<style type="text/css">
+		
+		#encabezado{
+			
+			text-align: center;
+			line-height: 70px;
+			height: 70px;
+		}
+
+		#encabezado a{
+			margin-top: -20px;
+			margin-left: 5px;
+			float: left;
+		}
+
+
+		#customers {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #34495E;
+          color: white;
+        }
+		
+		#buscar_por{
+      position: relative;
+			float: left;
+		
+		}
+
+		#tipo_pago{
+			float: left;
+			
+		 }
+
+		#boton_buscar button{
+			float: left;
+			border-radius: 6px;
+			width: 80px;
+		}
+
+	</style>
+
+
+	<div id="encabezado">
+		<h2>Historial de Pagos</h2>
+	</div>
+	<div>
+    		<h5>Ordenar por:    
+    		<select class="form-control select select-primary" name="pago" data-toggle="select">
+    			<option value="1" selected>Tipo de Pago</option>
+    			<option value="2">Categoría de Pago</option>
+        </select>
+      </h5>
+	</div>
+
+  <h7>&nbsp;</h7>
+
+	<table id="customers">
+<div id="celdas">
+<tr id="descripcion">
+  <th><strong>Código de Pago</strong></th>
+  <th><strong>Nombre de Pago</strong></th>
+  <th><strong>Categoría</strong></th>
+  <th><strong>Descripción</strong></th>
+  <th><strong>Saldo</strong></th>
+</tr>
+</div>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+</table>
+<p>&nbsp;</p>";s:5:"mtime";i:1563125996;s:6:"markup";s:3085:"{% component 'session' %}
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+{% flash %}
+    <div class="alert alert-{{ type }}">
+        {{ message }}
+    </div>
+{% endflash %}
+
+<p>&nbsp;</p>
+<style type="text/css">
+		
+		#encabezado{
+			
+			text-align: center;
+			line-height: 70px;
+			height: 70px;
+		}
+
+		#encabezado a{
+			margin-top: -20px;
+			margin-left: 5px;
+			float: left;
+		}
+
+
+		#customers {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #34495E;
+          color: white;
+        }
+		
+		#buscar_por{
+      position: relative;
+			float: left;
+		
+		}
+
+		#tipo_pago{
+			float: left;
+			
+		 }
+
+		#boton_buscar button{
+			float: left;
+			border-radius: 6px;
+			width: 80px;
+		}
+
+	</style>
+
+
+	<div id="encabezado">
+		<h2>Historial de Pagos</h2>
+	</div>
+	<div>
+    		<h5>Ordenar por:    
+    		<select class="form-control select select-primary" name="pago" data-toggle="select">
+    			<option value="1" selected>Tipo de Pago</option>
+    			<option value="2">Categoría de Pago</option>
+        </select>
+      </h5>
+	</div>
+
+  <h7>&nbsp;</h7>
+
+	<table id="customers">
+<div id="celdas">
+<tr id="descripcion">
+  <th><strong>Código de Pago</strong></th>
+  <th><strong>Nombre de Pago</strong></th>
+  <th><strong>Categoría</strong></th>
+  <th><strong>Descripción</strong></th>
+  <th><strong>Saldo</strong></th>
+</tr>
+</div>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+
+<tr>
+  <td>002</td>
+  <td>Fiesta de navidad</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>50.00</td>
+</tr>
+
+<tr>
+  <td>100</td>
+  <td>Fiesta del día del padre</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>75.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta de aniversario</td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>150.00</td>
+</tr>
+
+<tr>
+  <td>120</td>
+  <td>Fiesta </td>
+  <td>Fiestas internas</td>
+  <td>Ingresar texto aquí</td>
+  <td>30.00</td>
+</tr>
+</table>
+<p>&nbsp;</p>";s:4:"code";N;s:5:"title";s:18:"historial de pagos";s:3:"url";s:16:"/historial_pagos";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"session";a:3:{s:8:"security";s:4:"user";s:17:"allowedUserGroups";a:3:{i:0;s:13:"administrador";i:1;s:6:"normal";i:2;s:10:"supervisor";}s:8:"redirect";s:14:"iniciar-sesion";}}}

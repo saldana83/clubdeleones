@@ -1,0 +1,56 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: tiipiik.booking::lang.room.backend.name
+        span: left
+        placeholder: tiipiik.booking::lang.room.backend.name_placeholder
+
+    slug:
+        label: tiipiik.booking::lang.room.backend.slug
+        span: right
+        placeholder: tiipiik.booking::lang.room.backend.slug_placeholder
+        attributes:
+            data-input-preset: 'input[name="Room[name]"]'
+            data-input-preset-type: slug
+            data-input-preset-closest-parent: form
+
+    is_available:
+        label: tiipiik.booking::lang.room.backend.available_manual
+        type: switch
+        span: auto
+
+    toolbar:
+        type: partial
+        path: post_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        content:
+            tab: tiipiik.booking::lang.room.backend.description_tab_title
+            type: richeditor
+            size: huge
+
+        excerpt:
+            tab: tiipiik.booking::lang.room.backend.manage_tab_title
+            label: tiipiik.booking::lang.room.backend.excerpt
+            type: textarea
+            size: small
+            span: col-xs-12
+
+        max_persons:
+            tab: tiipiik.booking::lang.room.backend.manage_tab_title
+            label: tiipiik.booking::lang.room.backend.max_persons
+            span: auto
+
+        featured_images:
+            tab: tiipiik.booking::lang.room.backend.manage_tab_title
+            label: tiipiik.booking::lang.room.backend.featured_images
+            type: fileupload
+            mode: image
+            imageWidth: 200
+            imageHeight: 200

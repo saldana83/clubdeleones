@@ -1,0 +1,104 @@
+title = "Crear nuevo pago"
+url = "/crear-nuevo-pago"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
+==
+{% component 'session' %}
+
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+{% flash %}
+    <div class="alert alert-{{ type }}">
+        {{ message }}
+    </div>
+{% endflash %}
+
+<style>
+	#line{
+		display: inline;
+	}
+	
+	td {
+		padding: 3%;
+		margin: 0 auto;
+	}
+	#button{
+			align-content: center;
+			text-align: center;
+		}
+
+	#button button{
+			width: 155px;
+			border-radius: 6px;
+			margin: 20px;
+		}
+
+</style>
+
+<section id="layout-title">
+	<div class="container">
+		<h3 style="text-align: center">Crear nuevo pago</h3>
+	</div>
+</section>
+
+<div class="col-sm-2">
+        <a href="supervisor" class="btn btn-block btn-lg btn-primary" >Regresar</a>
+</div>
+
+<p>&nbsp;</p>
+
+<form action="onStar" method="POST">
+		<div>
+				<table style="width: auto;margin: 0 auto;">
+				  	<tr>
+						<td><h6>Nombre del pago:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+				  	</tr>
+				  	<tr>
+						<td><h6 >Codigo de pago:</h6></td>
+						<td><input  type="text" name="nombre_pago" style="width: 100%;"></td>
+				  	</tr>
+				  	<tr>
+						<td><h6 >Categoria de pago:</h6></td>
+						<td><select  class="form-control select select-default" name="pago" data-toggle="select">
+								<option value="1" selected>categoria x</option>
+								<option value="2">categoria y</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><h6 >Monto:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+					<tr>
+						<td><h6>Descripcion:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+					<tr>
+						<td><h6 >Fecha de cierre:</h6></td>
+						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
+					</tr>
+				</table>
+		</div>
+</form>
+<div id="button">
+		<button type="submit">Guardar Cambios</button>
+		<button type="submit">Cancelar</button>
+</div>
+<script language="JavaScript">
+
+		window.onbeforeunload = preguntarAntesDeSalir;
+		
+		function preguntarAntesDeSalir(){
+		return "¿Seguro que quieres salir?";
+		}
+		
+</script>

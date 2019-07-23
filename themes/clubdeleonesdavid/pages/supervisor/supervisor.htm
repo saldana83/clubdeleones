@@ -1,0 +1,49 @@
+title = "Supervisor"
+url = "/supervisor"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "supervisor"
+redirect = "supervisor/login-como-supervisor"
+==
+{% component 'session' %}
+<section id="layout-title">
+    <div class="container">
+        <center><h3>Sistema de Supervisor</h3></center>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="headline"><span>Administrar Perfiles</span></h4>
+                <div class="col-sm-4">
+                    <a href="listado-de-leon" class="btn btn-block btn-lg btn-primary">Lista de Leones</a>
+                </div>
+        </div>
+    </div>
+    <div class="row our-services">
+        <div class="col-sm-12">
+            <h4 class="headline"><span>Administrar Pagos</span></h4>
+                
+                <div class="col-sm-4">
+                    <a href="categoria-pagos" class="btn btn-block btn-lg btn-primary">Categoria de Pagos</a>
+                    <a href="" class="btn btn-block btn-lg btn-primary">Crear nueva categoria de pago</a>
+                    <a href="crear-nuevo-pago" class="btn btn-block btn-lg btn-primary">Crear Nuevo Pago</a>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-12">
+                <h4 class="headline"><span>Regristro de Pagos</span></h4>
+                    <div class="col-sm-4">
+                        <a href="registro_de_pago" class="btn btn-block btn-lg btn-primary">Registrar pago de leon</a>
+                        <a href="listado-de-pagos-por-leon" class="btn btn-block btn-lg btn-primary">Lista de pagos por leones</a>
+                    </div>
+            </div>
+    </div>
+</div>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>

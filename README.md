@@ -4,7 +4,7 @@
 
 1. Clonar el repositorio
 <<<<<<< HEAD
-1. Al crear la base de datod debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish_ci" 
+1. Al crear la base de datod debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish2_ci" 
 1. Exportar la base de datos que se encuentra en el archivo Basededatos
 
 Para acceder al sistema http://127.0.0.1/clubdeleones/backend 
