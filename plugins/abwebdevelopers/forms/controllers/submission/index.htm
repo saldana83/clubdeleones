@@ -1,9 +1,0 @@
-<?= $this->listRender() ?>
-
-<?php if (!empty($_GET['q'])): ?>
-<script>
-    var e = $('#Toolbar-listToolbar .form-control');
-    e.val("<?= $_GET['q'] ?>");
-    e.submit();
-</script>
-<?php endif; ?>

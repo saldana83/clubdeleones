@@ -9,6 +9,40 @@ allowedUserGroups[] = "administrador"
 allowedUserGroups[] = "supervisor"
 redirect = "iniciar-sesion"
 ==
+<?php
+function onStart(){
+    $this['categoria']=new class {
+        public function cat(){
+            $data= Db::select('select nombrecat from club_categoriadepago', [1]);
+            foreach($data as $data1) 
+                {
+                    foreach($data1 as $data2)
+                       { echo "
+						<option value=\"$data2\">$data2</option>";}
+					
+                }
+                            }
+                                };
+}   
+
+
+function onEnviar(){
+    $nombre=$_POST['nombre'];
+    $codigo=$_POST['codigo'];
+    $categoria=$_POST['categoria'];
+    $monto=$_POST['monto'];
+    $descripcion=$_POST['descripcion'];
+    $fechac=$_POST['fechac'];
+
+    $result=Db::insert('insert into club_tiposdepagos (nombredepago,categoria,codigo_pago,monto,descripcion,fechadecierre) values (?,?,?,?,?,?)', [$nombre,$categoria,$codigo,$monto, $descripcion,$fechac]);
+    if ($result)
+    {
+    echo "Datos guardados correctamente";  
+    header("Refresh:0");
+    }
+    }
+?>
+==
 {% component 'session' %}
 
 {% put scripts %}
@@ -16,32 +50,53 @@ redirect = "iniciar-sesion"
         'assets/javascript/pages/ui-elements.js',
     ]|theme }}"></script>
 {% endput %}
-{% flash %}
-    <div class="alert alert-{{ type }}">
-        {{ message }}
-    </div>
-{% endflash %}
-
+<script>
+    function Confirmcancelar()
+    {
+      var x = confirm("¿Seguro que quiere cancelar?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+     function Confirmatras()
+    {
+      var x = confirm("¿Seguro que quiere abandonar el registro?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+</script>
 <style>
-	#line{
+	#line {
 		display: inline;
 	}
-	
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		margin: 0 auto;
+		width: 50%;
+		border: 1px solid #ddd;
+	}
+
 	td {
 		padding: 3%;
 		margin: 0 auto;
 	}
-	#button{
-			align-content: center;
-			text-align: center;
-		}
 
-	#button button{
-			width: 155px;
-			border-radius: 6px;
-			margin: 20px;
-		}
+	#button {
+		align-content: center;
+		text-align: center;
+	}
 
+	#button button {
+		width: 155px;
+		border-radius: 6px;
+		margin: 20px;
+	}
+	h6{display:inline;}
 </style>
 
 <section id="layout-title">
@@ -51,54 +106,65 @@ redirect = "iniciar-sesion"
 </section>
 
 <div class="col-sm-2">
-        <a href="supervisor" class="btn btn-block btn-lg btn-primary" >Regresar</a>
+	<a class="btn btn-block btn-lg btn-primary" VALUE="Volver" onClick="return Confirmatras();">Regresar</a>
 </div>
 
 <p>&nbsp;</p>
 
-<form action="onStar" method="POST">
-		<div>
-				<table style="width: auto;margin: 0 auto;">
-				  	<tr>
-						<td><h6>Nombre del pago:</h6></td>
-						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
-				  	</tr>
-				  	<tr>
-						<td><h6 >Codigo de pago:</h6></td>
-						<td><input  type="text" name="nombre_pago" style="width: 100%;"></td>
-				  	</tr>
-				  	<tr>
-						<td><h6 >Categoria de pago:</h6></td>
-						<td><select  class="form-control select select-default" name="pago" data-toggle="select">
-								<option value="1" selected>categoria x</option>
-								<option value="2">categoria y</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td><h6 >Monto:</h6></td>
-						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
-					</tr>
-					<tr>
-						<td><h6>Descripcion:</h6></td>
-						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
-					</tr>
-					<tr>
-						<td><h6 >Fecha de cierre:</h6></td>
-						<td><input type="text" name="nombre_pago" style="width: 100%;"></td>
-					</tr>
-				</table>
-		</div>
+<form data-request="onEnviar" method="POST">
+	<div style="overflow-x:auto;">
+		<table>
+			<tr>
+				<td>
+					<h6>Nombre del pago:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="nombre" style="width: 100%;" required></td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Codigo de pago:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="codigo" style="width: 100%;" required></td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Categoria de pago:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><select class="form-control select select-default" name="categoria" data-toggle="select" required>
+				<option disabled selected value> -- seleccione una opción -- </option>
+                {{categoria.cat}}
+                </select></td>
+            </tr>
+			
+			
+			
+			<tr>
+				<td>
+					<h6>Monto:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="monto" style="width: 100%;" required></td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Descripcion:</h6>
+				</td>
+				<td><input class="form-control" type="text" name="descripcion" style="width: 100%;"></td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Fecha de cierre:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="date" name="fechac" style="width: 100%;" required></td>
+			</tr>
+		</table>
+	</div>
+	<div id="button">
+		<button type="submit">Guardar</button>
+		<button type="button" onclick="return Confirmcancelar();">Cancelar</button>
+	</div>
 </form>
-<div id="button">
-		<button type="submit">Guardar Cambios</button>
-		<button type="submit">Cancelar</button>
-</div>
-<script language="JavaScript">
-
-		window.onbeforeunload = preguntarAntesDeSalir;
-		
-		function preguntarAntesDeSalir(){
-		return "¿Seguro que quieres salir?";
-		}
-		
-</script>

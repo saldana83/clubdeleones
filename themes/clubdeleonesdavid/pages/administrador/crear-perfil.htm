@@ -1,230 +1,305 @@
-title = "Crear perfil"
+title = "Crear nuevo perfil"
 url = "/crear-perfil"
 layout = "default"
 is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+redirect = "iniciar-sesion"
 ==
-<style type="text/css">
-		/*Formulario */
-		form{
-			margin: 0 auto;
-			width: 400px;
-		}
+{% component 'session' %}
+{% put scripts %}
+<script src="{{ [
+	'assets/javascript/pages/ui-elements.js',
+]|theme }}"></script>
+{% endput %}
+<script>
+        function Confirmcancelar()
+        {
+          var x = confirm("¿Seguro que quiere cancelar?");
+          if (x)
+              return history.back();
+          else
+            return false;
+        }
+         function Confirmatras()
+        {
+          var x = confirm("¿Seguro que quiere abandonar el registro?");
+          if (x)
+              return history.back();
+          else
+            return false;
+        }
+</script>
+<style>
+    #line {
+        display: inline;
+    }
 
-		form div{
-			margin-top: 6px;
-			height:30px
-		}
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0 auto;
+        width: 50%;
+        /* border: 1px solid #ddd; */
+    }
 
-		label{
-			display: inline-block;
-			width: 150px;
-		}
+    td {
+        padding: 1%;
+        margin: 0 auto;
+    }
 
-		input, select{
-			margin-left: 49px;
-			height: 24px;
-		}
+    #button {
+        align-content: center;
+        text-align: center;
+    }
 
-		select{
-			width: 197px;
-		}
+    #button button {
+        width: 155px;
+        border-radius: 6px;
+        margin: 20px;
+    }
 
-		#titulo{
-			background-color: #E6E7E7;
-			text-align: center;
-			height: 30px;
-			line-height: 30px;
-		}
+    h6 {
+        display: inline;
+    }
+</style>
 
-		input:focus{
-			border-color: #000;
-		}
+<section id="layout-title">
+    <div class="container">
+        <h3 style="text-align: center">Nuevo perfil león</h3>
+    </div>
+</section>
 
-		#button{
-			align-content: center;
-			text-align: center;
-		}
+<form data-request="onStart" method="POST">
+    <div style="overflow-x:auto;">
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center;background-color: #34495e;color: white">
+                    <h6>Informacion General</h6>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h6>Fecha de ingreso al club:</h6>
+                </td>
+                <td><input type="text" name="Fechaingreso" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <h6>Estado:</h6>
+                </td>
+                <td><select class="form-control select select-default" name="estado" data-toggle="select">
+						<option value="activo" selected>Activo</option>
+						<option value="inactivo">Inactivo</option>
+					</select></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center; background-color: #34495e;color: white">
+                    <h6>Informacion Personal</h6>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h6>Cedula:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="cedula" style="width: 100%;" required></td>
+            </tr>
 
-		#button button{
-			width: 155px;
-			border-radius: 6px;
-			margin: 20px;
-		}
+            <tr>
+                <td>
+                    <h6>Primer nombre:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="primernombre" style="width: 100%;" required></td>
+            </tr>
 
-		
-		#encabezado{
-			background-color: #E6E7E7;
-			text-align: center;
-			height: 90px;
-		}
-		
-		#encabezado h4{
-		    	line-height: 90px;
-		    	
-		}
-	</style>
+            <tr>
+                <td>
+                    <h6>Segundo nombre:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="segundonombre" style="width: 100%;" required></td>
+            </tr>
 
-	<div id="encabezado"><h4>Crear Nuevo Perfil</h4></div>
+            <tr>
+                <td>
+                    <h6>Primer apellido:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="primerapellido" style="width: 100%;" required></td>
+            </tr>
 
-	<!-- Formulario Editar Perfil-->
-	<form name="editarperfil" method="" action="">
-		<div id="titulo"><p>Información General</p></div>
-		<div>
-			<label for="ingreso_leon">Fecha de ingreso</label>
-			<input type="text" name="ingreso_leon" id="ingreso_leon"/>	
-		</div>
-		<div>
-			<label for="estado">Estado</label>
-			<select id="estado" name="estado">
-				<option value="activo" selected="selected">Activo</option>
-				<option value="inactivo">Inactivo</option>
-			</select>
-		</div>
-		<div id="titulo"><p>Información de Credenciales</p></div>	
-		<div>
-			<label for="usuario">Usuario</label>
-			<input type="text" name="usuario" id="usuario"/>	
-		</div>
-		<div>
-			<label for="contra">Contraseña</label>
-			<input type="text" name="contra" id="contra"/>	
-		</div>
-		<div>
-			<label for="conf_contra">Confirmar contraseña</label>
-			<input type="text" name="conf_contra" id="conf_contra"/>	
-		</div>
+            <tr>
+                <td>
+                    <h6>Segundo apellido:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="segundoapellido" style="width: 100%;" required></td>
+            </tr>
 
-		<div id="titulo"><p>Información Personal</p></div>
-		<div>
-			<label for="cedula_leon">Cédula</label> <!--No se modifica-->
-			<input type="text" name="cedula_leon" id="cedula_leon"/>	
-		</div>
-		<div>
-			<label for="pnombre_leon">Primer Nombre</label>
-			<input type="text" name="pnombre_leon" id="pnombre_leon"/>	
-		</div>
-		<div>
-			<label for="snombre_leon">Segundo Nombre</label>
-			<input type="text" name="snombre_leon" id="snombre_leon"/>	
-		</div>
-		<div>
-			<label for="papellido_leon">Primer Apellido</label>
-			<input type="text" name="papellido_leon" id="papellido_leon"/>	
-		</div>
-		<div>
-			<label for="sapellido_leon">Segundo Apellido</label>
-			<input type="text" name="sapellido_leon" id="sapellido_leon"/>	
-		</div>
-		<div>
-			<label for="nacimiento">Fecha de Nacimiento</label>
-			<input type="text" name="nacimiento" id="nacimiento"/>	
-		</div>
-		<div>
-			<label for="tipo_sangre">Tipo de sangre</label>
-			<select id="tipo_sangre" name="tipo_sangre">
-				<option value="apositivo" selected="selected">A+</option>
-				<option value="bpositivo">B+</option>
-				<option value="abpositivo">AB+</option>
-				<option value="opositivo">O+</option>
-				<option value="anegativo">A-</option>
-				<option value="bnegativo">B-</option>
-				<option value="abnegativo">AB-</option>
-				<option value="onegativo">O-</option>
-			</select>
-		</div>
-		<div>
-			<label for="estado_civil">Estado Civil</label>
-			<select id="estado_civil" name="estado_civil">
-				<option value="casado" selected="selected">Casado</option>
-				<option value="soltero">Soltero</option>
-				<option value="divorciado">Divorciado</option>
-			</select>
-		</div>
-		<div id="titulo"><p>Información laboral</p></div>	
-		<div>
-			<label for="profesion">Profesión</label>
-			<input type="text" name="profesion" id="profesion"/>	
-		</div>
-		<div>
-			<label for="empresa">Empresa</label>
-			<input type="text" name="empresa" id="empresa"/>	
-		</div>
-		<div>
-			<label for="cargo">Cargo</label>
-			<input type="text" name="cargo" id="cargo"/>	
-		</div>
+            <tr>
+                <td>
+                    <h6>fecha de nacimiento:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="fechanac" style="width: 100%;" required></td>
+            </tr>
 
+            <tr>
+                <td>
+                    <h6>Tipo de Sangre:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="tiposangre" style="width: 100%;" required></td>
+            </tr>
 
-		<div id="titulo"><p>Información de Contacto</p></div>
-		<div>
-			<label for="tel_casa">Teléfono de Casa</label>
-			<input type="text" name="tel_casa" id="tel_casa"/>	
-		</div>
-		<div>
-			<label for="tel_oficina">Teléfono de oficina</label>
-			<input type="text" name="tel_oficina" id="tel_oficina"/>	
-		</div>
-		<div>
-			<label for="celuar">Celular</label>
-			<input type="text" name="celular" id="celular"/>	
-		</div>
-		<div>
-			<label for="correo">Correo electrónico</label>
-			<input type="text" name="correo" id="correo"/>	
-		</div>
-		<div>
-			<label for="facebook">Facebook</label>
-			<input type="text" name="facebook" id="facebook"/>	
-		</div>
-		<div>
-			<label for="twitter">Twitter</label>
-			<input type="text" name="twitter" id="twitter"/>	
-		</div>
-		<div>
-			<label for="instagram">Instagram</label>
-			<input type="text" name="instagram" id="instagram"/>	
-		</div>
-		<div>
-			<label for="linkedin">Linkedin</label>
-			<input type="text" name="linkedin" id="linkedin"/>	
-		</div>
-		<div id="titulo"><p>Información Domadora</p></div>
-		<div>
-			<label for="cedula_domadora">Cédula</label> <!--No se modifica-->
-			<input type="text" name="cedula_domadora" id="cedula_domadora"/>	
-		</div>
-		<div>
-			<label for="nombre_domadora">Nombres</label>
-			<input type="text" name="nombre_domadora" id="nombre_domadora"/>	
-		</div>
-		<div>
-			<label for="apellido_domadora">Apellidos</label>
-			<input type="text" name="apellido_domadora" id="apellido_domadora"/>	
-		</div>
-		<div>
-			<label for="fecha_domadora">Fecha de Nacimineto</label>
-			<input type="text" name="fecha_domadora" id="fecha_domadora"/>	
-		</div>
-		<div>
-			<label for="tipo_sangre_domadora">Tipo de sangre</label>
-			<select id="tipo_sangre_domadora" name="tipo_sangre_domadora">
-				<option value="apositivo" selected="selected">A+</option>
-				<option value="bpositivo">B+</option>
-				<option value="abpositivo">AB+</option>
-				<option value="opositivo">O+</option>
-				<option value="anegativo">A-</option>
-				<option value="bnegativo">B-</option>
-				<option value="abnegativo">AB-</option>
-				<option value="onegativo">O-</option>
-			</select>
-		</div>
-		<div>
-			<label for="celular_domadora">Celular</label>
-			<input type="text" name="celular_domadora" id="celular_domadora"/>	
-		</div>
+            <tr>
+                <td>
+                    <h6>Estado civil:</h6>
+                    <h6 style="color: red;">*</h6>
+                </td>
+                <td><input type="text" name="estadocivil" style="width: 100%;" required></td>
 
-		<div id="button">
-			<button type="submit">Guardar Cambios</button>
-			<button type="submit">Cancelar</button>
-		</div><br/><br/>
-	</form>>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center; background-color: #34495e;color: white">
+                    <h6>Informacion Laboral</h6>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Profeción:</h6>
+                </td>
+                <td><input type="text" name="profecion" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Empresa:</h6>
+                </td>
+                <td><input type="text" name="empresa" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Cargo:</h6>
+                </td>
+                <td><input type="text" name="cargo" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center; background-color: #34495e;color: white">
+                    <h6>Informacion de domadora</h6>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Nombre:</h6>
+                </td>
+                <td><input type="text" name="dnombre" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Apellido:</h6>
+                </td>
+                <td><input type="text" name="dapellido" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Cedula:</h6>
+                </td>
+                <td><input type="text" name="dcedula" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Fecha de nacimiento:</h6>
+                </td>
+                <td><input type="text" name="dfechanac" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Tipo de sangre:</h6>
+                </td>
+                <td><input type="text" name="dtiposangre" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Celular:</h6>
+                </td>
+                <td><input type="text" name="dcelular" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center; background-color: #34495e;color: white">
+                    <h6>Informacion Laboral</h6>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Telefono casa:</h6>
+                </td>
+                <td><input type="text" name="telefonocasa" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Telefono oficina:</h6>
+                </td>
+                <td><input type="text" name="telefonooficina" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Celular:</h6>
+                </td>
+                <td><input type="text" name="celular" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Facebook:</h6>
+                </td>
+                <td><input type="text" name="facebook" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Twitter:</h6>
+                </td>
+                <td><input type="text" name="twitter" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Instagram:</h6>
+                </td>
+                <td><input type="text" name="instagram" style="width: 100%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h6>Linkedin:</h6>
+                </td>
+                <td><input type="text" name="linkedin" style="width: 100%;"></td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="button">
+        <button type="submit">Guardar</button>
+        <button  type="button" onClick="return Confirmatras();">Cancelar</button>
+    </div>
+</form>
+<p>&nbsp;</p>

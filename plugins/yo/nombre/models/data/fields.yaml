@@ -1,5 +1,0 @@
-fields:
-    nombre:
-        label: 'yo.nombre::lang.data.nombre'
-        span: auto
-        type: text

@@ -1,0 +1,40 @@
+title = "index2"
+url = "/index2"
+is_hidden = 0
+==
+<style type="text/css">
+      table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even){background-color: #f2f2f2}
+    #line{
+      display: inline;
+		}
+
+	</style>
+
+<section id="layout-title">
+    <div class="container">
+      <h3 style="text-align: center">Historial de pagos</h3>
+    </div>
+</section>
+
+<div class="formulario">
+	<label for="caja_busqueda">Buscar</label>
+	<input class="form-control" style="width: 200px;display: inline;" type="text" name="caja_busqueda" id="caja_busqueda"></input>	
+</div>
+<div id="datos"></div>
+{% put scripts %}
+	<script type="text/javascript" src="theme/clubdeleonesdavid/assets/javascript/js/jquery.min.js"></script>
+	<script type="text/javascript" src="theme/clubdeleonesdavid/assets/javascript/js/main.js"></script>
+{% endput %}
