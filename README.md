@@ -9,8 +9,8 @@
 
 Para acceder al sistema http://127.0.0.1/clubdeleones/backend 
 =======
-2. Al crear la base de datos en phpmyadmin debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish_ci" 
-3. Exportar la base de datos que se encuentra en el archivo xammp/htdocs/clubdeleones/Basededatos
+2. Al crear la base de datos en phpmyadmin debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish2_ci" 
+3. Exportar la base de datos que se encuentra en el archivo /clubdeleones/Basededatos/clubdeleonesdedavid.sql.zip 
 
 Nota: Para acceder al sistema http://127.0.0.1/clubdeleones/backend 
 >>>>>>> master

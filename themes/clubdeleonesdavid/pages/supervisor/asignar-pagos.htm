@@ -1,0 +1,44 @@
+title = "asignar pagos"
+url = "/asignar-pagos"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
+==
+{% component 'session' %}
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+
+
+
+
+
+
+
+<div class="col-sm-3 col-xs-6">
+	        <h3 class="demo-panel-title">Elegir</h3>
+	        <div class="share mrl">
+	            <ul>
+	                <li>
+	                    <label class="share-label" for="share-toggle2">Facebook</label>
+	                    <input type="checkbox" data-toggle="switch" />
+	                </li>
+	                <li>
+	                    <label class="share-label" for="share-toggle4">Twitter</label>
+	                    <input type="checkbox" checked="" data-toggle="switch" />
+	                </li>
+	                <li>
+	                    <label class="share-label" for="share-toggle6">Pinterest</label>
+	                    <input type="checkbox" data-toggle="switch" />
+	                </li>
+	            </ul>
+	            <button href="#" class="btn btn-primary btn-block btn-large">Share</button>
+	        </div> <!-- /share -->
+</div><!-- /.col-xs-3 -->

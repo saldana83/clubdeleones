@@ -2,158 +2,270 @@ title = "perfil-leon"
 url = "/perfil-leon"
 layout = "default"
 is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "normal"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
 ==
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Perfil</title>
-	<style type="text/css">
+<?php
+function onStart(){
+    //conectamos Con el servidor
+	$conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+	mysqli_set_charset($conectar,'utf8');
+	//verificamos la conexion
+
+    $sql= "select email from users where `last_login`=(select max(`last_login`)from users)";
+    $ejecutar = mysqli_query($conectar,$sql);
+    $email = mysqli_fetch_array($ejecutar);
+    $email2=$email['email'];
+
+
+    $sql1 = "SELECT `id_domadora` , `primernombre`, `segundonombre`, `primerapellido`, `segundoapellido`, `cedula`, `estado_activo_inactivo`, `fechadeingreso`, `id_correoleon`, `fechanac`, `telefonocasa`, `telefonooficina`, `telefonocelular`, `estadocivil`, `codigoleon`, `profesion`, `empresa`, `cargo`, `facebook`, `twitter`, `instagram`, `linkedin`, `tiposangre` FROM `club_usuarioleon` where '$email2' = id_correoleon ";
+	$ejecutar1 = mysqli_query($conectar,$sql1);
+	$datos = mysqli_fetch_array($ejecutar1);
+
+	if (!$ejecutar1){
+		echo 'hay un error en la sentencia sql';
+	}else{
+
+	$this['primernombre']=$datos['primernombre'];
+	$this['segundonombre']=$datos['segundonombre'];
+	$this['primerapellido']=$datos['primerapellido'];
+	$this['segundoapellido']=$datos['segundoapellido'];
+	$this['cedula']=$datos['cedula'];
+	$this['estado_activo_inactivo']=$datos['estado_activo_inactivo'];
+	$this['fechadeingres']=$datos['fechadeingreso'];
+	$this['correo']=$datos['id_correoleon'];
+	$this['fechanac']=$datos['fechanac'];
+	$this['telefonocasa']=$datos['telefonocasa'];
+	$this['telefonooficina']=$datos['telefonooficina'];
+	$this['estadocivil']=$datos['estadocivil'];
+	$this['codigoleon']=$datos['codigoleon'];
+	$this['profesion']=$datos['profesion'];
+	$this['empresa']=$datos['empresa'];
+	$this['cargo']=$datos['cargo'];
+	$this['facebook']=$datos['facebook'];
+	$this['twitter']=$datos['twitter'];
+	$this['instagram']=$datos['instagram'];
+	$this['linkedin']=$datos['linkedin'];
+	$this['tiposangre']=$datos['tiposangre'];
+
+	$iddom=$datos['id_domadora'];
+	$sql2="SELECT `nombre`, `apellido`, `cedula`, `fecha_nac`, `celular`, `tipodesangre` FROM `club_domadoras` WHERE $iddom= id_domadora";
+	$ejecutar2 = mysqli_query($conectar,$sql2);
+	if (!$ejecutar2){
+	echo 'hay un error en la sentencia sql';
+	    }else{
+	$datos2=mysqli_fetch_array($ejecutar2);
+
+
+	$this['dnombre']=$datos2['nombre'];
+	$this['dapellido']=$datos2['apellido'];
+	$this['dcedula']=$datos2['cedula'];
+	$this['dfecha_nac']=$datos2['fecha_nac'];
+	$this['dcelular']=$datos2['celular'];
+	$this['dtipodesangre']=$datos2['tipodesangre'];
+
+	$sql5="SELECT `name` FROM `users`";
+	$ejecutar5 = mysqli_query($conectar,$sql5);
+	$datos3=mysqli_fetch_array($ejecutar5);
+	$this['names']=$datos3['name'];
+	}
+	}
+}
+
+function onUsuario(){
+}
+?>
+==
+{% component 'session' %}
+
+<style type="text/css">
 		/*Formulario */
-		
-		section{
+		img {
+			display: block;
 			margin: 0 auto;
-			width: 400px
+			max-width: 20%;
+			padding: 0%;
+			width: 15%;
 		}
 
-		section div{
-			margin-top: 6px; 
-			width: 700px;
+		table {
+
+			margin: 0 auto;
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 80%;
 		}
 
-		p{
-			display: inline-block;
-			width: 140px;
+		th,
+		td {
+			text-align: left;
+			padding: 8px;
 		}
 
-		#info {
-			margin-top: -7px;
+		th {
+			background-color: #34495E;
+			color: white;
 		}
 
-		#info p, td{
-			width: 200px;
-			height: 6px;
-			margin-left: 3px;
+		td {
+			border: 1px solid #ddd;
 		}
 
-		#titulo p{
-			background-color: #E6E7E7;
-			text-align: center;
-			height: 30px;
-			line-height: 30px;
-			width: 400px;
+		tr:nth-child(even) {
+			background-color: #f2f2f2
 		}
-		
-		#encabezado {
-			background-color: #E6E7E7;
-			text-align: center;
-			line-height: 100px;
-			height: 140px; 
-
-		}
-
-		#encabezado h3{
-			margin-top: -55px;
-
-		}
-
-		#encabezado a{
-			
-		}
-
-		#foto_perfil{
-			align-content: center;
-			width: 200px;
-			height: 200px;
-		}
-
-		#foto_perfil img{
-			margin-left: 110px;
-			width: 200px;
-			height: 200px;
-		}
-
-		#sec_izquierda{
-			float: left;
-			margin-left: 212px;
-			margin-top: 16px;
-		}
-
-		#sec_derecha{
-			
-			margin-left: 400px;
-
-		}
-		
-		#perfil{
-		    margin-right:1150px;
-		}
-
 	</style>
-</head>
-<body>
 
-	<div id="encabezado">
-		<a id="perfil" href="">Perfil</a>
-		<a id="editar_perfil" href="">Editar Perfil</a>
-		<h3>Juan Saldaña</h3>
-	</div>
-<br><br>
-		
-	<div id="sec_izquierda">
-	<section name="ver_perfil" method="" action="" width="20">
-		<div id="foto_perfil"><img  src=""></div>
-		<div id="titulo"><p>Información General</p></div>
-		<div id="info">
-			<p>Código de León</p><td>5467</td></br>
-			<p>Fecha de ingreso</p><td>10/9/2014</td></br>
-			<p>Código de León</p><td>Activo</td>
-		</div>
+<form data-request="onStart" method="post">
+
+	<section id="layout-title">
+			<div class="container">
+				<center><h3>{{primernombre}} {{primerapellido}}</h3></center>
+			</div>
 	</section>
+
+	<div class="col-sm-2" style="float:right" >
+			<a href="editar-perfil" class="btn btn-block btn-lg btn-primary" >Editar perfil</a>
 	</div>
 
-	<div id="sec_derecha">
-	<section>
-		<div id="titulo"><p>Información Personal</p></div>
-		<div id="info">
-			<p>Cédula</p><td>4-784-2030</td></br>
-			<p>Primer nombre</p><td>Juan </td></br>
-			<p>Segundo nombre</p><td>Texto</td></br>
-			<p>Primer apellido</p><td>Saldaña</td></br>
-			<p>Segundo apellido</p><td>Texto</td></br>
-			<p>Fecha de nacimiento</p><td>10/9/2014</td></br>
-			<p>Tipo de sangre</p><td>O+</td></br>
-			<p>Estado civil</p><td>Casado</td>
-		</div>
+	<p>&nbsp;</p>
 
-		<div id="titulo"><p>Información laboral</p></div>	
-		<div id="info">
-			<p>Profesión</p><td>Profesor</td></br>
-			<p>Empresa</p><td>Universidad Tecnológica</td></br>
-			<p>Cargo</p><td>Coordinador</td>
-		</div>
+	<img src="{{ 'assets/images/junta4.png'|theme }}" >
+	<p>&nbsp;</p>
 
-		<div id="titulo"><p>Contacto</p></div>
-		<div id="info">
-			<p>Teléfono de casa</p><td>7750124</td></br>
-			<p>Teléfono de oficina</p><td>7750123</td></br>
-			<p>SCelular</p><td>Texto</td></br>
-			<p>Correo electrónico</p><td>juan.saldana@gmail.com</td></br>
-			<p>Facebook</p><td>Texto</td></br>
-			<p>Twitter</p><td>Texto</td></br>
-			<p>Instagram</p><td>Texto</td></br>
-			<p>Linkedin</p><td>Texto</td>
-		</div>	
+	<div style="overflow-x:auto;">
+			<table>
+			  	<tr>
+					<th colspan="2" style="text-align: center;width: 45%;">Información General</th>
+					<td style="text-align: center;width: 10%;border: 1px solid white;"></td>
+					<th colspan="2" style="text-align: center;width: 45%;">Información Personal</th>
+			  	</tr>
 
-		<div id="titulo"><p>Información Domadora</p></div>
-		<div id="info">
-			<p>Cédula</p><td>4-205-765</td></br>
-			<p>Nombre</p><td>Yuraisma</td></br>
-			<p>Apellido</p><td>Moreno</td></br>
-			<p>Fecha de nacimiento</p><td>6/4/1986</td></br>
-			<p>Tipo de sangre</p><td>O+</td></br>
-			<p>Celular</p><td>65656565</td>
-		</div>	
-	</section>
+			 	<tr>
+					<td style="width: 15%;">Código de León:</td>
+					<td style="width: 30%;">{{codigoleon}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td style="width: 15%;">Cédula:</td>
+					<td style="width: 30%;">{{cedula}}</td>
+			  	</tr>
+
+			    <tr>
+					<td>Fecha de ingreso:</td>
+					<td>{{fechadeingreso}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Primer nombre:</td>
+					<td>{{primernombre}}</td>
+				</tr>
+
+				<tr>
+					<td>Estado:</td>
+					<td>{{estado_activo_incativo}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Primer apellido:</td>
+					<td>{{primerapellido}}</td>
+				</tr>
+
+				<tr>
+					<th colspan="2" style="text-align: center;">Información laboral</th>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Segundo apellido:</td>
+					<td>{{segundoapellido}}</td>
+				</tr>
+
+				<tr>
+					<td>Profesión:</td>
+					<td>{{profesion}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Fecha de nacimiento:</td>
+					<td>{{fechanac}}</td>
+				</tr>
+
+				<tr>
+					<td>Empresa:</td>
+					<td>{{empresa}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Tipo de sangre:</td>
+					<td>{{tiposangre}}</td>
+				</tr>
+
+				<tr>
+					<td>Cargo</td>
+					<td>{{cargo}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Estado civil:</td>
+					<td>{{estadocivil}}</td>
+				</tr>
+
+				<tr>
+					<th colspan="2" style="text-align: center;">Contacto</th>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<th colspan="2" style="text-align: center;">Información Domadora</th>
+				</tr>
+
+				<tr>
+					<td>Teléfono de casa:</td>
+					<td>{{telefonocasa}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Nombre:</td>
+					<td>{{dnombre}}</td>
+				</tr>
+
+				<tr>
+					<td>Teléfono de oficina:</td>
+					<td>{{telefonooficina}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Apellido</td>
+					<td>{{dapellido}}</td>
+				</tr>
+
+				<tr>
+					<td>Celular:</td>
+					<td>{{telefonocelular}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Cedula</td>
+					<td>{{dcedula}}</td>
+				</tr>
+
+				<tr>
+					<td>Correo electrónico:</td>
+					<td>{{correo}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Fecha de nacimiento:</td>
+					<td>{{dfecha_nac}}</td>
+				</tr>
+
+				<tr>
+					<td>Facebook:</td>
+					<td>{{facebook}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Tipo de sangre:</td>
+					<td>{{dtipodesangre}}</td>
+				</tr>
+
+				<tr>
+					<td>Twitter:</td>
+					<td>{{twitter}}</td>
+					<td style="width: 10%;background-color: white;border: 1px solid white;"></td>
+					<td>Celular:</td>
+					<td>{{dcelular}}</td>
+				</tr>
+
+				<tr>
+					<td>Instagram:</td>
+					<td>{{instagram}}</td>
+
+				</tr>
+				<tr>
+					<td>Linkedin:</td>
+					<td>{{linkedin}}</td>
+
+				</tr>
+			</table>
 	</div>
-</body>
-</html>
+</form>
+<p>&nbsp;</p><p>&nbsp;</p>

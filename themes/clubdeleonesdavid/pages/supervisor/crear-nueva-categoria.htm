@@ -1,0 +1,126 @@
+title = "crear nueva categoria"
+url = "/crear-nueva-categoria"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
+==
+<?php
+function onEnviar(){
+    $codigo=$_POST['codigo'];
+    $nombre=$_POST['nombre'];
+    $descripcion=$_POST['descripcion'];
+    $result=Db::insert('insert into club_categoriadepago (codigocat, nombrecat, descripcion) values (?,?,?)', [$codigo, $nombre, $descripcion]);
+    if ($result)
+    {
+    echo "Datos guardados correctamente";  
+    header("Refresh:0");
+    }
+    }
+?>
+==
+{% component 'session' %}
+
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+<style>
+	#line {
+		display: inline;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		margin: 0 auto;
+		width: 50%;
+		border: 1px solid #ddd;
+	}
+
+	td {
+		padding: 3%;
+		margin: 0 auto;
+	}
+
+	#button {
+		align-content: center;
+		text-align: center;
+	}
+
+	#button button {
+		width: 155px;
+		border-radius: 6px;
+		margin: 20px;
+	}
+	h6 {
+		display: inline;
+	}
+</style>
+
+<section id="layout-title">
+	<div class="container">
+		<h3 style="text-align: center">Crear nueva categoria</h3>
+	</div>
+</section>
+<script>
+    function Confirmcancelar()
+    {
+      var x = confirm("¿Seguro que quiere cancelar?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+     function Confirmatras()
+    {
+      var x = confirm("¿Seguro que quiere abandonar el registro?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+</script>
+<div class="col-sm-2">
+	<a class="btn btn-block btn-lg btn-primary" VALUE="Volver" onClick="return Confirmatras();">Regresar</a>
+</div>
+
+<p>&nbsp;</p>
+
+<form data-request="onEnviar" method="POST">
+	<div style="overflow-x:auto;">
+		<table>
+			<tr>
+				<td>
+					<h6>Nombre de la categoria:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="nombre" style="width: 100%;" required></td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Codigo de categoria:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="codigo" style="width: 100%;" required></td>
+			</tr>
+
+			<tr>
+				<td>
+					<h6>Descripción:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="descripcion" style="width: 100%;" required></td>
+			</tr>
+		</table>
+	</div>
+	<div id="button">
+		<button type="submit">Guardar</button>
+		<button type="button" onclick="return Confirmcancelar();">Cancelar</button>
+	</div>
+</form>

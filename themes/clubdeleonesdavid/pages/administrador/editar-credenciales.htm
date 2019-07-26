@@ -8,94 +8,107 @@ security = "user"
 allowedUserGroups[] = "administrador"
 allowedUserGroups[] = "supervisor"
 redirect = "iniciar-sesion"
+
+[resetPassword]
+paramCode = "code"
 ==
 {% component 'session' %}
-<style type="text/css">
-		/*Formulario */
-		form{
-			margin: 0 auto;
-			width: 400px;
-		}
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+<style>
+	#line {
+		display: inline;
+	}
 
-		form div{
-			margin-top: 6px;
-			height:30px
-		}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		margin: 0 auto;
+		width: 50%;
+		border: 1px solid #ddd;
+	}
 
-		label{
-			display: inline-block;
-			width: 150px;
-		}
+	td {
+		padding: 3%;
+		margin: 0 auto;
+	}
 
-		input, select{
-			margin-left: 49px;
-			height: 24px;
-		}
+	#button {
+		align-content: center;
+		text-align: center;
+	}
 
-		select{
-			width: 197px;
-		}
+	#button button {
+		width: 155px;
+		border-radius: 6px;
+		margin: 20px;
+	}
+	h6 {
+		display: inline;
+	}
+</style>
 
-		#titulo{
-			background-color: #E6E7E7;
-			text-align: center;
-			height: 30px;
-			line-height: 30px;
-		}
+<section id="layout-title">
+	<div class="container">
+		<h3 style="text-align: center">Editar credenciales</h3>
+	</div>
+</section>
+<script>
+    function Confirmcancelar()
+    {
+      var x = confirm("¿Seguro que quiere cancelar?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+     function Confirmatras()
+    {
+      var x = confirm("¿Seguro que quiere abandonar el registro?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+</script>
+<div class="col-sm-2">
+	<a class="btn btn-block btn-lg btn-primary" VALUE="Volver" onClick="return Confirmatras();">Regresar</a>
+</div>
 
-		input:focus{
-			border-color: #000;
-		}
+<p>&nbsp;</p>
 
-		#button{
-			align-content: center;
-			text-align: center;
-		}
+<form data-request="onEnviar" method="POST">
+	<div style="overflow-x:auto;">
+		<table>
+			<tr>
+				<td>
+					<h6>Correo:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="correo" style="width: 100%;" required></td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Nueva contraseña:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="nuevacontra" style="width: 100%;" required></td>
+			</tr>
 
-		#button button{
-			width: 155px;
-			border-radius: 6px;
-			margin: 20px;
-		}
-
-		
-		#encabezado{
-			background-color: #E6E7E7;
-			text-align: center;
-			height: 90px;
-		}
-		
-		#encabezado h4{
-		    	line-height: 90px;
-		    	
-		}
-	</style>
-
-	<div id="encabezado"><h4>Editar Credenciales</h4></div>
-
-	<!-- Formulario Editar-->
-	<form name="Editar Credenciales" method="" action="">
-		
-		<div>
-			<label for="nombre_usuario">Nombre de pago:</label>
-			<input type="text" name="nombre_usuario" id="nombre_usuario"/>	
-		</div>
-		<div>
-		
-		<div>
-			<label for="Contraseña_Actual">Contraseña Actual :</label>
-			<input type="password" name="Contraseña_Actual" id="Contraseña_Actual"/>	
-		</div>
-
-		<div>
-			<label for="Nueva_Contraseña">Nueva Contraseña:</label>
-			<input type="password" name="Nueva_Contraseña" id="Nueva_Contraseña"/>	
-		</div>
-	    <br/>
-
-	
-		<div id="button">
-			<button type="submit">Guardar Cambios</button>
-			<button type="submit">Cancelar</button>
-		</div><br/><br/>
-	</form>
+			<tr>
+				<td>
+					<h6>Confirmar nueva contraseña:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="nuevacontra2" style="width: 100%;" required></td>
+			</tr>
+		</table>
+	</div>
+	<div id="button">
+		<button type="submit">Confirmar</button>
+		<button type="button" onclick="return Confirmcancelar();">Cancelar</button>
+	</div>
+</form>

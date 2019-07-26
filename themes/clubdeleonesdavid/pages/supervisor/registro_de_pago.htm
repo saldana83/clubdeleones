@@ -1,124 +1,164 @@
 title = "registro de pago"
 url = "/registro-de-pago"
 layout = "default"
-description = "Luis Morell e Isaacs Hurtado"
 is_hidden = 0
 
 [session]
 security = "user"
 allowedUserGroups[] = "administrador"
 allowedUserGroups[] = "supervisor"
-redirect = "iniciar-sesion"
+redirect = "home"
+==
+<?php
+function onStart(){
+    $this['pagos']=new class {
+        public function pag(){
+            $data= Db::select('select codigo_pago from club_tiposdepagos', [1]);
+            foreach($data as $data1) 
+                {
+                    foreach($data1 as $data2)
+                       { echo "
+						<option value=\"$data2\">$data2</option>";}
+					
+                }
+                            }
+                                };
+}   
+
+function onEnviar(){
+    $cedula=$_POST['cedula'];
+    $codigo=$_POST['codigo'];
+    $realizado=$_POST['realizadopor_pago'];
+    $registrado=$_POST['registradopor_pago'];
+    $fecha=$_POST['fecha'];
+
+    $result=Db::insert('insert into club_historial_de_pagos (cedula_leon,codigo_de_pago,fecha,realizado_por,registrado_por) values (?,?,?,?,?)', [$cedula,$codigo,$fecha,$realizado,$registrado]);
+    $result=Db::insert('insert into club_historial_de_pagos (cedula_leon,codigo_de_pago,fecha,realizado_por,registrado_por) values (?,?,?,?,?)', [$cedula,$codigo,$fecha,$realizado,$registrado]);
+    
+    if ($result)
+    {
+    echo "Datos guardados correctamente";  
+    header("Refresh:0");
+    }
+    }
+?>
 ==
 {% component 'session' %}
-<style type="text/css">
-		/*Formulario */
-		form{
-			margin: 0 auto;
-			width: 400px;
-		}
+{% put scripts %}
+<script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+<script>
+    function Confirmcancelar()
+    {
+      var x = confirm("¿Seguro que quiere cancelar?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+     function Confirmatras()
+    {
+      var x = confirm("¿Seguro que quiere abandonar el registro?");
+      if (x)
+          return history.back();
+      else
+        return false;
+    }
+</script>
 
-		form div{
-			margin-top: 6px;
-			height:30px
-		}
+<style>
+	#line {
+		display: inline;
+	}
 
-		label{
-			display: inline-block;
-			width: 150px;
-		}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		margin: 0 auto;
+		width: 50%;
+		border: 1px solid #ddd;
+	}
 
-		input, select{
-			margin-left: 49px;
-			height: 24px;
-		}
+	td {
+		padding: 3%;
+		margin: 0 auto;
+	}
 
-		select{
-			width: 197px;
-		}
+	#button {
+		align-content: center;
+		text-align: center;
+	}
 
-		#titulo{
-			background-color: #E6E7E7;
-			text-align: center;
-			height: 30px;
-			line-height: 30px;
-		}
+	#button button {
+		width: 155px;
+		border-radius: 6px;
+		margin: 20px;
+	}
+	h6{
+	    display:inline;}
+</style>
 
-		input:focus{
-			border-color: #000;
-		}
+<section id="layout-title">
+	<div class="container">
+		<h3 style="text-align: center">Registrar pago de león</h3>
+	</div>
+</section>
 
-		#button{
-			align-content: center;
-			text-align: center;
-		}
+<div class="col-sm-2">
+	<a class="btn btn-block btn-lg btn-primary" VALUE="Volver" onClick="return Confirmatras();">Regresar</a>
+</div>
 
-		#button button{
-			width: 155px;
-			border-radius: 6px;
-			margin: 20px;
-		}
+<p>&nbsp;</p>
 
-		
-		#encabezado{
-			background-color: #E6E7E7;
-			text-align: center;
-			height: 90px;
-		}
-		
-		#encabezado h4{
-		    	line-height: 90px;
-		    	
-		}
-	</style>
+<form data-request="onEnviar" method="POST">
+	<div style="overflow-x:auto;">
+		<table>
+			<tr>
+				<td>
+					<h6>Cedula del león</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="cedula" style="width: 100%;" required></td>
+			</tr>
 
-	<div id="encabezado"><h4>Registrar Pago</h4></div>
+			<tr>
+				<td>
+					<h6>Codigo de pago:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><select class="form-control select select-default" name="codigo" data-toggle="select" required>";		
+                <option disabled selected value> -- seleccione una opción -- </option>
+                {{pagos.pag}}
+                </select></td>
+            </tr>
 
-	<!-- Formulario Editar Perfil-->
-	<form name="Registrar Pago" method="" action="">
-		
-		<div>
-			<label for="cedula_leon">Cedula León</label>
-			<input type="text" name="cedula_leon" id="cedula_leon"/>	
-		</div>
-		<br/>
-		<div>
-			<label for="categoria_De_pago">Categoria de Pago:</label>
-			<br/>
-			<select id="categoria_de_pago" name="categoria_de_pago">
-				<option value="activo" selected="selected">Activo</option>
-				<option value="inactivo">Inactivo</option>
-			</select>
-		</div>
-	    <br/>
-		<div>
-			<label for="codigo_de_pago">Codigo de pago:</label>
-			<br/>
-			<select id="codigo_de_pago" name="codigo_de_pago">
-				<option value="activo" selected="selected">Activo</option>
-				<option value="inactivo">Inactivo</option>
-			</select>	
-		</div>
-	    <br/>
-		<div>
-			<label for="codigo_de_pago">Pago realizado por:</label>
-			<input type="text" name="pago_realizado_por" id="pago_realizado_por"/>	
-		</div>
-	    <br/>
-		<div>
-			<label for="pago_registrado_por">Pago registrado por:</label>
-			<input type="text" name="pago_registrado_por" id="pago_registrado_por"/>	
-		</div>
-	    <br/>
+			<tr>
+				<td>
+					<h6>Pago realizado por:</h6>
+				</td>
+				<td><input class="form-control" type="text" name="realizadopor_pago" style="width: 100%;"></td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Pago registrado por:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="text" name="registradopor_pago" style="width: 100%;" required></td>
+			</tr>
 
-		<div>
-		<label for="monto">Monto:</label>
-		<input type="text" name="monto" id="monto"/>
-		</div>
-		<br/>
-
-		<div id="button">
-			<button type="submit">Guardar Cambios</button>
-			<button type="submit">Cancelar</button>
-		</div><br/><br/>
-	</form>>
+			<tr>
+				<td>
+					<h6>Fecha:</h6>
+					<h6 style="color: red;">*</h6>
+				</td>
+				<td><input class="form-control" type="date" name="fecha" style="width: 100%;" required></td>
+			</tr>
+		</table>
+	</div>
+	<div id="button">
+		<button type="submit">Guardar</button>
+		<button type="button" onclick="return Confirmcancelar();">Cancelar</button>
+	</div>
+</form>

@@ -1,159 +1,165 @@
-title = "historial-pagos"
-url = "/historial-pagos"
+title = "historial de pagos"
+url = "/historial_pagos"
 layout = "default"
 is_hidden = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "administrador"
+allowedUserGroups[] = "normal"
+allowedUserGroups[] = "supervisor"
+redirect = "iniciar-sesion"
 ==
+<?php
+function onStart(){
+    $this['historial']=new class {
+        public function his(){
+            
+            $conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+            $sql= "select email from users where `last_login`=(select max(`last_login`)from users)";
+            $ejecutar = mysqli_query($conectar,$sql);
+            $email = mysqli_fetch_array($ejecutar);
+            $email2=$email['email'];
+           
+            $sql1= "select `cedula` from club_usuarioleon where id_correoleon='$email2'";
+            $ejecutar2 = mysqli_query($conectar,$sql1);
+            $ced = mysqli_fetch_array($ejecutar2);
+            $cedula=$ced['cedula'];   
+            
+            $data= Db::select('select codigo_de_pago, categoria, descripcion, monto from club_historial_de_pagos INNER JOIN club_tiposdepagos ON club_historial_de_pagos.codigo_de_pago = club_tiposdepagos.codigo_pago where cedula_leon=?', [$cedula]);
+            foreach($data as $data1) 
+            {echo "<tr>";
+                foreach($data1 as $data2)
+                    { 
+                        echo "<td>$data2</td>";
+                    }
+            echo "</tr>";
+            }
+            
+        }
+         
+           
+                  
+                            };
+                                }
+
+ 
+
+function onBuscar(){
+    $id=$_POST['caja_busqueda'];
+    
+    $data = Db::select('SELECT codigo_de_pago, categoria, descripcion, saldo FROM historial_de_pagos WHERE codigo_de_pago LIKE :id OR categoria LIKE :id OR descripcion LIKE :id OR saldo LIKE :id', ['id' => $id]);
+    foreach($data as $data1) 
+                {echo "<tr>";
+                    foreach($data1 as $data2)
+                        { echo "<td>$data2</td>";
+                        }
+                echo "</tr>";
+                }
+    }
+?>
+==
+{% component 'session' %}
+{% put scripts %}
+    <script src="{{ [
+        'assets/javascript/pages/ui-elements.js',
+    ]|theme }}"></script>
+{% endput %}
+{%put scripts%}
+<script language="javascript">
+        function doSearch()
+        {
+            const tableReg = document.getElementById('datos');
+            const searchText = document.getElementById('searchTerm').value.toLowerCase();
+            let total = 0;
+ 
+            // Recorremos todas las filas con contenido de la tabla
+            for (let i = 1; i < tableReg.rows.length; i++) {
+                // Si el td tiene la clase "noSearch" no se busca en su cntenido
+                if (tableReg.rows[i].classList.contains("noSearch")) {
+                    continue;
+                }
+ 
+                let found = false;
+                const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                // Recorremos todas las celdas
+                for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                    // Buscamos el texto en el contenido de la celda
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    // si no ha encontrado ninguna coincidencia, esconde la
+                    // fila de la tabla
+                    tableReg.rows[i].style.display = 'none';
+                }
+            }
+ 
+            // mostramos las coincidencias
+            const lastTR=tableReg.rows[tableReg.rows.length-1];
+            const td=lastTR.querySelector("td");
+            lastTR.classList.remove("hide", "red");
+            if (searchText == "") {
+                lastTR.classList.add("hide");
+            } else if (total) {
+                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
+            } else {
+                lastTR.classList.add("red");
+                td.innerHTML="No se han encontrado coincidencias";
+            }
+        }
+    </script>
+{%endput%}
 <style type="text/css">
-		
-		#encabezado{
-			background-color: #E6E7E7;
-			text-align: center;
-			line-height: 70px;
-			height: 70px;
+      table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+    
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even){background-color: #f2f2f2}
+    #line{
+      display: inline;
 		}
+</style>
 
-		#encabezado a{
-			margin-top: -20px;
-			margin-left: 5px;
-			float: left;
-		}
+<section id="layout-title">
+    <div class="container">
+      <h3 style="text-align: center">Historial de pagos</h3>
+    </div>
+</section>
 
-		#encabezado p{
-			margin-right: 30px;
-				line-height: 70px;
-		}
+<form>
+        <div class="col-sm-3">
+            <input placeholder="Buscar" class="form-control"  id="searchTerm" type="text" onkeyup="doSearch()" />
+        </div>
+</form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
-		table{
-			margin: 0 auto;
-			width: 1000px;
-			border-collapse: collapse;
-			margin-right: 290px;
-		}
-
-		tr{
-			height: 50px;
-			
-		}
-
-		td{
-			border-bottom: 2px solid black;
-			text-align: center;
-		}
-		
-		
-		#buscar_por{
-			
-			float: left;
-			margin-left: 35px;
-		}
-
-		#tipo_pago{
-			float: left;
-			margin-left: 40px;
-			margin-top: 26px;
-		 }
-
-		#boton_buscar button{
-			
-			border-radius: 6px;
-			margin-left: 50px;
-			margin-top: 25px;
-			width: 80px;
-		}
-
-	</style>
-
-
-	<div id="encabezado">
-		<a href="">Pagos</a>
-		<P>Historial de Pagos</P>
-	</div>
-	<div>
-		<label id="buscar_por" for=""><h4>Buscar por:</h4></label>
-		<select id="tipo_pago" name="pago">
-			<option value="" selected="selected">Tipo de Pago</option>
-			<option value="casado">Categoría de Pago</option>
-		</select>
-	</div>
-	<div id="boton_buscar">
-			<button type="submit">Buscar</button>
-		</div>
-	<table name="historial_pagos">
-		
-	</table>
-
-	<table>
-<div id="celdas">
-<tr id="descripcion">
-  <td><strong>Código de Pago</strong></td>
-  <td><strong>Nombre de Pago</strong></td>
-  <td><strong>Categoría</strong></td>
-  <td><strong>Descripción</strong></td>
-  <td><strong>Saldo</strong></td>
-</tr>
-</div>
-
-<tr>
-  <td>002</td>
-  <td>Fiesta de navidad</td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>50.00</td>
-</tr>
-
-<tr>
-  <td>100</td>
-  <td>Fiesta del día del padre</td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>75.00</td>
-</tr>
-
-<tr>
-  <td>120</td>
-  <td>Fiesta de aniversario</td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>150.00</td>
-</tr>
-
-<tr>
-  <td>120</td>
-  <td>Fiesta </td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>30.00</td>
-</tr>
-
-<tr>
-  <td>002</td>
-  <td>Fiesta de navidad</td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>50.00</td>
-</tr>
-
-<tr>
-  <td>100</td>
-  <td>Fiesta del día del padre</td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>75.00</td>
-</tr>
-
-<tr>
-  <td>120</td>
-  <td>Fiesta de aniversario</td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>150.00</td>
-</tr>
-
-<tr>
-  <td>120</td>
-  <td>Fiesta </td>
-  <td>Fiestas internas</td>
-  <td>Ingresar texto aquí</td>
-  <td>30.00</td>
-</tr>
+<div style="overflow-x:auto;">
+  <table id="datos">
+        <tr>
+            <th>Codigo de pago</th>
+            <th>Categoria</th>
+            <th>Descripcion</th>
+            <th>Monto</th>
+        </tr>
+        {{historial.his}}
+         <tr class='noSearch hide'>
+                <td colspan="5"></td>
+        </tr>
 </table>
+</div>
+<p>&nbsp;</p><p>&nbsp;</p>
