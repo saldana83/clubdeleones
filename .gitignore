@@ -1,2 +1,21 @@
 .DS_Store
 *.log
+.vscode/
+
+# Composer
+vendor/
+
+# Environment
+.env
+
+# October CMS - generated cache & temp
+storage/cms/cache/
+storage/cms/twig/
+storage/framework/cache/
+storage/framework/sessions/
+storage/temp/
+storage/logs/
+
+# Docker
+docker-compose.yml
+Dockerfile
