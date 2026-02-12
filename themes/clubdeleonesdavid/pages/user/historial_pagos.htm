@@ -15,7 +15,7 @@ function onStart(){
     $this['historial']=new class {
         public function his(){
             
-            $conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+            $conectar= mysqli_connect('db','root','rootpassword','clubdeleonesdedavid');
             $sql= "select email from users where `last_login`=(select max(`last_login`)from users)";
             $ejecutar = mysqli_query($conectar,$sql);
             $email = mysqli_fetch_array($ejecutar);

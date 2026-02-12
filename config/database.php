@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      => 'db',
             'port'      => '3306',
             'database'  => 'clubdeleonesdedavid',
             'username'  => 'root',
-            'password'  => '',
+            'password'  => 'rootpassword',
             'charset'   => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix'    => '',

@@ -1,26 +1,42 @@
-# Sitio Web/Sistema de vista de pagos del Club de Leones - David 
-
-## Instalación
-
-1. Clonar el repositorio
-<<<<<<< HEAD
-1. Al crear la base de datod debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish2_ci" 
-1. Exportar la base de datos que se encuentra en el archivo Basededatos
-
-Para acceder al sistema http://127.0.0.1/clubdeleones/backend 
-=======
-2. Al crear la base de datos en phpmyadmin debe llamarse "clubdeleonesdedavid" y debe tener el formato "utf8_spanish2_ci" 
-3. Exportar la base de datos que se encuentra en el archivo /clubdeleones/Basededatos/clubdeleonesdedavid.sql.zip 
-
-Nota: Para acceder al sistema http://127.0.0.1/clubdeleones/backend 
->>>>>>> master
-
-usuario: admin
-
-contraseña: 12345678
+# Sitio Web / Sistema de pagos del Club de Leones de David
 
 ## Requisitos
 
-* Apache2
-* PHP 7.3.6
-* SQL
+- Docker + Docker Compose
+
+## Instalación y ejecución
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/saldana83/clubdeleones.git
+cd clubdeleones
+
+# Iniciar contenedores
+docker-compose up -d --build
+```
+
+La aplicación queda disponible en `http://localhost:8080`.
+
+## Backend
+
+- URL: `http://localhost:8080/backend`
+- Usuario: `admin`
+- Contraseña: `12345678`
+
+## Base de datos
+
+- Motor: MySQL 5.7
+- Puerto: 3306 (mapeado al host)
+- Base de datos: `clubdeleonesdedavid`
+- Usuario: `root`
+- Contraseña: `rootpassword`
+- El dump inicial se importa automáticamente desde `BasedeDatos/clubdeleonesdedavid.sql.zip`
+
+## Tecnologías
+
+- October CMS v1 (build 455) / Laravel 5.5
+- PHP 7.3 / Apache
+- MySQL 5.7
+- Bootstrap 3 + Flat UI
+- jQuery, jQuery UI
+- LESS compilado vía PHP

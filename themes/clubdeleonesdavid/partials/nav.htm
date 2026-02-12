@@ -1,7 +1,7 @@
 ==
 <?php
 function onStart(){
-    $conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+    $conectar= mysqli_connect('db','root','rootpassword','clubdeleonesdedavid');
 	//verificamos la conexion
 	if(!$conectar){
 		echo"No Se Pudo Conectar Con El Servidor";

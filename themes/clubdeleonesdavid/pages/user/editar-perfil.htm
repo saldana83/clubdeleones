@@ -13,7 +13,7 @@ redirect = "iniciar-sesion"
 <?php
 function onStart(){
     //conectamos Con el servidor
-	$conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+	$conectar= mysqli_connect('db','root','rootpassword','clubdeleonesdedavid');
 	mysqli_set_charset($conectar,'utf8');
 	//verificamos la conexion
 	if(!$conectar){
@@ -72,7 +72,7 @@ function onStart(){
 }
 }
 function onPerfil(){
-	$conectar= mysqli_connect('localhost','root','','clubdeleonesdedavid');
+	$conectar= mysqli_connect('db','root','rootpassword','clubdeleonesdedavid');
 	mysqli_set_charset($conectar,'utf8');
 	$telefonocasa=$_POST['telefonocasa'];
 	$telefonooficina=$_POST['telefonooficina'];
