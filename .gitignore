@@ -11,10 +11,14 @@ vendor/
 # October CMS - generated cache & temp
 storage/cms/cache/
 storage/cms/twig/
+storage/cms/combiner/
 storage/framework/cache/
 storage/framework/sessions/
 storage/temp/
 storage/logs/
+
+# Extracted SQL dump (zip is the source)
+BasedeDatos/clubdeleonesdedavid.sql
 
 # Docker
 docker-compose.yml
