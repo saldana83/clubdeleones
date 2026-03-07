@@ -13,6 +13,7 @@ storage/cms/cache/
 storage/cms/twig/
 storage/cms/combiner/
 storage/framework/cache/
+storage/framework/classes.php
 storage/framework/sessions/
 storage/temp/
 storage/logs/
