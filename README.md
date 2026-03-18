@@ -21,6 +21,7 @@ La aplicación queda disponible en `http://localhost:8080`.
 
 - URL: `http://localhost:8080/backend`
 - Usuario: `admin`
+- Correo: `admin@domain.tld`
 - Contraseña: `12345678`
 
 ## Base de datos

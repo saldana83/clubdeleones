@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost/october/install-master/',
+    'url' => 'http://localhost/',
 
     /*
     |--------------------------------------------------------------------------
