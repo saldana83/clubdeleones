@@ -1,0 +1,4 @@
+<?php
+
+echo str_limit(implode(', ',$record->categories->pluck('name')->toArray()), 30);
+

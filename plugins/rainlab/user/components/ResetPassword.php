@@ -6,11 +6,12 @@ use Mail;
 use Validator;
 use ValidationException;
 use ApplicationException;
+use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use RainLab\User\Models\User as UserModel;
 
 /**
- * Password reset workflow
+ * ResetPassword controls the password reset workflow
  *
  * When a user has forgotten their password, they are able to reset it using
  * a unique token that, sent to their email address upon request.
@@ -33,8 +34,24 @@ class ResetPassword extends ComponentBase
                 'description' => /*The page URL parameter used for the reset code*/'rainlab.user::lang.reset_password.code_param_desc',
                 'type'        => 'string',
                 'default'     => 'code'
-            ]
+            ],
+            'resetPage' => [
+                'title'       => /* Reset Page */'rainlab.user::lang.account.reset_page',
+                'description' => /* Select a page to use for resetting the account password */'rainlab.user::lang.account.reset_page_comment',
+                'type'        => 'dropdown',
+                'default'     => ''
+            ],
         ];
+    }
+
+    /**
+     * getResetPageOptions
+     */
+    public function getResetPageOptions()
+    {
+        return [
+            '' => '- current page -',
+        ] + Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
     //
@@ -74,8 +91,8 @@ class ResetPassword extends ComponentBase
             throw new ValidationException($validation);
         }
 
-        $user = UserModel::findByEmail(post('email'));
-        if (!$user || $user->is_guest) {
+        $user = Auth::findUserByEmail(post('email'));
+        if (!$user || $user->is_guest || $user->trashed()) {
             throw new ApplicationException(Lang::get(/*A user was not found with the given credentials.*/'rainlab.user::lang.account.invalid_user'));
         }
 
@@ -85,6 +102,7 @@ class ResetPassword extends ComponentBase
 
         $data = [
             'name' => $user->name,
+            'username' => $user->username,
             'link' => $link,
             'code' => $code
         ];
@@ -132,6 +150,11 @@ class ResetPassword extends ComponentBase
         if (!$user->attemptResetPassword($code, post('password'))) {
             throw new ValidationException($errorFields);
         }
+
+        // Check needed for compatibility with legacy systems
+        if (method_exists(\RainLab\User\Classes\AuthManager::class, 'clearThrottleForUserId')) {
+            Auth::clearThrottleForUserId($user->id);
+        }
     }
 
     //
@@ -139,7 +162,7 @@ class ResetPassword extends ComponentBase
     //
 
     /**
-     * Returns a link used to reset the user account.
+     * makeResetUrl returns a link used to reset the user account.
      * @return string
      */
     protected function makeResetUrl($code)
@@ -148,10 +171,14 @@ class ResetPassword extends ComponentBase
             $this->property('paramCode') => $code
         ];
 
+        // Locate the current page
+        $url = '';
+
         if ($pageName = $this->property('resetPage')) {
             $url = $this->pageUrl($pageName, $params);
         }
-        else {
+
+        if (!$url) {
             $url = $this->currentPageUrl($params);
         }
 

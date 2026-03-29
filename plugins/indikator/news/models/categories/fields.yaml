@@ -1,0 +1,65 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: indikator.news::lang.form.name
+        required: true
+        attributes:
+           autofocus: ''
+        span: left
+
+    slug:
+        label: indikator.news::lang.form.slug
+        required: true
+        preset: name
+        span: right
+
+    content:
+        label: indikator.news::lang.form.content
+        type: richeditor
+        size: large
+        span: full
+
+    posts:
+        label: indikator.news::lang.title.posts
+        type: partial
+        path: '$/indikator/news/controllers/categories/_posts.htm'
+        span: full
+
+secondaryTabs:
+
+    fields:
+
+        categoryinfo:
+            type: categoryinfo
+            context: update
+            span: full
+
+        image:
+            label: indikator.news::lang.form.image
+            type: mediafinder
+            mode: image
+            span: full
+
+        status:
+            label: indikator.news::lang.form.status
+            required: true
+            type: radio
+            options:
+                1: indikator.news::lang.button.active
+                2: indikator.news::lang.button.inactive
+            default: 1
+            span: left
+
+        hidden:
+            label: indikator.news::lang.form.hidden
+            required: true
+            type: radio
+            options:
+                1: indikator.news::lang.form.yes
+                2: indikator.news::lang.form.no
+            default: 2
+            span: right

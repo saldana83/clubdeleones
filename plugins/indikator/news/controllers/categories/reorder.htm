@@ -1,0 +1,18 @@
+<?php Block::put('breadcrumb') ?>
+    <?php if (!class_exists('\System') || version_compare(\System::VERSION, '4.0.0', '<')): ?>
+        <ul>
+            <li><a href="<?= Backend::url('indikator/news/categories') ?>"><?= e(trans('indikator.news::lang.menu.categories')) ?></a></li>
+            <li><?= e(trans($this->pageTitle)) ?></li>
+        </ul>
+    <?php endif; ?>
+<?php Block::endPut() ?>
+
+<style type="text/css">
+    .control-treelist li > div.record > span {
+        font-size: 13px;
+    }
+</style>
+
+<div style="margin:20px;">
+    <?= $this->reorderRender() ?>
+</div>

@@ -8,5 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'JSMin' => $vendorDir . '/linkorb/jsmin-php/src/jsmin-1.1.1.php',
     'JSMinException' => $vendorDir . '/linkorb/jsmin-php/src/jsmin-1.1.1.php',
-    'lessc' => $vendorDir . '/oyejorge/less.php/lessc.inc.php',
+    'Normalizer' => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
 );

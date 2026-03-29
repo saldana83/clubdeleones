@@ -1,11 +1,10 @@
 <?php namespace RainLab\Translate\Behaviors;
 
-use RainLab\Translate\Classes\Translator;
+use RainLab\Translate\Classes\Locale;
 use RainLab\Translate\Classes\TranslatableBehavior;
-use October\Rain\Html\Helper as HtmlHelper;
 
 /**
- * Translatable CMS Object extension
+ * TranslatableCmsObject extension
  *
  * Usage:
  *
@@ -22,14 +21,13 @@ use October\Rain\Html\Helper as HtmlHelper;
  */
 class TranslatableCmsObject extends TranslatableBehavior
 {
-
     /**
-     * @var array Data store for translated viewbag attributes.
+     * @var array translatableViewBag data store for translated viewbag attributes.
      */
     protected $translatableViewBag = [];
 
     /**
-     * Constructor
+     * __construct
      * @param \October\Rain\Database\Model $model The extended model.
      */
     public function __construct($model)
@@ -43,11 +41,22 @@ class TranslatableCmsObject extends TranslatableBehavior
         $this->model->bindEvent('cmsObject.getTwigCacheKey', function($key) {
             return $this->overrideTwigCacheKey($key);
         });
+
+        // Delete all translation files associated with the default language static page
+        $this->model->bindEvent('model.afterDelete', function() use ($model) {
+            foreach (Locale::listEnabled() as $locale => $label) {
+                if ($locale == $this->translatableDefault) {
+                    continue;
+                }
+                if ($obj = $this->getCmsObjectForLocale($locale)) {
+                    $obj->delete();
+                }
+            }
+        });
     }
 
     /**
-     * Merge the viewBag array for the base and translated objects.
-     * @return void
+     * mergeViewBagAttributes array for the base and translated objects.
      */
     protected function mergeViewBagAttributes()
     {
@@ -66,7 +75,7 @@ class TranslatableCmsObject extends TranslatableBehavior
     }
 
     /**
-     * Translated CMS objects need their own unique cache key in twig.
+     * overrideTwigCacheKey translated CMS objects need their own unique cache key in twig.
      * @return string|null
      */
     protected function overrideTwigCacheKey($key)
@@ -91,7 +100,7 @@ class TranslatableCmsObject extends TranslatableBehavior
     }
 
     /**
-     * If the parent model file name is changed, this should
+     * syncTranslatableFileNames if the parent model file name is changed, this should
      * be reflected in the translated models also.
      */
     protected function syncTranslatableFileNames()
@@ -110,7 +119,7 @@ class TranslatableCmsObject extends TranslatableBehavior
     }
 
     /**
-     * Saves the translation data in the join table.
+     * storeTranslatableData saves the translation data in the join table.
      * @param  string $locale
      * @return void
      */
@@ -146,18 +155,19 @@ class TranslatableCmsObject extends TranslatableBehavior
     }
 
     /**
-     * Returns true if all attributes are empty (false when converted to booleans).
+     * isEmptyDataSet returns true if all attributes are empty (false when converted to booleans).
      * @param  array $data
      * @return bool
      */
     protected function isEmptyDataSet($data)
     {
         return !array_get($data, 'markup') &&
-            !count(array_filter(array_get($data, 'viewBag', [])));
+            !count(array_filter(array_get($data, 'viewBag', []))) &&
+            !count(array_filter(array_get($data, 'placeholders', [])));
     }
 
     /**
-     * Loads the translation data from the join table.
+     * loadTranslatableData loads the translation data from the join table.
      * @param  string $locale
      * @return array
      */
@@ -175,11 +185,14 @@ class TranslatableCmsObject extends TranslatableBehavior
 
         $result = $obj ? $obj->getAttributes() : [];
 
-        $this->translatableViewBag[$locale] = $obj ? $obj->viewBag : [];
+        $this->translatableViewBag[$locale] = (array) ($obj ? $obj->viewBag : []);
 
         return $this->translatableOriginals[$locale] = $this->translatableAttributes[$locale] = $result;
     }
 
+    /**
+     * getCmsObjectForLocale
+     */
     protected function getCmsObjectForLocale($locale)
     {
         if ($locale == $this->translatableDefault) {
@@ -191,7 +204,7 @@ class TranslatableCmsObject extends TranslatableBehavior
     }
 
     /**
-     * Internal method, prepare the form model object
+     * createModel is an internal method, prepare the form model object
      * @return Model
      */
     protected function createModel()
@@ -202,7 +215,7 @@ class TranslatableCmsObject extends TranslatableBehavior
     }
 
     /**
-     * Returns a collection of fields that will be hashed.
+     * getTranslatableModelClass returns a collection of fields that will be hashed.
      * @return array
      */
     public function getTranslatableModelClass()
@@ -211,7 +224,6 @@ class TranslatableCmsObject extends TranslatableBehavior
             return $this->model->translatableModel;
         }
 
-        return 'RainLab\Translate\Classes\MLCmsObject';
+        return \RainLab\Translate\Classes\MLCmsObject::class;
     }
-
 }

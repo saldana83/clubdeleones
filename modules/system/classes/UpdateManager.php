@@ -8,6 +8,7 @@ use Http;
 use Cache;
 use Schema;
 use Config;
+use Request;
 use ApplicationException;
 use Cms\Classes\ThemeManager;
 use System\Models\Parameter;
@@ -50,17 +51,17 @@ class UpdateManager
     protected $tempDirectory;
 
     /**
-     * @var System\Classes\PluginManager
+     * @var \System\Classes\PluginManager
      */
     protected $pluginManager;
 
     /**
-     * @var Cms\Classes\ThemeManager
+     * @var \Cms\Classes\ThemeManager
      */
     protected $themeManager;
 
     /**
-     * @var System\Classes\VersionManager
+     * @var \System\Classes\VersionManager
      */
     protected $versionManager;
 
@@ -85,12 +86,12 @@ class UpdateManager
     protected $productCache;
 
     /**
-     * @var Illuminate\Database\Migrations\Migrator
+     * @var \Illuminate\Database\Migrations\Migrator
      */
     protected $migrator;
 
     /**
-     * @var Illuminate\Database\Migrations\DatabaseMigrationRepository
+     * @var \Illuminate\Database\Migrations\DatabaseMigrationRepository
      */
     protected $repository;
 
@@ -149,9 +150,9 @@ class UpdateManager
         /*
          * Update plugins
          */
-        $plugins = $this->pluginManager->sortByDependencies();
-        foreach ($plugins as $plugin) {
-            $this->updatePlugin($plugin);
+        $plugins = $this->pluginManager->getPlugins();
+        foreach ($plugins as $code => $plugin) {
+            $this->updatePlugin($code);
         }
 
         Parameter::set('system::update.count', 0);
@@ -173,7 +174,7 @@ class UpdateManager
     /**
      * Checks for new updates and returns the amount of unapplied updates.
      * Only requests from the server at a set interval (retry timer).
-     * @param  boolean $force Ignore the retry timer.
+     * @param boolean $force Ignore the retry timer.
      * @return int            Number of unapplied updates.
      */
     public function check($force = false)
@@ -199,8 +200,7 @@ class UpdateManager
         try {
             $result = $this->requestUpdateList();
             $newCount = array_get($result, 'update', 0);
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             $newCount = 0;
         }
 
@@ -215,7 +215,7 @@ class UpdateManager
 
     /**
      * Requests an update list used for checking for new updates.
-     * @param  boolean $force Request application and plugins hash list regardless of version.
+     * @param boolean $force Request application and plugins hash list regardless of version.
      * @return array
      */
     public function requestUpdateList($force = false)
@@ -234,11 +234,11 @@ class UpdateManager
         }
 
         $params = [
-            'core' => $this->getHash(),
-            'plugins' => serialize($versions),
-            'themes' => serialize($themes),
-            'build' => $build,
-            'force' => $force
+            'core'    => $this->getHash(),
+            'plugins' => base64_encode(json_encode($versions)),
+            'themes'  => base64_encode(json_encode($themes)),
+            'build'   => $build,
+            'force'   => $force
         ];
 
         $result = $this->requestServerData('core/update', $params);
@@ -270,8 +270,7 @@ class UpdateManager
                 (isset($updatable[$code]) && !$updatable[$code])
             ) {
                 $updateCount = max(0, --$updateCount);
-            }
-            else {
+            } else {
                 $plugins[$code] = $info;
             }
         }
@@ -312,7 +311,7 @@ class UpdateManager
 
     /**
      * Requests details about a project based on its identifier.
-     * @param  string $projectId
+     * @param string $projectId
      * @return array
      */
     public function requestProjectDetails($projectId)
@@ -341,7 +340,7 @@ class UpdateManager
         $modules = Config::get('cms.loadModules', []);
 
         foreach ($modules as $module) {
-            $paths[] = $path = base_path() . '/modules/'.strtolower($module).'/database/migrations';
+            $paths[] = $path = base_path() . '/modules/' . strtolower($module) . '/database/migrations';
         }
 
         /*
@@ -405,12 +404,12 @@ class UpdateManager
      */
     public function migrateModule($module)
     {
-        $this->migrator->run(base_path() . '/modules/'.strtolower($module).'/database/migrations');
+        $this->migrator->run(base_path() . '/modules/' . strtolower($module) . '/database/migrations');
 
         $this->note($module);
 
         foreach ($this->migrator->getNotes() as $note) {
-            $this->note(' - '.$note);
+            $this->note(' - ' . $note);
         }
 
         return $this;
@@ -423,7 +422,7 @@ class UpdateManager
      */
     public function seedModule($module)
     {
-        $className = '\\'.$module.'\Database\Seeds\DatabaseSeeder';
+        $className = '\\' . $module . '\Database\Seeds\DatabaseSeeder';
         if (!class_exists($className)) {
             return;
         }
@@ -523,7 +522,6 @@ class UpdateManager
         $this->versionManager->resetNotes()->setNotesOutput($this->notesOutput);
 
         if ($this->versionManager->updatePlugin($plugin) !== false) {
-
             foreach ($this->versionManager->getNotes() as $note) {
                 $this->note($note);
             }
@@ -533,11 +531,13 @@ class UpdateManager
     }
 
     /**
-     * Removes an existing plugin
+     * Rollback an existing plugin
+     *
      * @param string $name Plugin name.
+     * @param string $stopOnVersion If this parameter is specified, the process stops once the provided version number is reached
      * @return self
      */
-    public function rollbackPlugin($name)
+    public function rollbackPlugin(string $name, string $stopOnVersion = null)
     {
         /*
          * Remove the plugin database and version
@@ -549,8 +549,17 @@ class UpdateManager
             return $this;
         }
 
-        if ($this->versionManager->removePlugin($plugin)) {
+        if ($stopOnVersion && !$this->versionManager->hasDatabaseVersion($plugin, $stopOnVersion)) {
+            throw new ApplicationException(Lang::get('system::lang.updates.plugin_version_not_found'));
+        }
+
+        if ($this->versionManager->removePlugin($plugin, $stopOnVersion, true)) {
             $this->note('<info>Rolled back:</info> ' . $name);
+
+            if ($currentVersion = $this->versionManager->getCurrentVersion($plugin)) {
+                $this->note('<info>Current Version:</info> ' . $currentVersion . ' (' . $this->versionManager->getCurrentVersionNote($plugin) . ')');
+            }
+
             return $this;
         }
 
@@ -570,7 +579,7 @@ class UpdateManager
     {
         $fileCode = $name . $hash;
         $this->requestServerFile('plugin/get', $fileCode, $hash, [
-            'name' => $name,
+            'name'         => $name,
             'installation' => $installation ? 1 : 0
         ]);
     }
@@ -582,8 +591,9 @@ class UpdateManager
     {
         $fileCode = $name . $hash;
         $filePath = $this->getFilePath($fileCode);
+        $innerPath = str_replace('.', '/', strtolower($name));
 
-        if (!Zip::extract($filePath, $this->baseDirectory . '/plugins/')) {
+        if (!Zip::extract($filePath, plugins_path($innerPath))) {
             throw new ApplicationException(Lang::get('system::lang.zip.extract_failed', ['file' => $filePath]));
         }
 
@@ -624,8 +634,9 @@ class UpdateManager
     {
         $fileCode = $name . $hash;
         $filePath = $this->getFilePath($fileCode);
+        $innerPath = str_replace('.', '-', strtolower($name));
 
-        if (!Zip::extract($filePath, $this->baseDirectory . '/themes/')) {
+        if (!Zip::extract($filePath, themes_path($innerPath))) {
             throw new ApplicationException(Lang::get('system::lang.zip.extract_failed', ['file' => $filePath]));
         }
 
@@ -655,7 +666,7 @@ class UpdateManager
         $newCodes = array_diff($codes, array_keys($this->productCache[$type]));
         if (count($newCodes)) {
             $dataCodes = [];
-            $data = $this->requestServerData($type.'/details', ['names' => $newCodes]);
+            $data = $this->requestServerData($type . '/details', ['names' => $newCodes]);
             foreach ($data as $product) {
                 $code = array_get($product, 'code', -1);
                 $this->cacheProductDetail($type, $code, $product);
@@ -680,7 +691,9 @@ class UpdateManager
         $requestedDetails = array_intersect_key($this->productCache[$type], array_flip($codes));
 
         foreach ($requestedDetails as $detail) {
-            if ($detail === -1) continue;
+            if ($detail === -1) {
+                continue;
+            }
             $result[] = $detail;
         }
 
@@ -696,13 +709,13 @@ class UpdateManager
             $type = 'plugin';
         }
 
-        $cacheKey = 'system-updates-popular-'.$type;
+        $cacheKey = 'system-updates-popular-' . $type;
 
         if (Cache::has($cacheKey)) {
             return @unserialize(@base64_decode(Cache::get($cacheKey))) ?: [];
         }
 
-        $data = $this->requestServerData($type.'/popular');
+        $data = $this->requestServerData($type . '/popular');
         Cache::put($cacheKey, base64_encode(serialize($data)), 60);
 
         foreach ($data as $product) {
@@ -722,8 +735,7 @@ class UpdateManager
 
         if (Cache::has($cacheKey)) {
             $this->productCache = @unserialize(@base64_decode(Cache::get($cacheKey))) ?: $defaultCache;
-        }
-        else {
+        } else {
             $this->productCache = $defaultCache;
         }
     }
@@ -773,8 +785,7 @@ class UpdateManager
 
         try {
             $resultData = json_decode($result->body, true);
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             throw new ApplicationException(Lang::get('system::lang.server.response_invalid'));
         }
 
@@ -787,15 +798,14 @@ class UpdateManager
 
     /**
      * Raise a note event for the migrator.
-     * @param  string  $message
+     * @param string $message
      * @return self
      */
     protected function note($message)
     {
         if ($this->notesOutput !== null) {
             $this->notesOutput->writeln($message);
-        }
-        else {
+        } else {
             $this->notes[] = $message;
         }
 
@@ -826,7 +836,7 @@ class UpdateManager
 
     /**
      * Sets an output stream for writing notes.
-     * @param  Illuminate\Console\Command $output
+     * @param Illuminate\Console\Command $output
      * @return self
      */
     public function setNotesOutput($output)
@@ -842,8 +852,8 @@ class UpdateManager
 
     /**
      * Contacts the update server for a response.
-     * @param  string $uri      Gateway API URI
-     * @param  array  $postData Extra post data
+     * @param string $uri Gateway API URI
+     * @param array $postData Extra post data
      * @return array
      */
     public function requestServerData($uri, $postData = [])
@@ -868,8 +878,7 @@ class UpdateManager
 
         try {
             $resultData = @json_decode($result->body, true);
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             throw new ApplicationException(Lang::get('system::lang.server.response_invalid'));
         }
 
@@ -877,15 +886,19 @@ class UpdateManager
             throw new ApplicationException(Lang::get('system::lang.server.response_invalid'));
         }
 
+        if (!$this->validateServerSignature($resultData, $result->headers['Rest-Sign'] ?? '')) {
+            throw new ApplicationException(Lang::get('system::lang.server.response_invalid') . ' (Bad signature)');
+        }
+
         return $resultData;
     }
 
     /**
      * Downloads a file from the update server.
-     * @param  string $uri          Gateway API URI
-     * @param  string $fileCode     A unique code for saving the file.
-     * @param  string $expectedHash The expected file hash of the file.
-     * @param  array  $postData     Extra post data
+     * @param string $uri Gateway API URI
+     * @param string $fileCode A unique code for saving the file.
+     * @param string $expectedHash The expected file hash of the file.
+     * @param array $postData Extra post data
      * @return void
      */
     public function requestServerFile($uri, $fileCode, $expectedHash, $postData = [])
@@ -897,19 +910,22 @@ class UpdateManager
             $http->toFile($filePath);
         });
 
-        if ($result->code != 200) {
-            throw new ApplicationException(File::get($filePath));
+        if (in_array($result->code, [301, 302])) {
+            if ($redirectUrl = array_get($result->info, 'redirect_url')) {
+                $result = Http::get($redirectUrl, function ($http) use ($postData, $filePath) {
+                    $http->toFile($filePath);
+                });
+            }
         }
 
-        if (md5_file($filePath) != $expectedHash) {
-            @unlink($filePath);
-            throw new ApplicationException(Lang::get('system::lang.server.file_corrupt'));
+        if ($result->code != 200) {
+            throw new ApplicationException(File::get($filePath));
         }
     }
 
     /**
      * Calculates a file path for a file code
-     * @param  string $fileCode A unique file code
+     * @param string $fileCode A unique file code
      * @return string           Full path on the disk
      */
     protected function getFilePath($fileCode)
@@ -920,7 +936,7 @@ class UpdateManager
 
     /**
      * Set the API security for all transmissions.
-     * @param string $key    API Key
+     * @param string $key API Key
      * @param string $secret API Secret
      */
     public function setSecurity($key, $secret)
@@ -931,12 +947,12 @@ class UpdateManager
 
     /**
      * Create a complete gateway server URL from supplied URI
-     * @param  string $uri URI
+     * @param string $uri URI
      * @return string      URL
      */
     protected function createServerUrl($uri)
     {
-        $gateway = Config::get('cms.updateServer', 'http://gateway.octobercms.com/api');
+        $gateway = Config::get('cms.updateServer', 'https://gateway.octobercms.com/api');
         if (substr($gateway, -1) != '/') {
             $gateway .= '/';
         }
@@ -946,18 +962,19 @@ class UpdateManager
 
     /**
      * Modifies the Network HTTP object with common attributes.
-     * @param  Http $http      Network object
-     * @param  array $postData Post data
+     * @param Http $http Network object
+     * @param array $postData Post data
      * @return void
      */
     protected function applyHttpAttributes($http, $postData)
     {
-        $postData['protocol_version'] = '1.1';
-        $postData['client'] = 'october';
+        $postData['protocol_version'] = '1.3';
+        $postData['client'] = 'October CMS';
 
-        $postData['server'] = base64_encode(serialize([
+        $postData['server'] = base64_encode(json_encode([
             'php'   => PHP_VERSION,
             'url'   => Url::to('/'),
+            'ip'    => Request::ip(),
             'since' => PluginVersion::orderBy('created_at')->value('created_at')
         ]));
 
@@ -1008,5 +1025,35 @@ class UpdateManager
     public function getMigrationTableName()
     {
         return Config::get('database.migrations', 'migrations');
+    }
+
+    /**
+     * validateServerSignature checks the server has provided a valid signature
+     *
+     * @return bool
+     */
+    protected function validateServerSignature($data, $signature)
+    {
+        if (!$signature) {
+            return false;
+        }
+
+        $signature = base64_decode($signature);
+
+        $pubKey = '-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt+KwvTXqC8Mz9vV4KIvX
+3y+aZusrlg26jdbNVUuhXNFbt1VisjJydHW2+WGsiEHSy2s61ZAV2dICR6f3huSw
+jY/MH9j23Oo/u61CBpvIS3Q8uC+TLtJl4/F9eqlnzocfMoKe8NmcBbUR3TKQoIok
+xbSMl6jiE2k5TJdzhHUxjZRIeeLDLMKYX6xt37LdhuM8zO6sXQmCGg4J6LmHTJph
+96H11gBvcFSFJSmIiDykJOELZl/aVcY1g3YgpL0mw5Bw1VTmKaRdz1eBi9DmKrKX
+UijG4gD8eLRV/FS/sZCFNR/evbQXvTBxO0TOIVi85PlQEcMl4SBj0CoTyNbcAGtz
+4wIDAQAB
+-----END PUBLIC KEY-----';
+
+        $pubKey = Config::get('system.update_gateway_key', $pubKey);
+
+        $data = base64_encode(json_encode($data));
+
+        return openssl_verify($data, $signature, $pubKey) === 1;
     }
 }

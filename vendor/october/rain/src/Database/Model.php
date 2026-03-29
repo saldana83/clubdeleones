@@ -1,7 +1,5 @@
 <?php namespace October\Rain\Database;
 
-use Db;
-use Input;
 use Closure;
 use October\Rain\Support\Arr;
 use October\Rain\Support\Str;
@@ -21,6 +19,7 @@ use Exception;
  */
 class Model extends EloquentModel
 {
+    use Concerns\GuardsAttributes;
     use Concerns\HasRelationships;
     use \October\Rain\Support\Traits\Emitter;
     use \October\Rain\Extension\ExtendableTrait;
@@ -161,7 +160,7 @@ class Model extends EloquentModel
                     $method .= 'e';
                 }
 
-                self::$eventMethod(function($model) use ($method) {
+                self::$eventMethod(function ($model) use ($method) {
                     $model->fireEvent('model.' . $method);
 
                     if ($model->methodExists($method)) {
@@ -174,10 +173,11 @@ class Model extends EloquentModel
         /*
          * Hook to boot events
          */
-        static::registerModelEvent('booted', function($model){
+        static::registerModelEvent('booted', function ($model) {
             /**
              * @event model.afterBoot
              * Called after the model is booted
+             * > **Note:** also triggered in October\Rain\Halcyon\Model
              *
              * Example usage:
              *
@@ -218,6 +218,7 @@ class Model extends EloquentModel
         /**
          * @event model.beforeCreate
          * Called before the model is created
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -238,6 +239,7 @@ class Model extends EloquentModel
         /**
          * @event model.afterCreate
          * Called after the model is created
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -256,6 +258,7 @@ class Model extends EloquentModel
         /**
          * @event model.beforeUpdate
          * Called before the model is updated
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -276,6 +279,7 @@ class Model extends EloquentModel
         /**
          * @event model.afterUpdate
          * Called after the model is updated
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -297,6 +301,7 @@ class Model extends EloquentModel
          * @event model.beforeSave
          * Called before the model is saved
          * > **Note:** This is called both when creating and updating
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -318,6 +323,7 @@ class Model extends EloquentModel
          * @event model.afterSave
          * Called after the model is saved
          * > **Note:** This is called both when creating and updating
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -338,6 +344,7 @@ class Model extends EloquentModel
         /**
          * @event model.beforeDelete
          * Called before the model is deleted
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -358,6 +365,7 @@ class Model extends EloquentModel
         /**
          * @event model.afterDelete
          * Called after the model is deleted
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -376,6 +384,7 @@ class Model extends EloquentModel
         /**
          * @event model.beforeFetch
          * Called before the model is fetched
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -396,6 +405,7 @@ class Model extends EloquentModel
         /**
          * @event model.afterFetch
          * Called after the model is fetched
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -534,7 +544,8 @@ class Model extends EloquentModel
 
         if ($value instanceof DateTimeInterface) {
             return new Argon(
-                $value->format('Y-m-d H:i:s.u'), $value->getTimezone()
+                $value->format('Y-m-d H:i:s.u'),
+                $value->getTimezone()
             );
         }
 
@@ -547,7 +558,8 @@ class Model extends EloquentModel
         }
 
         return Argon::createFromFormat(
-            str_replace('.v', '.u', $this->getDateFormat()), $value
+            str_replace('.v', '.u', $this->getDateFormat()),
+            $value
         );
     }
 
@@ -716,6 +728,7 @@ class Model extends EloquentModel
         /**
          * @event model.saveInternal
          * Called before the model is saved
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -826,7 +839,7 @@ class Model extends EloquentModel
      * @param string $sessionKey
      * @return bool
      */
-    public function alwaysPush($options = null, $sessionKey)
+    public function alwaysPush($options, $sessionKey)
     {
         return $this->push(['always' => true] + (array) $options, $sessionKey);
     }
@@ -870,7 +883,7 @@ class Model extends EloquentModel
                     $relation->forceDelete();
                 }
                 elseif ($relation instanceof CollectionBase) {
-                    $relation->each(function($model) {
+                    $relation->each(function ($model) {
                         $model->forceDelete();
                     });
                 }
@@ -975,7 +988,8 @@ class Model extends EloquentModel
     {
         /**
          * @event model.beforeGetAttribute
-         * Called before the model attribute is retrieved
+         * Called before the model attribute is retrieved (only when the attribute exists in `$model->attributes` or has a get mutator method defined; i.e. `getFooAttribute()`)
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -1005,7 +1019,8 @@ class Model extends EloquentModel
 
         /**
          * @event model.getAttribute
-         * Called after the model attribute is retrieved
+         * Called after the model attribute is retrieved (only when the attribute exists in `$model->attributes` or has a get mutator method defined; i.e. `getFooAttribute()`)
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -1074,7 +1089,8 @@ class Model extends EloquentModel
             }
 
             $attributes[$key] = $this->mutateAttributeForArray(
-                $key, $attributes[$key]
+                $key,
+                $attributes[$key]
             );
         }
 
@@ -1090,7 +1106,8 @@ class Model extends EloquentModel
             }
 
             $attributes[$key] = $this->castAttribute(
-                $key, $attributes[$key]
+                $key,
+                $attributes[$key]
             );
         }
 
@@ -1109,6 +1126,11 @@ class Model extends EloquentModel
                 !array_key_exists($key, $attributes) ||
                 in_array($key, $mutatedAttributes)
             ) {
+                continue;
+            }
+
+            // Prevent double decoding of jsonable attributes.
+            if (!is_string($attributes[$key])) {
                 continue;
             }
 
@@ -1152,13 +1174,14 @@ class Model extends EloquentModel
         /*
          * Handle direct relation setting
          */
-        if ($this->hasRelation($key)) {
+        if ($this->hasRelation($key) && !$this->hasSetMutator($key)) {
             return $this->setRelationValue($key, $value);
         }
 
         /**
          * @event model.beforeSetAttribute
          * Called before the model attribute is set
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *
@@ -1181,14 +1204,9 @@ class Model extends EloquentModel
         }
 
         /*
-         * Trim scalars
+         * Trim strings
          */
-        if (
-            !is_object($value) &&
-            !is_array($value) &&
-            !is_null($value) &&
-            !is_bool($value)
-        ) {
+        if (is_string($value)) {
             $value = trim($value);
         }
 
@@ -1197,6 +1215,7 @@ class Model extends EloquentModel
         /**
          * @event model.setAttribute
          * Called after the model attribute is set
+         * > **Note:** also triggered in October\Rain\Halcyon\Model
          *
          * Example usage:
          *

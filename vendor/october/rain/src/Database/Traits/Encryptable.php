@@ -1,15 +1,20 @@
 <?php namespace October\Rain\Database\Traits;
 
-use Crypt;
+use App;
 use Exception;
 
-trait Encryptable {
-
+trait Encryptable
+{
     /**
      * @var array List of attribute names which should be encrypted
-     * 
+     *
      * protected $encryptable = [];
      */
+
+    /**
+     * @var \Illuminate\Contracts\Encryption\Encrypter Encrypter instance.
+     */
+    protected $encrypter;
 
     /**
      * @var array List of original attribute values before they were encrypted.
@@ -24,21 +29,22 @@ trait Encryptable {
     {
         if (!property_exists(get_called_class(), 'encryptable')) {
             throw new Exception(sprintf(
-                'You must define a $encryptable property in %s to use the Encryptable trait.', get_called_class()
+                'You must define a $encryptable property in %s to use the Encryptable trait.',
+                get_called_class()
             ));
         }
 
         /*
          * Encrypt required fields when necessary
          */
-        static::extend(function($model) {
+        static::extend(function ($model) {
             $encryptable = $model->getEncryptableAttributes();
-            $model->bindEvent('model.beforeSetAttribute', function($key, $value) use ($model, $encryptable) {
-                if (in_array($key, $encryptable) && !empty($value)) {
+            $model->bindEvent('model.beforeSetAttribute', function ($key, $value) use ($model, $encryptable) {
+                if (in_array($key, $encryptable) && !is_null($value)) {
                     return $model->makeEncryptableValue($key, $value);
                 }
             });
-            $model->bindEvent('model.beforeGetAttribute', function($key) use ($model, $encryptable) {
+            $model->bindEvent('model.beforeGetAttribute', function ($key) use ($model, $encryptable) {
                 if (in_array($key, $encryptable) && array_get($model->attributes, $key) != null) {
                     return $model->getEncryptableValue($key);
                 }
@@ -55,7 +61,7 @@ trait Encryptable {
     public function makeEncryptableValue($key, $value)
     {
         $this->originalEncryptableValues[$key] = $value;
-        return Crypt::encrypt($value);
+        return $this->getEncrypter()->encrypt($value);
     }
 
     /**
@@ -65,7 +71,7 @@ trait Encryptable {
      */
     public function getEncryptableValue($key)
     {
-        return Crypt::decrypt($this->attributes[$key]);
+        return $this->getEncrypter()->decrypt($this->attributes[$key]);
     }
 
     /**
@@ -93,5 +99,26 @@ trait Encryptable {
     public function getOriginalEncryptableValue($attribute)
     {
         return $this->originalEncryptableValues[$attribute] ?? null;
+    }
+
+    /**
+     * Provides the encrypter instance.
+     *
+     * @return \Illuminate\Contracts\Encryption\Encrypter
+     */
+    public function getEncrypter()
+    {
+        return (!is_null($this->encrypter)) ? $this->encrypter : App::make('encrypter');
+    }
+
+    /**
+     * Sets the encrypter instance.
+     *
+     * @param \Illuminate\Contracts\Encryption\Encrypter $encrypter
+     * @return void
+     */
+    public function setEncrypter(\Illuminate\Contracts\Encryption\Encrypter $encrypter)
+    {
+        $this->encrypter = $encrypter;
     }
 }

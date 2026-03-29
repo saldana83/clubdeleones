@@ -1,7 +1,7 @@
 <?php namespace RainLab\Translate\Classes;
 
 /**
- * Represents a multi-lingual Static Page object.
+ * MLStaticPage represents a multi-lingual Static Page object used by the pages plugin.
  *
  * @package rainlab\translate
  * @author Alexey Bobkov, Samuel Georges
@@ -53,8 +53,13 @@ class MLStaticPage extends MLCmsObject
                 continue;
             }
 
-            $bodyNode = $node->getNode('body');
-            $result[$node->getAttribute('name')] = trim($bodyNode->getAttribute('data'));
+            $names = $node->getNode('names');
+            $values = $node->getNode('values');
+            $isCapture = $node->getAttribute('capture');
+            if ($isCapture) {
+                $name = $names->getNode(0);
+                $result[$name->getAttribute('name')] = trim($values->getAttribute('data'));
+            }
         }
 
         $this->attributes['placeholders'] = $result;
@@ -90,5 +95,16 @@ class MLStaticPage extends MLCmsObject
 
         $this->attributes['code'] = trim($result);
         $this->attributes['placeholders'] = $placeholders;
+    }
+
+    /**
+     * Disables safe mode check for static pages.
+     *
+     * This allows developers to use placeholders in layouts even if safe mode is enabled.
+     *
+     * @return void
+     */
+    protected function checkSafeMode()
+    {
     }
 }

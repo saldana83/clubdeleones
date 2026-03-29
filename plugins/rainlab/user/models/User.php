@@ -4,6 +4,8 @@ use Str;
 use Auth;
 use Mail;
 use Event;
+use Config;
+use Carbon\Carbon;
 use October\Rain\Auth\Models\User as UserBase;
 use RainLab\User\Models\Settings as UserSettings;
 use October\Rain\Auth\AuthException;
@@ -24,8 +26,8 @@ class User extends UserBase
         'email'    => 'required|between:6,255|email|unique:users',
         'avatar'   => 'nullable|image|max:4000',
         'username' => 'required|between:2,255|unique:users',
-        'password' => 'required:create|between:' . UserSettings::MIN_PASSWORD_LENGTH_DEFAULT . ',255|confirmed',
-        'password_confirmation' => 'required_with:password|between:' . UserSettings::MIN_PASSWORD_LENGTH_DEFAULT . ',255',
+        'password' => 'required:create|between:8,255|confirmed',
+        'password_confirmation' => 'required_with:password|between:8,255',
     ];
 
     /**
@@ -49,8 +51,16 @@ class User extends UserBase
         'username',
         'email',
         'password',
-        'password_confirmation'
+        'password_confirmation',
+        'created_ip_address',
+        'last_ip_address'
     ];
+
+    /**
+     * Reset guarded fields, because we use $fillable instead.
+     * @var array The attributes that aren't mass assignable.
+     */
+    protected $guarded = ['*'];
 
     /**
      * Purge attributes from data set.
@@ -76,7 +86,7 @@ class User extends UserBase
     public function attemptActivation($code)
     {
         if ($this->trashed()) {
-            if ($code == $this->activation_code) {
+            if ($code === $this->activation_code) {
                 $this->restore();
             } else {
                 return false;
@@ -122,7 +132,7 @@ class User extends UserBase
     //
 
     /**
-     * Looks up a user by their email address.
+     * findByEmail looks up a user by their email address.
      * @return self
      */
     public static function findByEmail($email)
@@ -137,6 +147,16 @@ class User extends UserBase
     //
     // Getters
     //
+
+    /**
+     * clearPersistCode will forcibly sign the user out
+     */
+    public function clearPersistCode()
+    {
+        $this->persist_code = null;
+        $this->timestamps = false;
+        $this->save();
+    }
 
     /**
      * Gets a code for when the user is persisted to a cookie or session which identifies the user.
@@ -198,18 +218,24 @@ class User extends UserBase
      */
     public static function getMinPasswordLength()
     {
-        return (int) UserSettings::get('min_password_length', UserSettings::MIN_PASSWORD_LENGTH_DEFAULT);
+        return Config::get('rainlab.user::minPasswordLength', 8);
     }
 
     //
     // Scopes
     //
 
+    /**
+     * scopeIsActivated
+     */
     public function scopeIsActivated($query)
     {
         return $query->where('is_activated', 1);
     }
 
+    /**
+     * scopeFilterByGroup
+     */
     public function scopeFilterByGroup($query, $filter)
     {
         return $query->whereHas('groups', function($group) use ($filter) {
@@ -222,7 +248,7 @@ class User extends UserBase
     //
 
     /**
-     * Before validation event
+     * beforeValidate event
      * @return void
      */
     public function beforeValidate()
@@ -244,7 +270,6 @@ class User extends UserBase
             $this->username = $this->email;
         }
 
-
         /*
          * Apply Password Length Settings
          */
@@ -254,7 +279,7 @@ class User extends UserBase
     }
 
     /**
-     * After create event
+     * afterCreate event
      * @return void
      */
     public function afterCreate()
@@ -267,7 +292,7 @@ class User extends UserBase
     }
 
     /**
-     * Before login event
+     * beforeLogin event
      * @return void
      */
     public function beforeLogin()
@@ -283,7 +308,7 @@ class User extends UserBase
     }
 
     /**
-     * After login event
+     * afterLogin event
      * @return void
      */
     public function afterLogin()
@@ -307,7 +332,7 @@ class User extends UserBase
     }
 
     /**
-     * After delete event
+     * afterDelete event
      * @return void
      */
     public function afterDelete()
@@ -355,6 +380,68 @@ class User extends UserBase
     }
 
     //
+    // Suspending
+    //
+
+    /**
+     * Check if the user is suspended.
+     * @return bool
+     */
+    public function isSuspended()
+    {
+        return Auth::findThrottleByUserId($this->id)->checkSuspended();
+    }
+
+    /**
+     * Remove the suspension on this user.
+     * @return void
+     */
+    public function unsuspend()
+    {
+        Auth::findThrottleByUserId($this->id)->unsuspend();
+    }
+
+    //
+    // IP Recording and Throttle
+    //
+
+    /**
+     * Records the last_ip_address to reflect the last known IP for this user.
+     * @param string|null $ipAddress
+     * @return void
+     */
+    public function touchIpAddress($ipAddress)
+    {
+        $this
+            ->newQuery()
+            ->where('id', $this->id)
+            ->update(['last_ip_address' => $ipAddress])
+        ;
+    }
+
+    /**
+     * Returns true if IP address is throttled and cannot register
+     * again. Maximum 3 registrations every 60 minutes.
+     * @param string|null $ipAddress
+     * @return bool
+     */
+    public static function isRegisterThrottled($ipAddress)
+    {
+        if (!$ipAddress) {
+            return false;
+        }
+
+        $timeLimit = Carbon::now()->subMinutes(60);
+        $count = static::make()
+            ->where('created_ip_address', $ipAddress)
+            ->where('created_at', '>', $timeLimit)
+            ->count()
+        ;
+
+        return $count > 2;
+    }
+
+    //
     // Last Seen
     //
 
@@ -388,11 +475,16 @@ class User extends UserBase
      */
     public function isOnline()
     {
-        return $this->getLastSeen() > $this->freshTimestamp()->subMinutes(5);
+        if (!$this->last_seen) {
+            return false;
+        }
+
+        return $this->last_seen > $this->freshTimestamp()->subMinutes(5);
     }
 
     /**
      * Returns the date this user was last seen.
+     * @deprecated use last_seen attribute
      * @return Carbon\Carbon
      */
     public function getLastSeen()
@@ -411,10 +503,10 @@ class User extends UserBase
     public function getNotificationVars()
     {
         $vars = [
-            'name'     => $this->name,
-            'email'    => $this->email,
+            'name' => $this->name,
+            'email' => $this->email,
             'username' => $this->username,
-            'login'    => $this->getLogin(),
+            'login' => $this->getLogin(),
             'password' => $this->getOriginalHashValue('password')
         ];
 
@@ -430,7 +522,8 @@ class User extends UserBase
     }
 
     /**
-     * Sends an invitation to the user using template "rainlab.user::mail.invite".
+     * sendInvitation sends an invitation to the user using template
+     * "rainlab.user::mail.invite"
      * @return void
      */
     protected function sendInvitation()
@@ -439,7 +532,7 @@ class User extends UserBase
     }
 
     /**
-     * Assigns this user with a random password.
+     * generatePassword assigns this user with a random password.
      * @return void
      */
     protected function generatePassword()

@@ -1,5 +1,6 @@
 <?php namespace System;
 
+use Db;
 use App;
 use View;
 use Event;
@@ -8,6 +9,8 @@ use Backend;
 use Request;
 use BackendMenu;
 use BackendAuth;
+use Backend\Models\UserRole;
+use Twig\Extension\SandboxExtension;
 use Twig\Environment as TwigEnvironment;
 use System\Classes\MailManager;
 use System\Classes\ErrorHandler;
@@ -18,6 +21,7 @@ use System\Classes\UpdateManager;
 use System\Twig\Engine as TwigEngine;
 use System\Twig\Loader as TwigLoader;
 use System\Twig\Extension as TwigExtension;
+use System\Twig\SecurityPolicy as TwigSecurityPolicy;
 use System\Models\EventLog;
 use System\Models\MailSetting;
 use System\Classes\CombineAssets;
@@ -84,8 +88,13 @@ class ServiceProvider extends ModuleServiceProvider
     public function boot()
     {
         // Fix UTF8MB4 support for MariaDB < 10.2 and MySQL < 5.7
-        if (Config::get('database.connections.mysql.charset') === 'utf8mb4') {
-            Schema::defaultStringLength(191);
+        $this->applyDatabaseDefaultStringLength();
+
+        // Fix use of Storage::url() for local disks that haven't been configured correctly
+        foreach (Config::get('filesystems.disks') as $key => $config) {
+            if ($config['driver'] === 'local' && ends_with($config['root'], '/storage/app') && empty($config['url'])) {
+                Config::set("filesystems.disks.$key.url", '/storage/app');
+            }
         }
 
         Paginator::defaultSimpleView('system::pagination.simple-default');
@@ -125,7 +134,7 @@ class ServiceProvider extends ModuleServiceProvider
      */
     protected function registerPrivilegedActions()
     {
-        $requests = ['/combine', '@/system/updates', '@/system/install', '@/backend/auth'];
+        $requests = ['/combine/', '@/system/updates', '@/system/install', '@/backend/auth'];
         $commands = ['october:up', 'october:update'];
 
         /*
@@ -146,7 +155,7 @@ class ServiceProvider extends ModuleServiceProvider
         /*
          * CLI
          */
-        if (App::runningInConsole() && count(array_intersect($commands, Request::server('argv'))) > 0) {
+        if (App::runningInConsole() && count(array_intersect($commands, Request::server('argv', []))) > 0) {
             PluginManager::$noInit = true;
         }
     }
@@ -240,18 +249,21 @@ class ServiceProvider extends ModuleServiceProvider
         $this->registerConsoleCommand('october.fresh', 'System\Console\OctoberFresh');
         $this->registerConsoleCommand('october.env', 'System\Console\OctoberEnv');
         $this->registerConsoleCommand('october.install', 'System\Console\OctoberInstall');
+        $this->registerConsoleCommand('october.passwd', 'System\Console\OctoberPasswd');
 
         $this->registerConsoleCommand('plugin.install', 'System\Console\PluginInstall');
         $this->registerConsoleCommand('plugin.remove', 'System\Console\PluginRemove');
         $this->registerConsoleCommand('plugin.disable', 'System\Console\PluginDisable');
         $this->registerConsoleCommand('plugin.enable', 'System\Console\PluginEnable');
         $this->registerConsoleCommand('plugin.refresh', 'System\Console\PluginRefresh');
+        $this->registerConsoleCommand('plugin.rollback', 'System\Console\PluginRollback');
         $this->registerConsoleCommand('plugin.list', 'System\Console\PluginList');
 
         $this->registerConsoleCommand('theme.install', 'System\Console\ThemeInstall');
         $this->registerConsoleCommand('theme.remove', 'System\Console\ThemeRemove');
         $this->registerConsoleCommand('theme.list', 'System\Console\ThemeList');
         $this->registerConsoleCommand('theme.use', 'System\Console\ThemeUse');
+        $this->registerConsoleCommand('theme.sync', 'System\Console\ThemeSync');
     }
 
     /*
@@ -288,6 +300,7 @@ class ServiceProvider extends ModuleServiceProvider
         App::singleton('twig.environment', function ($app) {
             $twig = new TwigEnvironment(new TwigLoader, ['auto_reload' => true]);
             $twig->addExtension(new TwigExtension);
+            $twig->addExtension(new SandboxExtension(new TwigSecurityPolicy, true));
             return $twig;
         });
 
@@ -405,19 +418,23 @@ class ServiceProvider extends ModuleServiceProvider
             $manager->registerPermissions('October.System', [
                 'system.manage_updates' => [
                     'label' => 'system::lang.permissions.manage_software_updates',
-                    'tab' => 'system::lang.permissions.name'
+                    'tab' => 'system::lang.permissions.name',
+                    'roles' => UserRole::CODE_DEVELOPER,
                 ],
                 'system.access_logs' => [
                     'label' => 'system::lang.permissions.access_logs',
-                    'tab' => 'system::lang.permissions.name'
+                    'tab' => 'system::lang.permissions.name',
+                    'roles' => UserRole::CODE_DEVELOPER,
                 ],
                 'system.manage_mail_settings' => [
                     'label' => 'system::lang.permissions.manage_mail_settings',
-                    'tab' => 'system::lang.permissions.name'
+                    'tab' => 'system::lang.permissions.name',
+                    'roles' => UserRole::CODE_DEVELOPER,
                 ],
                 'system.manage_mail_templates' => [
                     'label' => 'system::lang.permissions.manage_mail_templates',
-                    'tab' => 'system::lang.permissions.name'
+                    'tab' => 'system::lang.permissions.name',
+                    'roles' => UserRole::CODE_DEVELOPER,
                 ]
             ]);
         });
@@ -535,7 +552,7 @@ class ServiceProvider extends ModuleServiceProvider
      */
     protected function registerValidator()
     {
-        $this->app->resolving('validator', function($validator) {
+        $this->app->resolving('validator', function ($validator) {
             /*
              * Allowed file extensions, as opposed to mime types.
              * - extensions: png,jpg,txt
@@ -554,5 +571,25 @@ class ServiceProvider extends ModuleServiceProvider
     protected function registerGlobalViewVars()
     {
         View::share('appName', Config::get('app.name'));
+    }
+
+    /**
+     * Fix UTF8MB4 support for old versions of MariaDB (<10.2) and MySQL (<5.7)
+     */
+    protected function applyDatabaseDefaultStringLength()
+    {
+        if (Db::getDriverName() !== 'mysql') {
+            return;
+        }
+
+        $defaultStrLen = Db::getConfig('varcharmax');
+
+        if ($defaultStrLen === null && Db::getConfig('charset') === 'utf8mb4') {
+            $defaultStrLen = 191;
+        }
+
+        if ($defaultStrLen !== null) {
+            Schema::defaultStringLength((int) $defaultStrLen);
+        }
     }
 }

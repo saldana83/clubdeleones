@@ -32,17 +32,17 @@ use Twig\RuntimeLoader\RuntimeLoaderInterface;
 use Twig\TokenParser\TokenParserInterface;
 
 /**
- * Stores the Twig configuration.
+ * Stores the Twig configuration and renders templates.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
 class Environment
 {
-    const VERSION = '2.10.0';
-    const VERSION_ID = 21000;
+    const VERSION = '2.14.4';
+    const VERSION_ID = 21404;
     const MAJOR_VERSION = 2;
-    const MINOR_VERSION = 10;
-    const RELEASE_VERSION = 0;
+    const MINOR_VERSION = 14;
+    const RELEASE_VERSION = 4;
     const EXTRA_VERSION = '';
 
     private $charset;
@@ -435,7 +435,7 @@ class Environment
      *
      * This method should not be used as a generic way to load templates.
      *
-     * @param string $template The template name
+     * @param string $template The template source
      * @param string $name     An optional name of the template to be used in error messages
      *
      * @return TemplateWrapper A template instance representing the given template name

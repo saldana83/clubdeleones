@@ -1,0 +1,11 @@
+{% for tag in tags %}
+    {% if loop.first %}
+        <ul class="tags">
+    {% endif %}
+            <li><a href="{{ tagPage }}/{{ tag }}">{{ tag }}</a></li>
+    {% if loop.last %}
+        </ul>
+    {% endif %}
+{% else %}
+    <span class="post-nodata">{{ noTagsMessage }}</span>
+{% endfor %}

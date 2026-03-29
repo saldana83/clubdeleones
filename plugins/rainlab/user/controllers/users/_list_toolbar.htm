@@ -20,7 +20,7 @@
         </button>
         <button
             type="button"
-            class="btn btn-default dropdown-toggle"
+            class="btn btn-default dropdown-toggle dropdown-toggle-split"
             data-trigger-action="enable"
             data-trigger=".control-list input[type=checkbox]"
             data-trigger-condition="checked"
@@ -63,5 +63,22 @@
             </li>
         </ul>
     </div>
+
+    <?=
+        /**
+         * @event rainlab.user.view.extendListToolbar
+         * Fires when user list toolbar is rendered.
+         *
+         * Example usage:
+         *
+         *     Event::listen('rainlab.user.view.extendListToolbar', function (
+         *         (RainLab\User\Controllers\Users) $controller
+         *     ) {
+         *         return $controller->makePartial('~/path/to/partial');
+         *     });
+         *
+         */
+        $this->fireViewEvent('rainlab.user.view.extendListToolbar');
+    ?>
 
 </div>

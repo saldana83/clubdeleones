@@ -6,6 +6,7 @@ use October\Rain\Halcyon\Exception\MissingFileNameException;
 use October\Rain\Halcyon\Exception\InvalidFileNameException;
 use October\Rain\Halcyon\Exception\InvalidExtensionException;
 use BadMethodCallException;
+use ApplicationException;
 
 /**
  * Query builder
@@ -141,53 +142,36 @@ class Builder
     }
 
     /**
-     * Switches mode to select a single template by its name.
+     * Get the compiled file content representation of the query.
      *
-     * @param  string  $fileName
-     * @return $this
+     * @return string
      */
-    public function whereFileName($fileName)
+    public function toCompiled()
     {
-        $this->selectSingle = $this->model->getFileNameParts($fileName);
-
-        return $this;
+        return $this->processor->processUpdate($this, []);
     }
 
     /**
-     * Set the directory name which the query is targeting.
+     * Get an array with the values of a given column.
      *
-     * @param  string  $dirName
-     * @return $this
+     * @param  string  $column
+     * @param  string  $key
+     * @return array
      */
-    public function from($dirName)
+    public function lists($column, $key = null)
     {
-        $this->from = $dirName;
+        $select = is_null($key) ? [$column] : [$column, $key];
 
-        return $this;
-    }
+        if (!is_null($this->cacheMinutes)) {
+            $results = $this->getCached($select);
+        }
+        else {
+            $results = $this->getFresh($select);
+        }
 
-    /**
-     * Set the "offset" value of the query.
-     *
-     * @param  int  $value
-     * @return $this
-     */
-    public function offset($value)
-    {
-        $this->offset = max(0, $value);
+        $collection = new Collection($results);
 
-        return $this;
-    }
-
-    /**
-     * Alias to set the "offset" value of the query.
-     *
-     * @param  int  $value
-     * @return \October\Rain\Halcyon\Builder|static
-     */
-    public function skip($value)
-    {
-        return $this->offset($value);
+        return $collection->lists($column, $key);
     }
 
     /**
@@ -217,6 +201,43 @@ class Builder
     }
 
     /**
+     * Set the "offset" value of the query.
+     *
+     * @param  int  $value
+     * @return $this
+     */
+    public function offset($value)
+    {
+        $this->offset = max(0, $value);
+
+        return $this;
+    }
+
+    /**
+     * Alias to set the "offset" value of the query.
+     *
+     * @param  int  $value
+     * @return \October\Rain\Halcyon\Builder|static
+     */
+    public function skip($value)
+    {
+        return $this->offset($value);
+    }
+
+    /**
+     * Set the directory name which the query is targeting.
+     *
+     * @param  string  $dirName
+     * @return $this
+     */
+    public function from($dirName)
+    {
+        $this->from = $dirName;
+
+        return $this;
+    }
+
+    /**
      * Find a single template by its file name.
      *
      * @param  string $fileName
@@ -238,46 +259,18 @@ class Builder
     }
 
     /**
-     * Execute the query as a "select" statement.
+     * Switches mode to select a single template by its name.
      *
-     * @param  array  $columns
-     * @return \October\Rain\Halcyon\Collection|static[]
+     * @param  string  $fileName
+     * @return $this
      */
-    public function get($columns = ['*'])
+    public function whereFileName($fileName)
     {
-        if (!is_null($this->cacheMinutes)) {
-            $results = $this->getCached($columns);
-        }
-        else {
-            $results = $this->getFresh($columns);
-        }
+        $this->validateFileName($fileName);
 
-        $models = $this->getModels($results ?: []);
+        $this->selectSingle = $this->model->getFileNameParts($fileName);
 
-        return $this->model->newCollection($models);
-    }
-
-    /**
-     * Get an array with the values of a given column.
-     *
-     * @param  string  $column
-     * @param  string  $key
-     * @return array
-     */
-    public function lists($column, $key = null)
-    {
-        $select = is_null($key) ? [$column] : [$column, $key];
-
-        if (!is_null($this->cacheMinutes)) {
-            $results = $this->getCached($select);
-        }
-        else {
-            $results = $this->getFresh($select);
-        }
-
-        $collection = new Collection($results);
-
-        return $collection->lists($column, $key);
+        return $this;
     }
 
     /**
@@ -304,6 +297,10 @@ class Builder
      */
     protected function runSelect()
     {
+        if (!is_string($this->from)) {
+            throw new ApplicationException(sprintf("The from property is invalid, make sure that %s has a string value for its \$dirName property (use '' if not using directories)", get_class($this->model)));
+        }
+
         if ($this->selectSingle) {
             list($name, $extension) = $this->selectSingle;
             return $this->datasource->selectOne($this->from, $name, $extension);
@@ -316,30 +313,23 @@ class Builder
     }
 
     /**
-     * Set a model instance for the model being queried.
+     * Execute the query as a "select" statement.
      *
-     * @param  \October\Rain\Halcyon\Model  $model
-     * @return $this
+     * @param  array  $columns
+     * @return \October\Rain\Halcyon\Collection|static[]
      */
-    public function setModel(Model $model)
+    public function get($columns = ['*'])
     {
-        $this->model = $model;
+        if (!is_null($this->cacheMinutes)) {
+            $results = $this->getCached($columns);
+        }
+        else {
+            $results = $this->getFresh($columns);
+        }
 
-        $this->extensions = $this->model->getAllowedExtensions();
+        $models = $this->getModels($results ?: []);
 
-        $this->from($this->model->getObjectTypeDirName());
-
-        return $this;
-    }
-
-    /**
-     * Get the compiled file content representation of the query.
-     *
-     * @return string
-     */
-    public function toCompiled()
-    {
-        return $this->processor->processUpdate($this, []);
+        return $this->model->newCollection($models);
     }
 
     /**
@@ -403,10 +393,9 @@ class Builder
     /**
      * Delete a record from the database.
      *
-     * @param  string  $fileName
      * @return int
      */
-    public function delete($fileName = null)
+    public function delete()
     {
         $this->validateFileName();
 
@@ -438,6 +427,33 @@ class Builder
     }
 
     /**
+     * Set a model instance for the model being queried.
+     *
+     * @param  \October\Rain\Halcyon\Model  $model
+     * @return $this
+     */
+    public function setModel(Model $model)
+    {
+        $this->model = $model;
+
+        $this->extensions = $this->model->getAllowedExtensions();
+
+        $this->from($this->model->getObjectTypeDirName());
+
+        return $this;
+    }
+
+    /**
+     * Get the model instance being queried.
+     *
+     * @return \October\Rain\Halcyon\Model
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
      * Get the hydrated models.
      *
      * @param  array  $results
@@ -453,7 +469,7 @@ class Builder
          * Flag the models as loaded from cache, then reset the internal property.
          */
         if ($this->loadedFromCache) {
-            $models->each(function($model) {
+            $models->each(function ($model) {
                 $model->setLoadedFromCache($this->loadedFromCache);
             });
 
@@ -461,16 +477,6 @@ class Builder
         }
 
         return $models->all();
-    }
-
-    /**
-     * Get the model instance being queried.
-     *
-     * @return \October\Rain\Halcyon\Model
-     */
-    public function getModel()
-    {
-        return $this->model;
     }
 
     //
@@ -573,7 +579,7 @@ class Builder
      */
     public function remember($minutes, $key = null)
     {
-        list($this->cacheMinutes, $this->cacheKey) = array($minutes, $key);
+        list($this->cacheMinutes, $this->cacheKey) = [$minutes, $key];
 
         return $this;
     }
@@ -735,7 +741,9 @@ class Builder
      */
     protected function getCacheCallback($columns)
     {
-        return function() use ($columns) { return $this->processInitCacheData($this->getFresh($columns)); };
+        return function () use ($columns) {
+            return $this->processInitCacheData($this->getFresh($columns));
+        };
     }
 
     /**
@@ -761,7 +769,7 @@ class Builder
      */
     public static function clearInternalCache()
     {
-        if(MemoryCacheManager::isEnabled()) {
+        if (MemoryCacheManager::isEnabled()) {
             Model::getCacheManager()->driver()->flushInternalCache();
         }
     }
@@ -771,9 +779,8 @@ class Builder
      *
      * @param  string  $method
      * @param  array   $parameters
-     * @return mixed
-     *
      * @throws \BadMethodCallException
+     * @return void
      */
     public function __call($method, $parameters)
     {

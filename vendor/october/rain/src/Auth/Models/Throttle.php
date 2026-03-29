@@ -99,7 +99,7 @@ class Throttle extends Model
         // anything either as clearing login attempts
         // makes us unsuspended. We need to manually
         // call unsuspend() in order to unsuspend.
-        if ($this->getLoginAttempts() == 0 or $this->is_suspended) {
+        if ($this->getLoginAttempts() === 0 or $this->is_suspended) {
             return;
         }
 
@@ -187,13 +187,15 @@ class Throttle extends Model
     {
         if ($this->is_banned) {
             throw new AuthException(sprintf(
-                'User [%s] has been banned.', $this->user->getLogin()
+                'User [%s] has been banned.',
+                $this->user->getLogin()
             ));
         }
 
         if ($this->checkSuspended()) {
             throw new AuthException(sprintf(
-                'User [%s] has been suspended.', $this->user->getLogin()
+                'User [%s] has been suspended.',
+                $this->user->getLogin()
             ));
         }
 

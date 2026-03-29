@@ -140,7 +140,6 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 
     public function beforeLogin()
     {
-
     }
 
     public function afterLogin()
@@ -191,7 +190,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             return false;
         }
 
-        return $persistCode == $this->persist_code;
+        return $persistCode === $this->persist_code;
     }
 
     //
@@ -232,7 +231,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             throw new Exception('User is already active!');
         }
 
-        if ($activationCode == $this->activation_code) {
+        if ($activationCode === $this->activation_code) {
             $this->activation_code = null;
             $this->is_activated = true;
             $this->activated_at = $this->freshTimestamp();
@@ -279,7 +278,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             return false;
         }
 
-        return ($this->reset_password_code == $resetCode);
+        return ($this->reset_password_code === $resetCode);
     }
 
     /**
@@ -387,7 +386,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     public function inGroup($group)
     {
         foreach ($this->getGroups() as $_group) {
-            if ($_group->getKey() == $group->getKey()) {
+            if ($_group->getKey() === $group->getKey()) {
                 return true;
             }
         }
@@ -482,7 +481,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 
                     // We will make sure that the merged permission does not
                     // exactly match our permission, but starts with it.
-                    if ($checkPermission != $mergedPermission && starts_with($mergedPermission, $checkPermission) && $value == 1) {
+                    if ($checkPermission != $mergedPermission && starts_with($mergedPermission, $checkPermission) && (int) $value === 1) {
                         $matched = true;
                         break;
                     }
@@ -497,7 +496,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 
                     // We will make sure that the merged permission does not
                     // exactly match our permission, but ends with it.
-                    if ($checkPermission != $mergedPermission && ends_with($mergedPermission, $checkPermission) && $value == 1) {
+                    if ($checkPermission != $mergedPermission && ends_with($mergedPermission, $checkPermission) && (int) $value === 1) {
                         $matched = true;
                         break;
                     }
@@ -516,7 +515,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 
                         // We will make sure that the merged permission does not
                         // exactly match our permission, but starts with it.
-                        if ($checkMergedPermission != $permission && starts_with($permission, $checkMergedPermission) && $value == 1) {
+                        if ($checkMergedPermission != $permission && starts_with($permission, $checkMergedPermission) && (int) $value === 1) {
                             $matched = true;
                             break;
                         }
@@ -524,7 +523,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 
                     // Otherwise, we'll fallback to standard permissions checking where
                     // we match that permissions explicitly exist.
-                    elseif ($permission == $mergedPermission && $mergedPermissions[$permission] == 1) {
+                    elseif ($permission === $mergedPermission && (int) $mergedPermissions[$permission] === 1) {
                         $matched = true;
                         break;
                     }
@@ -566,7 +565,9 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
         foreach ($permissions as $permission => &$value) {
             if (!in_array($value = (int) $value, $this->allowedPermissionsValues)) {
                 throw new InvalidArgumentException(sprintf(
-                    'Invalid value "%s" for permission "%s" given.', $value, $permission
+                    'Invalid value "%s" for permission "%s" given.',
+                    $value,
+                    $permission
                 ));
             }
 
