@@ -1,7 +1,7 @@
 <?php namespace Backend\FormWidgets;
 
+use October\Rain\Database\Model;
 use Backend\Classes\FormWidgetBase;
-use October\Rain\Database\Relations\Relation as RelationBase;
 
 /**
  * Tag List Form Widget
@@ -9,53 +9,65 @@ use October\Rain\Database\Relations\Relation as RelationBase;
 class TagList extends FormWidgetBase
 {
     use \Backend\Traits\FormModelWidget;
+    use \Backend\FormWidgets\TagList\HasStringStore;
+    use \Backend\FormWidgets\TagList\HasRelationStore;
 
     const MODE_ARRAY = 'array';
     const MODE_STRING = 'string';
     const MODE_RELATION = 'relation';
 
     //
-    // Configurable properties
+    // Configurable Properties
     //
 
     /**
-     * @var string Tag separator: space, comma.
+     * @var string separator for tags: space, comma.
      */
     public $separator = 'comma';
 
     /**
-     * @var bool Allows custom tags to be entered manually by the user.
+     * @var bool customTags allowed to be entered manually by the user.
      */
     public $customTags = true;
 
     /**
-     * @var mixed Predefined options settings. Set to true to get from model.
-     */
-    public $options;
-
-    /**
-     * @var string Mode for the return value. Values: string, array, relation.
-     */
-    public $mode = 'string';
-
-    /**
-     * @var string If mode is relation, model column to use for the name reference.
-     */
-    public $nameFrom = 'name';
-
-    /**
-     * @var bool Use the key instead of value for saving and reading data.
+     * @var bool useKey instead of value for saving and reading data.
      */
     public $useKey = false;
 
     /**
-     * @var string Placeholder for empty TagList widget
+     * @var mixed options settings. Set to true to get from model.
+     */
+    public $options;
+
+    /**
+     * @var string mode for the return value. Values: string, array, relation.
+     */
+    public $mode;
+
+    /**
+     * @var string nameFrom if mode is relation, model column to use for the name reference.
+     */
+    public $nameFrom = 'name';
+
+    /**
+     * @var string placeholder for empty TagList widget
      */
     public $placeholder = '';
 
+    /**
+     * @var int maxItems permitted
+     */
+    public $maxItems;
+
     //
-    // Object properties
+    // Object Properties
     //
+
+    /**
+     * @var bool useOptions if they are supplied by the model or array
+     */
+    protected $useOptions = false;
 
     /**
      * @inheritDoc
@@ -73,9 +85,39 @@ class TagList extends FormWidgetBase
             'options',
             'mode',
             'nameFrom',
+            'maxItems',
             'useKey',
             'placeholder'
         ]);
+
+        $this->processMode();
+
+        $this->useOptions = $this->formField->hasOptions();
+    }
+
+    /**
+     * processMode
+     */
+    protected function processMode()
+    {
+        // Set by config
+        if ($this->mode !== null) {
+            return;
+        }
+
+        [$model, $attribute] = $this->nearestModelAttribute($this->valueFrom);
+
+        if ($model instanceof Model && $model->hasRelation($attribute)) {
+            $this->mode = static::MODE_RELATION;
+            return;
+        }
+
+        if ($model instanceof Model && $model->isJsonable($attribute)) {
+            $this->mode = static::MODE_ARRAY;
+            return;
+        }
+
+        $this->mode = static::MODE_STRING;
     }
 
     /**
@@ -89,11 +131,12 @@ class TagList extends FormWidgetBase
     }
 
     /**
-     * Prepares the form widget view data
+     * prepareVars for display
      */
     public function prepareVars()
     {
         $this->vars['placeholder'] = $this->placeholder;
+        $this->vars['maxItems'] = $this->maxItems;
         $this->vars['useKey'] = $this->useKey;
         $this->vars['field'] = $this->formField;
         $this->vars['fieldOptions'] = $this->getFieldOptions();
@@ -107,43 +150,14 @@ class TagList extends FormWidgetBase
     public function getSaveValue($value)
     {
         if ($this->mode === static::MODE_RELATION) {
-            return $this->hydrateRelationSaveValue($value);
+            return $this->processSaveForRelation($value);
         }
 
-        if (is_array($value) && $this->mode === static::MODE_STRING) {
-            return implode($this->getSeparatorCharacter(), $value);
+        if ($this->mode === static::MODE_STRING) {
+            return $this->processSaveForString($value);
         }
 
         return $value;
-    }
-
-    /**
-     * Returns an array suitable for saving against a relation (array of keys).
-     * This method also creates non-existent tags.
-     * @return array
-     */
-    protected function hydrateRelationSaveValue($names)
-    {
-        if (!$names) {
-            return $names;
-        }
-
-        $relationModel = $this->getRelationModel();
-        $existingTags = $relationModel
-            ->whereIn($this->nameFrom, $names)
-            ->lists($this->nameFrom, $relationModel->getKeyName())
-        ;
-
-        $newTags = $this->customTags ? array_diff($names, $existingTags) : [];
-
-        foreach ($newTags as $newTag) {
-            $newModel = new $relationModel;
-            $newModel->{$this->nameFrom} = $newTag;
-            $newModel->save();
-            $existingTags[$newModel->getKey()] = $newTag;
-        }
-
-        return array_keys($existingTags);
     }
 
     /**
@@ -154,65 +168,70 @@ class TagList extends FormWidgetBase
         $value = parent::getLoadValue();
 
         if ($this->mode === static::MODE_RELATION) {
-            return $this->getRelationObject()->lists($this->nameFrom);
+            return $this->getLoadValueFromRelation($value);
         }
 
-        return $this->mode === static::MODE_STRING
-            ? explode($this->getSeparatorCharacter(), $value)
-            : $value;
+        if (!is_array($value) && $this->mode === static::MODE_STRING) {
+            return $this->getLoadValueFromString($value);
+        }
+
+        return $value;
     }
 
     /**
-     * Returns defined field options, or from the relation if available.
+     * getFieldOptions returns defined field options, or from the relation if available.
      * @return array
      */
     public function getFieldOptions()
     {
-        $options = $this->formField->options();
+        $options = [];
 
-        if (!$options && $this->mode === static::MODE_RELATION) {
-            $options = RelationBase::noConstraints(function () {
-                $query = $this->getRelationObject()->newQuery();
-
-                // Even though "no constraints" is applied, belongsToMany constrains the query
-                // by joining its pivot table. Remove all joins from the query.
-                $query->getQuery()->getQuery()->joins = [];
-
-                return $query->lists($this->nameFrom);
-            });
+        if ($this->useOptions) {
+            $options = $this->formField->options();
+        }
+        elseif ($this->mode === static::MODE_RELATION) {
+            $options = $this->getFieldOptionsForRelation();
         }
 
         return $options;
     }
 
     /**
-     * Returns character(s) to use for separating keywords.
-     * @return mixed
+     * getKeylessOptions returns a flat set of options when useKey is false
      */
-    protected function getCustomSeparators()
+    public function getKeylessOptions(array $selectedValues, array $fieldOptions): array
     {
-        if (!$this->customTags) {
-            return false;
+        $result = [];
+
+        foreach ($fieldOptions as $option) {
+            if ($flatValue = $option->label) {
+                $result[$flatValue] = $flatValue;
+            }
         }
 
-        $separators = [];
+        foreach ($selectedValues as $value) {
+            $result[$value] = $value;
+        }
 
-        $separators[] = $this->getSeparatorCharacter();
-
-        return implode('|', $separators);
+        return $result;
     }
 
     /**
-     * Convert the character word to the singular character.
-     * @return string
+     * getPreviewOptions generates options for display in read only modes
      */
-    protected function getSeparatorCharacter()
+    public function getPreviewOptions(array $selectedValues, array $fieldOptions): array
     {
-        switch (strtolower($this->separator)) {
-            case 'comma':
-                return ',';
-            case 'space':
-                return ' ';
+        $displayOptions = [];
+
+        foreach ($fieldOptions as $key => $option) {
+            if (
+                ($this->useKey && in_array($key, $selectedValues)) ||
+                (!$this->useKey && in_array($option->label, $selectedValues))
+            ) {
+                $displayOptions[] = $option;
+            }
         }
+
+        return $displayOptions;
     }
 }

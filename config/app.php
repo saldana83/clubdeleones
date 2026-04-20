@@ -4,6 +4,31 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    */
+
+    'name' => env('APP_NAME', 'October CMS'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" your application is currently
+    | running in. This may determine how you prefer to configure various
+    | services the application utilizes. Set this in your ".env" file.
+    |
+    */
+
+    'env' => env('APP_ENV', 'production'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
@@ -16,19 +41,7 @@ return [
     |
     */
 
-    'debug' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Application Name
-    |--------------------------------------------------------------------------
-    |
-    | This value is the name of your application. This value is used when the
-    | framework needs to place the application's name in a notification or
-    | any other location as required by the application or its packages.
-    */
-
-    'name' => 'October CMS',
+    'debug' => (bool) env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,28 +54,9 @@ return [
     |
     */
 
-    'url' => 'http://localhost:8080',
+    'url' => env('APP_URL', 'http://localhost'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Timezone
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. We have gone
-    | ahead and set this to a sensible default for you out of the box.
-    |
-    |
-    | -------- STOP! --------
-    | Before you change this value, consider carefully if that is actually
-    | what you want to do. It is HIGHLY recommended that this is always set
-    | to UTC (as your server & DB timezone should be as well) and instead you 
-    | use cms.backendTimezone to set the default timezone used in the backend
-    | to display dates & times.
-    |
-    */
-
-    'timezone' => 'UTC',
+    'asset_url' => env('ASSET_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -75,7 +69,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -101,24 +95,9 @@ return [
     |
     */
 
-    'key' => 'wg3QT2yNU5UPSNjkFBSnmuiYRc50XdLd',
+    'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Logging Configuration
-    |--------------------------------------------------------------------------
-    |
-    | Here you may configure the log settings for your application. Out of
-    | the box, Laravel uses the Monolog PHP logging library. This gives
-    | you a variety of powerful log handlers / formatters to utilize.
-    |
-    | Available Settings: "single", "daily", "syslog", "errorlog"
-    |
-    */
-
-    'log' => 'single',
 
     /*
     |--------------------------------------------------------------------------
@@ -133,9 +112,12 @@ return [
 
     'providers' => array_merge(include(base_path('modules/system/providers.php')), [
 
-        // 'Illuminate\Html\HtmlServiceProvider', // Example
+        // Core Service Provider
+        System\ServiceProvider::class,
 
-        'System\ServiceProvider',
+        // Package Service Providers...
+        // Illuminate\Html\HtmlServiceProvider::class, // Example
+
     ]),
 
     /*
@@ -151,8 +133,29 @@ return [
 
     'aliases' => array_merge(include(base_path('modules/system/aliases.php')), [
 
-        // 'Str' => 'Illuminate\Support\Str', // Example
+        // 'Str' => Illuminate\Support\Str::class, // Example
 
     ]),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Timezone
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default timezone for your application, which
+    | will be used by the PHP date and date-time functions. We have gone
+    | ahead and set this to a sensible default for you out of the box.
+    |
+    |-------------------------------- WARNING! --------------------------------
+    |
+    | Before you change this value, consider carefully if that is actually
+    | what you want to do. It is highly recommended that this is always set
+    | to UTC (as your server & DB timezone should be as well) and instead
+    | you can use backend.timezone or cms.timezone to set the default
+    | timezone used to display dates & times.
+    |
+    */
+
+    'timezone' => 'UTC',
 
 ];

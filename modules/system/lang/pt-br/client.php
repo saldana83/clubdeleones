@@ -33,7 +33,6 @@ return [
         'fullscreen' => 'Tela cheia',
         'preview' => 'Visualizar',
     ],
-
     'mediamanager' => [
         'insert_link' => "Inserir link",
         'insert_image' => "Inserir imagem",
@@ -45,13 +44,14 @@ return [
         'invalid_video_empty_insert' => "Por favor, selecione os vídeos que deseja inserir.",
         'invalid_audio_empty_insert' => "Por favor, selecione os áudios que deseja inserir.",
     ],
-
     'alert' => [
+        'error' => 'Erro',
+        'confirm' => 'Confirmar',
+        'dismiss' => 'Dispensar',
         'confirm_button_text' => 'OK',
         'cancel_button_text' => 'Cancelar',
-        'widget_remove_confirm' => 'Remover este widget?'
+        'widget_remove_confirm' => 'Remover este widget?',
     ],
-
     'datepicker' => [
         'previousMonth' => 'Mês anterior',
         'nextMonth' => 'Próximo mês',
@@ -60,7 +60,7 @@ return [
         'weekdaysShort' => ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
     ],
     'colorpicker' => [
-        'choose' => 'Ok',
+        'choose' => 'OK',
     ],
     'filter' => [
         'group' => [
@@ -86,7 +86,6 @@ return [
             'max_placeholder' => 'Max'
         ]
     ],
-
     'eventlog' => [
         'show_stacktrace' => 'Exibir o rastreamento',
         'hide_stacktrace' => 'Ocultar o rastreamento',
@@ -102,5 +101,12 @@ return [
             'open' => 'Abrir',
             'cancel' => 'Cancelar'
         ]
-    ]
+    ],
+    'upload' => [
+        'max_files' => 'Você não pode enviar mais arquivos.',
+        'invalid_file_type' => 'Você não pode carregar arquivos deste tipo.',
+        'file_too_big' => 'O arquivo é muito grande ({{filesize}}MB). Tamanho máximo do arquivo: {{maxFilesize}}MB.',
+        'response_error' => 'O servidor respondeu com o código {{statusCode}}.',
+        'remove_file' => 'Remover arquivo',
+    ],
 ];

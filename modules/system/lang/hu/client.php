@@ -33,7 +33,6 @@ return [
         'fullscreen' => 'Teljes képernyő',
         'preview' => 'Előnézet'
     ],
-
     'mediamanager' => [
         'insert_link' => 'Hivatkozás beszúrása',
         'insert_image' => 'Kép beszúrása',
@@ -45,13 +44,14 @@ return [
         'invalid_video_empty_insert' => 'Válasszon ki legalább egy videót a beszúráshoz.',
         'invalid_audio_empty_insert' => 'Válasszon ki legalább egy audiót a beszúráshoz.'
     ],
-
     'alert' => [
+        'error' => 'Hiba',
+        'confirm' => 'Elfogadás',
+        'dismiss' => 'Elutasítás',
         'confirm_button_text' => 'Igen',
         'cancel_button_text' => 'Mégsem',
         'widget_remove_confirm' => 'Valóban törölni akarja?'
     ],
-
     'datepicker' => [
         'previousMonth' => 'Előző hónap',
         'nextMonth' => 'Következő hónap',
@@ -59,11 +59,9 @@ return [
         'weekdays' => ['vasárnap', 'hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat'],
         'weekdaysShort' => ['va', 'hé', 'ke', 'sze', 'cs', 'pé', 'szo']
     ],
-
     'colorpicker' => [
         'choose' => 'Mentés',
     ],
-
     'filter' => [
         'group' => [
             'all' => 'összes'
@@ -88,7 +86,6 @@ return [
             'max_placeholder' => 'Maximum'
         ]
     ],
-
     'eventlog' => [
         'show_stacktrace' => 'Részletek',
         'hide_stacktrace' => 'Rejtés',
@@ -104,5 +101,12 @@ return [
             'open' => 'Megnyitás',
             'cancel' => 'Mégsem'
         ]
-    ]
+    ],
+    'upload' => [
+        'max_files' => 'Nem tölthet fel több fájlt.',
+        'invalid_file_type' => 'Ilyen típusú fájl nem tölthető fel.',
+        'file_too_big' => 'A fájl mérete túl nagy ({{filesize}}MB). Maximum ennyi lehet: {{maxFilesize}}MB.',
+        'response_error' => 'A szerver {{statusCode}} kóddal tért vissza.',
+        'remove_file' => 'Fájl eltávolítása',
+    ],
 ];

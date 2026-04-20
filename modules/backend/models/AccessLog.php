@@ -4,7 +4,7 @@ use Model;
 use Request;
 
 /**
- * Model for logging access to the back-end
+ * AccessLog for logging access to the backend
  *
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
@@ -12,7 +12,7 @@ use Request;
 class AccessLog extends Model
 {
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     protected $table = 'backend_access_log';
 

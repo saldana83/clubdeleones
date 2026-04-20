@@ -14,16 +14,37 @@ class Partial extends CmsCompoundObject
     protected $dirName = 'partials';
 
     /**
-     * @var array Allowable file extensions. TEMPORARY! DO NOT INCLUDE in Build 1.1.x, workaround for unsupported code
-     */
-    protected $allowedExtensions = ['htm', 'html', 'css', 'js', 'svg'];
-
-    /**
      * Returns name of a PHP class to us a parent for the PHP class created for the object's PHP section.
      * @return string Returns the class name.
      */
     public function getCodeClassParent()
     {
         return PartialCode::class;
+    }
+
+    /**
+     * validateRequestName checks to see if a partial name is valid from user input.
+     */
+    public static function validateRequestName(string $name): bool
+    {
+        if (!preg_match('/^(?:\w+\:{2}|@)?[a-z0-9\_\-\.\/]+$/i', $name)) {
+            return false;
+        }
+
+        if (strpos($name, '..') !== false) {
+            return false;
+        }
+
+        if (strpos($name, './') !== false || strpos($name, '//') !== false) {
+            return false;
+        }
+
+        $maxNesting = (new self)->getMaxNesting();
+        $segments = explode('/', $name);
+        if ($maxNesting !== null && count($segments) > $maxNesting) {
+            return false;
+        }
+
+        return true;
     }
 }

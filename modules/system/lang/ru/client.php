@@ -45,6 +45,9 @@ return [
         'invalid_audio_empty_insert' => "Пожалуйста, выберите аудио для вставки.",
     ],
     'alert' => [
+        'error' => 'Ошибка',
+        'confirm' => 'Подтвердите',
+        'dismiss' => 'Убрать',
         'confirm_button_text' => 'Ок',
         'cancel_button_text' => 'Отмена',
         'widget_remove_confirm' => 'Удалить этот виджет?'
@@ -98,5 +101,21 @@ return [
             'open' => 'Открыть',
             'cancel' => 'Отмена'
         ],
+    ],
+    'upload' => [
+        'max_files' => 'Вы не можете загрузить больше файлов.',
+        'invalid_file_type' => "Вы не можете загружать файлы этого типа.",
+        'file_too_big' => "Размер файла ({{filesize}}MB) слишком большой. Максимальный размер: {{maxFilesize}}MB.",
+        'response_error' => "Сервер ответил {{statusCode}} кодом.",
+        'remove_file' => "Удалить файл",
+    ],
+    'inspector' => [
+        'add' => 'Добавить',
+        'remove' => 'Убрать',
+        'key' => 'Ключ',
+        'value' => 'Значение',
+        'ok' => 'OK',
+        'cancel' => 'Отмена',
+        'items' => 'Элементы',
     ],
 ];

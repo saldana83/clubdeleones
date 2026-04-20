@@ -4,22 +4,23 @@ use Twig\Node\Node as TwigNode;
 use Twig\Compiler as TwigCompiler;
 
 /**
- * Represents a content node
+ * ContentNode represents a "content" node
  *
  * @package october\cms
  * @author Alexey Bobkov, Samuel Georges
  */
 class ContentNode extends TwigNode
 {
+    /**
+     * __construct
+     */
     public function __construct(TwigNode $nodes, $paramNames, $lineno, $tag = 'content')
     {
         parent::__construct(['nodes' => $nodes], ['names' => $paramNames], $lineno, $tag);
     }
 
     /**
-     * Compiles the node to PHP.
-     *
-     * @param TwigCompiler $compiler A TwigCompiler instance
+     * compile the node to PHP.
      */
     public function compile(TwigCompiler $compiler)
     {
@@ -29,16 +30,17 @@ class ContentNode extends TwigNode
 
         for ($i = 1; $i < count($this->getNode('nodes')); $i++) {
             $compiler->write("\$context['__cms_content_params']['".$this->getAttribute('names')[$i-1]."'] = ");
-            $compiler->write('twig_escape_filter($this->env, ');
+            $compiler->write('$this->env->getRuntime(\Twig\Runtime\EscaperRuntime::class)->escape(');
             $compiler->subcompile($this->getNode('nodes')->getNode($i));
             $compiler->write(")");
             $compiler->write(";\n");
         }
 
         $compiler
-            ->write("echo \$this->env->getExtension('Cms\Twig\Extension')->contentFunction(")
+            ->write("yield \$this->env->getExtension(\Cms\Twig\Extension::class)->contentFunction(")
             ->subcompile($this->getNode('nodes')->getNode(0))
             ->write(", \$context['__cms_content_params']")
+            ->write(", true")
             ->write(");\n")
         ;
 

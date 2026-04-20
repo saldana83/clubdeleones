@@ -8,7 +8,7 @@ use ApplicationException;
 use File as FileHelper;
 
 /**
- * Mail layout
+ * MailLayout
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
@@ -18,38 +18,44 @@ class MailLayout extends Model
     use \October\Rain\Database\Traits\Validation;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     protected $table = 'system_mail_layouts';
 
     /**
-     * @var array Guarded fields
+     * @var array guarded fields
      */
     protected $guarded = [];
 
     /**
-     * @var array Fillable fields
+     * @var array fillable fields
      */
     protected $fillable = [];
 
     /**
-     * @var array Validation rules
+     * @var array rules for validation
      */
     public $rules = [
-        'code'                  => 'required|unique:system_mail_layouts',
-        'name'                  => 'required',
-        'content_html'          => 'required',
+        'code' => 'required|unique:system_mail_layouts',
+        'name' => 'required',
+        'content_html' => 'required',
     ];
 
     /**
-     * @var array Options array
+     * @var array jsonable attribute names that are json encoded and decoded from the database
      */
     protected $jsonable = [
         'options'
     ];
 
+    /**
+     * @var array codeCache
+     */
     public static $codeCache;
 
+    /**
+     * beforeDelete
+     */
     public function beforeDelete()
     {
         if ($this->is_locked) {
@@ -57,6 +63,9 @@ class MailLayout extends Model
         }
     }
 
+    /**
+     * listCodes
+     */
     public static function listCodes()
     {
         if (self::$codeCache !== null) {
@@ -66,11 +75,17 @@ class MailLayout extends Model
         return self::$codeCache = self::lists('id', 'code');
     }
 
+    /**
+     * getIdFromCode
+     */
     public static function getIdFromCode($code)
     {
         return array_get(self::listCodes(), $code);
     }
 
+    /**
+     * findOrMakeLayout
+     */
     public static function findOrMakeLayout($code)
     {
         $layout = self::whereCode($code)->first();
@@ -85,7 +100,7 @@ class MailLayout extends Model
     }
 
     /**
-     * Loops over each mail layout and ensures the system has a layout,
+     * createLayouts loops over each mail layout and ensures the system has a layout,
      * if the layout does not exist, it will create one.
      * @return void
      */
@@ -107,6 +122,9 @@ class MailLayout extends Model
         }
     }
 
+    /**
+     * fillFromCode
+     */
     public function fillFromCode($code = null)
     {
         $definitions = MailManager::instance()->listRegisteredLayouts();
@@ -122,11 +140,14 @@ class MailLayout extends Model
         $this->fillFromView($definition);
     }
 
+    /**
+     * fillFromView
+     */
     public function fillFromView($path)
     {
         $sections = self::getTemplateSections($path);
 
-        $css = '
+        $defaultCss = '
 @media only screen and (max-width: 600px) {
     .inner-body {
         width: 100% !important;
@@ -145,11 +166,15 @@ class MailLayout extends Model
         ';
 
         $this->name = array_get($sections, 'settings.name', '???');
-        $this->content_css = $css;
-        $this->content_html =  array_get($sections, 'html');
-        $this->content_text = array_get($sections, 'text');
+        $this->options = array_get($sections, 'settings.options', null);
+        $this->content_css = $sections['css'] ?? $defaultCss;
+        $this->content_html =  $sections['html'] ?? '';
+        $this->content_text = $sections['text'] ?? '';
     }
 
+    /**
+     * getTemplateSections
+     */
     protected static function getTemplateSections($code)
     {
         return MailParser::parse(FileHelper::get(View::make($code)->getPath()));

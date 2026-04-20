@@ -1,15 +1,4 @@
 <?php return array (
-  'jenssegers/date' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Jenssegers\\Date\\DateServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Date' => 'Jenssegers\\Date\\Date',
-    ),
-  ),
   'laravel/tinker' => 
   array (
     'providers' => 
@@ -22,6 +11,21 @@
     'providers' => 
     array (
       0 => 'Carbon\\Laravel\\ServiceProvider',
+    ),
+  ),
+  'nunomaduro/termwind' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    ),
+  ),
+  'october/rain' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'October\\Rain\\Foundation\\Providers\\AppSupportServiceProvider',
+      1 => 'October\\Rain\\Foundation\\Providers\\AppDeferSupportServiceProvider',
     ),
   ),
 );

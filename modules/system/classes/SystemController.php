@@ -1,13 +1,14 @@
 <?php namespace System\Classes;
 
 use Lang;
+use System;
 use ApplicationException;
 use Illuminate\Routing\Controller as ControllerBase;
 use Exception;
 use Response;
 
 /**
- * The is the master controller for system related routing.
+ * SystemController is the master controller for system related routing.
  * It is currently only responsible for serving up the asset combiner contents.
  *
  * @see System\Classes\CombineAssets Asset combiner class
@@ -17,7 +18,7 @@ use Response;
 class SystemController extends ControllerBase
 {
     /**
-     * Combines JavaScript and StyleSheet assets.
+     * combine JavaScript and StyleSheet asset files
      * @param string $name Combined file code
      * @return string Combined content.
      */
@@ -25,7 +26,7 @@ class SystemController extends ControllerBase
     {
         try {
             if (!strpos($name, '-')) {
-                throw new ApplicationException(Lang::get('system::lang.combiner.not_found', ['name' => $name]));
+                throw new ApplicationException(__("The combiner file ':name' is not found.", ['name' => $name]));
             }
 
             $parts = explode('-', $name);
@@ -37,7 +38,42 @@ class SystemController extends ControllerBase
             return $combiner->getContents($cacheId);
         }
         catch (Exception $ex) {
-            return Response::make('/* '.e($ex->getMessage()).' */', 500);
+            if (System::checkDebugMode()) {
+                return Response::make($ex, 404);
+            }
+            else {
+                return Response::make('/* '.e(Lang::get('system::lang.page.custom_error.help')).' */', 404);
+            }
+        }
+    }
+
+    /**
+     * resize an image
+     * @param string $name Combined file code
+     * @return RedirectResponse
+     */
+    public function resize($name)
+    {
+        try {
+            if (!strpos($name, '-')) {
+                throw new ApplicationException(__("The resizer file ':name' is not found.", ['name' => $name]));
+            }
+
+            $parts = explode('-', $name);
+
+            $cacheId = $parts[0];
+
+            $combiner = ResizeImages::instance();
+
+            return $combiner->getContents($cacheId);
+        }
+        catch (Exception $ex) {
+            if (System::checkDebugMode()) {
+                return Response::make($ex, 404);
+            }
+            else {
+                return Response::make('/* '.e(Lang::get('system::lang.page.custom_error.help')).' */', 404);
+            }
         }
     }
 }

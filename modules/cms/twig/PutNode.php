@@ -4,41 +4,80 @@ use Twig\Node\Node as TwigNode;
 use Twig\Compiler as TwigCompiler;
 
 /**
- * Represents a put node
+ * PutNode represents a "put" node
  *
  * @package october\cms
  * @author Alexey Bobkov, Samuel Georges
  */
 class PutNode extends TwigNode
 {
-    public function __construct(TwigNode $body, $name, $endType, $lineno, $tag = 'put')
+    /**
+     * __construct
+     */
+    public function __construct(bool $capture, TwigNode $names, TwigNode $values, $options, $lineno, $tag = 'put')
     {
-        parent::__construct(['body' => $body], ['name' => $name, 'endType' => $endType], $lineno, $tag);
+        parent::__construct(['names' => $names, 'values' => $values], ['capture' => $capture, 'options' => $options], $lineno, $tag);
     }
 
     /**
-     * Compiles the node to PHP.
-     *
-     * @param TwigCompiler $compiler A TwigCompiler instance
+     * compile the node to PHP.
      */
     public function compile(TwigCompiler $compiler)
     {
-        $compiler
-            ->addDebugInfo($this)
-            ->write("echo \$this->env->getExtension('Cms\Twig\Extension')->startBlock(")
-            ->raw("'".$this->getAttribute('name')."'")
-            ->write(");\n")
-        ;
+        $names = $this->getNode('names');
+        $values = $this->getNode('values');
+        $isCapture = $this->getAttribute('capture');
+        if ($isCapture) {
+            $options = (array) $this->getAttribute('options');
+            // @deprecated using overwrite is deprecated
+            $isReplace = in_array('replace', $options) || in_array('overwrite', $options);
+            $isOnce = in_array('once', $options);
 
-        $isOverwrite = strtolower($this->getAttribute('endType')) == 'overwrite';
+            $blockName = $names->getNode(0);
+            $compiler->addDebugInfo($this);
 
-        $compiler->subcompile($this->getNode('body'));
+            if ($isOnce) {
+                $compiler
+                    ->write("\$this->env->getExtension(\Cms\Twig\Extension::class)->yieldBlockOnce(")
+                    ->string($this->getTemplateName())
+                    ->write(", ");
+                ;
+            }
+            else {
+                $compiler->write("\$this->env->getExtension(\Cms\Twig\Extension::class)->yieldBlock(");
+            }
 
-        $compiler
-            ->addDebugInfo($this)
-            ->write("echo \$this->env->getExtension('Cms\Twig\Extension')->endBlock(")
-            ->raw($isOverwrite ? 'false' : 'true')
-            ->write(");\n")
-        ;
+            $compiler
+                ->string($blockName->getAttribute('name'))
+                ->write(", function() use (\$context, \$blocks, \$macros) {\n")
+            ;
+
+            $compiler->subcompile($this->getNode('values'));
+
+            $compiler
+                ->addDebugInfo($this)
+                ->write("return; yield '';}, ")
+                ->raw($isReplace ? 'false' : 'true')
+                ->write(");\n")
+            ;
+        }
+        else {
+            foreach ($names as $key => $name) {
+                if (!$values->hasNode($key)) {
+                    continue;
+                }
+
+                $value = $values->getNode($key);
+
+                $compiler
+                    ->addDebugInfo($this)
+                    ->write("\$this->env->getExtension(\Cms\Twig\Extension::class)->setBlock(")
+                    ->raw("'".$name->getAttribute('name')."'")
+                    ->raw(', ')
+                    ->subcompile($value)
+                    ->write(");\n")
+                ;
+            }
+        }
     }
 }

@@ -3,10 +3,11 @@
 use File;
 use Artisan;
 use Illuminate\Console\Command;
+use System\Classes\PluginManager;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
- * Console command to remove boilerplate.
+ * OctoberFresh is a console command to remove boilerplate.
  *
  * This removes the demo theme and plugin. A great way to start a fresh project!
  *
@@ -18,17 +19,17 @@ class OctoberFresh extends Command
     use \Illuminate\Console\ConfirmableTrait;
 
     /**
-     * The console command name.
+     * @var string name of console command
      */
     protected $name = 'october:fresh';
 
     /**
-     * The console command description.
+     * @var string description of the console command
      */
     protected $description = 'Removes the demo theme and plugin.';
 
     /**
-     * Execute the console command.
+     * handle executes the console command
      */
     public function handle()
     {
@@ -39,8 +40,10 @@ class OctoberFresh extends Command
         $demoThemePath = themes_path().'/demo';
 
         if (File::exists($demoThemePath)) {
-            Artisan::call('plugin:remove', ['name' => 'October.Demo', '--force' => true]);
             File::deleteDirectory($demoThemePath);
+
+            $manager = PluginManager::instance();
+            $manager->deletePlugin('October.Demo');
 
             $this->info('Demo has been removed! Enjoy a fresh start.');
         }
@@ -50,12 +53,12 @@ class OctoberFresh extends Command
     }
 
     /**
-     * Get the console command options.
+     * getOptions get the console command options
      */
     protected function getOptions()
     {
         return [
-            ['force', null, InputOption::VALUE_NONE, 'Force the operation to run.'],
+            ['force', 'f', InputOption::VALUE_NONE, 'Force the operation to run.'],
         ];
     }
 }

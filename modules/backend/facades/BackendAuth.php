@@ -2,14 +2,14 @@
 
 use October\Rain\Support\Facade;
 
+/**
+ * BackendAuth
+ * @see \Backend\Classes\AuthManager
+ */
 class BackendAuth extends Facade
 {
     /**
-     * Get the registered name of the component.
-     *
-     * Resolves to:
-     * - Backend\Classes\AuthManager
-     *
+     * getFacadeAccessor returns the registered name of the component
      * @return string
      */
     protected static function getFacadeAccessor()

@@ -1,6 +1,7 @@
 .DS_Store
 *.log
 .vscode/
+node_modules/
 
 # Composer
 vendor/
@@ -8,19 +9,25 @@ vendor/
 # Environment
 .env
 
+# October CMS license token (contains credentials)
+auth.json
+
+# Database dumps (contain credentials & sensitive data)
+BasedeDatos/*.sql
+BasedeDatos/Documentación/
+
+# Temporary test files
+_test.php
+
 # October CMS - generated cache & temp
 storage/cms/cache/
 storage/cms/twig/
 storage/cms/combiner/
 storage/framework/cache/
-storage/framework/classes.php
 storage/framework/sessions/
+storage/framework/classes.php
 storage/temp/
 storage/logs/
 
-# Extracted SQL dump (zip is the source)
-BasedeDatos/clubdeleonesdedavid.sql
-
-# Docker
-docker-compose.yml
-Dockerfile
+# OS files
+Thumbs.db
