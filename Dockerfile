@@ -18,6 +18,11 @@ RUN a2enmod rewrite
 # Set working directory
 WORKDIR /var/www/html
 
+# Copy Apache config
+COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/serve-html.conf /etc/apache2/conf-available/serve-html.conf
+RUN a2enconf serve-html && a2dissite 000-default && a2ensite 000-default
+
 # Copy project files
 COPY . /var/www/html
 
